@@ -85,21 +85,27 @@ body {
   justify-content: center;
   width: 34px;
   height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  opacity: 0.85;
-  transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  border-radius: 22%;
+  opacity: 0.9;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .social-icon:hover {
   opacity: 1;
-  border-color: var(--gold);
   transform: translateY(-1px);
 }
 
+.social-icon.instagram { background: #e1306c; }
+.social-icon.x { background: #000000; }
+.social-icon.youtube { background: #ff0000; }
+.social-icon.facebook { background: #0866ff; }
+.social-icon.tiktok { background: #000000; }
+.social-icon.twitch { background: #9146ff; }
+.social-icon.kick { background: #53fc19; }
+
 .social-icon img {
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
   display: block;
 }
 
