@@ -41,32 +41,6 @@ body {
   margin-bottom: 32px;
 }
 
-.site-header h1 {
-  margin: 0;
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  background: linear-gradient(100deg, var(--gold-dim) 0%, var(--gold-light) 30%, var(--gold) 50%, var(--gold-light) 70%, var(--gold-dim) 100%);
-  background-size: 250% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: title-shine 7s ease-in-out infinite;
-}
-
-@keyframes title-shine {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .site-header h1 {
-    animation: none;
-    background-position: 50% center;
-  }
-}
-
 .social-row {
   display: flex;
   flex-wrap: wrap;
@@ -374,24 +348,55 @@ section + section {
   color: #fff0f0;
 }
 
-.day-cell:hover::after {
-  content: attr(data-tooltip);
+.cell-tooltip {
   position: absolute;
   bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
   background: #050505;
   border: 1px solid var(--border);
-  color: var(--text);
   font-size: 11px;
   font-weight: 500;
-  white-space: pre;
-  padding: 6px 9px;
+  white-space: nowrap;
+  padding: 7px 10px;
   border-radius: 6px;
   z-index: 5;
   pointer-events: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease;
 }
+
+.day-cell:hover .cell-tooltip,
+.day-cell:focus-visible .cell-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tt-date {
+  text-align: center;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.tt-line {
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.tt-total {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tt-positive { color: var(--positive); }
+.tt-negative { color: var(--negative); }
+.tt-muted { color: var(--text-muted); }
 
 /* ---------- graph ---------- */
 

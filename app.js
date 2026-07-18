@@ -51,6 +51,34 @@ function buildDayMap() {
   return map;
 }
 
+function makeTooltip(dateLabel) {
+  const tip = document.createElement("div");
+  tip.className = "cell-tooltip";
+  const dateEl = document.createElement("div");
+  dateEl.className = "tt-date";
+  dateEl.textContent = dateLabel;
+  tip.appendChild(dateEl);
+  return tip;
+}
+
+function addTooltipLine(tip, label, value, isTotal) {
+  const line = document.createElement("div");
+  line.className = "tt-line" + (isTotal ? " tt-total" : "");
+  line.appendChild(document.createTextNode(label));
+  const val = document.createElement("span");
+  val.className = value >= 0 ? "tt-positive" : "tt-negative";
+  val.textContent = fmtMoney(value, { signed: true });
+  line.appendChild(val);
+  tip.appendChild(line);
+}
+
+function addTooltipNote(tip, text) {
+  const line = document.createElement("div");
+  line.className = "tt-line tt-muted";
+  line.textContent = text;
+  tip.appendChild(line);
+}
+
 /* ---------------- hero ---------------- */
 
 function renderHero() {
@@ -167,10 +195,14 @@ function renderCalendar() {
       const entry = dayMap.get(dateStr);
       const cell = document.createElement("div");
 
+      const dateLabel = `${MONTH_NAMES[month - 1]} ${d}`;
+
       if (!entry) {
         cell.className = "day-cell no-session";
         cell.textContent = d;
-        cell.dataset.tooltip = `${MONTH_NAMES[month - 1]} ${d}\nNo session`;
+        const tip = makeTooltip(dateLabel);
+        addTooltipNote(tip, "No session");
+        cell.appendChild(tip);
       } else {
         const value = dayValue(entry);
         const played = (entry.hours || 0) > 0;
@@ -190,18 +222,21 @@ function renderCalendar() {
           cell.style.background = `rgba(${rgb},${alpha})`;
         }
 
-        let tooltip = `${MONTH_NAMES[month - 1]} ${d}\n`;
+        const tip = makeTooltip(dateLabel);
         if (currentSite === "ALL") {
-          const lines = DATA.sites
-            .filter((s) => Math.abs(entry.sites[s]) > 0.005)
-            .map((s) => `${DATA.site_names[s] || s}: ${fmtMoney(entry.sites[s], { signed: true })}`);
-          tooltip += lines.length
-            ? lines.join("\n") + `\nTotal: ${fmtMoney(entry.total, { signed: true })}`
-            : (played ? "Played — broke even" : "No activity");
+          const activeSites = DATA.sites.filter((s) => Math.abs(entry.sites[s]) > 0.005);
+          if (activeSites.length) {
+            for (const s of activeSites) {
+              addTooltipLine(tip, `${DATA.site_names[s] || s}: `, entry.sites[s], false);
+            }
+            addTooltipLine(tip, "Total: ", entry.total, true);
+          } else {
+            addTooltipNote(tip, played ? "Played — broke even" : "No activity");
+          }
         } else {
-          tooltip += `${DATA.site_names[currentSite] || currentSite}: ${fmtMoney(value, { signed: true })}`;
+          addTooltipLine(tip, `${DATA.site_names[currentSite] || currentSite}: `, value, false);
         }
-        cell.dataset.tooltip = tooltip;
+        cell.appendChild(tip);
       }
 
       daysRow.appendChild(cell);
