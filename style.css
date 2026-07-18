@@ -51,23 +51,32 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 14px;
   margin-top: 16px;
 }
 
-.social-pill {
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
   border: 1px solid var(--border);
-  color: var(--text-secondary);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 7px 14px;
-  border-radius: 999px;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
-.social-pill:hover {
+.social-icon:hover {
+  opacity: 1;
   border-color: var(--gold);
-  color: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.social-icon img {
+  width: 17px;
+  height: 17px;
+  display: block;
 }
 
 /* ---------- hero / progress ---------- */
@@ -101,6 +110,7 @@ body {
 .hero-figure.negative { color: var(--negative); }
 
 .meter {
+  position: relative;
   margin-top: 20px;
   height: 14px;
   border-radius: 999px;
@@ -115,13 +125,43 @@ body {
   transition: width 0.6s ease;
 }
 
+.meter-ticks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.meter-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(13, 13, 13, 0.5);
+  transform: translateX(-1px);
+}
+
 .meter-scale {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  height: 16px;
   margin-top: 8px;
   color: var(--text-muted);
   font-size: 12px;
   font-variant-numeric: tabular-nums;
+}
+
+.meter-scale span {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.meter-scale span:first-child {
+  transform: translateX(0);
+}
+
+.meter-scale span:last-child {
+  transform: translateX(-100%);
 }
 
 .stat-row {

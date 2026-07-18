@@ -7,21 +7,21 @@
   <meta name="description" content="Tracking a $100,000 poker profit goal for 2026, day by day.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <div class="page">
 
     <header class="site-header">
-      <h1>2026-Road to 100K</h1>
+      <h1>2026 Road to 100K</h1>
       <nav class="social-row" aria-label="Social media">
-        <a class="social-pill" href="https://www.instagram.com/robpaaspoker/" target="_blank" rel="noopener">Instagram</a>
-        <a class="social-pill" href="https://x.com/RobPaasPoker" target="_blank" rel="noopener">X</a>
-        <a class="social-pill" href="https://www.youtube.com/@RobPaasPoker" target="_blank" rel="noopener">YouTube</a>
-        <a class="social-pill" href="https://www.facebook.com/RobPaasPoker/" target="_blank" rel="noopener">Facebook</a>
-        <a class="social-pill" href="https://www.tiktok.com/@robpaaspoker" target="_blank" rel="noopener">TikTok</a>
-        <a class="social-pill" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener">Twitch</a>
-        <a class="social-pill" href="https://kick.com/robpaaspoker" target="_blank" rel="noopener">Kick</a>
+        <a class="social-icon" href="https://www.instagram.com/robpaaspoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/C9A84C" alt="Instagram" loading="lazy"></a>
+        <a class="social-icon" href="https://x.com/RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/x/C9A84C" alt="X" loading="lazy"></a>
+        <a class="social-icon" href="https://www.youtube.com/@RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/C9A84C" alt="YouTube" loading="lazy"></a>
+        <a class="social-icon" href="https://www.facebook.com/RobPaasPoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/facebook/C9A84C" alt="Facebook" loading="lazy"></a>
+        <a class="social-icon" href="https://www.tiktok.com/@robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/tiktok/C9A84C" alt="TikTok" loading="lazy"></a>
+        <a class="social-icon" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/twitch/C9A84C" alt="Twitch" loading="lazy"></a>
+        <a class="social-icon" href="https://kick.com/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/kick/C9A84C" alt="Kick" loading="lazy"></a>
       </nav>
     </header>
 
@@ -31,13 +31,18 @@
       </div>
       <div class="meter">
         <div class="meter-fill" id="meter-fill" style="width: 0%"></div>
+        <div class="meter-ticks">
+          <span class="meter-tick" style="left:25%"></span>
+          <span class="meter-tick" style="left:50%"></span>
+          <span class="meter-tick" style="left:75%"></span>
+        </div>
       </div>
       <div class="meter-scale">
-        <span>0</span>
-        <span>25K</span>
-        <span>50K</span>
-        <span>75K</span>
-        <span>100K</span>
+        <span style="left:0%">0</span>
+        <span style="left:25%">25K</span>
+        <span style="left:50%">50K</span>
+        <span style="left:75%">75K</span>
+        <span style="left:100%">100K</span>
       </div>
 
       <div class="stat-row">
@@ -86,6 +91,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
