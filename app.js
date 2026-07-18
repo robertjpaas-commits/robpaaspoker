@@ -45,6 +45,7 @@ function renderHero() {
 
   const pct = Math.max(0, Math.min(100, (total / DATA.goal) * 100));
   document.getElementById("meter-fill").style.width = pct.toFixed(1) + "%";
+  document.getElementById("meter-tip").style.left = pct.toFixed(1) + "%";
 
   // "Played" = a day with logged session hours, not just a balance-carry entry.
   const playedDays = days.filter((d) => (d.hours || 0) > 0);
