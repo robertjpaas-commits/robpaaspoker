@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Road to 100K &middot; 2026</title>
+  <meta name="description" content="Tracking a $100,000 poker profit goal for 2026, day by day.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <div class="eyebrow">2026 Challenge</div>
+      <h1>Road to 100K</h1>
+      <div class="updated" id="updated-line"></div>
+    </header>
+
+    <section class="card hero">
+      <div class="hero-label">Total profit this year</div>
+      <div class="hero-value-row">
+        <div class="hero-figure" id="hero-total">$0</div>
+        <div class="hero-goal">of $100,000</div>
+      </div>
+      <div class="meter">
+        <div class="meter-fill" id="meter-fill" style="width: 0%"></div>
+      </div>
+      <div class="meter-caption" id="meter-caption"></div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-label">Days played</div>
+          <div class="stat-value" id="stat-days">&mdash;</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Avg / day played</div>
+          <div class="stat-value" id="stat-avg">&mdash;</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Best day</div>
+          <div class="stat-value positive" id="stat-best">&mdash;</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Worst day</div>
+          <div class="stat-value negative" id="stat-worst">&mdash;</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="filter-row" id="site-filter"></div>
+
+    <section>
+      <h2 class="section-title">2026 Calendar</h2>
+      <div class="calendar-grid" id="calendar-grid"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Profit Over Time</h2>
+      <div class="graph-toggle" id="graph-toggle">
+        <button class="pill active" data-mode="cumulative">Cumulative</button>
+        <button class="pill" data-mode="daily">Daily</button>
+      </div>
+      <div class="card chart-wrap">
+        <canvas id="profit-chart"></canvas>
+      </div>
+    </section>
+
+    <div class="site-footer">Updated after each session &middot; figures are real profit/loss across all tracked poker sites</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
