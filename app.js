@@ -45,8 +45,6 @@ function renderHero() {
 
   const pct = Math.max(0, Math.min(100, (total / DATA.goal) * 100));
   document.getElementById("meter-fill").style.width = pct.toFixed(1) + "%";
-  document.getElementById("meter-caption").textContent =
-    `${fmtMoney(total)} of ${fmtMoney(DATA.goal)} · ${pct.toFixed(1)}% to goal`;
 
   // "Played" = a day with logged session hours, not just a balance-carry entry.
   const playedDays = days.filter((d) => (d.hours || 0) > 0);
@@ -69,12 +67,6 @@ function renderHero() {
   hourlyEl.textContent = hourlyRate === null ? "—" : fmtMoney(hourlyRate, { signed: true }) + "/hr";
   hourlyEl.className = "stat-value " + (hourlyRate !== null && hourlyRate < 0 ? "negative" : "positive");
   document.getElementById("stat-hours").textContent = totalHours.toLocaleString("en-US", { maximumFractionDigits: 1 });
-
-  const generated = new Date(DATA.generated_at);
-  document.getElementById("updated-line").textContent =
-    "Last updated " + generated.toLocaleString("en-US", {
-      month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit",
-    });
 }
 
 /* ---------------- site filter ---------------- */

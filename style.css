@@ -40,24 +40,34 @@ body {
   margin-bottom: 32px;
 }
 
-.site-header .eyebrow {
-  color: var(--gold);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 600;
-}
-
 .site-header h1 {
-  margin: 6px 0 0;
+  margin: 0;
   font-size: 34px;
   font-weight: 700;
+  color: var(--gold);
 }
 
-.site-header .updated {
-  margin-top: 8px;
-  color: var(--text-muted);
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.social-pill {
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
   font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+
+.social-pill:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
 }
 
 /* ---------- hero / progress ---------- */
@@ -81,15 +91,6 @@ body {
   flex-wrap: wrap;
 }
 
-.hero-label {
-  color: var(--text-muted);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  text-align: center;
-  margin-bottom: 6px;
-}
-
 .hero-figure {
   font-size: 56px;
   font-weight: 700;
@@ -98,11 +99,6 @@ body {
 
 .hero-figure.positive { color: var(--positive); }
 .hero-figure.negative { color: var(--negative); }
-
-.hero-goal {
-  color: var(--text-muted);
-  font-size: 18px;
-}
 
 .meter {
   margin-top: 20px;
@@ -119,11 +115,13 @@ body {
   transition: width 0.6s ease;
 }
 
-.meter-caption {
-  margin-top: 10px;
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 14px;
+.meter-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-row {
