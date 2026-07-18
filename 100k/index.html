@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RobPaasPoker</title>
+  <meta name="description" content="Tracking a $100,000 poker profit goal for 2026, day by day.">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=11">
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <div class="brand-name">Rob<span>Paas</span>Poker</div>
+      <div class="brand-rule"></div>
+      <nav class="social-row" aria-label="Social media">
+        <a class="social-icon" href="https://www.instagram.com/robpaaspoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/C9A84C" alt="Instagram" loading="lazy"></a>
+        <a class="social-icon" href="https://x.com/RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/x/C9A84C" alt="X" loading="lazy"></a>
+        <a class="social-icon" href="https://www.youtube.com/@RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/C9A84C" alt="YouTube" loading="lazy"></a>
+        <a class="social-icon" href="https://www.facebook.com/RobPaasPoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/facebook/C9A84C" alt="Facebook" loading="lazy"></a>
+        <a class="social-icon" href="https://www.tiktok.com/@robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/tiktok/C9A84C" alt="TikTok" loading="lazy"></a>
+        <a class="social-icon" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/twitch/C9A84C" alt="Twitch" loading="lazy"></a>
+        <a class="social-icon" href="https://kick.com/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/kick/C9A84C" alt="Kick" loading="lazy"></a>
+      </nav>
+    </header>
+
+    <section class="card hero">
+      <div class="hero-value-row">
+        <div class="hero-figure" id="hero-total">$0</div>
+      </div>
+      <div class="meter">
+        <div class="meter-fill" id="meter-fill" style="width: 0%"></div>
+        <div class="meter-ticks">
+          <span class="meter-tick" style="left:25%"></span>
+          <span class="meter-tick" style="left:50%"></span>
+          <span class="meter-tick" style="left:75%"></span>
+        </div>
+        <div class="meter-tip" id="meter-tip" style="left: 0%"></div>
+      </div>
+      <div class="meter-scale">
+        <span style="left:0%">0</span>
+        <span style="left:25%">25K</span>
+        <span style="left:50%">50K</span>
+        <span style="left:75%">75K</span>
+        <span style="left:100%">100K</span>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-label">Days played</div>
+          <div class="stat-value" id="stat-days">&mdash;</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Avg / day played</div>
+          <div class="stat-value" id="stat-avg">&mdash;</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Best day</div>
+          <div class="stat-value positive" id="stat-best">&mdash;</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Hourly rate</div>
+          <div class="stat-value" id="stat-hourly">&mdash;</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Total hours</div>
+          <div class="stat-value" id="stat-hours">&mdash;</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="filter-row" id="site-filter"></div>
+
+    <section>
+      <div class="calendar-grid" id="calendar-grid"></div>
+    </section>
+
+    <section>
+      <div class="graph-toggle" id="graph-toggle">
+        <button class="pill active" data-mode="cumulative">Cumulative</button>
+        <button class="pill" data-mode="daily">Daily</button>
+      </div>
+      <div class="card chart-wrap">
+        <canvas id="profit-chart"></canvas>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="app.js?v=10"></script>
+</body>
+</html>
