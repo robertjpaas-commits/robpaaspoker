@@ -128,7 +128,7 @@ body {
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 16px;
   margin-top: 24px;
   padding-top: 20px;
@@ -160,6 +160,7 @@ body {
 .filter-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
   margin: 28px 0 20px;
 }
@@ -292,6 +293,7 @@ section + section {
 
 .graph-toggle {
   display: flex;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 16px;
 }
@@ -317,7 +319,7 @@ section + section {
     grid-template-columns: repeat(2, 1fr);
   }
   .stat-row {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     row-gap: 20px;
   }
 }
@@ -325,6 +327,9 @@ section + section {
 @media (max-width: 520px) {
   .calendar-grid {
     grid-template-columns: 1fr;
+  }
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
   }
   .hero-figure {
     font-size: 40px;

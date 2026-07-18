@@ -48,18 +48,27 @@ function renderHero() {
   document.getElementById("meter-caption").textContent =
     `${fmtMoney(total)} of ${fmtMoney(DATA.goal)} · ${pct.toFixed(1)}% to goal`;
 
-  document.getElementById("stat-days").textContent = days.length.toLocaleString();
-  const avg = days.length ? total / days.length : 0;
+  // "Played" = a day with logged session hours, not just a balance-carry entry.
+  const playedDays = days.filter((d) => (d.hours || 0) > 0);
+  document.getElementById("stat-days").textContent = playedDays.length.toLocaleString();
+
+  const playedTotal = playedDays.reduce((sum, d) => sum + d.total, 0);
+  const avg = playedDays.length ? playedTotal / playedDays.length : 0;
   const avgEl = document.getElementById("stat-avg");
   avgEl.textContent = fmtMoney(avg, { signed: true });
   avgEl.className = "stat-value " + (avg >= 0 ? "positive" : "negative");
 
-  if (days.length) {
-    const best = days.reduce((a, b) => (b.total > a.total ? b : a));
-    const worst = days.reduce((a, b) => (b.total < a.total ? b : a));
+  if (playedDays.length) {
+    const best = playedDays.reduce((a, b) => (b.total > a.total ? b : a));
     document.getElementById("stat-best").textContent = fmtMoney(best.total, { signed: true });
-    document.getElementById("stat-worst").textContent = fmtMoney(worst.total, { signed: true });
   }
+
+  const totalHours = days.reduce((sum, d) => sum + (d.hours || 0), 0);
+  const hourlyRate = totalHours > 0 ? total / totalHours : null;
+  const hourlyEl = document.getElementById("stat-hourly");
+  hourlyEl.textContent = hourlyRate === null ? "—" : fmtMoney(hourlyRate, { signed: true }) + "/hr";
+  hourlyEl.className = "stat-value " + (hourlyRate !== null && hourlyRate < 0 ? "negative" : "positive");
+  document.getElementById("stat-hours").textContent = totalHours.toLocaleString("en-US", { maximumFractionDigits: 1 });
 
   const generated = new Date(DATA.generated_at);
   document.getElementById("updated-line").textContent =
