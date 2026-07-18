@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <div class="page">
@@ -33,6 +33,17 @@
     </section>
 
     <section>
+      <a class="card cta-card" href="Roadto$100k/">
+        <div class="cta-title">Road to 100K</div>
+        <div class="cta-sub">Follow the 2026 challenge &mdash; daily profit, a full calendar, and progress toward $100,000 &rarr;</div>
+        <div class="mini-meter">
+          <div class="mini-meter-fill" id="mini-meter-fill" style="width: 0%"></div>
+        </div>
+        <div class="mini-meter-caption" id="mini-meter-caption">&nbsp;</div>
+      </a>
+    </section>
+
+    <section>
       <h2 class="section-label">Latest Stream</h2>
       <div class="card video-wrap">
         <!-- Update the video ID here whenever there's a new VOD to feature -->
@@ -44,28 +55,21 @@
       </div>
     </section>
 
-    <section>
-      <h2 class="section-label">Latest on Instagram</h2>
-      <div class="ig-grid">
-        <!-- Update these two permalinks whenever there are newer posts to feature -->
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Da6qEmktW1S/" data-instgrm-version="14" style="min-width:326px; max-width:540px; width:100%;">
-          <a href="https://www.instagram.com/p/Da6qEmktW1S/" target="_blank" rel="noopener">View this post on Instagram</a>
-        </blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaBfe_MiqWV/" data-instgrm-version="14" style="min-width:326px; max-width:540px; width:100%;">
-          <a href="https://www.instagram.com/p/DaBfe_MiqWV/" target="_blank" rel="noopener">View this post on Instagram</a>
-        </blockquote>
-      </div>
-    </section>
-
-    <section>
-      <a class="card cta-card" href="Roadto$100k/">
-        <div class="cta-title">Road to 100K</div>
-        <div class="cta-sub">Follow the 2026 challenge &mdash; daily profit, a full calendar, and progress toward $100,000 &rarr;</div>
-      </a>
-    </section>
-
   </div>
 
-  <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    fetch('Roadto$100k/data/2026.json', { cache: 'no-store' })
+      .then((r) => r.json())
+      .then((d) => {
+        const total = d.days.reduce((sum, day) => sum + day.total, 0);
+        const pct = Math.max(0, Math.min(100, (total / d.goal) * 100));
+        const sign = total < 0 ? '-' : '+';
+        const amount = Math.abs(total).toLocaleString('en-US', { maximumFractionDigits: 0 });
+        document.getElementById('mini-meter-fill').style.width = pct.toFixed(1) + '%';
+        document.getElementById('mini-meter-caption').textContent =
+          `${sign}$${amount} · ${pct.toFixed(1)}% to $100K`;
+      })
+      .catch(() => {});
+  </script>
 </body>
 </html>
