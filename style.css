@@ -131,22 +131,22 @@ section + section {
 .bio p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 17px;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.profile-card.has-photo .bio p {
+  font-size: 16px;
+  line-height: 1.65;
   text-align: left;
 }
 
+.bio p + p {
+  margin-top: 14px;
+}
+
 @media (max-width: 600px) {
-  .profile-card.has-photo {
+  .profile-card {
     flex-direction: column;
     text-align: center;
   }
-  .profile-card.has-photo .bio p {
-    text-align: center;
+  .bio p {
+    text-align: left;
   }
 }
 
