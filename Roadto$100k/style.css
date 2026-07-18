@@ -42,12 +42,14 @@ body {
 }
 
 .brand-name {
+  display: inline-block;
   font-family: "Cormorant Garamond", serif;
   font-size: 52px;
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.02em;
   line-height: 1;
+  text-decoration: none;
 }
 
 .brand-name span {
