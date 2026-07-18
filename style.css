@@ -145,7 +145,7 @@ body {
   background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
   border-radius: 999px;
   box-shadow: 0 0 14px rgba(201, 168, 76, 0.55);
-  transition: width 0.8s ease;
+  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
   overflow: hidden;
 }
 
@@ -174,7 +174,7 @@ body {
   filter: blur(1px);
   animation: meter-tip-pulse 2.6s ease-in-out infinite;
   pointer-events: none;
-  transition: left 0.8s ease;
+  transition: left 1.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @keyframes meter-tip-pulse {

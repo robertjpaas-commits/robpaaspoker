@@ -28,6 +28,23 @@ function dayValue(day) {
   return currentSite === "ALL" ? day.total : day.sites[currentSite] || 0;
 }
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function animateCountUp(el, to, duration, formatFn) {
+  if (prefersReducedMotion) {
+    el.textContent = formatFn(to);
+    return;
+  }
+  const start = performance.now();
+  function frame(now) {
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = formatFn(to * eased);
+    if (t < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
 function buildDayMap() {
   const map = new Map();
   for (const day of DATA.days) map.set(day.date, day);
@@ -40,12 +57,20 @@ function renderHero() {
   const days = DATA.days;
   const total = days.reduce((sum, d) => sum + d.total, 0);
   const heroEl = document.getElementById("hero-total");
-  heroEl.textContent = fmtMoney(total, { signed: true });
   heroEl.className = "hero-figure " + (total >= 0 ? "positive" : "negative");
+  animateCountUp(heroEl, total, 1600, (v) => fmtMoney(v, { signed: true }));
 
   const pct = Math.max(0, Math.min(100, (total / DATA.goal) * 100));
-  document.getElementById("meter-fill").style.width = pct.toFixed(1) + "%";
-  document.getElementById("meter-tip").style.left = pct.toFixed(1) + "%";
+  const fillEl = document.getElementById("meter-fill");
+  const tipEl = document.getElementById("meter-tip");
+  // Double rAF so the browser commits the 0% starting state to a frame before the
+  // target width is applied — otherwise the CSS width transition never fires.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      fillEl.style.width = pct.toFixed(1) + "%";
+      tipEl.style.left = pct.toFixed(1) + "%";
+    });
+  });
 
   // "Played" = a day with logged session hours, not just a balance-carry entry.
   const playedDays = days.filter((d) => (d.hours || 0) > 0);
