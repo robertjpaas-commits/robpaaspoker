@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
   <div class="page">
@@ -35,12 +35,12 @@
 
     <section>
       <a class="card cta-card" href="Roadto$100k/">
-        <div class="cta-title">Road to 100K</div>
+        <div class="cta-title">Road to $100K</div>
         <div class="cta-sub">Follow the 2026 challenge &mdash; daily profit, a full calendar, and progress toward $100,000 &rarr;</div>
         <div class="mini-meter">
           <div class="mini-meter-fill" id="mini-meter-fill" style="width: 0%"></div>
         </div>
-        <div class="mini-meter-caption" id="mini-meter-caption">&nbsp;</div>
+        <div class="mini-meter-caption"><span id="mini-meter-amount" class="mini-meter-amount">&nbsp;</span><span id="mini-meter-rest"></span></div>
       </a>
     </section>
 
@@ -73,8 +73,10 @@
         const sign = total < 0 ? '-' : '+';
         const amount = Math.abs(total).toLocaleString('en-US', { maximumFractionDigits: 0 });
         document.getElementById('mini-meter-fill').style.width = pct.toFixed(1) + '%';
-        document.getElementById('mini-meter-caption').textContent =
-          `${sign}$${amount} · ${pct.toFixed(1)}% to $100K`;
+        const amountEl = document.getElementById('mini-meter-amount');
+        amountEl.textContent = `${sign}$${amount}`;
+        amountEl.className = 'mini-meter-amount ' + (total >= 0 ? 'positive' : 'negative');
+        document.getElementById('mini-meter-rest').textContent = ` · ${pct.toFixed(1)}% to $100K`;
       })
       .catch(() => {});
   </script>

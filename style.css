@@ -10,6 +10,8 @@
   --gold-light: #e8cc7a;
   --gold-dim: #7a5e28;
   --gold-track: #3a2f16;
+  --positive: #22c55e;
+  --negative: #ef4444;
 }
 
 * {
@@ -228,6 +230,13 @@ section + section {
   color: var(--text-muted);
   font-size: 13px;
 }
+
+.mini-meter-amount {
+  font-weight: 700;
+}
+
+.mini-meter-amount.positive { color: var(--positive); }
+.mini-meter-amount.negative { color: var(--negative); }
 
 /* ---------- responsive ---------- */
 
