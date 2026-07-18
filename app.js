@@ -148,10 +148,16 @@ function renderCalendar() {
         cell.dataset.tooltip = `${MONTH_NAMES[month - 1]} ${d}\nNo session`;
       } else {
         const value = dayValue(entry);
+        const played = (entry.hours || 0) > 0;
         const isWin = value > 0.005;
-        const isLoss = value < -0.005;
+        // A played day that broke exactly even still counts as tracked activity, not
+        // a blank/untracked day — style it as a $0 loss rather than folding it into
+        // the same gray "no-session" bucket as a genuine day off.
+        const isLoss = value < -0.005 || (played && Math.abs(value) <= 0.005);
         cell.className = "day-cell " + (isWin ? "win" : isLoss ? "loss" : "no-session");
-        cell.textContent = Math.abs(value) < 0.005 ? d : fmtMoney(value, { signed: true, compact: true });
+        cell.textContent = isWin || isLoss
+          ? (Math.abs(value) < 0.005 ? "$0" : fmtMoney(value, { signed: true, compact: true }))
+          : d;
 
         if (isWin || isLoss) {
           const alpha = 0.28 + 0.62 * Math.min(1, Math.abs(value) / maxAbs);
@@ -164,7 +170,9 @@ function renderCalendar() {
           const lines = DATA.sites
             .filter((s) => Math.abs(entry.sites[s]) > 0.005)
             .map((s) => `${DATA.site_names[s] || s}: ${fmtMoney(entry.sites[s], { signed: true })}`);
-          tooltip += lines.length ? lines.join("\n") + `\nTotal: ${fmtMoney(entry.total, { signed: true })}` : "No activity";
+          tooltip += lines.length
+            ? lines.join("\n") + `\nTotal: ${fmtMoney(entry.total, { signed: true })}`
+            : (played ? "Played — broke even" : "No activity");
         } else {
           tooltip += `${DATA.site_names[currentSite] || currentSite}: ${fmtMoney(value, { signed: true })}`;
         }
