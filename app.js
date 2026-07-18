@@ -7,6 +7,10 @@ const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December",
 ];
 
+// Days played but not accurately tracked at the time — manually called out as $0
+// on the calendar rather than left blank like a genuine untracked/off day.
+const ZERO_EXCEPTION_DATES = new Set(["2026-05-09", "2026-05-10", "2026-05-11"]);
+
 let DATA = null;
 let currentSite = "ALL";
 let currentMode = "cumulative";
@@ -207,10 +211,10 @@ function renderCalendar() {
         const value = dayValue(entry);
         const played = (entry.hours || 0) > 0;
         const isWin = value > 0.005;
-        // A played day that broke exactly even still counts as tracked activity, not
-        // a blank/untracked day — style it as a $0 loss rather than folding it into
-        // the same gray "no-session" bucket as a genuine day off.
-        const isLoss = value < -0.005 || (played && Math.abs(value) <= 0.005);
+        // These three May days were manually backfilled (played but the exact result
+        // wasn't tracked) and are called out as $0 on purpose. Any other day that
+        // happens to break exactly even stays visually blank like an untracked day.
+        const isLoss = value < -0.005 || (ZERO_EXCEPTION_DATES.has(entry.date) && Math.abs(value) <= 0.005);
         cell.className = "day-cell " + (isWin ? "win" : isLoss ? "loss" : "no-session");
         cell.textContent = isWin || isLoss
           ? (Math.abs(value) < 0.005 ? "$0" : fmtMoney(value, { signed: true, compact: true }))

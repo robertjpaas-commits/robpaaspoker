@@ -139,12 +139,12 @@ body {
   background: linear-gradient(100deg, transparent 44%, rgba(255, 255, 255, 0.9) 50%, transparent 56%);
   background-size: 320% 100%;
   mix-blend-mode: screen;
-  animation: meter-sweep 4.8s ease-in-out infinite;
+  animation: meter-sweep 7.5s ease-in-out infinite;
 }
 
 @keyframes meter-sweep {
-  0% { background-position: -160% 0; }
-  100% { background-position: 220% 0; }
+  0% { background-position: 220% 0; }
+  100% { background-position: -160% 0; }
 }
 
 .meter-tip {
