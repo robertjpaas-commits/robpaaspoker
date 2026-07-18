@@ -98,17 +98,7 @@ body {
 }
 
 section + section {
-  margin-top: 36px;
-}
-
-.section-label {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin: 0 0 12px;
-  text-align: center;
+  margin-top: 11px;
 }
 
 /* ---------- profile / bio ---------- */
