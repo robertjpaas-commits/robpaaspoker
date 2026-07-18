@@ -98,7 +98,7 @@ body {
 }
 
 section + section {
-  margin-top: 11px;
+  margin-top: 22px;
 }
 
 /* ---------- profile / bio ---------- */
@@ -141,6 +141,41 @@ section + section {
 }
 
 /* ---------- video ---------- */
+
+.twitch-schedule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.twitch-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #9146ff;
+  font-weight: 700;
+  font-size: 19px;
+  transition: opacity 0.15s ease;
+}
+
+.twitch-wordmark:hover {
+  opacity: 0.8;
+}
+
+.twitch-wordmark img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.schedule-text {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
 
 .video-wrap {
   padding: 0;
