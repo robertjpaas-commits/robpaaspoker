@@ -9,6 +9,7 @@
   --gridline: #2c2c2a;
   --gold: #c9a84c;
   --gold-light: #e8cc7a;
+  --gold-dim: #7a5e28;
   --gold-track: #3a2f16;
   --positive: #22c55e;
   --positive-dim: #143a24;
@@ -42,9 +43,28 @@ body {
 
 .site-header h1 {
   margin: 0;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 700;
-  color: var(--gold);
+  letter-spacing: 0.01em;
+  background: linear-gradient(100deg, var(--gold-dim) 0%, var(--gold-light) 30%, var(--gold) 50%, var(--gold-light) 70%, var(--gold-dim) 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: title-shine 7s ease-in-out infinite;
+}
+
+@keyframes title-shine {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header h1 {
+    animation: none;
+    background-position: 50% center;
+  }
 }
 
 .social-row {
@@ -112,17 +132,42 @@ body {
 .meter {
   position: relative;
   margin-top: 20px;
-  height: 14px;
+  height: 18px;
   border-radius: 999px;
   background: var(--gold-track);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
 .meter-fill {
+  position: relative;
   height: 100%;
-  background: linear-gradient(90deg, var(--gold-dim, #7a5e28), var(--gold-light));
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
   border-radius: 999px;
-  transition: width 0.6s ease;
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.55);
+  transition: width 0.8s ease;
+  overflow: hidden;
+}
+
+.meter-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.45) 48%, transparent 66%);
+  background-size: 250% 100%;
+  animation: meter-sweep 3.2s ease-in-out infinite;
+}
+
+@keyframes meter-sweep {
+  0% { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meter-fill::after {
+    animation: none;
+    display: none;
+  }
 }
 
 .meter-ticks {
@@ -222,17 +267,6 @@ body {
   background: var(--gold);
   border-color: var(--gold);
   color: #16130a;
-}
-
-/* ---------- section headers ---------- */
-
-.section-title {
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-  margin: 0 0 16px;
 }
 
 section + section {
@@ -339,15 +373,6 @@ section + section {
 .chart-wrap {
   position: relative;
   height: 360px;
-}
-
-/* ---------- footer ---------- */
-
-.site-footer {
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 12px;
-  margin-top: 48px;
 }
 
 /* ---------- responsive ---------- */
