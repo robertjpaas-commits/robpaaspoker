@@ -55,6 +55,26 @@ function buildDayMap() {
   return map;
 }
 
+// Every calendar date in `year`, Jan 1 through Dec 31, as "YYYY-MM-DD" strings —
+// used so the chart's x-axis always spans the full year, not just tracked days.
+function fullYearLabels(year) {
+  const start = Date.UTC(year, 0, 1);
+  const end = Date.UTC(year, 11, 31);
+  const count = Math.round((end - start) / 86400000) + 1;
+  return Array.from({ length: count }, (_, i) =>
+    new Date(start + i * 86400000).toISOString().slice(0, 10)
+  );
+}
+
+// Indices (into `labels`) that land on the 1st of a month — the only x-axis ticks we show.
+function monthStartIndices(labels) {
+  const set = new Set();
+  labels.forEach((date, i) => {
+    if (date.endsWith("-01")) set.add(i);
+  });
+  return set;
+}
+
 function makeTooltip(dateLabel) {
   const tip = document.createElement("div");
   tip.className = "cell-tooltip";
@@ -253,10 +273,40 @@ function renderCalendar() {
 
 /* ---------------- graph ---------------- */
 
+// Draws a gold spade at the last real (non-null) point of the cumulative line —
+// a little flourish marking "you are here". No-op for the daily bar chart.
+const spadeEndpointPlugin = {
+  id: "spadeEndpoint",
+  afterDatasetsDraw(chartInstance) {
+    const data = chartInstance.data.datasets[0].data;
+    let lastIndex = -1;
+    for (let i = data.length - 1; i >= 0; i--) {
+      if (data[i] !== null && data[i] !== undefined) {
+        lastIndex = i;
+        break;
+      }
+    }
+    if (lastIndex === -1) return;
+    const point = chartInstance.getDatasetMeta(0).data[lastIndex];
+    if (!point) return;
+
+    const { ctx } = chartInstance;
+    ctx.save();
+    ctx.font = "26px 'Segoe UI Symbol', sans-serif";
+    ctx.fillStyle = GOLD;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("♠", point.x, point.y);
+    ctx.restore();
+  },
+};
+
 function renderChart() {
   const ctx = document.getElementById("profit-chart");
-  const labels = DATA.days.map((d) => d.date);
-  const values = DATA.days.map(dayValue);
+  const labels = fullYearLabels(DATA.year);
+  const dayMap = buildDayMap();
+  const monthStarts = monthStartIndices(labels);
+  const lastRecordedDate = DATA.days.length ? DATA.days[DATA.days.length - 1].date : null;
 
   if (chart) {
     chart.destroy();
@@ -264,7 +314,17 @@ function renderChart() {
 
   const commonScales = {
     x: {
-      ticks: { color: "#898781", maxTicksLimit: 12, autoSkip: true },
+      ticks: {
+        color: "#898781",
+        autoSkip: false,
+        callback: (value, index, ticks) => {
+          const date = labels[ticks[index].value];
+          return MONTH_NAMES[Number(date.slice(5, 7)) - 1].slice(0, 3);
+        },
+      },
+      afterBuildTicks: (axis) => {
+        axis.ticks = axis.ticks.filter((t) => monthStarts.has(t.value));
+      },
       grid: { display: false },
     },
     y: {
@@ -293,8 +353,19 @@ function renderChart() {
   };
 
   if (currentMode === "cumulative") {
+    // Real tracked days accumulate; untracked gap days within the tracked range
+    // carry the running total flat (nothing happened); days beyond the last
+    // recorded date are null so the line simply stops there.
     let running = 0;
-    const cumulative = values.map((v) => (running += v));
+    const cumulative = labels.map((date) => {
+      const entry = dayMap.get(date);
+      if (entry) {
+        running += dayValue(entry);
+        return running;
+      }
+      if (lastRecordedDate && date <= lastRecordedDate) return running;
+      return null;
+    });
     chart = new Chart(ctx, {
       type: "line",
       data: {
@@ -311,8 +382,10 @@ function renderChart() {
           fill: true,
           backgroundColor: "rgba(201,168,76,0.10)",
           tension: 0.15,
+          spanGaps: false,
         }],
       },
+      plugins: [spadeEndpointPlugin],
       options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -325,12 +398,17 @@ function renderChart() {
               ...tooltipBase.callbacks,
               label: (item) => "Cumulative: " + fmtMoney(item.parsed.y, { signed: true }),
             },
+            filter: (item) => item.parsed.y !== null,
           },
         },
         scales: commonScales,
       },
     });
   } else {
+    const values = labels.map((date) => {
+      const entry = dayMap.get(date);
+      return entry ? dayValue(entry) : null;
+    });
     chart = new Chart(ctx, {
       type: "bar",
       data: {
@@ -354,6 +432,7 @@ function renderChart() {
               ...tooltipBase.callbacks,
               label: (item) => "Profit: " + fmtMoney(item.parsed.y, { signed: true }),
             },
+            filter: (item) => item.parsed.y !== null,
           },
         },
         scales: commonScales,
