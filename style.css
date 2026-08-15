@@ -188,6 +188,16 @@ section + section {
   background: #000;
 }
 
+/* Shorts are vertical (9:16) — constrain width so the card doesn't run tall on wide screens */
+.shorts-wrap {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.shorts-wrap iframe {
+  aspect-ratio: 9 / 16;
+}
+
 /* ---------- road to 100k cta ---------- */
 
 .cta-card {

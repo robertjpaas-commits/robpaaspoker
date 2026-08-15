@@ -53,15 +53,16 @@
         </a>
         <span class="schedule-text">Live Thursday&ndash;Monday &middot; 4PM&ndash;1AM</span>
       </div>
-      <div class="card video-wrap">
-        <!-- Featured clip: assets/website-vid-web.mp4 (re-encoded from the original 4K export for web) -->
-        <video
-          src="assets/website-vid-web.mp4"
-          poster="assets/website-vid-poster.jpg"
-          controls
-          playsinline
-          preload="metadata">
-        </video>
+      <div class="card video-wrap shorts-wrap">
+        <!-- Cycles through featured YouTube Shorts. To update: reorder/replace the IDs in the
+             embed URL path + playlist param. The first ID must also appear last in the playlist
+             list, or YouTube won't loop back to it after the final video. -->
+        <iframe
+          src="https://www.youtube.com/embed/h9rWgvZ1QLY?playlist=tNtTaxqQq3w,-ORwuevavbw,uIyoAceIP0g,h9rWgvZ1QLY&autoplay=1&mute=1&loop=1&playsinline=1&rel=0"
+          title="Featured Shorts"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
     </section>
 
