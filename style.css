@@ -192,10 +192,34 @@ section + section {
 .shorts-wrap {
   max-width: 400px;
   margin: 0 auto;
+  position: relative;
 }
 
 .shorts-wrap iframe {
   aspect-ratio: 9 / 16;
+}
+
+.video-mute-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.video-mute-toggle:hover {
+  background: rgba(0, 0, 0, 0.75);
 }
 
 /* ---------- road to 100k cta ---------- */
