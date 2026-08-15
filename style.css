@@ -91,6 +91,7 @@ body {
 .social-icon.tiktok { background: #000000; }
 .social-icon.twitch { background: #9146ff; }
 .social-icon.kick { background: #53fc19; }
+.social-icon.discord { background: #5865f2; }
 
 .social-icon img {
   width: 18px;
@@ -178,11 +179,13 @@ section + section {
   overflow: hidden;
 }
 
-.video-wrap iframe {
+.video-wrap iframe,
+.video-wrap video {
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
   display: block;
+  background: #000;
 }
 
 /* ---------- road to 100k cta ---------- */

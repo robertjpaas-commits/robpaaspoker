@@ -1,5 +1,8 @@
 .DS_Store
 Thumbs.db
 
+# Original unedited video masters (too large for GitHub; keep the web-optimized version tracked)
+assets/Website vid.mp4
+
 
 
