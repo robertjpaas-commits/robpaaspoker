@@ -148,6 +148,15 @@ section + section {
   min-width: 300px;
 }
 
+/* Below this, two side-by-side cards would get squeezed toward their
+   min-width — which is exactly what forces the breakdown tables into
+   horizontal scroll. Stack to full-width single column instead. */
+@media (max-width: 760px) {
+  .row > .card {
+    flex-basis: 100%;
+  }
+}
+
 /* ---------- filters ---------- */
 
 .filter-grid {
@@ -367,6 +376,20 @@ th.sorted-desc::after { content: ' \25BC'; color: var(--gold); }
 .col-site { font-size: 11px; color: var(--gold-dim); }
 .col-num  { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .rebuy-badge { font-size: 10px; color: var(--gold-dim); margin-left: 4px; letter-spacing: 0.02em; }
+
+/* Compact variant for the By Stake / By Site tables, which live in a
+   half-width card and have the least room to spare. */
+.compact-table th,
+.compact-table td {
+  padding: 6px 5px;
+}
+.compact-table th {
+  font-size: 9px;
+  letter-spacing: 0.03em;
+}
+.compact-table td {
+  font-size: 12px;
+}
 
 .empty-msg { text-align: center; color: var(--text-muted); padding: 24px; font-size: 13px; }
 .load-err  { text-align: center; color: var(--negative); padding: 16px; font-size: 13px; }
