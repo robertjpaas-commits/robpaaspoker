@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RobPaasPoker — Tournament Results</title>
+  <meta name="description" content="Every online tournament Rob Paas has logged — filterable results, breakdowns by site/stake/tournament, and monthly trend.">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <a class="brand-name" href="../">Rob<span>Paas</span>Poker</a>
+      <div class="brand-rule"></div>
+      <nav class="social-row" aria-label="Social media">
+        <a class="social-icon instagram" href="https://www.instagram.com/robpaaspoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="Instagram" loading="lazy"></a>
+        <a class="social-icon x" href="https://x.com/RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" loading="lazy"></a>
+        <a class="social-icon youtube" href="https://www.youtube.com/@robertpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="YouTube" loading="lazy"></a>
+        <a class="social-icon facebook" href="https://www.facebook.com/RobertPaasPoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="Facebook" loading="lazy"></a>
+        <a class="social-icon tiktok" href="https://www.tiktok.com/@robertpaas" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="TikTok" loading="lazy"></a>
+        <a class="social-icon twitch" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/twitch/FFFFFF" alt="Twitch" loading="lazy"></a>
+        <a class="social-icon kick" href="https://kick.com/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/kick/000000" alt="Kick" loading="lazy"></a>
+        <a class="social-icon discord" href="https://discord.gg/Pz7nrhqhHF" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" loading="lazy"></a>
+      </nav>
+      <div class="page-title">Tournament Results</div>
+    </header>
+
+    <!-- ── Filters ─────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-title">Filters</div>
+      <div class="filter-grid">
+        <div class="filter-group">
+          <label>Search name</label>
+          <input type="text" id="f-name" placeholder="e.g. GG Masters…" oninput="applyFilters()">
+        </div>
+        <div class="filter-group">
+          <label>Site</label>
+          <select id="f-site" onchange="applyFilters()">
+            <option value="">All sites</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>From date</label>
+          <input type="date" id="f-date-from" onchange="applyFilters()">
+        </div>
+        <div class="filter-group">
+          <label>To date</label>
+          <input type="date" id="f-date-to" onchange="applyFilters()">
+        </div>
+        <div class="filter-group">
+          <label>Min buy-in ($)</label>
+          <input type="number" id="f-buyin-min" placeholder="0" min="0" step="0.01" oninput="applyFilters()">
+        </div>
+        <div class="filter-group">
+          <label>Max buy-in ($)</label>
+          <input type="number" id="f-buyin-max" placeholder="any" min="0" step="0.01" oninput="applyFilters()">
+        </div>
+        <div class="filter-group">
+          <label>Type</label>
+          <select id="f-type" onchange="applyFilters()">
+            <option value="">All types</option>
+            <option value="Standard">Standard</option>
+            <option value="PKO">PKO</option>
+            <option value="Bounty">Bounty</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Satellite">Satellite</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Result</label>
+          <select id="f-result" onchange="applyFilters()">
+            <option value="">All</option>
+            <option value="cash">Cashed (win > 0)</option>
+            <option value="bust">Busted (win = 0)</option>
+            <option value="profit">Profitable (win > invested)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Entries</label>
+          <select id="f-entries" onchange="applyFilters()">
+            <option value="">All</option>
+            <option value="original">Original only (no rebuy)</option>
+            <option value="rebuy">Had rebuy</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter-actions">
+        <button class="btn-sm" onclick="resetFilters()">✕ Clear Filters</button>
+        <span id="result-count"></span>
+      </div>
+    </section>
+
+    <!-- ── Summary Stats ──────────────────────────────── -->
+    <section class="card">
+      <div class="card-title">Summary <small id="summary-scope"></small></div>
+      <div class="summary-grid">
+        <div class="stat-box"><div class="stat-label">Tournaments</div><div class="stat-value gold"  id="s-count">0</div></div>
+        <div class="stat-box"><div class="stat-label">Total Buy-ins</div><div class="stat-value gold"  id="s-bullets">0</div></div>
+        <div class="stat-box"><div class="stat-label">Total Invested</div><div class="stat-value negative" id="s-invested">$0</div></div>
+        <div class="stat-box"><div class="stat-label">Total Winnings</div><div class="stat-value positive" id="s-winnings">$0</div></div>
+        <div class="stat-box"><div class="stat-label">Net Profit</div><div class="stat-value neutral" id="s-profit">$0</div></div>
+        <div class="stat-box"><div class="stat-label">ROI</div><div class="stat-value neutral" id="s-roi">0%</div></div>
+        <div class="stat-box"><div class="stat-label">ITM Rate</div><div class="stat-value neutral" id="s-itm">0%</div></div>
+        <div class="stat-box"><div class="stat-label">Avg Buy-in</div><div class="stat-value neutral" id="s-avg-buyin">$0</div></div>
+        <div class="stat-box"><div class="stat-label">Avg Bullets</div><div class="stat-value neutral" id="s-avg-bullets">0</div></div>
+      </div>
+    </section>
+
+    <!-- ── Top 5 / Bottom 5 ───────────────────────────── -->
+    <section class="row">
+      <div class="card">
+        <div class="card-title">Top 5 Most Profitable</div>
+        <div id="top5-body"><div class="empty-msg">No data</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Bottom 5 Least Profitable</div>
+        <div id="bottom5-body"><div class="empty-msg">No data</div></div>
+      </div>
+    </section>
+
+    <!-- ── Original vs Rebuy ──────────────────────────── -->
+    <section class="card">
+      <div class="card-title">Original Buy-in $ vs Rebuy $ <small>if a rebuy happened, the win is credited to the rebuy stake, not the original</small></div>
+      <div class="table-wrap">
+        <table class="breakdown-table" id="entrytype-table">
+          <thead><tr>
+            <th>Money</th><th>Entries</th><th>ITM%</th><th>Invested</th><th>Est. Won</th><th>Est. Profit</th><th>Est. ROI</th>
+          </tr></thead>
+          <tbody id="entrytype-body"><tr><td colspan="7" class="empty-msg">No data</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Stake Level / Site Breakdown ────────────────── -->
+    <section class="row">
+      <div class="card">
+        <div class="card-title">By Stake Level</div>
+        <div class="table-wrap">
+          <table class="breakdown-table" id="stake-table">
+            <thead><tr>
+              <th>Stake</th><th>Played</th><th>ITM%</th><th>Invested</th><th>Won</th><th>Profit</th><th>ROI</th>
+            </tr></thead>
+            <tbody id="stake-body"><tr><td colspan="7" class="empty-msg">No data</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">By Site</div>
+        <div class="table-wrap">
+          <table class="breakdown-table" id="site-table">
+            <thead><tr>
+              <th>Site</th><th>Played</th><th>ITM%</th><th>Invested</th><th>Won</th><th>Profit</th><th>ROI</th>
+            </tr></thead>
+            <tbody id="site-body"><tr><td colspan="7" class="empty-msg">No data</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Tournament Breakdown ───────────────────────── -->
+    <section class="card">
+      <div class="card-title">Tournament Breakdown <small>click a name to filter</small></div>
+      <div class="table-wrap">
+        <table class="breakdown-table" id="trn-breakdown-table">
+          <thead><tr>
+            <th class="sortable" onclick="sortTrnBy('name')">Tournament</th><th class="sortable" onclick="sortTrnBy('type')">Type</th><th class="sortable" onclick="sortTrnBy('site')">Site</th><th class="sortable" onclick="sortTrnBy('played')">Played</th><th class="sortable" onclick="sortTrnBy('itm')">ITM%</th><th class="sortable" onclick="sortTrnBy('avgBullets')">Avg Bullets</th><th class="sortable" onclick="sortTrnBy('invested')">Total Invested</th><th class="sortable" onclick="sortTrnBy('winnings')">Won</th><th class="sortable sorted-desc" onclick="sortTrnBy('profit')">Profit</th><th class="sortable" onclick="sortTrnBy('roi')">ROI</th>
+          </tr></thead>
+          <tbody id="trn-breakdown-body"><tr><td colspan="10" class="empty-msg">No data</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Monthly Trend ──────────────────────────────── -->
+    <section class="card">
+      <div class="card-title">Monthly Trend</div>
+      <div class="table-wrap">
+        <table class="breakdown-table">
+          <thead><tr>
+            <th>Month</th><th>Played</th><th>ITM%</th><th>Invested</th><th>Won</th><th>Profit</th><th>Running Total</th>
+          </tr></thead>
+          <tbody id="monthly-body"><tr><td colspan="7" class="empty-msg">No data</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Day of Week ────────────────────────────────── -->
+    <section class="card">
+      <div class="card-title">By Day of Week</div>
+      <div class="table-wrap">
+        <table class="breakdown-table">
+          <thead><tr>
+            <th>Day</th><th>Played</th><th>ITM%</th><th>Invested</th><th>Won</th><th>Profit</th><th>ROI</th>
+          </tr></thead>
+          <tbody id="dow-body"><tr><td colspan="7" class="empty-msg">No data</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Individual Results ─────────────────────────── -->
+    <section class="card">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+        <div class="card-title" style="margin-bottom:0;">Individual Results</div>
+        <button class="btn-sm btn-export" onclick="exportCSV()">↓ Export CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table class="results" id="results-table">
+          <thead>
+            <tr>
+              <th onclick="sortBy('date')">Date</th>
+              <th onclick="sortBy('name')">Tournament</th>
+              <th onclick="sortBy('type')">Type</th>
+              <th onclick="sortBy('site')">Site</th>
+              <th onclick="sortBy('buyin')">Buy-in</th>
+              <th onclick="sortBy('rebuys')">Entries</th>
+              <th onclick="sortBy('totalInvested')">Invested</th>
+              <th onclick="sortBy('winnings')">Winnings</th>
+              <th onclick="sortBy('profit')">Profit</th>
+            </tr>
+          </thead>
+          <tbody id="results-body">
+            <tr><td colspan="9" class="empty-msg">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js?v=1"></script>
+</body>
+</html>

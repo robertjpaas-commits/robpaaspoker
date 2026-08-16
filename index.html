@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
   <div class="page">
@@ -42,6 +42,14 @@
           <div class="mini-meter-fill" id="mini-meter-fill" style="width: 0%"></div>
         </div>
         <div class="mini-meter-caption"><span id="mini-meter-amount" class="mini-meter-amount">&nbsp;</span><span id="mini-meter-rest"></span></div>
+      </a>
+    </section>
+
+    <section>
+      <a class="card cta-card" href="results/">
+        <div class="cta-title">Tournament Results</div>
+        <div class="cta-sub">Every online tournament, logged &mdash; filter by site, stake, and type, see the full breakdown &rarr;</div>
+        <div class="mini-stat-line"><span id="mini-results-profit" class="mini-meter-amount">&nbsp;</span><span id="mini-results-rest"></span></div>
       </a>
     </section>
 
@@ -81,6 +89,21 @@
         amountEl.textContent = `${sign}$${amount}`;
         amountEl.className = 'mini-meter-amount ' + (total >= 0 ? 'positive' : 'negative');
         document.getElementById('mini-meter-rest').textContent = ` · ${pct.toFixed(1)}% to $100K`;
+      })
+      .catch(() => {});
+
+    fetch('results/data/results.json', { cache: 'no-store' })
+      .then((r) => r.json())
+      .then((rows) => {
+        const invested = rows.reduce((sum, r) => sum + (r.totalInvested != null ? r.totalInvested : (r.buyin || 0)), 0);
+        const winnings = rows.reduce((sum, r) => sum + (r.winnings || 0), 0);
+        const profit = winnings - invested;
+        const sign = profit < 0 ? '-' : '+';
+        const amount = Math.abs(profit).toLocaleString('en-US', { maximumFractionDigits: 0 });
+        const profitEl = document.getElementById('mini-results-profit');
+        profitEl.textContent = `${sign}$${amount}`;
+        profitEl.className = 'mini-meter-amount ' + (profit >= 0 ? 'positive' : 'negative');
+        document.getElementById('mini-results-rest').textContent = ` net profit across ${rows.length.toLocaleString('en-US')} tournaments`;
       })
       .catch(() => {});
   </script>
