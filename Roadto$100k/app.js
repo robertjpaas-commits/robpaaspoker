@@ -189,8 +189,29 @@ function renderCalendar() {
     const card = document.createElement("div");
     card.className = "month-card";
 
+    const daysInMonthCount = new Date(Date.UTC(DATA.year, month, 0)).getUTCDate();
+    let monthTotal = 0;
+    let monthHasData = false;
+    for (let d = 1; d <= daysInMonthCount; d++) {
+      const dateStr = `${DATA.year}-${String(month).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+      const entry = dayMap.get(dateStr);
+      if (entry) {
+        monthTotal += dayValue(entry);
+        monthHasData = true;
+      }
+    }
+
     const heading = document.createElement("h3");
-    heading.textContent = `${MONTH_NAMES[month - 1]} ${DATA.year}`;
+    heading.className = "month-heading";
+    const nameEl = document.createElement("span");
+    nameEl.textContent = `${MONTH_NAMES[month - 1]} ${DATA.year}`;
+    heading.appendChild(nameEl);
+    if (monthHasData) {
+      const totalEl = document.createElement("span");
+      totalEl.className = "month-total " + (monthTotal >= 0.005 ? "positive" : monthTotal <= -0.005 ? "negative" : "neutral");
+      totalEl.textContent = fmtMoney(monthTotal, { signed: true, compact: true });
+      heading.appendChild(totalEl);
+    }
     card.appendChild(heading);
 
     const weekdayRow = document.createElement("div");
@@ -213,8 +234,7 @@ function renderCalendar() {
       daysRow.appendChild(blank);
     }
 
-    const daysInMonth = new Date(Date.UTC(DATA.year, month, 0)).getUTCDate();
-    for (let d = 1; d <= daysInMonth; d++) {
+    for (let d = 1; d <= daysInMonthCount; d++) {
       const dateStr = `${DATA.year}-${String(month).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
       const entry = dayMap.get(dateStr);
       const cell = document.createElement("div");

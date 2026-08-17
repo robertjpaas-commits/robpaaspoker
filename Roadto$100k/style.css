@@ -339,6 +339,24 @@ section + section {
   color: var(--text);
 }
 
+.month-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.month-total {
+  font-size: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.month-total.positive { color: var(--positive); }
+.month-total.negative { color: var(--negative); }
+.month-total.neutral { color: var(--text-muted); }
+
 .month-weekdays,
 .month-days {
   display: grid;
