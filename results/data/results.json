@@ -3189,6 +3189,18 @@
     "onlyBounty": false
   },
   {
+    "date": "2026-07-27",
+    "name": "$500 Mini Main Event",
+    "type": "Standard",
+    "site": "Live",
+    "buyin": 500,
+    "rebuys": 1,
+    "totalInvested": 1000,
+    "winnings": 1000,
+    "profit": 0,
+    "onlyBounty": false
+  },
+  {
     "date": "2026-07-28",
     "name": "$10 Sat to $100",
     "site": "PokerStars",
@@ -7974,6 +7986,90 @@
     "totalInvested": 55,
     "winnings": 0,
     "profit": -55,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-26",
+    "name": "$500 Super Circut Kickoff - Day 1A",
+    "type": "Standard",
+    "site": "Live",
+    "buyin": 500,
+    "rebuys": 1,
+    "totalInvested": 1000,
+    "winnings": 0,
+    "profit": -1000,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-28",
+    "name": "$500 Mini Main Event",
+    "type": "Standard",
+    "site": "Live",
+    "buyin": 500,
+    "rebuys": 5,
+    "totalInvested": 3000,
+    "winnings": 0,
+    "profit": -3000,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-29",
+    "name": "$300 Sat to $2300",
+    "type": "Satellite",
+    "site": "Live",
+    "buyin": 300,
+    "rebuys": 0,
+    "totalInvested": 300,
+    "winnings": 0,
+    "profit": -300,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-29",
+    "name": "$500 Mini Main Event",
+    "type": "Standard",
+    "site": "Live",
+    "buyin": 500,
+    "rebuys": 1,
+    "totalInvested": 1000,
+    "winnings": 1325,
+    "profit": 325,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-30",
+    "name": "$1000 WSOP Mystery Bounty",
+    "type": "Mystery",
+    "site": "Live",
+    "buyin": 1000,
+    "rebuys": 1,
+    "totalInvested": 2000,
+    "winnings": 0,
+    "profit": -2000,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-31",
+    "name": "$300 Sat to $2300",
+    "type": "Satellite",
+    "site": "Live",
+    "buyin": 300,
+    "rebuys": 0,
+    "totalInvested": 300,
+    "winnings": 2300,
+    "profit": 2000,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-02",
+    "name": "$2300 Super Circu Canadian Campionship",
+    "type": "Standard",
+    "site": "Live",
+    "buyin": 2300,
+    "rebuys": 1,
+    "totalInvested": 4600,
+    "winnings": 4850,
+    "profit": 250,
     "onlyBounty": false
   },
   {
