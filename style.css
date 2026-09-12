@@ -137,7 +137,7 @@ section + section {
   margin-top: 14px;
 }
 
-/* ---------- video ---------- */
+/* ---------- twitch schedule (footer) ---------- */
 
 .twitch-schedule {
   display: flex;
@@ -174,37 +174,307 @@ section + section {
   font-size: 14px;
 }
 
-.video-wrap {
-  padding: 0;
+/* An author `display` beats the UA stylesheet's [hidden] rule, so anything this page
+   toggles with el.hidden needs the win spelled out. */
+[hidden] { display: none !important; }
+
+.positive { color: var(--positive); }
+.negative { color: var(--negative); }
+.neutral { color: var(--text-secondary); }
+
+/* ---------- hero: road to $100k ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-top,
+.session-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+
+.hero-pace {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-figure-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.hero-figure {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-pct {
+  font-size: 14px;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.hero-chart {
+  margin-top: 18px;
+}
+
+/* The width/height attributes are set by the script to the container's own pixel size,
+   so SVG units are CSS pixels and nothing is scaled. Don't add a width here. */
+.hero-svg { display: block; }
+
+.hero-svg .grid {
+  stroke: #232321;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.hero-svg .grid-goal {
+  stroke: var(--gold-dim);
+  stroke-dasharray: 5 4;
+}
+
+.hero-svg .grid-zero { stroke: #34342f; }
+
+.hero-svg .pace {
+  stroke: #4a4a44;
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+.hero-svg .area { fill: url(#areaFade); stroke: none; }
+
+.hero-svg .curve {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  /* Without this the horizontal stretch would thicken the line unevenly. */
+  vector-effect: non-scaling-stroke;
+}
+
+.hero-svg .axis {
+  fill: var(--text-muted);
+  font-size: 11px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.hero-svg .spade {
+  fill: var(--gold-light);
+  font-size: 19px;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 14px;
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.hero-stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.hero-stat-value {
+  font-size: 19px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.hero-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.hero-link:hover { color: var(--gold-light); text-decoration: underline; }
+
+/* ---------- last session ---------- */
+
+.session-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.session-date:hover { text-decoration: underline; }
+
+.session-figures {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.session-figure {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.session-meta {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.site-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.site-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 11px;
+}
+
+.site-chip b { font-variant-numeric: tabular-nums; }
+.site-chip.positive b { color: var(--positive); }
+.site-chip.negative b { color: var(--negative); }
+
+.session-media:not(:empty) { margin-top: 18px; }
+
+.session-clip {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 560px;
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: 10px;
   overflow: hidden;
 }
 
-.video-wrap iframe,
-.video-wrap video {
+.session-clip iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   border: 0;
+}
+
+.session-cliplink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.session-cliplink:hover { border-color: var(--gold-dim); }
+
+.clip-badge {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+
+/* Fixed four columns, not auto-fill: the exporter caps this at four photos, and
+   auto-fill would spread them into seven thin columns on a wide card. */
+.session-shots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.session-clip + .session-shots { margin-top: 12px; }
+
+.session-shots img {
   display: block;
-  background: #000;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-/* Shorts are vertical (9:16) — constrain width so the card doesn't run tall on wide screens */
-.shorts-wrap {
-  max-width: 400px;
-  margin: 0 auto;
+.session-shots a:hover img {
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
 }
 
-.shorts-wrap iframe,
-.shorts-wrap video {
-  aspect-ratio: 9 / 16;
-}
+/* ---------- secondary links ---------- */
 
-/* ---------- road to 100k cta ---------- */
+/* Three across on desktop: with the hero and last session above them these are
+   navigation now, not the main event. */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
 
 .cta-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-decoration: none;
   text-align: center;
+  padding: 22px 18px;
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
@@ -215,49 +485,40 @@ section + section {
 
 .cta-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--gold);
+  line-height: 1.15;
 }
 
 .cta-sub {
-  margin-top: 6px;
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-
-.mini-meter {
-  margin-top: 18px;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--gold-track);
-  overflow: hidden;
-}
-
-.mini-meter-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
-  border-radius: 999px;
-  transition: width 1s ease;
-}
-
-.mini-meter-caption {
   margin-top: 8px;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 13px;
+  line-height: 1.5;
 }
 
-.mini-meter-amount {
-  font-weight: 700;
+/* ---------- footer ---------- */
+
+.site-footer {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
 }
 
-.mini-meter-amount.positive { color: var(--positive); }
-.mini-meter-amount.negative { color: var(--negative); }
+.site-footer .twitch-schedule { margin-bottom: 0; }
 
 /* ---------- responsive ---------- */
 
+@media (max-width: 760px) {
+  .link-grid { grid-template-columns: 1fr; }
+  .cta-title { font-size: 26px; }
+}
+
 @media (max-width: 520px) {
-  .brand-name {
-    font-size: 40px;
-  }
+  .brand-name { font-size: 40px; }
+  .hero-figure { font-size: 40px; }
+  .session-figure { font-size: 30px; }
+  .session-shots { grid-template-columns: repeat(2, 1fr); }
+  .card { padding: 18px; }
 }

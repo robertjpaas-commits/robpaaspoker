@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="style.css?v=20">
 </head>
 <body>
   <div class="page">
@@ -27,39 +27,62 @@
       </nav>
     </header>
 
-    <section>
+    <!-- ── The hero: 2026 progress, the curve, and pace against the goal ── -->
+    <section class="card hero">
+      <div class="hero-top">
+        <div class="hero-eyebrow">2026 Road to $100K</div>
+        <div class="hero-pace" id="hero-pace"></div>
+      </div>
+
+      <div class="hero-figure-row">
+        <div class="hero-figure" id="hero-total">&nbsp;</div>
+        <div class="hero-pct" id="hero-pct"></div>
+      </div>
+
+      <div class="hero-chart" id="hero-chart" role="img"
+           aria-label="Cumulative 2026 profit against the $100,000 goal"></div>
+
+      <div class="hero-stats" id="hero-stats"></div>
+
+      <a class="hero-link" href="Roadto$100k/">Full calendar &amp; daily breakdown &rarr;</a>
+    </section>
+
+    <!-- ── Most recent session, from daily/data/latest.json ── -->
+    <section class="card session" id="session" hidden>
+      <div class="session-top">
+        <div class="hero-eyebrow">Last Session</div>
+        <a class="session-date" id="session-date" href="#"></a>
+      </div>
+
+      <div class="session-figures">
+        <div class="session-figure" id="session-total"></div>
+        <div class="session-meta" id="session-meta"></div>
+      </div>
+
+      <div class="site-chips" id="session-sites"></div>
+
+      <div class="session-media" id="session-media"></div>
+
+      <a class="hero-link" id="session-link" href="#">Full day breakdown &rarr;</a>
+    </section>
+
+    <!-- ── Everything else ── -->
+    <section class="link-grid">
       <a class="card cta-card" href="about/">
         <div class="cta-title">About Me</div>
         <div class="cta-sub">Who I am, my story, and how I ended up playing poker for a living &rarr;</div>
       </a>
-    </section>
-
-    <section>
-      <a class="card cta-card" href="Roadto$100k/">
-        <div class="cta-title">Road to $100K</div>
-        <div class="cta-sub">Follow the 2026 challenge &mdash; daily profit, a full calendar, and progress toward $100,000 &rarr;</div>
-        <div class="mini-meter">
-          <div class="mini-meter-fill" id="mini-meter-fill" style="width: 0%"></div>
-        </div>
-        <div class="mini-meter-caption"><span id="mini-meter-amount" class="mini-meter-amount">&nbsp;</span><span id="mini-meter-rest"></span></div>
-      </a>
-    </section>
-
-    <section>
       <a class="card cta-card" href="results/">
         <div class="cta-title">Tournament Results</div>
-        <div class="cta-sub">Every online tournament, logged &mdash; filter by site, stake, and type, see the full breakdown &rarr;</div>
+        <div class="cta-sub">Every online tournament, logged &mdash; filter by site, stake and type &rarr;</div>
       </a>
-    </section>
-
-    <section>
       <a class="card cta-card" href="http://www.finaltable.academy/" target="_blank" rel="noopener sponsored">
         <div class="cta-title">Final Table Academy</div>
         <div class="cta-sub">The poker training I use &mdash; use code <strong>RPAAS</strong> at checkout &rarr;</div>
       </a>
     </section>
 
-    <section>
+    <footer class="site-footer">
       <div class="twitch-schedule">
         <a class="twitch-wordmark" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener">
           <img src="https://cdn.simpleicons.org/twitch/9146FF" alt="" loading="lazy">
@@ -67,35 +90,233 @@
         </a>
         <span class="schedule-text">Live Thursday&ndash;Monday &middot; 4PM&ndash;1AM</span>
       </div>
-      <div class="card video-wrap shorts-wrap">
-        <!-- Self-hosted clip pulled from X: assets/featured-clip.mp4. Native <video> controls
-             have a working volume slider, unlike the TikTok/YouTube embeds tried before this. -->
-        <video
-          src="assets/featured-clip.mp4"
-          poster="assets/featured-clip-poster.jpg"
-          controls
-          playsinline
-          preload="metadata">
-        </video>
-      </div>
-    </section>
+    </footer>
 
   </div>
 
   <script>
-    fetch('Roadto$100k/data/2026.json', { cache: 'no-store' })
+    const MONTH_INITIALS = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+
+    function fmtMoney(value, { signed = false, compact = false } = {}) {
+      const sign = value < -0.005 ? "-" : (signed && value > 0.005 ? "+" : "");
+      const abs = Math.abs(value);
+      const body = compact && abs >= 1000
+        ? (abs / 1000).toFixed(abs >= 10000 ? 0 : 1) + "K"
+        : abs.toLocaleString("en-US", { maximumFractionDigits: 0 });
+      return `${sign}$${body}`;
+    }
+
+    function signClass(value) {
+      if (value > 0.005) return "positive";
+      if (value < -0.005) return "negative";
+      return "neutral";
+    }
+
+    /* ---------------- hero chart ---------------- */
+
+    // Every date of the year as "YYYY-MM-DD", so the x-axis spans all 12 months and the
+    // gap between the last session and New Year's Eve reads as runway still to play.
+    function fullYearDates(year) {
+      const start = Date.UTC(year, 0, 1);
+      const count = Math.round((Date.UTC(year, 11, 31) - start) / 86400000) + 1;
+      return Array.from({ length: count }, (_, i) =>
+        new Date(start + i * 86400000).toISOString().slice(0, 10));
+    }
+
+    // Hand-built SVG rather than a charting library: this is the first thing on the page,
+    // and Chart.js would be ~200KB of blocking script for one static curve.
+    //
+    // The viewBox is sized to the container's real pixel width so SVG units are CSS
+    // pixels, 1:1. Scaling a fixed viewBox instead would either distort the axis labels
+    // (preserveAspectRatio="none") or shrink them to a few pixels on a phone.
+    function renderHeroChart(data) {
+      const host = document.getElementById("hero-chart");
+      const W = Math.max(300, Math.round(host.clientWidth));
+      const H = W < 520 ? 190 : 260;
+      const padL = 46, padR = 12, padT = 14, padB = 22;
+      const labels = fullYearDates(data.year);
+      const byDate = new Map(data.days.map((d) => [d.date, d]));
+      const lastDate = data.days.length ? data.days[data.days.length - 1].date : null;
+
+      let running = 0;
+      const series = labels.map((date) => {
+        const entry = byDate.get(date);
+        if (entry) { running += entry.total; return running; }
+        if (lastDate && date <= lastDate) return running;   // untracked gap: carry flat
+        return null;                                        // future: no line
+      });
+
+      const real = series.filter((v) => v !== null);
+      if (!real.length) return;
+      const yMax = Math.max(data.goal, ...real);
+      const yMin = Math.min(0, ...real);
+
+      const x = (i) => padL + (i / (labels.length - 1)) * (W - padL - padR);
+      const y = (v) => padT + (1 - (v - yMin) / (yMax - yMin)) * (H - padT - padB);
+
+      const parts = [];
+
+      // Horizontal gridlines every $25K inside the visible range, plus the zero line.
+      const lines = [];
+      for (let v = Math.ceil(yMin / 25000) * 25000; v <= yMax; v += 25000) lines.push(v);
+      if (yMin < 0 && !lines.includes(0)) lines.push(0);
+      for (const v of lines) {
+        const isGoal = Math.abs(v - data.goal) < 1;
+        const isZero = Math.abs(v) < 1;
+        parts.push(
+          `<line class="grid${isGoal ? " grid-goal" : ""}${isZero ? " grid-zero" : ""}" ` +
+          `x1="${padL}" y1="${y(v).toFixed(1)}" x2="${W - padR}" y2="${y(v).toFixed(1)}"></line>`,
+          `<text class="axis" x="${padL - 8}" y="${(y(v) + 3.5).toFixed(1)}" text-anchor="end">` +
+          `${v === 0 ? "$0" : fmtMoney(v, { compact: true })}</text>`);
+      }
+
+      // Month initials along the bottom, positioned at each month's first day.
+      labels.forEach((date, i) => {
+        if (!date.endsWith("-01")) return;
+        const month = Number(date.slice(5, 7)) - 1;
+        parts.push(`<text class="axis" x="${x(i).toFixed(1)}" y="${H - 6}" ` +
+          `text-anchor="middle">${MONTH_INITIALS[month]}</text>`);
+      });
+
+      // The pace line: dead-even progress from $0 on Jan 1 to the goal on Dec 31. The
+      // gap between it and the gold curve is the whole story of the challenge.
+      parts.push(`<line class="pace" x1="${x(0)}" y1="${y(0).toFixed(1)}" ` +
+        `x2="${x(labels.length - 1)}" y2="${y(data.goal).toFixed(1)}"></line>`);
+
+      const pts = series
+        .map((v, i) => (v === null ? null : [x(i), y(v)]))
+        .filter(Boolean);
+      const line = pts.map(([px, py], i) =>
+        `${i ? "L" : "M"}${px.toFixed(1)} ${py.toFixed(1)}`).join(" ");
+      const base = y(Math.max(yMin, 0)).toFixed(1);
+      parts.push(
+        `<path class="area" d="${line} L${pts[pts.length - 1][0].toFixed(1)} ${base} ` +
+        `L${pts[0][0].toFixed(1)} ${base} Z"></path>`,
+        `<path class="curve" d="${line}"></path>`);
+
+      // Gold spade marking "you are here" — the same flourish the calendar page uses.
+      const [endX, endY] = pts[pts.length - 1];
+      parts.push(`<text class="spade" x="${endX.toFixed(1)}" y="${endY.toFixed(1)}" ` +
+        `text-anchor="middle" dominant-baseline="middle">&#9824;</text>`);
+
+      host.innerHTML =
+        `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" class="hero-svg">` +
+        `<defs><linearGradient id="areaFade" x1="0" y1="0" x2="0" y2="1">` +
+        `<stop offset="0%" stop-color="#c9a84c" stop-opacity="0.34"></stop>` +
+        `<stop offset="100%" stop-color="#c9a84c" stop-opacity="0.02"></stop>` +
+        `</linearGradient></defs>${parts.join("")}</svg>`;
+    }
+
+    function renderHero(data) {
+      const total = data.days.reduce((sum, d) => sum + d.total, 0);
+      const totalEl = document.getElementById("hero-total");
+      totalEl.textContent = fmtMoney(total, { signed: true });
+      totalEl.classList.add(signClass(total));
+
+      const pct = (total / data.goal) * 100;
+      document.getElementById("hero-pct").textContent =
+        `${pct.toFixed(1)}% of $100,000`;
+
+      // Pace measured against the calendar, not against days played: the goal is for the
+      // year, so a day not played is still a day of the year gone.
+      const yearStart = Date.UTC(data.year, 0, 1);
+      const yearDays = Math.round((Date.UTC(data.year, 11, 31) - yearStart) / 86400000) + 1;
+      const lastDate = data.days.length ? data.days[data.days.length - 1].date : null;
+      if (lastDate) {
+        const elapsed = Math.round(
+          (Date.parse(lastDate + "T00:00:00Z") - yearStart) / 86400000) + 1;
+        const delta = total - data.goal * (elapsed / yearDays);
+        const paceEl = document.getElementById("hero-pace");
+        paceEl.textContent = `${fmtMoney(Math.abs(delta), { compact: true })} ` +
+          `${delta >= 0 ? "ahead of" : "behind"} pace`;
+        paceEl.className = "hero-pace " + (delta >= 0 ? "positive" : "negative");
+      }
+
+      const played = data.days.filter((d) => (d.hours || 0) > 0);
+      const hours = data.days.reduce((sum, d) => sum + (d.hours || 0), 0);
+      const best = played.length
+        ? played.reduce((a, b) => (b.total > a.total ? b : a)).total : 0;
+      const stats = [
+        ["Days played", played.length.toLocaleString()],
+        ["Avg / day", fmtMoney(played.length ? total / played.length : 0, { signed: true })],
+        ["Best day", fmtMoney(best, { signed: true })],
+        ["Hourly", hours > 0 ? fmtMoney(total / hours, { signed: true }) + "/hr" : "—"],
+      ];
+      document.getElementById("hero-stats").innerHTML = stats.map(([label, value]) =>
+        `<div class="hero-stat"><div class="hero-stat-label">${label}</div>` +
+        `<div class="hero-stat-value">${value}</div></div>`).join("");
+
+      renderHeroChart(data);
+    }
+
+    /* ---------------- last session ---------------- */
+
+    function renderSession(session) {
+      if (!session) return;
+
+      const dateEl = document.getElementById("session-date");
+      dateEl.textContent = session.pretty;
+      dateEl.href = session.url;
+      document.getElementById("session-link").href = session.url;
+
+      const totalEl = document.getElementById("session-total");
+      totalEl.textContent = fmtMoney(session.total, { signed: true });
+      totalEl.className = "session-figure " + signClass(session.total);
+
+      const meta = [];
+      if (session.hours > 0) {
+        meta.push(`${session.hours}${session.hours === 1 ? " hr" : " hrs"}`);
+        meta.push(`${fmtMoney(session.total / session.hours, { signed: true })}/hr`);
+      }
+      document.getElementById("session-meta").textContent = meta.join(" · ");
+
+      document.getElementById("session-sites").innerHTML = session.sites.map((s) =>
+        `<span class="site-chip ${signClass(s.value)}">${s.name}` +
+        `<b>${fmtMoney(s.value, { signed: true })}</b></span>`).join("");
+
+      const media = [];
+      if (session.clip && session.clip.mode === "iframe") {
+        media.push(
+          `<div class="session-clip"><iframe src="${session.clip.embed}" ` +
+          `title="${session.clip.title}" loading="lazy" allowfullscreen ` +
+          `allow="autoplay; fullscreen; picture-in-picture" ` +
+          `referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`);
+      } else if (session.clip) {
+        media.push(
+          `<a class="session-cliplink" href="${session.clip.url}" target="_blank" ` +
+          `rel="noopener"><span class="clip-badge">${session.clip.platform}</span>` +
+          `<span>${session.clip.title}</span></a>`);
+      }
+      if (session.photos.length) {
+        media.push(`<div class="session-shots">` + session.photos.map((p) =>
+          `<a href="${session.url}"><img src="${p.src}" loading="lazy" ` +
+          `alt="${p.caption || "Photo from " + session.pretty}"></a>`).join("") + `</div>`);
+      }
+      document.getElementById("session-media").innerHTML = media.join("");
+
+      document.getElementById("session").hidden = false;
+    }
+
+    /* ---------------- boot ---------------- */
+
+    // Both fetches are independent, so one failing must not blank the other section.
+    fetch("Roadto$100k/data/2026.json", { cache: "no-store" })
       .then((r) => r.json())
-      .then((d) => {
-        const total = d.days.reduce((sum, day) => sum + day.total, 0);
-        const pct = Math.max(0, Math.min(100, (total / d.goal) * 100));
-        const sign = total < 0 ? '-' : '+';
-        const amount = Math.abs(total).toLocaleString('en-US', { maximumFractionDigits: 0 });
-        document.getElementById('mini-meter-fill').style.width = pct.toFixed(1) + '%';
-        const amountEl = document.getElementById('mini-meter-amount');
-        amountEl.textContent = `${sign}$${amount}`;
-        amountEl.className = 'mini-meter-amount ' + (total >= 0 ? 'positive' : 'negative');
-        document.getElementById('mini-meter-rest').textContent = ` · ${pct.toFixed(1)}% to $100K`;
+      .then((data) => {
+        renderHero(data);
+        // The chart is drawn at the container's pixel width, so it has to be redrawn
+        // when that width changes — a phone rotating, or a desktop window resize.
+        let timer;
+        window.addEventListener("resize", () => {
+          clearTimeout(timer);
+          timer = setTimeout(() => renderHeroChart(data), 150);
+        });
       })
+      .catch(() => {});
+
+    fetch("daily/data/latest.json", { cache: "no-store" })
+      .then((r) => r.json())
+      .then((d) => renderSession(d.session))
       .catch(() => {});
   </script>
 </body>

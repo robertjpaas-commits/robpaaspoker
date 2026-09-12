@@ -103,6 +103,22 @@ function addTooltipNote(tip, text) {
   tip.appendChild(line);
 }
 
+// What's on the day page beyond the money — photos, clips, checklist — plus the hint
+// that the cell is clickable at all. All three fields come from export_daily_pages.py.
+function addDayExtras(tip, entry) {
+  if (!entry.page) return;
+  const bits = [];
+  if (entry.photos) bits.push(`${entry.photos} photo${entry.photos === 1 ? "" : "s"}`);
+  if (entry.clips) bits.push(`${entry.clips} clip${entry.clips === 1 ? "" : "s"}`);
+  if (entry.habits && entry.habits[1]) bits.push(`${entry.habits[0]}/${entry.habits[1]} checklist`);
+  if (bits.length) addTooltipNote(tip, bits.join(" · "));
+
+  const cta = document.createElement("div");
+  cta.className = "tt-line tt-cta";
+  cta.textContent = "View day →";
+  tip.appendChild(cta);
+}
+
 /* ---------------- hero ---------------- */
 
 function renderHero() {
@@ -237,7 +253,13 @@ function renderCalendar() {
     for (let d = 1; d <= daysInMonthCount; d++) {
       const dateStr = `${DATA.year}-${String(month).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
       const entry = dayMap.get(dateStr);
-      const cell = document.createElement("div");
+      // `page` is set by export_daily_pages.py for every date it actually generated a
+      // file for, so a cell only ever links to a page that exists.
+      const hasPage = Boolean(entry && entry.page);
+      const cell = document.createElement(hasPage ? "a" : "div");
+      if (hasPage) {
+        cell.href = `../daily/${dateStr}.html`;
+      }
 
       const dateLabel = `${MONTH_NAMES[month - 1]} ${d}`;
 
@@ -280,7 +302,19 @@ function renderCalendar() {
         } else {
           addTooltipLine(tip, `${DATA.site_names[currentSite] || currentSite}: `, value, false);
         }
+        addDayExtras(tip, entry);
         cell.appendChild(tip);
+      }
+
+      if (hasPage) {
+        cell.classList.add("has-page");
+        // A marker dot, not a count: the cell is 9px of text already and the tooltip
+        // carries the actual numbers.
+        if (entry.photos || entry.clips) {
+          const dot = document.createElement("span");
+          dot.className = "day-dot";
+          cell.appendChild(dot);
+        }
       }
 
       daysRow.appendChild(cell);

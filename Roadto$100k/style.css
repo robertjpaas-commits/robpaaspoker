@@ -493,3 +493,53 @@ section + section {
     font-size: 40px;
   }
 }
+
+/* ---------- clickable day cells (day pages under /daily/) ---------- */
+
+/* Cells with a day page are anchors; the rest stay plain divs. */
+a.day-cell {
+  text-decoration: none;
+  cursor: pointer;
+  transition: outline-color 0.12s;
+  outline: 1px solid transparent;
+  outline-offset: 0;
+}
+
+a.day-cell:hover,
+a.day-cell:focus-visible {
+  outline-color: var(--gold);
+  z-index: 2;
+}
+
+a.day-cell.no-session { color: var(--text-secondary); }
+
+/* Gold pip in the corner = the day page has photos or clips on it. */
+.day-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+}
+
+.tt-cta {
+  text-align: center;
+  color: var(--gold);
+  font-weight: 700;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.calendar-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.calendar-note a { color: var(--gold); text-decoration: none; }
+.calendar-note a:hover { text-decoration: underline; }

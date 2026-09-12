@@ -1,0 +1,569 @@
+/* Day pages at /daily/. Palette and header treatment mirror Roadto$100k/style.css —
+   change it there first, then mirror here. Bump CSS_VERSION in export_daily_pages.py
+   after editing this file, or published pages will serve a cached copy. */
+
+:root {
+  --bg: #0d0d0d;
+  --card-bg: #1a1a1a;
+  --surface2: #141414;
+  --text: #e8e2d6;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --border: #2a2a2a;
+  --gridline: #2c2c2a;
+  --gold: #c9a84c;
+  --gold-light: #e8cc7a;
+  --gold-dim: #7a5e28;
+  --gold-track: #3a2f16;
+  --positive: #22c55e;
+  --positive-dim: #143a24;
+  --negative: #ef4444;
+  --negative-dim: #3a1616;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body.lb-open { overflow: hidden; }
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 18px 72px;
+}
+
+/* ---------- header (mirrors the other sub-sites) ---------- */
+
+.site-header { text-align: center; margin-bottom: 26px; }
+
+.brand-name {
+  display: inline-block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-name span { color: var(--gold); }
+
+.brand-rule {
+  height: 1px;
+  margin: 10px auto 14px;
+  max-width: 420px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  opacity: 0.72;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.social-icon:hover { opacity: 1; transform: translateY(-1px); }
+.social-icon img { width: 17px; height: 17px; display: block; }
+
+/* Kick's brand mark is black, so it needs a light plate to be visible at all. */
+.social-icon.kick img {
+  background: #53fc18;
+  border-radius: 3px;
+  padding: 1px;
+}
+
+.page-title {
+  margin-top: 18px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+
+/* ---------- prev / next ---------- */
+
+.day-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.day-nav:last-child { margin: 30px 0 0; }
+
+.day-nav-link,
+.day-nav-home {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--text-secondary);
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.day-nav-link:hover,
+.day-nav-home:hover { border-color: var(--gold-dim); color: var(--gold-light); }
+
+.day-nav-home {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.day-nav-link.disabled {
+  color: var(--text-muted);
+  opacity: 0.4;
+  border-color: transparent;
+}
+
+/* ---------- cards ---------- */
+
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.card + .card, section + section { margin-top: 18px; }
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.card-title,
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.muted { color: var(--text-muted); font-size: 13px; margin: 0; }
+
+.positive { color: var(--positive); }
+.negative { color: var(--negative); }
+.neutral { color: var(--text-secondary); }
+
+/* ---------- day figures ---------- */
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* The day's own result is the headline; the rest are supporting figures. */
+.stat:first-child .stat-value { font-size: 34px; }
+
+.site-breakdown {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gridline);
+}
+
+.site-row {
+  display: grid;
+  grid-template-columns: 96px 1fr 96px;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 0;
+}
+
+.site-name {
+  font-size: 13px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-bar {
+  display: block;
+  height: 8px;
+  background: var(--surface2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.site-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.site-bar-fill.positive { background: var(--positive); }
+.site-bar-fill.negative { background: var(--negative); }
+.site-bar-fill.neutral { background: var(--text-muted); }
+
+.site-value {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.goal-strip {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--gridline);
+}
+
+.goal-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 9px;
+}
+
+.meter {
+  height: 7px;
+  background: var(--gold-track);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+}
+
+/* ---------- checklist ---------- */
+
+.check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 8px;
+}
+
+.check-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left-width: 2px;
+  border-radius: 6px;
+}
+
+.check-item.good { border-left-color: var(--positive); }
+.check-item.bad { border-left-color: var(--negative); }
+.check-item.unanswered { border-left-color: var(--border); opacity: 0.6; }
+
+.check-name { font-size: 13px; color: var(--text-secondary); }
+
+.check-value {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.check-item.good .check-value { color: var(--positive); }
+.check-item.bad .check-value { color: var(--negative); }
+.check-item.unanswered .check-value { color: var(--text-muted); }
+
+.streak {
+  grid-column: 1 / -1;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+/* ---------- photos ---------- */
+
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.shot { margin: 0; }
+
+.shot-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  cursor: zoom-in;
+  overflow: hidden;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.shot-btn:hover { border-color: var(--gold-dim); transform: translateY(-2px); }
+.shot-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* Square rather than 4:3: the grid mixes landscape screenshots with portrait phone
+   photos, and a landscape thumb crops a portrait shot down to a middle strip. The
+   lightbox shows the uncropped image either way. */
+.shot-btn img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.shot figcaption {
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* ---------- clips ---------- */
+
+.clip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.clip { margin: 0; }
+
+/* 16:9 box so the iframe reserves its space before the platform's player loads. */
+.clip-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.clip-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.clip figcaption {
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.clip-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.clip-card:hover { border-color: var(--gold-dim); }
+
+.clip-badge {
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+
+.clip-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.clip-go { font-size: 12px; color: var(--text-muted); }
+
+/* ---------- lightbox ---------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 56px;
+  background: rgba(5, 5, 5, 0.94);
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.lb-caption {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80%;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.lb-close, .lb-prev, .lb-next {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  line-height: 1;
+  padding: 8px 14px;
+}
+
+.lb-close:hover, .lb-prev:hover, .lb-next:hover { color: var(--gold-light); }
+
+.lb-close { top: 10px; right: 14px; font-size: 32px; }
+.lb-prev { left: 6px; font-size: 52px; }
+.lb-next { right: 6px; font-size: 52px; }
+
+/* ---------- archive index ---------- */
+
+.archive {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  /* Without this, a short month stretches to the height of the tallest card on its
+     row and ends in a block of dead space. */
+  align-items: start;
+}
+
+.archive-month {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.archive-month-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--gridline);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.archive-month-head span:last-child { font-variant-numeric: tabular-nums; }
+
+.archive-rows { display: flex; flex-direction: column; }
+
+.archive-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: baseline;
+  gap: 8px;
+  padding: 7px 4px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+.archive-row:hover { background: var(--card-bg); }
+
+.archive-date { font-size: 12px; color: var(--text-muted); }
+
+.archive-value {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.archive-marks {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.mark {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-dim);
+  border: 1px solid var(--gold-track);
+  border-radius: 999px;
+  padding: 1px 6px;
+}
+
+@media (max-width: 560px) {
+  .brand-name { font-size: 30px; }
+  .page-title { font-size: 21px; }
+  .stat:first-child .stat-value { font-size: 28px; }
+  .site-row { grid-template-columns: 78px 1fr 80px; gap: 8px; }
+  .lightbox { padding: 48px 12px; }
+  .lb-prev, .lb-next { font-size: 38px; }
+}
