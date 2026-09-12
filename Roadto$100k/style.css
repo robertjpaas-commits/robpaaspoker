@@ -168,7 +168,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin: 28px 0 20px;
+  margin: 0 0 20px;
 }
 
 .pill {
@@ -343,11 +343,14 @@ section + section {
 
 /* ---------- graph ---------- */
 
+/* Outside the hero, directly above the site pills. Both rows are .pill buttons, so
+   the 12px gap below is what keeps them reading as two separate controls. */
 .graph-toggle {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin-top: 22px;
+  margin: 28px 0 12px;
 }
 
 /* No longer its own .card — it sits inside the hero, between the figure and the
@@ -355,7 +358,7 @@ section + section {
 .chart-wrap {
   position: relative;
   height: 250px;
-  margin-top: 4px;
+  margin-top: 18px;
 }
 
 /* ---------- responsive ---------- */
