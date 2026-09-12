@@ -111,6 +111,32 @@
       return "neutral";
     }
 
+    /* ---------------- entrance animation ---------------- */
+
+    // The same opening the Road to $100K page has: the total counts up over 1.6s
+    // (easeOutCubic, as in its animateCountUp) while the curve rises from the $0 line
+    // over 1s (easeOutQuart, Chart.js's default for a line chart's first draw).
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Bumped by every chart draw, so a resize mid-animation stops the old loop rather
+    // than leaving it writing to an SVG that has already been replaced.
+    let chartAnimToken = 0;
+
+    function tween(duration, ease, step, token = null) {
+      if (prefersReducedMotion) { step(1); return; }
+      const start = performance.now();
+      function frame(now) {
+        if (token !== null && token !== chartAnimToken) return;
+        const t = Math.min(1, (now - start) / duration);
+        step(ease(t));
+        if (t < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
     /* ---------------- hero chart ---------------- */
 
     // Every date of the year as "YYYY-MM-DD", so the x-axis spans all 12 months and the
@@ -123,12 +149,13 @@
     }
 
     // Hand-built SVG rather than a charting library: this is the first thing on the page,
-    // and Chart.js would be ~200KB of blocking script for one static curve.
+    // and Chart.js would be ~200KB of blocking script for one curve.
     //
     // The viewBox is sized to the container's real pixel width so SVG units are CSS
     // pixels, 1:1. Scaling a fixed viewBox instead would either distort the axis labels
     // (preserveAspectRatio="none") or shrink them to a few pixels on a phone.
-    function renderHeroChart(data) {
+    function renderHeroChart(data, { animate = false } = {}) {
+      const token = (chartAnimToken += 1);
       const host = document.getElementById("hero-chart");
       const W = Math.max(300, Math.round(host.clientWidth));
       const H = W < 520 ? 190 : 260;
@@ -190,18 +217,13 @@
       const pts = series
         .map((v, i) => (v === null ? null : [x(i), y(v)]))
         .filter(Boolean);
-      const line = pts.map(([px, py], i) =>
-        `${i ? "L" : "M"}${px.toFixed(1)} ${py.toFixed(1)}`).join(" ");
-      const base = y(Math.max(yMin, 0)).toFixed(1);
-      parts.push(
-        `<path class="area" d="${line} L${pts[pts.length - 1][0].toFixed(1)} ${base} ` +
-        `L${pts[0][0].toFixed(1)} ${base} Z"></path>`,
-        `<path class="curve" d="${line}"></path>`);
+      const base = y(Math.max(yMin, 0));
 
-      // Gold spade marking "you are here" — the same flourish the calendar page uses.
-      const [endX, endY] = pts[pts.length - 1];
-      parts.push(`<text class="spade" x="${endX.toFixed(1)}" y="${endY.toFixed(1)}" ` +
-        `text-anchor="middle" dominant-baseline="middle">&#9824;</text>`);
+      // The curve, its fill and the spade are drawn empty here and positioned by
+      // placeCurve(), which the entrance animation calls once per frame.
+      parts.push(`<path class="area"></path>`, `<path class="curve"></path>`,
+        // Gold spade marking "you are here" — the same flourish the calendar page uses.
+        `<text class="spade" text-anchor="middle" dominant-baseline="middle">&#9824;</text>`);
 
       host.innerHTML =
         `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" class="hero-svg">` +
@@ -209,13 +231,33 @@
         `<stop offset="0%" stop-color="#c9a84c" stop-opacity="0.34"></stop>` +
         `<stop offset="100%" stop-color="#c9a84c" stop-opacity="0.02"></stop>` +
         `</linearGradient></defs>${parts.join("")}</svg>`;
+
+      const areaEl = host.querySelector(".area");
+      const curveEl = host.querySelector(".curve");
+      const spadeEl = host.querySelector(".spade");
+
+      // p = 0 lays every point flat on the $0 line, p = 1 is the real curve. Rising
+      // from $0 rather than the bottom edge matches Chart.js's first-draw animation.
+      function placeCurve(p) {
+        const line = pts.map(([px, py], i) =>
+          `${i ? "L" : "M"}${px.toFixed(1)} ${(base + (py - base) * p).toFixed(1)}`).join(" ");
+        curveEl.setAttribute("d", line);
+        areaEl.setAttribute("d", `${line} L${pts[pts.length - 1][0].toFixed(1)} ` +
+          `${base.toFixed(1)} L${pts[0][0].toFixed(1)} ${base.toFixed(1)} Z`);
+        const [endX, endY] = pts[pts.length - 1];
+        spadeEl.setAttribute("x", endX.toFixed(1));
+        spadeEl.setAttribute("y", (base + (endY - base) * p).toFixed(1));
+      }
+
+      if (animate) tween(1000, easeOutQuart, placeCurve, token);
+      else placeCurve(1);
     }
 
     function renderHero(data) {
       const total = data.days.reduce((sum, d) => sum + d.total, 0);
       const totalEl = document.getElementById("hero-total");
-      totalEl.textContent = fmtMoney(total, { signed: true });
       totalEl.classList.add(signClass(total));
+      tween(1600, easeOutCubic, (p) => { totalEl.textContent = fmtMoney(total * p, { signed: true }); });
 
       // Pace measured against the calendar, not against days played: the goal is for the
       // year, so a day not played is still a day of the year gone.
@@ -250,7 +292,7 @@
         `<div class="hero-stat-value ${money === null ? "" : signClass(money)}">${value}</div>` +
         `</div>`).join("");
 
-      renderHeroChart(data);
+      renderHeroChart(data, { animate: true });
     }
 
     /* ---------------- last session ---------------- */
