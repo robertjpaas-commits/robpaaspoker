@@ -35,17 +35,16 @@ body {
 
 .site-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 26px;
 }
 
 .brand-name {
   display: inline-block;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 52px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 38px;
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.02em;
-  line-height: 1;
   text-decoration: none;
 }
 
@@ -54,10 +53,10 @@ body {
 }
 
 .brand-rule {
-  width: 80px;
+  max-width: 420px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 16px auto 0;
+  margin: 10px auto 14px;
 }
 
 .social-row {
@@ -515,9 +514,12 @@ section + section {
 }
 
 @media (max-width: 520px) {
-  .brand-name { font-size: 40px; }
   .hero-figure { font-size: 40px; }
   .session-figure { font-size: 30px; }
   .session-shots { grid-template-columns: repeat(2, 1fr); }
   .card { padding: 18px; }
+}
+
+@media (max-width: 560px) {
+  .brand-name { font-size: 30px; }
 }
