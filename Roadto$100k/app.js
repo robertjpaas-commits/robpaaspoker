@@ -73,6 +73,24 @@ function fullYearLabels(year) {
   );
 }
 
+// Bounds for a single site's cumulative axis. Chart.js fits one tight to the data,
+// which parks the peak flat against the top of the plot. This rounds out to a "nice"
+// step and then adds one more step of headroom, so the line always has room above it.
+// Not used for All Sites — that axis is pinned to the $100K goal on purpose.
+function paddedAxis(values) {
+  const lo = Math.min(0, ...values);
+  const hi = Math.max(0, ...values);
+  const span = (hi - lo) || 1;
+  const rough = span / 6;                       // aim for roughly six gridlines
+  const mag = Math.pow(10, Math.floor(Math.log10(rough)));
+  const norm = rough / mag;
+  const step = (norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10) * mag;
+  return {
+    min: lo < 0 ? Math.floor(lo / step) * step : 0,
+    max: Math.ceil(hi / step) * step + step,
+  };
+}
+
 // Indices (into `labels`) that land on the 1st of a month — the only x-axis ticks we show.
 function monthStartIndices(labels) {
   const set = new Set();
@@ -144,15 +162,6 @@ function renderHero({ animate = false } = {}) {
     cancelCountUp();
     heroEl.textContent = fmtMoney(total, { signed: true });
   }
-
-  // The progress bar that used to sit here was replaced by the chart below, which
-  // shows the same climb with far more detail. This keeps the one thing the bar said
-  // that the chart doesn't state outright — and per site it reads as that site's own
-  // contribution toward the goal.
-  const pctOfGoal = (total / DATA.goal) * 100;
-  document.getElementById("hero-goal").textContent = isAll
-    ? `${pctOfGoal.toFixed(1)}% of ${fmtMoney(DATA.goal)}`
-    : `${DATA.site_names[currentSite] || currentSite} · ${pctOfGoal.toFixed(1)}% of the ${fmtMoney(DATA.goal)} goal`;
 
   // Across every site, "played" means a day with logged session hours. For a single
   // site there are no per-site hours to filter on — one session covers every table on
@@ -535,7 +544,7 @@ function renderChart() {
                 min: Math.min(0, Math.floor(Math.min(...realCumulative) / 5000) * 5000),
                 max: Math.max(DATA.goal, ...realCumulative),
               }
-            : { ...commonScales.y },
+            : { ...commonScales.y, ...paddedAxis(realCumulative) },
         },
       },
     });

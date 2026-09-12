@@ -71,14 +71,6 @@ body {
   margin-top: 16px;
 }
 
-.page-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--gold);
-  margin-top: 22px;
-}
-
 .social-icon {
   display: flex;
   align-items: center;
@@ -132,20 +124,13 @@ body {
 }
 
 .hero-figure {
-  font-size: 56px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1;
 }
 
 .hero-figure.positive { color: var(--positive); }
 .hero-figure.negative { color: var(--negative); }
-
-/* Carries the "% of $100,000" the progress bar used to show. */
-.hero-goal {
-  font-size: 15px;
-  color: var(--text-muted);
-  letter-spacing: 0.02em;
-}
 
 .stat-row {
   display: grid;
@@ -387,7 +372,7 @@ section + section {
     grid-template-columns: repeat(2, 1fr);
   }
   .hero-figure {
-    font-size: 40px;
+    font-size: 32px;
   }
   .chart-wrap {
     height: 230px;
