@@ -115,22 +115,37 @@ body {
   margin-bottom: 24px;
 }
 
-.hero-value-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+/* The total is the chart's heading, not a banner over it: left-aligned with the
+   y-axis, under a label saying whose total it is (the site filter changes it). */
+.hero-head {
+  text-align: left;
+}
+
+.hero-label {
+  color: var(--text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
 }
 
 .hero-figure {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1;
 }
 
 .hero-figure.positive { color: var(--positive); }
 .hero-figure.negative { color: var(--negative); }
+
+/* The logo's gold rule, fading one way only so it reads as an underline for a
+   left-aligned figure. Gold whatever the sign: it frames the figure. */
+.hero-rule {
+  width: 120px;
+  height: 1px;
+  margin-top: 12px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
 
 .stat-row {
   display: grid;
@@ -375,7 +390,7 @@ section + section {
     grid-template-columns: repeat(2, 1fr);
   }
   .hero-figure {
-    font-size: 32px;
+    font-size: 30px;
   }
   .chart-wrap {
     height: 200px;

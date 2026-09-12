@@ -154,6 +154,9 @@ function renderHero({ animate = false } = {}) {
   const isAll = currentSite === "ALL";
   const total = days.reduce((sum, d) => sum + dayValue(d), 0);
 
+  document.getElementById("hero-label").textContent =
+    `${isAll ? "All sites" : DATA.site_names[currentSite] || currentSite} · ${DATA.year} profit`;
+
   const heroEl = document.getElementById("hero-total");
   heroEl.className = "hero-figure " + (total >= 0 ? "positive" : "negative");
   if (animate) {
@@ -172,14 +175,14 @@ function renderHero({ animate = false } = {}) {
   const activeTotal = activeDays.reduce((sum, d) => sum + dayValue(d), 0);
 
   // Hours are only ever the session's total. Per site that's the hours logged on the
-  // days that site was active, not hours spent on the site itself — the tile is
-  // relabelled and given a title so it can't be read as the latter.
+  // days that site was active, not hours spent on the site itself. The tile reads
+  // "Hours played" either way; its title spells out the per-site meaning.
   const hours = (isAll ? days : activeDays)
     .reduce((sum, d) => sum + (d.hours || 0), 0);
 
   document.getElementById("label-days").textContent = isAll ? "Days played" : "Days active";
   document.getElementById("label-avg").textContent = isAll ? "Avg / day played" : "Avg / active day";
-  document.getElementById("label-hours").textContent = isAll ? "Total hours" : "Hours those days";
+  document.getElementById("label-hours").textContent = "Hours played";
   document.getElementById("label-hourly").textContent = "Hourly rate";
 
   const perSiteNote = isAll ? "" :
