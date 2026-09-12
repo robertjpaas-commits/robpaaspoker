@@ -177,8 +177,7 @@ body.lb-open { overflow: hidden; }
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-.card-title,
-.section-label {
+.card-title {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -245,23 +244,49 @@ body.lb-open { overflow: hidden; }
   white-space: nowrap;
 }
 
+/* Diverging bars. The track is split at its centre by a thin zero line; a win grows
+   right from it in green, a loss grows left in red. The generator sets each fill's
+   width as a share of the whole track (the biggest result in either direction gets
+   50%), and the sign class decides which side it's anchored to. */
 .site-bar {
+  position: relative;
   display: block;
-  height: 8px;
+  height: 10px;
   background: var(--surface2);
   border-radius: 999px;
-  overflow: hidden;
+}
+
+.site-bar::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -3px;
+  width: 1px;
+  background: var(--gridline);
+  transform: translateX(-0.5px);
 }
 
 .site-bar-fill {
-  display: block;
-  height: 100%;
-  border-radius: 999px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
 
-.site-bar-fill.positive { background: var(--positive); }
-.site-bar-fill.negative { background: var(--negative); }
-.site-bar-fill.neutral { background: var(--text-muted); }
+/* Rounded only at the outer end; the end touching the zero line stays square. */
+.site-bar-fill.positive {
+  left: 50%;
+  background: var(--positive);
+  border-radius: 0 999px 999px 0;
+}
+
+.site-bar-fill.negative {
+  right: 50%;
+  background: var(--negative);
+  border-radius: 999px 0 0 999px;
+}
+
+.site-bar-fill.neutral { display: none; }
 
 .site-value {
   font-size: 13px;
