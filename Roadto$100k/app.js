@@ -128,17 +128,11 @@ function renderHero() {
   heroEl.className = "hero-figure " + (total >= 0 ? "positive" : "negative");
   animateCountUp(heroEl, total, 1600, (v) => fmtMoney(v, { signed: true }));
 
-  const pct = Math.max(0, Math.min(100, (total / DATA.goal) * 100));
-  const fillEl = document.getElementById("meter-fill");
-  const tipEl = document.getElementById("meter-tip");
-  // Double rAF so the browser commits the 0% starting state to a frame before the
-  // target width is applied — otherwise the CSS width transition never fires.
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      fillEl.style.width = pct.toFixed(1) + "%";
-      tipEl.style.left = pct.toFixed(1) + "%";
-    });
-  });
+  // The progress bar that used to sit here was replaced by the chart below, which
+  // shows the same climb with far more detail. This keeps the one thing the bar said
+  // that the chart doesn't state outright.
+  document.getElementById("hero-goal").textContent =
+    `${((total / DATA.goal) * 100).toFixed(1)}% of ${fmtMoney(DATA.goal)}`;
 
   // "Played" = a day with logged session hours, not just a balance-carry entry.
   const playedDays = days.filter((d) => (d.hours || 0) > 0);
@@ -329,6 +323,28 @@ function renderCalendar() {
 
 // Draws a gold spade at the last real (non-null) point of the cumulative line —
 // a little flourish marking "you are here". No-op for the daily bar chart.
+// Dashed line across the top of the cumulative chart at the $100K goal. Cumulative
+// mode only — on the daily bars a $100K line would be meaningless.
+const goalLinePlugin = {
+  id: "goalLine",
+  afterDatasetsDraw(chartInstance) {
+    const yScale = chartInstance.scales.y;
+    const y = yScale.getPixelForValue(DATA.goal);
+    if (y < chartInstance.chartArea.top || y > chartInstance.chartArea.bottom) return;
+
+    const { ctx, chartArea } = chartInstance;
+    ctx.save();
+    ctx.beginPath();
+    ctx.setLineDash([5, 4]);
+    ctx.strokeStyle = "#7a5e28";
+    ctx.lineWidth = 1;
+    ctx.moveTo(chartArea.left, y);
+    ctx.lineTo(chartArea.right, y);
+    ctx.stroke();
+    ctx.restore();
+  },
+};
+
 const spadeEndpointPlugin = {
   id: "spadeEndpoint",
   afterDatasetsDraw(chartInstance) {
@@ -384,7 +400,8 @@ function renderChart() {
     y: {
       ticks: {
         color: "#898781",
-        callback: (v) => "$" + Number(v).toLocaleString("en-US"),
+        // Sign outside the dollar sign: "$-20,000" reads as a typo.
+        callback: (v) => (v < 0 ? "-$" : "$") + Math.abs(v).toLocaleString("en-US"),
       },
       grid: { color: "#2c2c2a" },
     },
@@ -420,6 +437,7 @@ function renderChart() {
       if (lastRecordedDate && date <= lastRecordedDate) return running;
       return null;
     });
+    const realCumulative = cumulative.filter((v) => v !== null);
     chart = new Chart(ctx, {
       type: "line",
       data: {
@@ -439,7 +457,7 @@ function renderChart() {
           spanGaps: false,
         }],
       },
-      plugins: [spadeEndpointPlugin],
+      plugins: [goalLinePlugin, spadeEndpointPlugin],
       options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -455,7 +473,19 @@ function renderChart() {
             filter: (item) => item.parsed.y !== null,
           },
         },
-        scales: commonScales,
+        scales: {
+          ...commonScales,
+          // The axis is pinned rather than left to Chart.js: asking it for a $100K
+          // ceiling made it step the ticks by 20K and open a dead -$20,000 band under
+          // a curve that only ever dips a couple of thousand below zero. The floor is
+          // the real low rounded down to the nearest 5K, and the ceiling is the goal
+          // unless the year runs past it.
+          y: {
+            ...commonScales.y,
+            min: Math.min(0, Math.floor(Math.min(...realCumulative) / 5000) * 5000),
+            max: Math.max(DATA.goal, ...realCumulative),
+          },
+        },
       },
     });
   } else {

@@ -7,7 +7,7 @@
   <meta name="description" content="Tracking a $100,000 poker profit goal for 2026, day by day.">
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="style.css?v=20">
 </head>
 <body>
   <div class="page">
@@ -31,22 +31,15 @@
     <section class="card hero">
       <div class="hero-value-row">
         <div class="hero-figure" id="hero-total">$0</div>
+        <div class="hero-goal" id="hero-goal"></div>
       </div>
-      <div class="meter">
-        <div class="meter-fill" id="meter-fill" style="width: 0%"></div>
-        <div class="meter-ticks">
-          <span class="meter-tick" style="left:25%"></span>
-          <span class="meter-tick" style="left:50%"></span>
-          <span class="meter-tick" style="left:75%"></span>
-        </div>
-        <div class="meter-tip" id="meter-tip" style="left: 0%"></div>
+
+      <div class="graph-toggle" id="graph-toggle">
+        <button class="pill active" data-mode="cumulative">Cumulative</button>
+        <button class="pill" data-mode="daily">Daily</button>
       </div>
-      <div class="meter-scale">
-        <span style="left:0%">0</span>
-        <span style="left:25%">25K</span>
-        <span style="left:50%">50K</span>
-        <span style="left:75%">75K</span>
-        <span style="left:100%">100K</span>
+      <div class="chart-wrap">
+        <canvas id="profit-chart"></canvas>
       </div>
 
       <div class="stat-row">
@@ -82,19 +75,9 @@
       </p>
       <div class="calendar-grid" id="calendar-grid"></div>
     </section>
-
-    <section>
-      <div class="graph-toggle" id="graph-toggle">
-        <button class="pill active" data-mode="cumulative">Cumulative</button>
-        <button class="pill" data-mode="daily">Daily</button>
-      </div>
-      <div class="card chart-wrap">
-        <canvas id="profit-chart"></canvas>
-      </div>
-    </section>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script src="app.js?v=13"></script>
+  <script src="app.js?v=14"></script>
 </body>
 </html>

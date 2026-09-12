@@ -140,116 +140,11 @@ body {
 .hero-figure.positive { color: var(--positive); }
 .hero-figure.negative { color: var(--negative); }
 
-.meter {
-  position: relative;
-  margin-top: 20px;
-  height: 24px;
-  border-radius: 999px;
-  background: linear-gradient(to bottom, #2a2110, #473717);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.55), inset 0 -1px 0 rgba(255, 255, 255, 0.03);
-  overflow: hidden;
-}
-
-.meter-fill {
-  position: relative;
-  height: 100%;
-  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
-  border-radius: 999px;
-  box-shadow: 0 0 16px rgba(201, 168, 76, 0.6);
-  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
-  overflow: hidden;
-}
-
-/* Permanent glassy top sheen — static depth, not animated. */
-.meter-fill::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0) 60%);
-}
-
-/* Single bold traveling light streak, left to right. */
-.meter-fill::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(100deg, transparent 44%, rgba(255, 255, 255, 0.9) 50%, transparent 56%);
-  background-size: 320% 100%;
-  mix-blend-mode: screen;
-  animation: meter-sweep 7.5s ease-in-out infinite;
-}
-
-@keyframes meter-sweep {
-  0% { background-position: 220% 0; }
-  100% { background-position: -160% 0; }
-}
-
-.meter-tip {
-  position: absolute;
-  top: 50%;
-  width: 20px;
-  height: 20px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(232, 204, 122, 0.7) 0%, rgba(201, 168, 76, 0.25) 55%, rgba(201, 168, 76, 0) 75%);
-  filter: blur(1px);
-  animation: meter-tip-pulse 3.2s ease-in-out infinite;
-  pointer-events: none;
-  transition: left 1.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes meter-tip-pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
-  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.85; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .meter-fill::after {
-    animation: none;
-    display: none;
-  }
-  .meter-tip {
-    animation: none;
-  }
-}
-
-.meter-ticks {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.meter-tick {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(13, 13, 13, 0.5);
-  transform: translateX(-1px);
-}
-
-.meter-scale {
-  position: relative;
-  height: 16px;
-  margin-top: 8px;
+/* Carries the "% of $100,000" the progress bar used to show. */
+.hero-goal {
+  font-size: 15px;
   color: var(--text-muted);
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
-}
-
-.meter-scale span {
-  position: absolute;
-  top: 0;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-.meter-scale span:first-child {
-  transform: translateX(0);
-}
-
-.meter-scale span:last-child {
-  transform: translateX(-100%);
+  letter-spacing: 0.02em;
 }
 
 .stat-row {
@@ -318,9 +213,14 @@ section + section {
 
 /* ---------- calendar ---------- */
 
+/* auto-fill, not repeat(4, 1fr): a month card needs ~245px to fit "+$10.2k" in a day
+   cell, and four of those need more width than the 900px page has — which pushed the
+   grid past the page and cut the fourth column off. This fits as many whole columns as
+   there is room for, at any width, so the breakpoints below are no longer needed for
+   the calendar. */
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
   gap: 16px;
 }
 
@@ -421,15 +321,15 @@ section + section {
   z-index: 5;
   pointer-events: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.1s ease;
+  /* display, not visibility: a hidden-but-laid-out tooltip on the rightmost month
+     card still counts toward the document's scroll width, which gave the page ~113px
+     of phantom horizontal scroll. Costs the 0.1s fade, which nobody will miss. */
+  display: none;
 }
 
 .day-cell:hover .cell-tooltip,
 .day-cell:focus-visible .cell-tooltip {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 .tt-date {
@@ -462,20 +362,20 @@ section + section {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-top: 22px;
 }
 
+/* No longer its own .card — it sits inside the hero, between the figure and the
+   stat row, so it brings its own spacing rather than card padding. */
 .chart-wrap {
   position: relative;
-  height: 360px;
+  height: 320px;
+  margin-top: 4px;
 }
 
 /* ---------- responsive ---------- */
 
 @media (max-width: 900px) {
-  .calendar-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .stat-row {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 20px;
@@ -483,14 +383,14 @@ section + section {
 }
 
 @media (max-width: 520px) {
-  .calendar-grid {
-    grid-template-columns: 1fr;
-  }
   .stat-row {
     grid-template-columns: repeat(2, 1fr);
   }
   .hero-figure {
     font-size: 40px;
+  }
+  .chart-wrap {
+    height: 230px;
   }
 }
 
