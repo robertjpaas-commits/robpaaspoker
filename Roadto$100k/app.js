@@ -548,7 +548,7 @@ function renderChart() {
         },
       },
     });
-  } else {
+  } else if (currentMode === "daily") {
     const values = labels.map((date) => {
       const entry = dayMap.get(date);
       return entry ? dayValue(entry) : null;
@@ -582,13 +582,64 @@ function renderChart() {
         scales: commonScales,
       },
     });
+  } else {
+    // Monthly: one bar per month, that month's net for the selected site. A month
+    // with no tracked day at all stays null — no bar — so the months after the latest
+    // session read as not-yet-played rather than as break-even.
+    const monthly = Array(12).fill(null);
+    for (const day of DATA.days) {
+      const m = Number(day.date.slice(5, 7)) - 1;
+      monthly[m] = (monthly[m] || 0) + dayValue(day);
+    }
+    const realMonthly = monthly.filter((v) => v !== null);
+    chart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: MONTH_NAMES.map((name) => name.slice(0, 3)),
+        datasets: [{
+          data: monthly,
+          backgroundColor: monthly.map((v) => (v >= 0 ? POSITIVE : NEGATIVE)),
+          borderRadius: 3,
+          maxBarThickness: 48,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            ...tooltipBase,
+            callbacks: {
+              // The shared title callback parses its label as a date; "Jan" isn't one.
+              title: (items) => `${MONTH_NAMES[items[0].dataIndex]} ${DATA.year}`,
+              label: (item) => "Profit: " + fmtMoney(item.parsed.y, { signed: true }),
+            },
+            filter: (item) => item.parsed.y !== null,
+          },
+        },
+        scales: {
+          // Twelve real categories, so none of the daily axis's tick filtering applies.
+          x: { ticks: { color: "#898781" }, grid: { display: false } },
+          y: { ...commonScales.y, ...paddedAxis(realMonthly) },
+        },
+      },
+    });
   }
 }
 
 function renderGraphToggle() {
-  const buttons = document.querySelectorAll("#graph-toggle .pill");
-  buttons.forEach((btn) => {
+  document.querySelectorAll("#graph-toggle .pill").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.mode === currentMode);
+  });
+}
+
+// Bound once, at boot. This used to live inside renderGraphToggle(), which each click
+// re-ran — so every click stacked another listener, and after a few toggles a single
+// click redrew the chart once per accumulated listener.
+function bindGraphToggle() {
+  document.querySelectorAll("#graph-toggle .pill").forEach((btn) => {
     btn.addEventListener("click", () => {
       currentMode = btn.dataset.mode;
       renderGraphToggle();
@@ -606,6 +657,7 @@ async function init() {
   renderHero({ animate: true });
   renderFilter();
   renderCalendar();
+  bindGraphToggle();
   renderGraphToggle();
   renderChart();
 }

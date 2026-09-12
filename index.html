@@ -95,7 +95,7 @@
   </div>
 
   <script>
-    const MONTH_INITIALS = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+    const MONTH_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     function fmtMoney(value, { signed = false, compact = false } = {}) {
       const sign = value < -0.005 ? "-" : (signed && value > 0.005 ? "+" : "");
@@ -170,12 +170,17 @@
           `${v === 0 ? "$0" : fmtMoney(v, { compact: true })}</text>`);
       }
 
-      // Month initials along the bottom, positioned at each month's first day.
+      // Short month names along the bottom, at each month's first day. "Jan" needs
+      // ~22px at this size, so on a narrow chart (a phone) every other month is
+      // labelled — twelve labels at ~21px apart would run into each other.
+      const monthGap = (W - padL - padR) / 12;
+      const labelEvery = monthGap < 30 ? 2 : 1;
       labels.forEach((date, i) => {
         if (!date.endsWith("-01")) return;
         const month = Number(date.slice(5, 7)) - 1;
+        if (month % labelEvery) return;
         parts.push(`<text class="axis" x="${x(i).toFixed(1)}" y="${H - 6}" ` +
-          `text-anchor="middle">${MONTH_INITIALS[month]}</text>`);
+          `text-anchor="middle">${MONTH_SHORT[month]}</text>`);
       });
 
       // The pace line: dead-even progress from $0 on Jan 1 to the goal on Dec 31. The

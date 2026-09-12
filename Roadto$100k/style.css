@@ -354,7 +354,7 @@ section + section {
    stat row, so it brings its own spacing rather than card padding. */
 .chart-wrap {
   position: relative;
-  height: 320px;
+  height: 250px;
   margin-top: 4px;
 }
 
@@ -375,7 +375,7 @@ section + section {
     font-size: 32px;
   }
   .chart-wrap {
-    height: 230px;
+    height: 200px;
   }
 }
 
@@ -426,5 +426,3 @@ a.day-cell.no-session { color: var(--text-secondary); }
   margin: 0 0 14px;
 }
 
-.calendar-note a { color: var(--gold); text-decoration: none; }
-.calendar-note a:hover { text-decoration: underline; }

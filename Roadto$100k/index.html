@@ -7,7 +7,7 @@
   <meta name="description" content="Tracking a $100,000 poker profit goal for 2026, day by day.">
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=22">
+  <link rel="stylesheet" href="style.css?v=23">
 </head>
 <body>
   <div class="page">
@@ -35,6 +35,7 @@
       <div class="graph-toggle" id="graph-toggle">
         <button class="pill active" data-mode="cumulative">Cumulative</button>
         <button class="pill" data-mode="daily">Daily</button>
+        <button class="pill" data-mode="monthly">Monthly</button>
       </div>
       <div class="chart-wrap">
         <canvas id="profit-chart"></canvas>
@@ -70,14 +71,13 @@
 
     <section>
       <p class="calendar-note">
-        Click any tracked day for its full breakdown, photos and clips &mdash;
-        or browse the <a href="../daily/">daily log</a>.
+        Click any tracked day for its full breakdown, photos and clips.
       </p>
       <div class="calendar-grid" id="calendar-grid"></div>
     </section>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script src="app.js?v=17"></script>
+  <script src="app.js?v=18"></script>
 </body>
 </html>
