@@ -7,10 +7,6 @@ const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December",
 ];
 
-// Days played but not accurately tracked at the time — manually called out as $0
-// on the calendar rather than left blank like a genuine untracked/off day.
-const ZERO_EXCEPTION_DATES = new Set(["2026-05-09", "2026-05-10", "2026-05-11"]);
-
 let DATA = null;
 let currentSite = "ALL";
 let currentMode = "cumulative";
@@ -34,13 +30,24 @@ function dayValue(day) {
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Bumped by anything that writes the hero figure. A count-up whose token is stale
+// stops on its next frame: without this, picking a site during the opening animation
+// left that animation to finish and overwrite the site's total with the combined one.
+let countUpToken = 0;
+
+function cancelCountUp() {
+  countUpToken += 1;
+}
+
 function animateCountUp(el, to, duration, formatFn) {
+  const token = (countUpToken += 1);
   if (prefersReducedMotion) {
     el.textContent = formatFn(to);
     return;
   }
   const start = performance.now();
   function frame(now) {
+    if (token !== countUpToken) return;
     const t = Math.min(1, (now - start) / duration);
     const eased = 1 - Math.pow(1 - t, 3);
     el.textContent = formatFn(to * eased);
@@ -121,40 +128,82 @@ function addDayExtras(tip, entry) {
 
 /* ---------------- hero ---------------- */
 
-function renderHero() {
+// Every figure here follows the site filter, so it re-runs on each pill click. The
+// count-up only plays on first load — re-animating on every click, with each click
+// starting a fresh rAF loop writing to the same element, looked broken.
+function renderHero({ animate = false } = {}) {
   const days = DATA.days;
-  const total = days.reduce((sum, d) => sum + d.total, 0);
+  const isAll = currentSite === "ALL";
+  const total = days.reduce((sum, d) => sum + dayValue(d), 0);
+
   const heroEl = document.getElementById("hero-total");
   heroEl.className = "hero-figure " + (total >= 0 ? "positive" : "negative");
-  animateCountUp(heroEl, total, 1600, (v) => fmtMoney(v, { signed: true }));
+  if (animate) {
+    animateCountUp(heroEl, total, 1600, (v) => fmtMoney(v, { signed: true }));
+  } else {
+    cancelCountUp();
+    heroEl.textContent = fmtMoney(total, { signed: true });
+  }
 
   // The progress bar that used to sit here was replaced by the chart below, which
   // shows the same climb with far more detail. This keeps the one thing the bar said
-  // that the chart doesn't state outright.
-  document.getElementById("hero-goal").textContent =
-    `${((total / DATA.goal) * 100).toFixed(1)}% of ${fmtMoney(DATA.goal)}`;
+  // that the chart doesn't state outright — and per site it reads as that site's own
+  // contribution toward the goal.
+  const pctOfGoal = (total / DATA.goal) * 100;
+  document.getElementById("hero-goal").textContent = isAll
+    ? `${pctOfGoal.toFixed(1)}% of ${fmtMoney(DATA.goal)}`
+    : `${DATA.site_names[currentSite] || currentSite} · ${pctOfGoal.toFixed(1)}% of the ${fmtMoney(DATA.goal)} goal`;
 
-  // "Played" = a day with logged session hours, not just a balance-carry entry.
-  const playedDays = days.filter((d) => (d.hours || 0) > 0);
-  document.getElementById("stat-days").textContent = playedDays.length.toLocaleString();
+  // Across every site, "played" means a day with logged session hours. For a single
+  // site there are no per-site hours to filter on — one session covers every table on
+  // every site at once — so a day counts for a site when that site produced a result.
+  const activeDays = isAll
+    ? days.filter((d) => (d.hours || 0) > 0)
+    : days.filter((d) => Math.abs(dayValue(d)) > 0.005);
+  const activeTotal = activeDays.reduce((sum, d) => sum + dayValue(d), 0);
 
-  const playedTotal = playedDays.reduce((sum, d) => sum + d.total, 0);
-  const avg = playedDays.length ? playedTotal / playedDays.length : 0;
+  // Hours are only ever the session's total. Per site that's the hours logged on the
+  // days that site was active, not hours spent on the site itself — the tile is
+  // relabelled and given a title so it can't be read as the latter.
+  const hours = (isAll ? days : activeDays)
+    .reduce((sum, d) => sum + (d.hours || 0), 0);
+
+  document.getElementById("label-days").textContent = isAll ? "Days played" : "Days active";
+  document.getElementById("label-avg").textContent = isAll ? "Avg / day played" : "Avg / active day";
+  document.getElementById("label-hours").textContent = isAll ? "Total hours" : "Hours those days";
+  document.getElementById("label-hourly").textContent = "Hourly rate";
+
+  const perSiteNote = isAll ? "" :
+    "Session hours cover every site at once, so this is " +
+    (DATA.site_names[currentSite] || currentSite) +
+    "'s result over the hours played on the days it was active.";
+  document.getElementById("stat-hourly-tile").title = perSiteNote;
+  document.getElementById("stat-hours-tile").title = perSiteNote;
+
+  document.getElementById("stat-days").textContent = activeDays.length.toLocaleString();
+
+  const avg = activeDays.length ? activeTotal / activeDays.length : 0;
   const avgEl = document.getElementById("stat-avg");
   avgEl.textContent = fmtMoney(avg, { signed: true });
   avgEl.className = "stat-value " + (avg >= 0 ? "positive" : "negative");
 
-  if (playedDays.length) {
-    const best = playedDays.reduce((a, b) => (b.total > a.total ? b : a));
-    document.getElementById("stat-best").textContent = fmtMoney(best.total, { signed: true });
+  const bestEl = document.getElementById("stat-best");
+  if (activeDays.length) {
+    const best = Math.max(...activeDays.map(dayValue));
+    bestEl.textContent = fmtMoney(best, { signed: true });
+    // A site that only ever lost has a negative "best day" — don't paint it green.
+    bestEl.className = "stat-value " + (best >= 0 ? "positive" : "negative");
+  } else {
+    bestEl.textContent = "—";
+    bestEl.className = "stat-value";
   }
 
-  const totalHours = days.reduce((sum, d) => sum + (d.hours || 0), 0);
-  const hourlyRate = totalHours > 0 ? total / totalHours : null;
+  const hourlyRate = hours > 0 ? total / hours : null;
   const hourlyEl = document.getElementById("stat-hourly");
   hourlyEl.textContent = hourlyRate === null ? "—" : fmtMoney(hourlyRate, { signed: true }) + "/hr";
   hourlyEl.className = "stat-value " + (hourlyRate !== null && hourlyRate < 0 ? "negative" : "positive");
-  document.getElementById("stat-hours").textContent = totalHours.toLocaleString("en-US", { maximumFractionDigits: 1 });
+  document.getElementById("stat-hours").textContent =
+    hours.toLocaleString("en-US", { maximumFractionDigits: 1 });
 }
 
 /* ---------------- site filter ---------------- */
@@ -171,6 +220,7 @@ function renderFilter() {
     btn.addEventListener("click", () => {
       currentSite = key;
       renderFilter();
+      renderHero();
       renderCalendar();
       renderChart();
     });
@@ -267,10 +317,7 @@ function renderCalendar() {
         const value = dayValue(entry);
         const played = (entry.hours || 0) > 0;
         const isWin = value > 0.005;
-        // These three May days were manually backfilled (played but the exact result
-        // wasn't tracked) and are called out as $0 on purpose. Any other day that
-        // happens to break exactly even stays visually blank like an untracked day.
-        const isLoss = value < -0.005 || (ZERO_EXCEPTION_DATES.has(entry.date) && Math.abs(value) <= 0.005);
+        const isLoss = value < -0.005;
         cell.className = "day-cell " + (isWin ? "win" : isLoss ? "loss" : "no-session");
         cell.textContent = isWin || isLoss
           ? (Math.abs(value) < 0.005 ? "$0" : fmtMoney(value, { signed: true, compact: true }))
@@ -438,6 +485,7 @@ function renderChart() {
       return null;
     });
     const realCumulative = cumulative.filter((v) => v !== null);
+    const isAll = currentSite === "ALL";
     chart = new Chart(ctx, {
       type: "line",
       data: {
@@ -457,7 +505,8 @@ function renderChart() {
           spanGaps: false,
         }],
       },
-      plugins: [goalLinePlugin, spadeEndpointPlugin],
+      // The goal line is meaningless on one site's own curve.
+      plugins: isAll ? [goalLinePlugin, spadeEndpointPlugin] : [spadeEndpointPlugin],
       options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -475,16 +524,18 @@ function renderChart() {
         },
         scales: {
           ...commonScales,
-          // The axis is pinned rather than left to Chart.js: asking it for a $100K
-          // ceiling made it step the ticks by 20K and open a dead -$20,000 band under
-          // a curve that only ever dips a couple of thousand below zero. The floor is
-          // the real low rounded down to the nearest 5K, and the ceiling is the goal
-          // unless the year runs past it.
-          y: {
-            ...commonScales.y,
-            min: Math.min(0, Math.floor(Math.min(...realCumulative) / 5000) * 5000),
-            max: Math.max(DATA.goal, ...realCumulative),
-          },
+          // Combined: pin the axis so the $100K goal line is always the ceiling.
+          // Asking Chart.js for that ceiling instead made it step ticks by 20K and
+          // open a dead -$20,000 band under a curve that barely dips below zero.
+          // Single site: let Chart.js fit the site's own range, or a site that made
+          // $2,000 would be a flat line along the bottom of a $100,000 axis.
+          y: isAll
+            ? {
+                ...commonScales.y,
+                min: Math.min(0, Math.floor(Math.min(...realCumulative) / 5000) * 5000),
+                max: Math.max(DATA.goal, ...realCumulative),
+              }
+            : { ...commonScales.y },
         },
       },
     });
@@ -543,7 +594,7 @@ async function init() {
   const res = await fetch("data/2026.json", { cache: "no-store" });
   DATA = await res.json();
 
-  renderHero();
+  renderHero({ animate: true });
   renderFilter();
   renderCalendar();
   renderGraphToggle();

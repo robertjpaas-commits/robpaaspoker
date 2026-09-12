@@ -7,7 +7,7 @@
   <meta name="description" content="Tracking a $100,000 poker profit goal for 2026, day by day.">
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
   <div class="page">
@@ -42,25 +42,27 @@
         <canvas id="profit-chart"></canvas>
       </div>
 
+      <!-- Labels carry ids because they reword when a single site is selected: there
+           are no per-site hours, so "days played" becomes "days active" and so on. -->
       <div class="stat-row">
         <div class="stat">
-          <div class="stat-label">Days played</div>
+          <div class="stat-label" id="label-days">Days played</div>
           <div class="stat-value" id="stat-days">&mdash;</div>
         </div>
         <div class="stat">
-          <div class="stat-label">Avg / day played</div>
+          <div class="stat-label" id="label-avg">Avg / day played</div>
           <div class="stat-value" id="stat-avg">&mdash;</div>
         </div>
         <div class="stat">
           <div class="stat-label">Best day</div>
-          <div class="stat-value positive" id="stat-best">&mdash;</div>
+          <div class="stat-value" id="stat-best">&mdash;</div>
         </div>
-        <div class="stat">
-          <div class="stat-label">Hourly rate</div>
+        <div class="stat" id="stat-hourly-tile">
+          <div class="stat-label" id="label-hourly">Hourly rate</div>
           <div class="stat-value" id="stat-hourly">&mdash;</div>
         </div>
-        <div class="stat">
-          <div class="stat-label">Total hours</div>
+        <div class="stat" id="stat-hours-tile">
+          <div class="stat-label" id="label-hours">Total hours</div>
           <div class="stat-value" id="stat-hours">&mdash;</div>
         </div>
       </div>
@@ -78,6 +80,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script src="app.js?v=14"></script>
+  <script src="app.js?v=16"></script>
 </body>
 </html>
