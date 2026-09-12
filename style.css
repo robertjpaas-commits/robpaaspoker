@@ -238,12 +238,6 @@ section + section {
   font-variant-numeric: tabular-nums;
 }
 
-.hero-pct {
-  font-size: 14px;
-  color: var(--text-muted);
-  letter-spacing: 0.02em;
-}
-
 .hero-chart {
   margin-top: 18px;
 }
@@ -318,6 +312,11 @@ section + section {
   font-variant-numeric: tabular-nums;
   color: var(--text-secondary);
 }
+
+/* Money stats take the same green / red as the total. Needs the compound selector:
+   the plain .positive / .negative rules come earlier and lose to the colour above. */
+.hero-stat-value.positive { color: var(--positive); }
+.hero-stat-value.negative { color: var(--negative); }
 
 .hero-link {
   display: inline-block;

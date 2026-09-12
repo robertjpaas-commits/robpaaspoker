@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=22">
 </head>
 <body>
   <div class="page">
@@ -36,7 +36,6 @@
 
       <div class="hero-figure-row">
         <div class="hero-figure" id="hero-total">&nbsp;</div>
-        <div class="hero-pct" id="hero-pct"></div>
       </div>
 
       <div class="hero-chart" id="hero-chart" role="img"
@@ -218,10 +217,6 @@
       totalEl.textContent = fmtMoney(total, { signed: true });
       totalEl.classList.add(signClass(total));
 
-      const pct = (total / data.goal) * 100;
-      document.getElementById("hero-pct").textContent =
-        `${pct.toFixed(1)}% of $100,000`;
-
       // Pace measured against the calendar, not against days played: the goal is for the
       // year, so a day not played is still a day of the year gone.
       const yearStart = Date.UTC(data.year, 0, 1);
@@ -241,15 +236,19 @@
       const hours = data.days.reduce((sum, d) => sum + (d.hours || 0), 0);
       const best = played.length
         ? played.reduce((a, b) => (b.total > a.total ? b : a)).total : 0;
+      const avg = played.length ? total / played.length : 0;
+      const hourly = hours > 0 ? total / hours : null;
+      // The third element is the money value that picks green / red; counts have none.
       const stats = [
-        ["Days played", played.length.toLocaleString()],
-        ["Avg / day", fmtMoney(played.length ? total / played.length : 0, { signed: true })],
-        ["Best day", fmtMoney(best, { signed: true })],
-        ["Hourly", hours > 0 ? fmtMoney(total / hours, { signed: true }) + "/hr" : "—"],
+        ["Days played", played.length.toLocaleString(), null],
+        ["Avg / day", fmtMoney(avg, { signed: true }), avg],
+        ["Best day", fmtMoney(best, { signed: true }), best],
+        ["Hourly", hourly === null ? "—" : fmtMoney(hourly, { signed: true }) + "/hr", hourly],
       ];
-      document.getElementById("hero-stats").innerHTML = stats.map(([label, value]) =>
+      document.getElementById("hero-stats").innerHTML = stats.map(([label, value, money]) =>
         `<div class="hero-stat"><div class="hero-stat-label">${label}</div>` +
-        `<div class="hero-stat-value">${value}</div></div>`).join("");
+        `<div class="hero-stat-value ${money === null ? "" : signClass(money)}">${value}</div>` +
+        `</div>`).join("");
 
       renderHeroChart(data);
     }
