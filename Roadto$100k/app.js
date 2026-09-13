@@ -128,14 +128,13 @@ function addTooltipNote(tip, text) {
   tip.appendChild(line);
 }
 
-// What's on the day page beyond the money — photos, clips, checklist — plus the hint
-// that the cell is clickable at all. All three fields come from export_daily_pages.py.
+// What's on the day page beyond the money — photos and clips — plus the hint that the
+// cell is clickable at all. All three fields come from export_daily_pages.py.
 function addDayExtras(tip, entry) {
   if (!entry.page) return;
   const bits = [];
   if (entry.photos) bits.push(`${entry.photos} photo${entry.photos === 1 ? "" : "s"}`);
   if (entry.clips) bits.push(`${entry.clips} clip${entry.clips === 1 ? "" : "s"}`);
-  if (entry.habits && entry.habits[1]) bits.push(`${entry.habits[0]}/${entry.habits[1]} checklist`);
   if (bits.length) addTooltipNote(tip, bits.join(" · "));
 
   const cta = document.createElement("div");

@@ -295,53 +295,6 @@ body.lb-open { overflow: hidden; }
   text-align: right;
 }
 
-/* ---------- checklist ---------- */
-
-.check-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 8px;
-}
-
-.check-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-left-width: 2px;
-  border-radius: 6px;
-}
-
-.check-item.good { border-left-color: var(--positive); }
-.check-item.bad { border-left-color: var(--negative); }
-.check-item.unanswered { border-left-color: var(--border); opacity: 0.6; }
-
-.check-name { font-size: 13px; color: var(--text-secondary); }
-
-.check-value {
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.check-item.good .check-value { color: var(--positive); }
-.check-item.bad .check-value { color: var(--negative); }
-.check-item.unanswered .check-value { color: var(--text-muted); }
-
-.streak {
-  grid-column: 1 / -1;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--gold);
-}
-
 /* ---------- photos ---------- */
 
 .shot-grid {
