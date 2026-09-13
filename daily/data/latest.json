@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T13:44:35",
+  "generated_at": "2026-09-13T15:05:16",
   "session": {
     "date": "2026-09-12",
     "pretty": "Saturday, September 12",
@@ -28,7 +28,16 @@
         "value": -51.92
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "src": "daily/media/2026-09-12/10.jpg",
+        "caption": ""
+      },
+      {
+        "src": "daily/media/2026-09-12/11.jpg",
+        "caption": ""
+      }
+    ],
     "clip": null
   }
 }
