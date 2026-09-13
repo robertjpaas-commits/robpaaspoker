@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-13T00:53:16",
+  "generated_at": "2026-09-13T00:54:05",
   "session": {
     "date": "2026-09-12",
     "pretty": "Saturday, September 12",
     "url": "daily/2026-09-12.html",
-    "total": 1320.5,
-    "hours": 5.83,
+    "total": 1614.8,
+    "hours": 5.03,
     "sites": [
       {
         "name": "PartyPoker",
@@ -16,12 +16,12 @@
         "value": 728.4
       },
       {
-        "name": "GGPoker",
-        "value": -262.5
+        "name": "WPT Global",
+        "value": 396.9
       },
       {
-        "name": "WPT Global",
-        "value": 102.6
+        "name": "GGPoker",
+        "value": -262.5
       },
       {
         "name": "PokerStars",
