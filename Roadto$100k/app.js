@@ -379,8 +379,6 @@ function renderCalendar() {
 
 /* ---------------- graph ---------------- */
 
-// Draws a gold spade at the last real (non-null) point of the cumulative line —
-// a little flourish marking "you are here". No-op for the daily bar chart.
 // Dashed line across the top of the cumulative chart at the $100K goal. Cumulative
 // mode only — on the daily bars a $100K line would be meaningless.
 const goalLinePlugin = {
@@ -403,6 +401,15 @@ const goalLinePlugin = {
   },
 };
 
+// Draws a gold spade at the last real (non-null) point of the cumulative line —
+// a little flourish marking "you are here". No-op for the daily bar chart.
+//
+// A vector path, never the "♠" character: phones render U+2660 as their own black
+// emoji, which ignores fillStyle. The home page's hero chart uses the same path.
+// Spans x 4–20, y 2–22 in a 24-unit box centred on (12, 12).
+const SPADE_PATH = new Path2D(
+  "M12 2C9 7 4 9 4 14c0 2 2 4 4 4 1 0 2 0 3-1 0 0 .32 2-2 5h6c-2-3-2-5-2-5 1 1 2 1 3 1 2 0 4-2 4-4 0-5-5-7-8-12Z");
+
 const spadeEndpointPlugin = {
   id: "spadeEndpoint",
   afterDatasetsDraw(chartInstance) {
@@ -420,11 +427,11 @@ const spadeEndpointPlugin = {
 
     const { ctx } = chartInstance;
     ctx.save();
-    ctx.font = "26px 'Segoe UI Symbol', sans-serif";
+    ctx.translate(point.x, point.y);
+    ctx.scale(0.9, 0.9);
+    ctx.translate(-12, -12);
     ctx.fillStyle = GOLD;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("♠", point.x, point.y);
+    ctx.fill(SPADE_PATH);
     ctx.restore();
   },
 };

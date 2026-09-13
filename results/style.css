@@ -95,7 +95,6 @@ body {
 .social-icon.x { background: #000000; }
 .social-icon.youtube { background: #ff0000; }
 .social-icon.facebook { background: #0866ff; }
-.social-icon.tiktok { background: #000000; }
 .social-icon.twitch { background: #9146ff; }
 .social-icon.kick { background: #53fc19; }
 .social-icon.discord { background: #5865f2; }
@@ -400,5 +399,11 @@ th.sorted-desc::after { content: ' \25BC'; color: var(--gold); }
 /* ---------- responsive ---------- */
 
 @media (max-width: 560px) {
+  /* At 34px with 14px gaps the tiles need more than the ~320px a phone has inside the page
+     padding, so the row wrapped. Smaller tiles on one line, and they shrink further
+     (staying square) rather than wrap on the narrowest screens. */
+  .social-row { flex-wrap: nowrap; gap: 8px; }
+  .social-icon { flex: 0 1 30px; width: 30px; height: auto; aspect-ratio: 1; min-width: 0; }
+  .social-icon img { width: 16px; height: 16px; }
   .brand-name { font-size: 30px; }
 }

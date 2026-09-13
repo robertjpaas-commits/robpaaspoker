@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="style.css?v=25">
 </head>
 <body>
   <div class="page">
@@ -20,7 +20,6 @@
         <a class="social-icon x" href="https://x.com/RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" loading="lazy"></a>
         <a class="social-icon youtube" href="https://www.youtube.com/@robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="YouTube" loading="lazy"></a>
         <a class="social-icon facebook" href="https://www.facebook.com/RobertPaasPoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="Facebook" loading="lazy"></a>
-        <a class="social-icon tiktok" href="https://www.tiktok.com/@robertpaas" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="TikTok" loading="lazy"></a>
         <a class="social-icon twitch" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/twitch/FFFFFF" alt="Twitch" loading="lazy"></a>
         <a class="social-icon kick" href="https://kick.com/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/kick/000000" alt="Kick" loading="lazy"></a>
         <a class="social-icon discord" href="https://discord.gg/Pz7nrhqhHF" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" loading="lazy"></a>
@@ -222,8 +221,10 @@
       // The curve, its fill and the spade are drawn empty here and positioned by
       // placeCurve(), which the entrance animation calls once per frame.
       parts.push(`<path class="area"></path>`, `<path class="curve"></path>`,
-        // Gold spade marking "you are here" — the same flourish the calendar page uses.
-        `<text class="spade" text-anchor="middle" dominant-baseline="middle">&#9824;</text>`);
+        // Gold spade marking "you are here" — the same flourish the calendar page uses,
+        // and the same path (SPADE_PATH in Roadto$100k/app.js). Not the &#9824; character:
+        // phones render that as their own black emoji, which ignores the CSS fill.
+        `<path class="spade" d="M12 2C9 7 4 9 4 14c0 2 2 4 4 4 1 0 2 0 3-1 0 0 .32 2-2 5h6c-2-3-2-5-2-5 1 1 2 1 3 1 2 0 4-2 4-4 0-5-5-7-8-12Z"></path>`);
 
       host.innerHTML =
         `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" class="hero-svg">` +
@@ -245,8 +246,9 @@
         areaEl.setAttribute("d", `${line} L${pts[pts.length - 1][0].toFixed(1)} ` +
           `${base.toFixed(1)} L${pts[0][0].toFixed(1)} ${base.toFixed(1)} Z`);
         const [endX, endY] = pts[pts.length - 1];
-        spadeEl.setAttribute("x", endX.toFixed(1));
-        spadeEl.setAttribute("y", (base + (endY - base) * p).toFixed(1));
+        // Path is a 24-unit box centred on (12, 12); 0.75 draws it ~15px tall.
+        spadeEl.setAttribute("transform", `translate(${endX.toFixed(1)} ` +
+          `${(base + (endY - base) * p).toFixed(1)}) scale(0.75) translate(-12 -12)`);
       }
 
       if (animate) tween(1000, easeOutQuart, placeCurve, token);
