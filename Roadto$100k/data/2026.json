@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T01:15:17",
+  "generated_at": "2026-09-13T01:16:01",
   "year": 2026,
   "goal": 100000,
   "sites": [
@@ -3726,7 +3726,7 @@
         "ACR": 0.0,
         "Live": 0.0
       },
-      "hours": 16.0,
+      "hours": 4.0,
       "page": true,
       "photos": 0,
       "clips": 0
@@ -3999,11 +3999,7 @@
       "hours": 5.03,
       "page": true,
       "photos": 0,
-      "clips": 0,
-      "habits": [
-        4,
-        5
-      ]
+      "clips": 0
     }
   ]
 }
