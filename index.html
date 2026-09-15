@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=30">
+  <link rel="stylesheet" href="style.css?v=31">
   <script>
     // The home page's sections fade in as they scroll into view. Opted into here,
     // before first paint, so they never flash visible and then vanish — and without JS,
@@ -48,6 +48,7 @@
               <source src="assets/clips/bounty-win.mp4" type="video/mp4">
             </video>
             <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
+            <button class="short-expand" type="button" aria-label="Watch larger"></button>
           </div>
         </figure>
         <figure class="short">
@@ -57,6 +58,7 @@
               <source src="assets/clips/hot-dog.mp4" type="video/mp4">
             </video>
             <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
+            <button class="short-expand" type="button" aria-label="Watch larger"></button>
           </div>
         </figure>
       </div>
@@ -126,6 +128,16 @@
       </div>
     </footer>
 
+  </div>
+
+  <!-- ── A short played large: zooms out of its phone frame, closes back into it ── -->
+  <div class="short-viewer" id="short-viewer" role="dialog" aria-modal="true" aria-label="Stream short" hidden>
+    <div class="viewer-frame">
+      <video class="viewer-video" loop playsinline></video>
+      <div class="viewer-progress"><span></span></div>
+      <button class="viewer-close" type="button" aria-label="Close"></button>
+      <button class="short-sound viewer-sound" type="button" aria-pressed="true" aria-label="Turn sound off"></button>
+    </div>
   </div>
 
   <script>
@@ -442,9 +454,14 @@
     // the sound button still starts a clip.
     const SOUND_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="m16 9 5 6m0-6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
     const SOUND_ON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    const EXPAND = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-6.5 6.5M4 20l6.5-6.5"/></svg>';
+    const CLOSE = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>';
     const shorts = [...document.querySelectorAll(".short")].map((fig) => ({
       video: fig.querySelector("video"),
       button: fig.querySelector(".short-sound"),
+      expand: fig.querySelector(".short-expand"),
+      frame: fig.querySelector(".short-frame"),
+      visible: false,
     }));
 
     function setSound(short, on) {
@@ -452,7 +469,7 @@
       short.button.innerHTML = on ? SOUND_ON : SOUND_OFF;
       short.button.setAttribute("aria-pressed", String(on));
       short.button.setAttribute("aria-label", on ? "Turn sound off" : "Turn sound on");
-      short.button.closest(".short").classList.toggle("has-sound", on);
+      short.button.closest(".short, .viewer-frame").classList.toggle("has-sound", on);
     }
 
     for (const short of shorts) {
@@ -469,6 +486,8 @@
       const player = new IntersectionObserver((entries) => {
         for (const e of entries) {
           const short = shorts.find((x) => x.video === e.target);
+          short.visible = e.isIntersecting;
+          if (viewer.open) continue;
           if (e.isIntersecting && !prefersReducedMotion) {
             short.video.play().catch(() => {});
           } else if (!e.isIntersecting) {
@@ -479,6 +498,109 @@
       }, { threshold: 0.5 });
       shorts.forEach((x) => player.observe(x.video));
     }
+
+    // The expand button plays a short large, with sound, in a frame that zooms out of
+    // the phone it came from (a FLIP: laid out at full size, transformed back onto the
+    // small frame, then released) and shrinks back into it on close. It picks up at the
+    // small clip's timestamp and hands its position back, so the loop never restarts.
+    // The inline clips pause meanwhile. Closes with the X, Escape, or a click outside.
+    const viewer = {
+      el: document.getElementById("short-viewer"),
+      open: null,
+    };
+    viewer.frame = viewer.el.querySelector(".viewer-frame");
+    viewer.video = viewer.el.querySelector(".viewer-video");
+    viewer.bar = viewer.el.querySelector(".viewer-progress span");
+    viewer.close = viewer.el.querySelector(".viewer-close");
+    viewer.sound = { video: viewer.video, button: viewer.el.querySelector(".viewer-sound") };
+    viewer.close.innerHTML = CLOSE;
+
+    // Transform that puts the full-size frame exactly over `rect`.
+    function flipFrom(rect) {
+      const to = viewer.frame.getBoundingClientRect();
+      const s = rect.width / to.width;
+      const dx = rect.left + rect.width / 2 - (to.left + to.width / 2);
+      const dy = rect.top + rect.height / 2 - (to.top + to.height / 2);
+      return `translate(${dx}px, ${dy}px) scale(${s})`;
+    }
+
+    function openViewer(short) {
+      if (viewer.open) return;
+      viewer.open = short;
+      for (const x of shorts) { x.video.pause(); setSound(x, false); }
+
+      const v = viewer.video;
+      v.poster = short.video.poster;
+      v.src = short.video.currentSrc || short.video.querySelector("source").src;
+      const start = short.video.currentTime;
+      if (start) v.addEventListener("loadedmetadata", () => { v.currentTime = start; }, { once: true });
+      setSound(viewer.sound, true);
+      v.play().catch(() => { setSound(viewer.sound, false); v.play().catch(() => {}); });
+
+      // Lock the page behind it without the scrollbar's disappearance shifting it.
+      const gutter = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.paddingRight = gutter ? `${gutter}px` : "";
+      document.querySelector(".page").inert = true;
+
+      viewer.el.hidden = false;
+      if (!prefersReducedMotion) {
+        viewer.frame.style.transition = "none";
+        viewer.frame.style.transform = flipFrom(short.frame.getBoundingClientRect());
+        viewer.frame.getBoundingClientRect(); // commit the start position
+        viewer.frame.style.transition = "";
+        viewer.frame.style.transform = "";
+      }
+      requestAnimationFrame(() => viewer.el.classList.add("is-open"));
+      viewer.close.focus({ preventScroll: true });
+    }
+
+    function closeViewer() {
+      const short = viewer.open;
+      if (!short || !viewer.el.classList.contains("is-open")) return;
+      viewer.el.classList.remove("is-open");
+      if (!prefersReducedMotion) viewer.frame.style.transform = flipFrom(short.frame.getBoundingClientRect());
+
+      const finish = () => {
+        const v = viewer.video;
+        if (v.currentTime) short.video.currentTime = v.currentTime;
+        v.pause();
+        v.removeAttribute("src");
+        v.load();
+        viewer.el.hidden = true;
+        viewer.frame.style.transform = "";
+        viewer.bar.style.transform = "";
+        document.documentElement.style.overflow = "";
+        document.body.style.paddingRight = "";
+        document.querySelector(".page").inert = false;
+        viewer.open = null;
+        short.expand.focus({ preventScroll: true });
+        if (!prefersReducedMotion) {
+          for (const x of shorts) if (x.visible) x.video.play().catch(() => {});
+        }
+      };
+      if (prefersReducedMotion) finish();
+      else setTimeout(finish, 320);
+    }
+
+    for (const short of shorts) {
+      short.expand.innerHTML = EXPAND;
+      short.expand.addEventListener("click", () => openViewer(short));
+    }
+
+    viewer.close.addEventListener("click", closeViewer);
+    viewer.el.addEventListener("click", (e) => { if (e.target === viewer.el) closeViewer(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && viewer.open) closeViewer(); });
+    viewer.sound.button.addEventListener("click", () => setSound(viewer.sound, viewer.video.muted));
+    // Tapping the clip itself pauses and resumes it.
+    viewer.video.addEventListener("click", () => {
+      if (viewer.video.paused) viewer.video.play().catch(() => {});
+      else viewer.video.pause();
+    });
+    viewer.video.addEventListener("timeupdate", () => {
+      const v = viewer.video;
+      if (v.duration) viewer.bar.style.transform = `scaleX(${v.currentTime / v.duration})`;
+    });
 
     /* ---------------- boot ---------------- */
 
