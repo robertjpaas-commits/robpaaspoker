@@ -7,11 +7,9 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=28">
-  <link rel="preload" as="image" href="assets/home/setup-1200.jpg"
-        imagesrcset="assets/home/setup-1200.jpg 1200w, assets/home/setup-2400.jpg 2400w" imagesizes="100vw">
+  <link rel="stylesheet" href="style.css?v=29">
   <script>
-    // Sections below the opening photo fade in as they scroll into view. Opted into here,
+    // The home page's sections fade in as they scroll into view. Opted into here,
     // before first paint, so they never flash visible and then vanish — and without JS,
     // an observer, or with reduced motion, they simply stay visible.
     if ("IntersectionObserver" in window &&
@@ -21,7 +19,7 @@
   </script>
 </head>
 <body>
-  <div class="page page-head">
+  <div class="page">
 
     <header class="site-header">
       <div class="brand-name">Rob<span>Paas</span>Poker</div>
@@ -37,26 +35,35 @@
       </nav>
     </header>
 
-  </div>
-
-  <!-- ── The opening: the setup photo, full width, fading into the page. The $100K
-       card below is pulled up over its lower half. ── -->
-  <section class="intro">
-    <!-- Two wrappers so the vertical and horizontal fades multiply, and the photo inside
-         can drift on scroll without dragging its fade edges along with it. -->
-    <div class="intro-media">
-      <div class="intro-media-x">
-        <img class="intro-photo" id="intro-photo"
-             src="assets/home/setup-1200.jpg"
-             srcset="assets/home/setup-1200.jpg 1200w, assets/home/setup-2400.jpg 2400w"
-             sizes="100vw" fetchpriority="high"
-             alt="Rob's streaming setup: a wall of monitors running a dozen poker tables between two softbox lights">
+    <!-- ── Shorts from the stream: muted loops that play while on screen ── -->
+    <section class="card clips reveal" aria-labelledby="clips-title">
+      <div class="clips-copy">
+        <div class="hero-eyebrow">From the stream</div>
+        <h2 class="section-title" id="clips-title">Costumes optional.<br><span>Variance guaranteed.</span></h2>
+        <a class="hero-link" href="https://www.youtube.com/@robpaaspoker/shorts" target="_blank" rel="noopener">More clips on YouTube &rarr;</a>
       </div>
-    </div>
 
-  </section>
-
-  <div class="page page-body">
+      <div class="clip-phones">
+        <figure class="short">
+          <div class="short-frame">
+            <video class="short-video" muted loop playsinline preload="none"
+                   poster="assets/clips/bounty-win.jpg" aria-label="Stream short: a $150 bounty win">
+              <source src="assets/clips/bounty-win.mp4" type="video/mp4">
+            </video>
+            <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
+          </div>
+        </figure>
+        <figure class="short">
+          <div class="short-frame">
+            <video class="short-video" muted loop playsinline preload="none"
+                   poster="assets/clips/hot-dog.jpg" aria-label="Stream short: playing in the hot dog suit">
+              <source src="assets/clips/hot-dog.mp4" type="video/mp4">
+            </video>
+            <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
+          </div>
+        </figure>
+      </div>
+    </section>
 
     <!-- ── The hero: 2026 progress, the curve, and pace against the goal ── -->
     <section class="card hero reveal">
@@ -94,36 +101,6 @@
       <div class="session-media" id="session-media"></div>
 
       <a class="hero-link" id="session-link" href="#">Full day breakdown &rarr;</a>
-    </section>
-
-    <!-- ── Shorts from the stream: muted loops that play while on screen ── -->
-    <section class="card clips reveal" aria-labelledby="clips-title">
-      <div class="clips-copy">
-        <div class="hero-eyebrow">From the stream</div>
-        <h2 class="section-title" id="clips-title">Costumes optional.<br><span>Variance guaranteed.</span></h2>
-        <a class="hero-link" href="https://www.youtube.com/@robpaaspoker/shorts" target="_blank" rel="noopener">More clips on YouTube &rarr;</a>
-      </div>
-
-      <div class="clip-phones">
-        <figure class="short">
-          <div class="short-frame">
-            <video class="short-video" muted loop playsinline preload="none"
-                   poster="assets/clips/bounty-win.jpg" aria-label="Stream short: a $150 bounty win">
-              <source src="assets/clips/bounty-win.mp4" type="video/mp4">
-            </video>
-            <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
-          </div>
-        </figure>
-        <figure class="short">
-          <div class="short-frame">
-            <video class="short-video" muted loop playsinline preload="none"
-                   poster="assets/clips/hot-dog.jpg" aria-label="Stream short: playing in the hot dog suit">
-              <source src="assets/clips/hot-dog.mp4" type="video/mp4">
-            </video>
-            <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
-          </div>
-        </figure>
-      </div>
     </section>
 
     <!-- ── Everything else ── -->
@@ -348,7 +325,7 @@
       const totalEl = document.getElementById("hero-total");
       totalEl.classList.add(signClass(total));
       totalEl.textContent = fmtMoney(0, { signed: true });
-      whenVisible(totalEl, () =>
+      whenVisible(document.getElementById("hero-chart"), () =>
         tween(3200, easeOutCubic, (p) => { totalEl.textContent = fmtMoney(total * p, { signed: true }); }), 200);
 
       // Pace measured against the calendar, not against days played: the goal is for the
@@ -372,17 +349,26 @@
         ? played.reduce((a, b) => (b.total > a.total ? b : a)).total : 0;
       const avg = played.length ? total / played.length : 0;
       const hourly = hours > 0 ? total / hours : null;
-      // The third element is the money value that picks green / red; counts have none.
+      // [label, value, format, money]. money picks green / red; counts have none. A null
+      // value (no hours logged) shows a dash and doesn't count up.
       const stats = [
-        ["Days played", played.length.toLocaleString(), null],
-        ["Avg / day", fmtMoney(avg, { signed: true }), avg],
-        ["Best day", fmtMoney(best, { signed: true }), best],
-        ["Hourly", hourly === null ? "—" : fmtMoney(hourly, { signed: true }) + "/hr", hourly],
+        ["Days played", played.length, (v) => Math.round(v).toLocaleString(), null],
+        ["Avg / day", avg, (v) => fmtMoney(v, { signed: true }), avg],
+        ["Best day", best, (v) => fmtMoney(v, { signed: true }), best],
+        ["Hourly", hourly, (v) => fmtMoney(v, { signed: true }) + "/hr", hourly],
       ];
-      document.getElementById("hero-stats").innerHTML = stats.map(([label, value, money]) =>
+      const statsEl = document.getElementById("hero-stats");
+      statsEl.innerHTML = stats.map(([label, value, format, money]) =>
         `<div class="hero-stat"><div class="hero-stat-label">${label}</div>` +
-        `<div class="hero-stat-value ${money === null ? "" : signClass(money)}">${value}</div>` +
-        `</div>`).join("");
+        `<div class="hero-stat-value ${money === null ? "" : signClass(money)}">` +
+        `${value === null ? "—" : format(0)}</div></div>`).join("");
+
+      // The tiles count up alongside the total once the chart is on screen.
+      const valueEls = statsEl.querySelectorAll(".hero-stat-value");
+      whenVisible(document.getElementById("hero-chart"), () =>
+        tween(2000, easeOutCubic, (p) => stats.forEach(([, value, format], i) => {
+          if (value !== null) valueEls[i].textContent = format(value * p);
+        })), 200);
 
       renderHeroChart(data, { animate: true });
     }
@@ -449,27 +435,6 @@
         }
       }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
       document.querySelectorAll(".reveal").forEach((el) => revealer.observe(el));
-    }
-
-    /* ---------------- opening photo drift ---------------- */
-
-    // The photo slides down at a third of the scroll speed, so it reads as further away
-    // than the card over it. Uses the individual translate property, which leaves the
-    // load animation's scale alone. Stops doing work once the intro is off screen.
-    if (!prefersReducedMotion) {
-      const photo = document.getElementById("intro-photo");
-      const intro = photo.closest(".intro");
-      let ticking = false;
-      window.addEventListener("scroll", () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          ticking = false;
-          const y = window.scrollY;
-          if (y > intro.offsetTop + intro.offsetHeight) return;
-          photo.style.translate = `0 ${(y * 0.33).toFixed(1)}px`;
-        });
-      }, { passive: true });
     }
 
     /* ---------------- stream shorts ---------------- */
