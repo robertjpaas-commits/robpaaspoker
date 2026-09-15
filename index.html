@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="stylesheet" href="style.css?v=28">
   <link rel="preload" as="image" href="assets/home/setup-1200.jpg"
         imagesrcset="assets/home/setup-1200.jpg 1200w, assets/home/setup-2400.jpg 2400w" imagesizes="100vw">
   <script>
@@ -39,8 +39,9 @@
 
   </div>
 
-  <!-- ── The opening: the setup photo, full width, fading into the page ── -->
-  <section class="intro" aria-labelledby="intro-title">
+  <!-- ── The opening: the setup photo, full width, fading into the page. The $100K
+       card below is pulled up over its lower half. ── -->
+  <section class="intro">
     <!-- Two wrappers so the vertical and horizontal fades multiply, and the photo inside
          can drift on scroll without dragging its fade edges along with it. -->
     <div class="intro-media">
@@ -53,27 +54,12 @@
       </div>
     </div>
 
-    <div class="intro-copy">
-      <!-- Live now / next stream, filled in by updateLiveStatus() -->
-      <a class="live-pill" id="live-pill" href="https://www.twitch.tv/robpaaspoker"
-         target="_blank" rel="noopener" hidden>
-        <span class="live-dot"></span><span id="live-text"></span>
-      </a>
-      <h1 class="intro-title" id="intro-title">Twelve tables.<br><span>Every swing.</span></h1>
-      <p class="intro-sub">Rob Paas plays online poker tournaments for a living, and streams all of it: the deep runs and the brutal bubbles alike.</p>
-      <div class="intro-actions">
-        <a class="btn btn-gold" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener">
-          <img src="https://cdn.simpleicons.org/twitch/16130A" alt="" width="16" height="16">Watch on Twitch
-        </a>
-        <a class="btn btn-ghost" href="#road">The Road to $100K</a>
-      </div>
-    </div>
   </section>
 
   <div class="page page-body">
 
     <!-- ── The hero: 2026 progress, the curve, and pace against the goal ── -->
-    <section class="card hero reveal" id="road">
+    <section class="card hero reveal">
       <div class="hero-top">
         <div class="hero-eyebrow">2026 Road to $100K</div>
         <div class="hero-pace" id="hero-pace"></div>
@@ -115,7 +101,6 @@
       <div class="clips-copy">
         <div class="hero-eyebrow">From the stream</div>
         <h2 class="section-title" id="clips-title">Costumes optional.<br><span>Variance guaranteed.</span></h2>
-        <p class="section-sub">Every session goes out live on Twitch, and the best hands get cut into shorts.</p>
         <a class="hero-link" href="https://www.youtube.com/@robpaaspoker/shorts" target="_blank" rel="noopener">More clips on YouTube &rarr;</a>
       </div>
 
@@ -128,7 +113,6 @@
             </video>
             <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
           </div>
-          <figcaption><b>Maple Leaf Madness</b><span>$150 bounty hyper</span></figcaption>
         </figure>
         <figure class="short">
           <div class="short-frame">
@@ -138,7 +122,6 @@
             </video>
             <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
           </div>
-          <figcaption><b>The hot dog suit</b><span>$5.50 Tower Superstack</span></figcaption>
         </figure>
       </div>
     </section>
@@ -452,62 +435,6 @@
       document.getElementById("session").hidden = false;
     }
 
-    /* ---------------- live status ---------------- */
-
-    // The scheduled stream start days (0 = Sunday) and hour, in Rob's own time zone.
-    const STREAM_DAYS = [4, 5, 6, 0, 1];
-    const STREAM_START_HOUR = 16;
-    const STREAM_TZ = "America/Toronto";
-    const WEEKDAY_LONG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-    // The next scheduled start that hasn't begun yet, worded from Toronto's point of view.
-    function nextStreamLabel(now = new Date()) {
-      const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
-        timeZone: STREAM_TZ, weekday: "short", hour: "numeric", hourCycle: "h23",
-      }).formatToParts(now).map((p) => [p.type, p.value]));
-      const today = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(parts.weekday);
-      const hour = Number(parts.hour);
-      for (let offset = 0; offset < 8; offset += 1) {
-        const day = (today + offset) % 7;
-        if (!STREAM_DAYS.includes(day) || (offset === 0 && hour >= STREAM_START_HOUR)) continue;
-        const when = offset === 0 ? "Tonight" : offset === 1 ? "Tomorrow" : WEEKDAY_LONG[day];
-        return `Next stream · ${when}, 4 PM ET`;
-      }
-      return "";
-    }
-
-    // Real on-air state from decapi.me, which answers "<channel> is offline" or an uptime
-    // like "2 hours, 5 minutes, 3 seconds". If it can't be reached the pill still shows
-    // the schedule, so a third-party outage costs the live badge, never the page.
-    function updateLiveStatus() {
-      const pill = document.getElementById("live-pill");
-      const text = document.getElementById("live-text");
-      const showSchedule = () => {
-        const label = nextStreamLabel();
-        pill.classList.remove("is-live");
-        text.textContent = label;
-        pill.hidden = !label;
-      };
-      fetch("https://decapi.me/twitch/uptime/robpaaspoker", { cache: "no-store" })
-        .then((r) => (r.ok ? r.text() : Promise.reject()))
-        .then((body) => {
-          const h = /(\d+) hour/.exec(body);
-          const m = /(\d+) minute/.exec(body);
-          if (/offline|error|not found/i.test(body) || !(h || m || /second/.test(body))) {
-            showSchedule();
-            return;
-          }
-          const uptime = `${h ? h[1] + "h " : ""}${m ? m[1] + "m" : "0m"}`.trim();
-          pill.classList.add("is-live");
-          text.textContent = `Live now on Twitch · ${uptime} in`;
-          pill.hidden = false;
-        })
-        .catch(showSchedule);
-    }
-
-    updateLiveStatus();
-    setInterval(updateLiveStatus, 120000);
-
     /* ---------------- scroll reveals ---------------- */
 
     // Pairs with the js-reveal class set in <head>: each .reveal section fades up the
@@ -527,7 +454,7 @@
     /* ---------------- opening photo drift ---------------- */
 
     // The photo slides down at a third of the scroll speed, so it reads as further away
-    // than the text over it. Uses the individual translate property, which leaves the
+    // than the card over it. Uses the individual translate property, which leaves the
     // load animation's scale alone. Stops doing work once the intro is off screen.
     if (!prefersReducedMotion) {
       const photo = document.getElementById("intro-photo");
