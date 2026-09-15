@@ -134,7 +134,8 @@ body {
   to { opacity: 1; transform: none; }
 }
 
-.page > :not(.site-header) {
+/* .reveal sections (the home page below its opening photo) fade in on scroll instead. */
+.page > :not(.site-header):not(.reveal) {
   animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
 }
 
@@ -144,6 +145,268 @@ body {
 .page > :nth-child(5) { animation-delay: 0.28s; }
 .page > :nth-child(6) { animation-delay: 0.36s; }
 
+/* ---------- home: page split around the opening photo ---------- */
+
+/* The home page closes .page after the header so the photo can run wider than the
+   900px column, then opens a second .page for everything below it. */
+.page-head { padding-bottom: 0; }
+.page-head .site-header { margin-bottom: 0; }
+.page-body { padding-top: 8px; }
+
+/* ---------- home: opening photo ---------- */
+
+.intro {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  max-width: 1440px;
+  height: clamp(480px, 76vh, 720px);
+  margin: -8px auto 0;
+  overflow: hidden;
+}
+
+/* The fades live on these two wrappers, not on the photo, so the photo can drift on
+   scroll while its edges stay put. Vertical here... */
+.intro-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 52%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 52%, transparent 100%);
+}
+
+/* ...and horizontal here; nested masks multiply, so the corners fade both ways. */
+.intro-media-x {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+}
+
+.intro-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  filter: brightness(0.7) saturate(1.08);
+  animation: settle 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+@keyframes settle {
+  from { opacity: 0; scale: 1.12; }
+  to { opacity: 1; scale: 1; }
+}
+
+.intro-copy {
+  position: relative;
+  max-width: 760px;
+  padding: 0 20px 40px;
+  text-align: center;
+}
+
+.intro-copy > * { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+.intro-copy > :nth-child(1) { animation-delay: 0.35s; }
+.intro-copy > :nth-child(2) { animation-delay: 0.5s; }
+.intro-copy > :nth-child(3) { animation-delay: 0.65s; }
+.intro-copy > :nth-child(4) { animation-delay: 0.8s; }
+
+.intro-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(46px, 7.6vw, 88px);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.65);
+}
+
+/* Gold that catches light from above, like the gold span in the logo. */
+.intro-title span,
+.section-title span {
+  background: linear-gradient(180deg, #f3e2a6 0%, var(--gold) 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro-sub {
+  max-width: 540px;
+  margin: 18px auto 0;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+}
+
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn img { display: block; }
+
+.btn-gold {
+  background: linear-gradient(180deg, var(--gold-light), var(--gold));
+  color: #16130a;
+  box-shadow: 0 10px 28px -10px rgba(201, 168, 76, 0.7);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -10px rgba(201, 168, 76, 0.9);
+}
+
+.btn-ghost {
+  color: var(--text);
+  border: 1px solid rgba(232, 226, 214, 0.28);
+  background: rgba(13, 13, 13, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+
+html { scroll-behavior: smooth; }
+
+/* ---------- home: scroll reveals ---------- */
+
+/* Only once the head script has opted in (see index.html): without JS these stay visible. */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.js-reveal .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- home: stream shorts ---------- */
+
+.clips {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 28px;
+  overflow: hidden;
+  background:
+    radial-gradient(420px 320px at 85% 60%, rgba(145, 70, 255, 0.1), transparent 70%),
+    linear-gradient(180deg, var(--card-top), var(--card-bottom));
+}
+
+.section-title {
+  margin: 10px 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.02;
+  color: var(--text);
+}
+
+.section-sub {
+  max-width: 320px;
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.clip-phones {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 28px;
+}
+
+.short { margin: 0; width: 200px; }
+
+/* The second phone sits lower, so the pair reads as placed by hand, not gridded. */
+.short:nth-child(2) { transform: translateY(28px); }
+
+.short-frame {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid #3a352c;
+  border-radius: 22px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 24px 50px -20px rgba(0, 0, 0, 0.95);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.short.has-sound .short-frame {
+  border-color: var(--gold-dim);
+  box-shadow: 0 0 0 1px var(--gold-dim), 0 24px 60px -18px rgba(201, 168, 76, 0.45);
+}
+
+.short-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.short-sound {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.short-sound:hover { background: rgba(10, 10, 10, 0.8); transform: scale(1.06); }
+.short-sound svg { width: 18px; height: 18px; fill: currentColor; }
+.short.has-sound .short-sound { background: var(--gold); color: #16130a; border-color: var(--gold); }
+
+.short figcaption {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.short figcaption b {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
 /* ---------- live status ---------- */
 
 .live-pill {
@@ -152,7 +415,9 @@ body {
   gap: 9px;
   width: fit-content;
   max-width: 100%;
-  margin: -6px auto 20px;
+  margin: 0 auto 20px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   padding: 6px 14px 6px 12px;
   border: 1px solid var(--card-border);
   border-radius: 999px;
@@ -661,9 +926,11 @@ section + section {
 
 .site-footer .twitch-schedule { margin-bottom: 0; }
 
-/* Same selector as the entrance rule: a plain .page > * is less specific and loses. */
+/* Same selector as the entrance rule: a less specific one silently loses. */
 @media (prefers-reduced-motion: reduce) {
-  .page > :not(.site-header),
+  .page > :not(.site-header):not(.reveal),
+  .intro-photo,
+  .intro-copy > *,
   .hero-svg.settled .beacon,
   .live-pill.is-live .live-dot { animation: none; }
 }
@@ -672,10 +939,19 @@ section + section {
 
 @media (max-width: 760px) {
   .link-grid { grid-template-columns: 1fr; }
+  .clips { grid-template-columns: 1fr; gap: 22px; }
+  .section-sub { max-width: none; }
+  .clip-phones { justify-content: center; }
+  .short { width: min(46%, 200px); }
   .cta-title { font-size: 26px; }
 }
 
 @media (max-width: 520px) {
+  .intro { height: clamp(460px, 72vh, 620px); }
+  .intro-photo { object-position: 58% 40%; }
+  .intro-sub { font-size: 16px; }
+  .section-title { font-size: 32px; }
+  .btn { padding: 11px 18px; font-size: 14px; }
   .hero-figure { font-size: 56px; }
   .session-figure { font-size: 40px; }
   .hero-stat-value { font-size: 23px; }

@@ -7,10 +7,21 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=26">
+  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="preload" as="image" href="assets/home/setup-1200.jpg"
+        imagesrcset="assets/home/setup-1200.jpg 1200w, assets/home/setup-2400.jpg 2400w" imagesizes="100vw">
+  <script>
+    // Sections below the opening photo fade in as they scroll into view. Opted into here,
+    // before first paint, so they never flash visible and then vanish — and without JS,
+    // an observer, or with reduced motion, they simply stay visible.
+    if ("IntersectionObserver" in window &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("js-reveal");
+    }
+  </script>
 </head>
 <body>
-  <div class="page">
+  <div class="page page-head">
 
     <header class="site-header">
       <div class="brand-name">Rob<span>Paas</span>Poker</div>
@@ -26,14 +37,43 @@
       </nav>
     </header>
 
-    <!-- ── Live now / next stream, filled in by updateLiveStatus() ── -->
-    <a class="live-pill" id="live-pill" href="https://www.twitch.tv/robpaaspoker"
-       target="_blank" rel="noopener" hidden>
-      <span class="live-dot"></span><span id="live-text"></span>
-    </a>
+  </div>
+
+  <!-- ── The opening: the setup photo, full width, fading into the page ── -->
+  <section class="intro" aria-labelledby="intro-title">
+    <!-- Two wrappers so the vertical and horizontal fades multiply, and the photo inside
+         can drift on scroll without dragging its fade edges along with it. -->
+    <div class="intro-media">
+      <div class="intro-media-x">
+        <img class="intro-photo" id="intro-photo"
+             src="assets/home/setup-1200.jpg"
+             srcset="assets/home/setup-1200.jpg 1200w, assets/home/setup-2400.jpg 2400w"
+             sizes="100vw" fetchpriority="high"
+             alt="Rob's streaming setup: a wall of monitors running a dozen poker tables between two softbox lights">
+      </div>
+    </div>
+
+    <div class="intro-copy">
+      <!-- Live now / next stream, filled in by updateLiveStatus() -->
+      <a class="live-pill" id="live-pill" href="https://www.twitch.tv/robpaaspoker"
+         target="_blank" rel="noopener" hidden>
+        <span class="live-dot"></span><span id="live-text"></span>
+      </a>
+      <h1 class="intro-title" id="intro-title">Twelve tables.<br><span>Every swing.</span></h1>
+      <p class="intro-sub">Rob Paas plays online poker tournaments for a living, and streams all of it: the deep runs and the brutal bubbles alike.</p>
+      <div class="intro-actions">
+        <a class="btn btn-gold" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener">
+          <img src="https://cdn.simpleicons.org/twitch/16130A" alt="" width="16" height="16">Watch on Twitch
+        </a>
+        <a class="btn btn-ghost" href="#road">The Road to $100K</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="page page-body">
 
     <!-- ── The hero: 2026 progress, the curve, and pace against the goal ── -->
-    <section class="card hero">
+    <section class="card hero reveal" id="road">
       <div class="hero-top">
         <div class="hero-eyebrow">2026 Road to $100K</div>
         <div class="hero-pace" id="hero-pace"></div>
@@ -52,7 +92,7 @@
     </section>
 
     <!-- ── Most recent session, from daily/data/latest.json ── -->
-    <section class="card session" id="session" hidden>
+    <section class="card session reveal" id="session" hidden>
       <div class="session-top">
         <div class="hero-eyebrow">Last Session</div>
         <a class="session-date" id="session-date" href="#"></a>
@@ -70,8 +110,41 @@
       <a class="hero-link" id="session-link" href="#">Full day breakdown &rarr;</a>
     </section>
 
+    <!-- ── Shorts from the stream: muted loops that play while on screen ── -->
+    <section class="card clips reveal" aria-labelledby="clips-title">
+      <div class="clips-copy">
+        <div class="hero-eyebrow">From the stream</div>
+        <h2 class="section-title" id="clips-title">Costumes optional.<br><span>Variance guaranteed.</span></h2>
+        <p class="section-sub">Every session goes out live on Twitch, and the best hands get cut into shorts.</p>
+        <a class="hero-link" href="https://www.youtube.com/@robpaaspoker/shorts" target="_blank" rel="noopener">More clips on YouTube &rarr;</a>
+      </div>
+
+      <div class="clip-phones">
+        <figure class="short">
+          <div class="short-frame">
+            <video class="short-video" muted loop playsinline preload="none"
+                   poster="assets/clips/bounty-win.jpg" aria-label="Stream short: a $150 bounty win">
+              <source src="assets/clips/bounty-win.mp4" type="video/mp4">
+            </video>
+            <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
+          </div>
+          <figcaption><b>Maple Leaf Madness</b><span>$150 bounty hyper</span></figcaption>
+        </figure>
+        <figure class="short">
+          <div class="short-frame">
+            <video class="short-video" muted loop playsinline preload="none"
+                   poster="assets/clips/hot-dog.jpg" aria-label="Stream short: playing in the hot dog suit">
+              <source src="assets/clips/hot-dog.mp4" type="video/mp4">
+            </video>
+            <button class="short-sound" type="button" aria-pressed="false" aria-label="Turn sound on"></button>
+          </div>
+          <figcaption><b>The hot dog suit</b><span>$5.50 Tower Superstack</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- ── Everything else ── -->
-    <section class="link-grid">
+    <section class="link-grid reveal">
       <a class="card cta-card suit-heart" href="about/">
         <div class="cta-title">About Me</div>
         <div class="cta-sub">Who I am, my story, and how I ended up playing poker for a living &rarr;</div>
@@ -141,6 +214,18 @@
 
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
     const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+    // Runs fn once el is a third on screen. The hero now sits below the opening photo,
+    // so its count-up and curve wait until someone can actually see them.
+    function whenVisible(el, fn, delay = 0) {
+      if (!("IntersectionObserver" in window)) { fn(); return; }
+      const io = new IntersectionObserver((entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        setTimeout(fn, delay);
+      }, { threshold: 0.33 });
+      io.observe(el);
+    }
 
     /* ---------------- hero chart ---------------- */
 
@@ -265,15 +350,23 @@
         if (p === 1) svgEl.classList.add("settled");
       }
 
-      if (animate) tween(2000, easeOutQuart, placeCurve, token);
-      else placeCurve(1);
+      // Drawn flat straight away so the card has its full height before it scrolls into
+      // view (nothing below it jumps), then rises once it's on screen.
+      if (animate) {
+        placeCurve(0);
+        whenVisible(host, () => tween(2000, easeOutQuart, placeCurve, token), 200);
+      } else {
+        placeCurve(1);
+      }
     }
 
     function renderHero(data) {
       const total = data.days.reduce((sum, d) => sum + d.total, 0);
       const totalEl = document.getElementById("hero-total");
       totalEl.classList.add(signClass(total));
-      tween(3200, easeOutCubic, (p) => { totalEl.textContent = fmtMoney(total * p, { signed: true }); });
+      totalEl.textContent = fmtMoney(0, { signed: true });
+      whenVisible(totalEl, () =>
+        tween(3200, easeOutCubic, (p) => { totalEl.textContent = fmtMoney(total * p, { signed: true }); }), 200);
 
       // Pace measured against the calendar, not against days played: the goal is for the
       // year, so a day not played is still a day of the year gone.
@@ -414,6 +507,89 @@
 
     updateLiveStatus();
     setInterval(updateLiveStatus, 120000);
+
+    /* ---------------- scroll reveals ---------------- */
+
+    // Pairs with the js-reveal class set in <head>: each .reveal section fades up the
+    // first time it comes on screen. The session card is un-hidden later by its fetch;
+    // observing a hidden element simply fires once it is shown.
+    if (document.documentElement.classList.contains("js-reveal")) {
+      const revealer = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          e.target.classList.add("in");
+          revealer.unobserve(e.target);
+        }
+      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+      document.querySelectorAll(".reveal").forEach((el) => revealer.observe(el));
+    }
+
+    /* ---------------- opening photo drift ---------------- */
+
+    // The photo slides down at a third of the scroll speed, so it reads as further away
+    // than the text over it. Uses the individual translate property, which leaves the
+    // load animation's scale alone. Stops doing work once the intro is off screen.
+    if (!prefersReducedMotion) {
+      const photo = document.getElementById("intro-photo");
+      const intro = photo.closest(".intro");
+      let ticking = false;
+      window.addEventListener("scroll", () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          ticking = false;
+          const y = window.scrollY;
+          if (y > intro.offsetTop + intro.offsetHeight) return;
+          photo.style.translate = `0 ${(y * 0.33).toFixed(1)}px`;
+        });
+      }, { passive: true });
+    }
+
+    /* ---------------- stream shorts ---------------- */
+
+    // Muted loops play while at least half on screen and pause otherwise, so nothing
+    // decodes off screen. preload="none" means a clip's bytes load on first play. The
+    // sound button unmutes one clip at a time. With reduced motion nothing autoplays;
+    // the sound button still starts a clip.
+    const SOUND_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="m16 9 5 6m0-6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    const SOUND_ON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    const shorts = [...document.querySelectorAll(".short")].map((fig) => ({
+      video: fig.querySelector("video"),
+      button: fig.querySelector(".short-sound"),
+    }));
+
+    function setSound(short, on) {
+      short.video.muted = !on;
+      short.button.innerHTML = on ? SOUND_ON : SOUND_OFF;
+      short.button.setAttribute("aria-pressed", String(on));
+      short.button.setAttribute("aria-label", on ? "Turn sound off" : "Turn sound on");
+      short.button.closest(".short").classList.toggle("has-sound", on);
+    }
+
+    for (const short of shorts) {
+      setSound(short, false);
+      short.button.addEventListener("click", () => {
+        const on = short.video.muted;
+        for (const other of shorts) if (other !== short) setSound(other, false);
+        setSound(short, on);
+        if (on) short.video.play().catch(() => {});
+      });
+    }
+
+    if ("IntersectionObserver" in window) {
+      const player = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          const short = shorts.find((x) => x.video === e.target);
+          if (e.isIntersecting && !prefersReducedMotion) {
+            short.video.play().catch(() => {});
+          } else if (!e.isIntersecting) {
+            short.video.pause();
+            setSound(short, false);
+          }
+        }
+      }, { threshold: 0.5 });
+      shorts.forEach((x) => player.observe(x.video));
+    }
 
     /* ---------------- boot ---------------- */
 
