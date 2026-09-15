@@ -161,16 +161,27 @@ body {
 
 /* ---------- home: stream shorts ---------- */
 
+/* Heading and YouTube link share the left column; the phones span both rows on the
+   right, so the heading centres against them and the link sits in the bottom-left
+   corner. On a phone the link drops below the clips instead. */
 .clips {
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 28px;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "title phones"
+    "link  phones";
+  column-gap: 28px;
   overflow: hidden;
   background:
     radial-gradient(420px 320px at 85% 60%, rgba(145, 70, 255, 0.1), transparent 70%),
     linear-gradient(180deg, var(--card-top), var(--card-bottom));
 }
+
+.clips .section-title { grid-area: title; align-self: center; margin: 0; }
+.clips-link { grid-area: link; justify-self: start; }
+.clips .clips-link { margin-top: 0; }
+.clip-phones { grid-area: phones; }
 
 .section-title {
   margin: 10px 0 0;
@@ -720,7 +731,12 @@ section + section {
 
 @media (max-width: 760px) {
   .link-grid { grid-template-columns: 1fr; }
-  .clips { grid-template-columns: 1fr; gap: 22px; }
+  .clips {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "title" "phones" "link";
+    row-gap: 22px;
+  }
   .clip-phones { justify-content: center; }
   .short { width: min(46%, 200px); }
   .cta-title { font-size: 26px; }
