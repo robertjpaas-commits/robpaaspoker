@@ -15,17 +15,30 @@
   --positive-dim: #143a24;
   --negative: #ef4444;
   --negative-dim: #3a1616;
+  /* Warm charcoal, not neutral grey: grey next to gold read as a stock dark theme.
+     Mirrors style.css at the site root. */
+  --card-top: #1c1a17;
+  --card-bottom: #151412;
+  --card-border: #2c2924;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-figure: "Barlow Condensed", "Barlow", system-ui, sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* A soft gold light behind the logo and a fainter one at the foot (mirrors the root
+   style.css). Scrolls with the page: background-attachment: fixed janks on phones. */
 body {
   margin: 0;
-  background: var(--bg);
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 900px 420px at 50% -120px, rgba(201, 168, 76, 0.14), transparent 70%),
+    radial-gradient(ellipse 1100px 500px at 50% 100%, rgba(201, 168, 76, 0.045), transparent 70%),
+    var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
 }
 
 .page {
@@ -103,14 +116,21 @@ body {
 /* ---------- hero / progress ---------- */
 
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 24px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 18px 40px -22px rgba(0, 0, 0, 0.9);
 }
 
 .hero {
   margin-bottom: 24px;
+  /* Gold light pooling in the top corner, as on the home page's hero. */
+  background:
+    radial-gradient(520px 260px at 88% -40px, rgba(201, 168, 76, 0.11), transparent 70%),
+    linear-gradient(180deg, var(--card-top), var(--card-bottom));
 }
 
 /* The total is the chart's heading, not a banner over it: left-aligned with the
@@ -127,14 +147,17 @@ body {
   margin-bottom: 6px;
 }
 
+/* Condensed scoreboard figures with a glow in their own colour, as on the home page. */
 .hero-figure {
-  font-size: 36px;
+  font-family: var(--font-figure);
+  font-size: 58px;
   font-weight: 700;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
-.hero-figure.positive { color: var(--positive); }
-.hero-figure.negative { color: var(--negative); }
+.hero-figure.positive { color: var(--positive); text-shadow: 0 0 36px rgba(34, 197, 94, 0.3); }
+.hero-figure.negative { color: var(--negative); text-shadow: 0 0 36px rgba(239, 68, 68, 0.3); }
 
 /* The logo's gold rule, fading one way only so it reads as an underline for a
    left-aligned figure. Gold whatever the sign: it frames the figure. */
@@ -167,8 +190,11 @@ body {
 }
 
 .stat-value {
-  font-size: 20px;
-  font-weight: 600;
+  font-family: var(--font-figure);
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-value.positive { color: var(--positive); }
@@ -193,6 +219,8 @@ body {
   padding: 7px 14px;
   border-radius: 999px;
   cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
 .pill:hover {
@@ -203,6 +231,7 @@ body {
   background: var(--gold);
   border-color: var(--gold);
   color: #16130a;
+  box-shadow: 0 0 18px -4px rgba(201, 168, 76, 0.6);
 }
 
 section + section {
@@ -223,11 +252,15 @@ section + section {
 }
 
 .month-card {
-  background: var(--surface2);
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #191815, #121110);
+  border: 1px solid var(--card-border);
   border-radius: 10px;
   padding: 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transition: border-color 0.2s ease;
 }
+
+.month-card:hover { border-color: var(--gold-dim); }
 
 .month-card h3 {
   margin: 0 0 8px;
@@ -284,7 +317,18 @@ section + section {
   background: var(--bg);
   position: relative;
   cursor: default;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
+/* A played day pops forward under the cursor, lit in its own colour. */
+.day-cell.win:hover,
+.day-cell.loss:hover {
+  transform: scale(1.12);
+  z-index: 3;
+}
+
+.day-cell.win:hover { box-shadow: 0 0 14px -2px rgba(34, 197, 94, 0.6); }
+.day-cell.loss:hover { box-shadow: 0 0 14px -2px rgba(239, 68, 68, 0.6); }
 
 .day-cell.empty {
   background: transparent;
@@ -407,6 +451,32 @@ section + section {
   margin-top: 18px;
 }
 
+
+/* ---------- entrance (mirrors the root style.css) ---------- */
+
+/* Sections rise in one after another. Fill mode is backwards, not both, so once the
+   animation ends no transform lingers to trap fixed or z-indexed descendants. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.page > :not(.site-header) {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.page > :nth-child(2) { animation-delay: 0.05s; }
+.page > :nth-child(3) { animation-delay: 0.12s; }
+.page > :nth-child(4) { animation-delay: 0.2s; }
+.page > :nth-child(5) { animation-delay: 0.28s; }
+.page > :nth-child(6) { animation-delay: 0.36s; }
+
+/* Same selector as the entrance rule: a plain .page > * is less specific and loses. */
+@media (prefers-reduced-motion: reduce) {
+  .page > :not(.site-header) { animation: none; }
+  .day-cell { transition: none; }
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 900px) {
@@ -421,7 +491,10 @@ section + section {
     grid-template-columns: repeat(2, 1fr);
   }
   .hero-figure {
-    font-size: 30px;
+    font-size: 44px;
+  }
+  .stat-value {
+    font-size: 24px;
   }
   .chart-wrap {
     height: 200px;

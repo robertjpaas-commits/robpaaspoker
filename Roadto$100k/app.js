@@ -12,6 +12,10 @@ let currentSite = "ALL";
 let currentMode = "cumulative";
 let chart = null;
 
+// Chart.js animates each draw over 1s by default; that read as rushed, so run at half speed.
+// The home page's hand-built curve uses the same 2s to match.
+Chart.defaults.animation.duration = 2000;
+
 function fmtMoney(value, { signed = false, compact = false } = {}) {
   const sign = value < 0 ? "-" : signed ? "+" : "";
   const abs = Math.abs(value);
@@ -159,7 +163,7 @@ function renderHero({ animate = false } = {}) {
   const heroEl = document.getElementById("hero-total");
   heroEl.className = "hero-figure " + (total >= 0 ? "positive" : "negative");
   if (animate) {
-    animateCountUp(heroEl, total, 1600, (v) => fmtMoney(v, { signed: true }));
+    animateCountUp(heroEl, total, 3200, (v) => fmtMoney(v, { signed: true }));
   } else {
     cancelCountUp();
     heroEl.textContent = fmtMoney(total, { signed: true });
@@ -410,6 +414,22 @@ const goalLinePlugin = {
 const SPADE_PATH = new Path2D(
   "M12 2C9 7 4 9 4 14c0 2 2 4 4 4 1 0 2 0 3-1 0 0 .32 2-2 5h6c-2-3-2-5-2-5 1 1 2 1 3 1 2 0 4-2 4-4 0-5-5-7-8-12Z");
 
+// A soft gold glow under the cumulative line, like the home page's hero curve. Canvas
+// shadow state is saved before the dataset draws and restored after, so the axes, the
+// goal line and the tooltip stay crisp.
+const lineGlowPlugin = {
+  id: "lineGlow",
+  beforeDatasetDraw(chartInstance) {
+    const { ctx } = chartInstance;
+    ctx.save();
+    ctx.shadowColor = "rgba(201,168,76,0.55)";
+    ctx.shadowBlur = 10;
+  },
+  afterDatasetDraw(chartInstance) {
+    chartInstance.ctx.restore();
+  },
+};
+
 const spadeEndpointPlugin = {
   id: "spadeEndpoint",
   afterDatasetsDraw(chartInstance) {
@@ -431,6 +451,8 @@ const spadeEndpointPlugin = {
     ctx.scale(0.9, 0.9);
     ctx.translate(-12, -12);
     ctx.fillStyle = GOLD;
+    ctx.shadowColor = "rgba(232,204,122,0.8)";
+    ctx.shadowBlur = 8;
     ctx.fill(SPADE_PATH);
     ctx.restore();
   },
@@ -524,7 +546,9 @@ function renderChart() {
         }],
       },
       // The goal line is meaningless on one site's own curve.
-      plugins: isAll ? [goalLinePlugin, spadeEndpointPlugin] : [spadeEndpointPlugin],
+      plugins: isAll
+        ? [lineGlowPlugin, goalLinePlugin, spadeEndpointPlugin]
+        : [lineGlowPlugin, spadeEndpointPlugin],
       options: {
         responsive: true,
         maintainAspectRatio: false,

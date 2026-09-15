@@ -20,10 +20,16 @@ var USD_SITES = { 'wpt gold': true, 'coinpoker': true, 'acr': true };
 var USD_RATE  = 1.35;
 function siteRate(site) { return USD_SITES[(site || '').toLowerCase()] ? USD_RATE : 1; }
 
+// Display money with thousands separators ("$111,079.35"). The CSV export keeps plain
+// toFixed(2) so spreadsheets read the numbers as numbers.
+function money(n) { return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+// Whole dollars for the summary tiles, where cents on a six-figure total are just noise.
+function dollars(n) { return Math.round(n).toLocaleString('en-US'); }
+
 function getInvested(r) { return r.totalInvested != null ? r.totalInvested : (r.buyin || 0); }
 function fmtProfit(n) {
-  if (n > 0)  return '<span class="positive">+$' + n.toFixed(2) + '</span>';
-  if (n < 0)  return '<span class="negative">-$' + Math.abs(n).toFixed(2) + '</span>';
+  if (n > 0)  return '<span class="positive">+$' + money(n) + '</span>';
+  if (n < 0)  return '<span class="negative">-$' + money(Math.abs(n)) + '</span>';
   return '<span class="neutral">$0.00</span>';
 }
 function fmtRoi(roi) {
@@ -180,13 +186,13 @@ function renderSummary(rows) {
   var s = calcStats(rows);
   document.getElementById('s-count').textContent    = s.count;
   document.getElementById('s-bullets').textContent  = s.bullets;
-  document.getElementById('s-invested').textContent = '$' + s.invested.toFixed(2);
-  document.getElementById('s-winnings').textContent = '$' + s.winnings.toFixed(2);
-  document.getElementById('s-avg-buyin').textContent    = s.count > 0 ? '$' + (s.baseInvested / s.count).toFixed(2) : '—';
+  document.getElementById('s-invested').textContent = '$' + dollars(s.invested);
+  document.getElementById('s-winnings').textContent = '$' + dollars(s.winnings);
+  document.getElementById('s-avg-buyin').textContent    = s.count > 0 ? '$' + money((s.baseInvested / s.count)) : '—';
   document.getElementById('s-avg-bullets').textContent  = s.count > 0 ? (s.bullets / s.count).toFixed(2) : '—';
 
   var profEl = document.getElementById('s-profit');
-  profEl.textContent = (s.profit >= 0 ? '+$' : '-$') + Math.abs(s.profit).toFixed(2);
+  profEl.textContent = (s.profit >= 0 ? '+$' : '-$') + dollars(Math.abs(s.profit));
   profEl.className = 'stat-value ' + (s.profit > 0 ? 'positive' : s.profit < 0 ? 'negative' : 'neutral');
 
   var roiEl = document.getElementById('s-roi');
@@ -278,8 +284,8 @@ function renderEntryTypeBreakdown(rows) {
       '<td><b>' + k + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + s.invested.toFixed(2) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + s.winnings.toFixed(2) : '—') + '</td>' +
+      '<td>$' + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -303,8 +309,8 @@ function renderStakeBreakdown(rows) {
       '<td><b>' + tier + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + s.invested.toFixed(2) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + s.winnings.toFixed(2) : '—') + '</td>' +
+      '<td>$' + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -330,8 +336,8 @@ function renderSiteBreakdown(rows) {
       '<td><b>' + escH(site) + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + s.invested.toFixed(2) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + s.winnings.toFixed(2) : '—') + '</td>' +
+      '<td>$' + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -375,8 +381,8 @@ function renderTournamentBreakdown(rows) {
       '<td>' + g.played + '</td>' +
       '<td>' + g.itm + '%</td>' +
       '<td>' + g.avgBullets.toFixed(2) + '</td>' +
-      '<td>$' + g.invested.toFixed(2) + '</td>' +
-      '<td>' + (g.winnings > 0 ? '$' + g.winnings.toFixed(2) : '—') + '</td>' +
+      '<td>$' + money(g.invested) + '</td>' +
+      '<td>' + (g.winnings > 0 ? '$' + money(g.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(g.profit) + '</td>' +
       '<td>' + fmtRoi(g.roi) + '</td>' +
       '</tr>';
@@ -412,10 +418,10 @@ function renderMonthlyTrend(rows) {
       '<td><b>' + monthLabel(mo + '-01') + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + s.invested.toFixed(2) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + s.winnings.toFixed(2) : '—') + '</td>' +
+      '<td>$' + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
-      '<td class="' + runCls + '">' + (running >= 0 ? '+$' : '-$') + Math.abs(running).toFixed(2) + '</td>' +
+      '<td class="' + runCls + '">' + (running >= 0 ? '+$' : '-$') + money(Math.abs(running)) + '</td>' +
       '</tr>';
   }).join('');
 }
@@ -447,8 +453,8 @@ function renderDayOfWeek(rows) {
       '<td><b>' + day + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + s.invested.toFixed(2) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + s.winnings.toFixed(2) : '—') + '</td>' +
+      '<td>$' + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -487,7 +493,7 @@ function renderResultsTable(rows) {
     var win      = r.winnings || 0;
     var inv      = getInvested(r);
     var prof     = r.profit != null ? r.profit : Math.round((win - inv) * 100) / 100;
-    var invCell  = '-$' + inv.toFixed(2);
+    var invCell  = '-$' + money(inv);
     var entriesCell = r.rebuys > 0
       ? '<span class="rebuy-badge">+' + r.rebuys + ' rebuy' + (r.rebuys > 1 ? 's' : '') + '</span>'
       : '<span style="color:var(--text-muted);">Original</span>';
@@ -496,10 +502,10 @@ function renderResultsTable(rows) {
       '<td><span class="name-link" onclick="filterByName(' + escAttr(JSON.stringify(r.name || '')) + ')">' + escH(r.name) + '</span></td>' +
       '<td style="font-size:11px;color:#4a7fc1;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">' + escH(r.type || '—') + '</td>' +
       '<td class="col-site">' + escH(r.site || '—') + '</td>' +
-      '<td class="col-num" style="color:var(--negative);">-$' + (r.buyin || 0).toFixed(2) + '</td>' +
+      '<td class="col-num" style="color:var(--negative);">-$' + money((r.buyin || 0)) + '</td>' +
       '<td class="col-num">' + entriesCell + '</td>' +
       '<td class="col-num">' + invCell + '</td>' +
-      '<td class="col-num">' + (win > 0 ? '<span style="color:var(--positive);">+$' + win.toFixed(2) + '</span>' : '<span style="color:var(--text-muted);">—</span>') + '</td>' +
+      '<td class="col-num">' + (win > 0 ? '<span style="color:var(--positive);">+$' + money(win) + '</span>' : '<span style="color:var(--text-muted);">—</span>') + '</td>' +
       '<td class="col-num">' + fmtProfit(prof) + '</td>' +
       '</tr>';
   }).join('');

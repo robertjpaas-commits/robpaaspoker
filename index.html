@@ -6,8 +6,8 @@
   <title>RobPaasPoker</title>
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body>
   <div class="page">
@@ -25,6 +25,12 @@
         <a class="social-icon discord" href="https://discord.gg/Pz7nrhqhHF" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" loading="lazy"></a>
       </nav>
     </header>
+
+    <!-- ── Live now / next stream, filled in by updateLiveStatus() ── -->
+    <a class="live-pill" id="live-pill" href="https://www.twitch.tv/robpaaspoker"
+       target="_blank" rel="noopener" hidden>
+      <span class="live-dot"></span><span id="live-text"></span>
+    </a>
 
     <!-- ── The hero: 2026 progress, the curve, and pace against the goal ── -->
     <section class="card hero">
@@ -66,15 +72,15 @@
 
     <!-- ── Everything else ── -->
     <section class="link-grid">
-      <a class="card cta-card" href="about/">
+      <a class="card cta-card suit-heart" href="about/">
         <div class="cta-title">About Me</div>
         <div class="cta-sub">Who I am, my story, and how I ended up playing poker for a living &rarr;</div>
       </a>
-      <a class="card cta-card" href="results/">
+      <a class="card cta-card suit-club" href="results/">
         <div class="cta-title">Tournament Results</div>
         <div class="cta-sub">Every online tournament, logged &mdash; filter by site, stake and type &rarr;</div>
       </a>
-      <a class="card cta-card" href="http://www.finaltable.academy/" target="_blank" rel="noopener sponsored">
+      <a class="card cta-card suit-diamond" href="http://www.finaltable.academy/" target="_blank" rel="noopener sponsored">
         <div class="cta-title">Final Table Academy</div>
         <div class="cta-sub">The poker training I use &mdash; use code <strong>RPAAS</strong> at checkout &rarr;</div>
       </a>
@@ -112,9 +118,9 @@
 
     /* ---------------- entrance animation ---------------- */
 
-    // The same opening the Road to $100K page has: the total counts up over 1.6s
+    // The same opening the Road to $100K page has: the total counts up over 3.2s
     // (easeOutCubic, as in its animateCountUp) while the curve rises from the $0 line
-    // over 1s (easeOutQuart, Chart.js's default for a line chart's first draw).
+    // over 2s (easeOutQuart, Chart.js's first-draw easing, at that page's 2s duration).
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Bumped by every chart draw, so a resize mid-animation stops the old loop rather
@@ -220,7 +226,10 @@
 
       // The curve, its fill and the spade are drawn empty here and positioned by
       // placeCurve(), which the entrance animation calls once per frame.
+      // The beacon is a ring behind the spade that pulses once the curve has settled,
+      // so the chart reads as live rather than a static picture.
       parts.push(`<path class="area"></path>`, `<path class="curve"></path>`,
+        `<circle class="beacon" r="9"></circle>`,
         // Gold spade marking "you are here" — the same flourish the calendar page uses,
         // and the same path (SPADE_PATH in Roadto$100k/app.js). Not the &#9824; character:
         // phones render that as their own black emoji, which ignores the CSS fill.
@@ -236,6 +245,8 @@
       const areaEl = host.querySelector(".area");
       const curveEl = host.querySelector(".curve");
       const spadeEl = host.querySelector(".spade");
+      const beaconEl = host.querySelector(".beacon");
+      const svgEl = host.querySelector(".hero-svg");
 
       // p = 0 lays every point flat on the $0 line, p = 1 is the real curve. Rising
       // from $0 rather than the bottom edge matches Chart.js's first-draw animation.
@@ -249,9 +260,12 @@
         // Path is a 24-unit box centred on (12, 12); 0.75 draws it ~15px tall.
         spadeEl.setAttribute("transform", `translate(${endX.toFixed(1)} ` +
           `${(base + (endY - base) * p).toFixed(1)}) scale(0.75) translate(-12 -12)`);
+        beaconEl.setAttribute("cx", endX.toFixed(1));
+        beaconEl.setAttribute("cy", (base + (endY - base) * p).toFixed(1));
+        if (p === 1) svgEl.classList.add("settled");
       }
 
-      if (animate) tween(1000, easeOutQuart, placeCurve, token);
+      if (animate) tween(2000, easeOutQuart, placeCurve, token);
       else placeCurve(1);
     }
 
@@ -259,7 +273,7 @@
       const total = data.days.reduce((sum, d) => sum + d.total, 0);
       const totalEl = document.getElementById("hero-total");
       totalEl.classList.add(signClass(total));
-      tween(1600, easeOutCubic, (p) => { totalEl.textContent = fmtMoney(total * p, { signed: true }); });
+      tween(3200, easeOutCubic, (p) => { totalEl.textContent = fmtMoney(total * p, { signed: true }); });
 
       // Pace measured against the calendar, not against days played: the goal is for the
       // year, so a day not played is still a day of the year gone.
@@ -344,6 +358,62 @@
 
       document.getElementById("session").hidden = false;
     }
+
+    /* ---------------- live status ---------------- */
+
+    // The scheduled stream start days (0 = Sunday) and hour, in Rob's own time zone.
+    const STREAM_DAYS = [4, 5, 6, 0, 1];
+    const STREAM_START_HOUR = 16;
+    const STREAM_TZ = "America/Toronto";
+    const WEEKDAY_LONG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    // The next scheduled start that hasn't begun yet, worded from Toronto's point of view.
+    function nextStreamLabel(now = new Date()) {
+      const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
+        timeZone: STREAM_TZ, weekday: "short", hour: "numeric", hourCycle: "h23",
+      }).formatToParts(now).map((p) => [p.type, p.value]));
+      const today = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(parts.weekday);
+      const hour = Number(parts.hour);
+      for (let offset = 0; offset < 8; offset += 1) {
+        const day = (today + offset) % 7;
+        if (!STREAM_DAYS.includes(day) || (offset === 0 && hour >= STREAM_START_HOUR)) continue;
+        const when = offset === 0 ? "Tonight" : offset === 1 ? "Tomorrow" : WEEKDAY_LONG[day];
+        return `Next stream · ${when}, 4 PM ET`;
+      }
+      return "";
+    }
+
+    // Real on-air state from decapi.me, which answers "<channel> is offline" or an uptime
+    // like "2 hours, 5 minutes, 3 seconds". If it can't be reached the pill still shows
+    // the schedule, so a third-party outage costs the live badge, never the page.
+    function updateLiveStatus() {
+      const pill = document.getElementById("live-pill");
+      const text = document.getElementById("live-text");
+      const showSchedule = () => {
+        const label = nextStreamLabel();
+        pill.classList.remove("is-live");
+        text.textContent = label;
+        pill.hidden = !label;
+      };
+      fetch("https://decapi.me/twitch/uptime/robpaaspoker", { cache: "no-store" })
+        .then((r) => (r.ok ? r.text() : Promise.reject()))
+        .then((body) => {
+          const h = /(\d+) hour/.exec(body);
+          const m = /(\d+) minute/.exec(body);
+          if (/offline|error|not found/i.test(body) || !(h || m || /second/.test(body))) {
+            showSchedule();
+            return;
+          }
+          const uptime = `${h ? h[1] + "h " : ""}${m ? m[1] + "m" : "0m"}`.trim();
+          pill.classList.add("is-live");
+          text.textContent = `Live now on Twitch · ${uptime} in`;
+          pill.hidden = false;
+        })
+        .catch(showSchedule);
+    }
+
+    updateLiveStatus();
+    setInterval(updateLiveStatus, 120000);
 
     /* ---------------- boot ---------------- */
 

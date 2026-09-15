@@ -12,17 +12,30 @@
   --gold-track: #3a2f16;
   --positive: #22c55e;
   --negative: #ef4444;
+  /* Warm charcoal, not neutral grey: grey next to gold read as a stock dark theme. */
+  --card-top: #1c1a17;
+  --card-bottom: #151412;
+  --card-border: #2c2924;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-figure: "Barlow Condensed", "Barlow", system-ui, sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* A soft gold light behind the logo and a fainter one at the foot, so the page has a
+   source of light instead of a flat black ground. Scrolls with the page on purpose:
+   background-attachment: fixed repaints on every scroll frame on phones. */
 body {
   margin: 0;
-  background: var(--bg);
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 900px 420px at 50% -120px, rgba(201, 168, 76, 0.14), transparent 70%),
+    radial-gradient(ellipse 1100px 500px at 50% 100%, rgba(201, 168, 76, 0.045), transparent 70%),
+    var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
 }
 
 .page {
@@ -100,10 +113,83 @@ body {
 /* ---------- shared card ---------- */
 
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 24px;
+  /* A 1px top highlight and a drop shadow give the cards an edge to catch the light. */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 18px 40px -22px rgba(0, 0, 0, 0.9);
+}
+
+/* ---------- entrance ---------- */
+
+/* Sections rise in one after another. The session card is revealed by script after its
+   fetch, and un-hiding it restarts the animation, so it arrives when its data does.
+   Fill mode is backwards, not both, so once it ends no transform lingers to trap fixed
+   or z-indexed descendants. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.page > :not(.site-header) {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.page > :nth-child(2) { animation-delay: 0.05s; }
+.page > :nth-child(3) { animation-delay: 0.12s; }
+.page > :nth-child(4) { animation-delay: 0.2s; }
+.page > :nth-child(5) { animation-delay: 0.28s; }
+.page > :nth-child(6) { animation-delay: 0.36s; }
+
+/* ---------- live status ---------- */
+
+.live-pill {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  max-width: 100%;
+  margin: -6px auto 20px;
+  padding: 6px 14px 6px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  background: rgba(20, 19, 17, 0.8);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.live-pill:hover { border-color: var(--gold-dim); color: var(--text); }
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex: none;
+}
+
+.live-pill.is-live {
+  color: #f2eaff;
+  border-color: rgba(145, 70, 255, 0.7);
+  background: rgba(145, 70, 255, 0.16);
+  box-shadow: 0 0 24px -6px rgba(145, 70, 255, 0.6);
+}
+
+.live-pill.is-live .live-dot {
+  background: #ff3b3b;
+  animation: live-pulse 1.6s ease-out infinite;
+}
+
+@keyframes live-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.7); }
+  100% { box-shadow: 0 0 0 9px rgba(255, 59, 59, 0); }
 }
 
 section + section {
@@ -186,6 +272,10 @@ section + section {
   position: relative;
   overflow: hidden;
   padding-bottom: 20px;
+  /* Gold light pooling in the top corner, over the card's own gradient. */
+  background:
+    radial-gradient(520px 260px at 88% -40px, rgba(201, 168, 76, 0.11), transparent 70%),
+    linear-gradient(180deg, var(--card-top), var(--card-bottom));
 }
 
 .hero::before {
@@ -228,13 +318,21 @@ section + section {
   margin-top: 10px;
 }
 
+/* Condensed figures read like a broadcast scoreboard, and the glow in the figure's own
+   colour makes the number feel lit rather than printed. */
 .hero-figure {
-  font-size: 56px;
+  font-family: var(--font-figure);
+  font-size: 76px;
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: 0.005em;
   font-variant-numeric: tabular-nums;
 }
+
+.hero-figure.positive,
+.session-figure.positive { text-shadow: 0 0 36px rgba(34, 197, 94, 0.3); }
+.hero-figure.negative,
+.session-figure.negative { text-shadow: 0 0 36px rgba(239, 68, 68, 0.3); }
 
 .hero-chart {
   margin-top: 18px;
@@ -271,6 +369,7 @@ section + section {
   stroke: var(--gold);
   stroke-width: 2;
   stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px rgba(201, 168, 76, 0.55));
   /* Without this the horizontal stretch would thicken the line unevenly. */
   vector-effect: non-scaling-stroke;
 }
@@ -284,6 +383,27 @@ section + section {
 .hero-svg .spade {
   /* Same gold as the Road to $100K chart's spade (GOLD in its app.js). */
   fill: var(--gold);
+  filter: drop-shadow(0 0 4px rgba(232, 204, 122, 0.8));
+}
+
+/* Invisible until the entrance animation has placed the curve, then a slow ripple
+   out from the spade: "this is where the year is right now". */
+.hero-svg .beacon {
+  fill: none;
+  stroke: var(--gold-light);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hero-svg.settled .beacon {
+  animation: beacon 2.6s ease-out infinite;
+}
+
+@keyframes beacon {
+  0% { transform: scale(0.35); opacity: 0.85; }
+  80%, 100% { transform: scale(2.2); opacity: 0; }
 }
 
 .hero-stats {
@@ -305,7 +425,9 @@ section + section {
 }
 
 .hero-stat-value {
-  font-size: 19px;
+  font-family: var(--font-figure);
+  font-size: 26px;
+  line-height: 1.1;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   color: var(--text-secondary);
@@ -348,7 +470,8 @@ section + section {
 }
 
 .session-figure {
-  font-size: 38px;
+  font-family: var(--font-figure);
+  font-size: 50px;
   font-weight: 700;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
@@ -380,6 +503,8 @@ section + section {
 }
 
 .site-chip b { font-variant-numeric: tabular-nums; }
+.site-chip.positive { border-color: rgba(34, 197, 94, 0.28); background: rgba(34, 197, 94, 0.06); }
+.site-chip.negative { border-color: rgba(239, 68, 68, 0.28); background: rgba(239, 68, 68, 0.06); }
 .site-chip.positive b { color: var(--positive); }
 .site-chip.negative b { color: var(--negative); }
 
@@ -466,23 +591,54 @@ section + section {
 }
 
 .cta-card {
+  position: relative;
+  overflow: hidden;
+  /* So the suit watermark's z-index: -1 stays above the card's own background. */
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-decoration: none;
   text-align: center;
   padding: 22px 18px;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-card:hover {
   border-color: var(--gold);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 40px -18px rgba(201, 168, 76, 0.35);
 }
+
+/* One card suit per card, drawn huge and faint in the corner. SVG paths rather than the
+   suit characters, which phones swap for their own coloured emoji. */
+.cta-card::before {
+  content: "";
+  position: absolute;
+  right: -22px;
+  bottom: -30px;
+  width: 100px;
+  height: 100px;
+  background: var(--suit) no-repeat center / contain;
+  opacity: 0.055;
+  z-index: -1;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.cta-card:hover::before {
+  opacity: 0.2;
+  transform: rotate(-10deg) scale(1.08);
+}
+
+.suit-heart { --suit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c9a84c' d='M12 21.5S2.5 15.6 2.5 9.1C2.5 6 4.8 3.5 7.7 3.5c1.9 0 3.4 1 4.3 2.6.9-1.6 2.4-2.6 4.3-2.6 2.9 0 5.2 2.5 5.2 5.6 0 6.5-9.5 12.4-9.5 12.4Z'/%3E%3C/svg%3E"); }
+.suit-club { --suit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23c9a84c'%3E%3Ccircle cx='12' cy='6.6' r='4.4'/%3E%3Ccircle cx='6.6' cy='13.4' r='4.4'/%3E%3Ccircle cx='17.4' cy='13.4' r='4.4'/%3E%3Cpath d='M11 11h2c0 5 1 8.5 3 10.5H8c2-2 3-5.5 3-10.5Z'/%3E%3C/g%3E%3C/svg%3E"); }
+.suit-diamond { --suit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c9a84c' d='M12 1.5c-2.2 3.8-4.7 7.3-7.5 10.5 2.8 3.2 5.3 6.7 7.5 10.5 2.2-3.8 4.7-7.3 7.5-10.5C16.7 8.8 14.2 5.3 12 1.5Z'/%3E%3C/svg%3E"); }
 
 .cta-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--gold);
   line-height: 1.15;
@@ -505,6 +661,13 @@ section + section {
 
 .site-footer .twitch-schedule { margin-bottom: 0; }
 
+/* Same selector as the entrance rule: a plain .page > * is less specific and loses. */
+@media (prefers-reduced-motion: reduce) {
+  .page > :not(.site-header),
+  .hero-svg.settled .beacon,
+  .live-pill.is-live .live-dot { animation: none; }
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 760px) {
@@ -513,8 +676,9 @@ section + section {
 }
 
 @media (max-width: 520px) {
-  .hero-figure { font-size: 40px; }
-  .session-figure { font-size: 30px; }
+  .hero-figure { font-size: 56px; }
+  .session-figure { font-size: 40px; }
+  .hero-stat-value { font-size: 23px; }
   .session-shots { grid-template-columns: repeat(2, 1fr); }
   .card { padding: 18px; }
 }

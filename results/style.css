@@ -12,17 +12,30 @@
   --gold-track: #3a2f16;
   --positive: #22c55e;
   --negative: #ef4444;
+  /* Warm charcoal, not neutral grey: grey next to gold read as a stock dark theme.
+     Mirrors style.css at the site root. */
+  --card-top: #1c1a17;
+  --card-bottom: #151412;
+  --card-border: #2c2924;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-figure: "Barlow Condensed", "Barlow", system-ui, sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* A soft gold light behind the logo and a fainter one at the foot (mirrors the root
+   style.css). Scrolls with the page: background-attachment: fixed janks on phones. */
 body {
   margin: 0;
-  background: var(--bg);
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 900px 420px at 50% -120px, rgba(201, 168, 76, 0.14), transparent 70%),
+    radial-gradient(ellipse 1100px 500px at 50% 100%, rgba(201, 168, 76, 0.045), transparent 70%),
+    var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
 }
 
 .page {
@@ -108,10 +121,13 @@ body {
 /* ---------- shared card ---------- */
 
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 24px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 18px 40px -22px rgba(0, 0, 0, 0.9);
 }
 
 section + section {
@@ -250,8 +266,9 @@ section + section {
 }
 
 .stat-box {
-  background: var(--surface2);
-  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--card-border);
+  transition: border-color 0.2s ease;
   border-radius: 8px;
   padding: 10px 6px;
   text-align: center;
@@ -269,17 +286,20 @@ section + section {
   text-overflow: ellipsis;
 }
 
+.stat-box:hover { border-color: var(--gold-dim); }
+
+/* Condensed sans, not the serif: old-style serif numerals made "$111079.35" hard to read. */
 .stat-value {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 22px;
-  font-weight: 600;
+  font-family: var(--font-figure);
+  font-size: 25px;
+  font-weight: 700;
   line-height: 1;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-.stat-value.positive { color: var(--positive); }
-.stat-value.negative { color: var(--negative); }
+.stat-value.positive { color: var(--positive); text-shadow: 0 0 24px rgba(34, 197, 94, 0.25); }
+.stat-value.negative { color: var(--negative); text-shadow: 0 0 24px rgba(239, 68, 68, 0.25); }
 .stat-value.neutral { color: var(--text-muted); }
 .stat-value.gold { color: var(--gold-light); }
 
@@ -395,6 +415,31 @@ th.sorted-desc::after { content: ' \25BC'; color: var(--gold); }
 
 .empty-msg { text-align: center; color: var(--text-muted); padding: 24px; font-size: 13px; }
 .load-err  { text-align: center; color: var(--negative); padding: 16px; font-size: 13px; }
+
+
+/* ---------- entrance (mirrors the root style.css) ---------- */
+
+/* Sections rise in one after another. Fill mode is backwards, not both, so once the
+   animation ends no transform lingers to trap fixed or z-indexed descendants. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.page > :not(.site-header) {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.page > :nth-child(2) { animation-delay: 0.05s; }
+.page > :nth-child(3) { animation-delay: 0.12s; }
+.page > :nth-child(4) { animation-delay: 0.2s; }
+.page > :nth-child(5) { animation-delay: 0.28s; }
+.page > :nth-child(6) { animation-delay: 0.36s; }
+
+/* Same selector as the entrance rule: a plain .page > * is less specific and loses. */
+@media (prefers-reduced-motion: reduce) {
+  .page > :not(.site-header) { animation: none; }
+}
 
 /* ---------- responsive ---------- */
 

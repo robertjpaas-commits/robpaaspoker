@@ -19,15 +19,28 @@
   --positive-dim: #143a24;
   --negative: #ef4444;
   --negative-dim: #3a1616;
+  /* Warm charcoal, not neutral grey: grey next to gold read as a stock dark theme.
+     Mirrors style.css at the site root. */
+  --card-top: #1c1a17;
+  --card-bottom: #151412;
+  --card-border: #2c2924;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-figure: "Barlow Condensed", "Barlow", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
 
+/* A soft gold light behind the logo and a fainter one at the foot (mirrors the root
+   style.css). Scrolls with the page: background-attachment: fixed janks on phones. */
 body {
   margin: 0;
-  background: var(--bg);
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 900px 420px at 50% -120px, rgba(201, 168, 76, 0.14), transparent 70%),
+    radial-gradient(ellipse 1100px 500px at 50% 100%, rgba(201, 168, 76, 0.045), transparent 70%),
+    var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
 }
 
 body.lb-open { overflow: hidden; }
@@ -159,8 +172,11 @@ body.lb-open { overflow: hidden; }
 
 .card {
   position: relative;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
+  border: 1px solid var(--card-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 18px 40px -22px rgba(0, 0, 0, 0.9);
   border-radius: 10px;
   padding: 20px;
   overflow: hidden;
@@ -211,15 +227,19 @@ body.lb-open { overflow: hidden; }
   margin-bottom: 5px;
 }
 
+/* Condensed scoreboard figures, as on the home page. */
 .stat-value {
-  font-size: 26px;
+  font-family: var(--font-figure);
+  font-size: 32px;
   font-weight: 700;
+  line-height: 1.1;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.01em;
 }
 
 /* The day's own result is the headline; the rest are supporting figures. */
-.stat:first-child .stat-value { font-size: 34px; }
+.stat:first-child .stat-value { font-size: 46px; }
+.stat:first-child .stat-value.positive { text-shadow: 0 0 32px rgba(34, 197, 94, 0.32); }
+.stat:first-child .stat-value.negative { text-shadow: 0 0 32px rgba(239, 68, 68, 0.32); }
 
 .site-breakdown {
   margin-top: 24px;
@@ -272,17 +292,30 @@ body.lb-open { overflow: hidden; }
   bottom: 0;
 }
 
-/* Rounded only at the outer end; the end touching the zero line stays square. */
+/* Rounded only at the outer end; the end touching the zero line stays square. Each bar
+   grows out from the zero line on load, so transform-origin is that line's side. */
 .site-bar-fill.positive {
   left: 50%;
   background: var(--positive);
   border-radius: 0 999px 999px 0;
+  box-shadow: 0 0 10px -1px rgba(34, 197, 94, 0.45);
+  transform-origin: left center;
 }
 
 .site-bar-fill.negative {
   right: 50%;
   background: var(--negative);
   border-radius: 999px 0 0 999px;
+  box-shadow: 0 0 10px -1px rgba(239, 68, 68, 0.45);
+  transform-origin: right center;
+}
+
+@keyframes bar-grow {
+  from { transform: scaleX(0); }
+}
+
+.site-bar-fill {
+  animation: bar-grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.35s backwards;
 }
 
 .site-bar-fill.neutral { display: none; }
@@ -454,6 +487,32 @@ body.lb-open { overflow: hidden; }
 .lb-prev { left: 6px; font-size: 52px; }
 .lb-next { right: 6px; font-size: 52px; }
 
+
+/* ---------- entrance (mirrors the root style.css) ---------- */
+
+/* Sections rise in one after another. Fill mode is backwards, not both, so once the
+   animation ends no transform lingers to trap fixed or z-indexed descendants. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.page > :not(.site-header) {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.page > :nth-child(2) { animation-delay: 0.05s; }
+.page > :nth-child(3) { animation-delay: 0.12s; }
+.page > :nth-child(4) { animation-delay: 0.2s; }
+.page > :nth-child(5) { animation-delay: 0.28s; }
+.page > :nth-child(6) { animation-delay: 0.36s; }
+
+/* Same selector as the entrance rule: a plain .page > * is less specific and loses. */
+@media (prefers-reduced-motion: reduce) {
+  .page > :not(.site-header),
+  .site-bar-fill { animation: none; }
+}
+
 @media (max-width: 560px) {
   /* At 34px with 14px gaps the tiles need more than the ~320px a phone has inside the page
      padding, so the row wrapped. Smaller tiles on one line, and they shrink further
@@ -465,7 +524,8 @@ body.lb-open { overflow: hidden; }
   .nav-short { display: inline; }
   .brand-name { font-size: 30px; }
   .page-title { font-size: 21px; }
-  .stat:first-child .stat-value { font-size: 28px; }
+  .stat:first-child .stat-value { font-size: 38px; }
+  .stat-value { font-size: 28px; }
   .site-row { grid-template-columns: 78px 1fr 80px; gap: 8px; }
   .lightbox { padding: 48px 12px; }
   .lb-prev, .lb-next { font-size: 38px; }
