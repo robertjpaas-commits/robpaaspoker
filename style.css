@@ -192,6 +192,8 @@ body {
   color: var(--text);
 }
 
+.section-title span { color: var(--gold); }
+
 .clip-phones {
   display: flex;
   gap: 16px;
@@ -833,7 +835,13 @@ section + section {
     grid-template-areas: "title" "phones" "link";
     row-gap: 22px;
   }
-  .clip-phones { justify-content: center; }
+  .clip-phones { justify-content: center; min-width: 0; }
+  /* Stacked, a left-aligned heading over centred phones read as misaligned. */
+  .clips .section-title { text-align: center; }
+  .clips-link { justify-self: center; }
+  /* min-width: 0 above because the 1fr column would otherwise take its automatic
+     minimum from the phones' intrinsic width (a percentage resolves as auto there),
+     which can push the card wider than the screen. */
   .short { width: min(46%, 200px); }
   .cta-title { font-size: 26px; }
 }
