@@ -851,6 +851,10 @@ section + section {
   .hero-figure { font-size: 56px; }
   .session-figure { font-size: 40px; }
   .hero-stat-value { font-size: 23px; }
+  /* The total stays left-aligned as the chart's heading; the tile grid and
+     site chips below it read better centred at phone width. */
+  .hero-stats { text-align: center; }
+  .site-chips { justify-content: center; }
   .session-shots { grid-template-columns: repeat(2, 1fr); }
   .card { padding: 18px; }
 }
