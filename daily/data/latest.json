@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T23:58:45",
+  "generated_at": "2026-09-19T23:58:47",
   "session": {
     "date": "2026-09-19",
     "pretty": "Saturday, September 19",
@@ -38,6 +38,12 @@
         "caption": ""
       }
     ],
-    "clip": null
+    "clip": {
+      "platform": "Facebook",
+      "mode": "link",
+      "embed": null,
+      "url": "https://www.facebook.com/reel/3195129380686718",
+      "title": "Facebook clip"
+    }
   }
 }
