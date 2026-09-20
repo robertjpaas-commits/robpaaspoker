@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T23:58:42",
+  "generated_at": "2026-09-19T23:58:44",
   "year": 2026,
   "goal": 100000,
   "sites": [
@@ -4035,7 +4035,7 @@
       "hours": 6.67,
       "page": true,
       "photos": 2,
-      "clips": 3
+      "clips": 1
     }
   ]
 }
