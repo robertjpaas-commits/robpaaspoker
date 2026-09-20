@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T23:58:44",
+  "generated_at": "2026-09-19T23:58:45",
   "session": {
     "date": "2026-09-19",
     "pretty": "Saturday, September 19",
@@ -38,12 +38,6 @@
         "caption": ""
       }
     ],
-    "clip": {
-      "platform": "YouTube",
-      "mode": "iframe",
-      "embed": "https://www.youtube.com/embed/3dcK_BUAJBM",
-      "url": "https://www.youtube.com/shorts/3dcK_BUAJBM",
-      "title": "YouTube clip"
-    }
+    "clip": null
   }
 }
