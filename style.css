@@ -673,23 +673,42 @@ section + section {
 
 .session-media:not(:empty) { margin-top: 18px; }
 
-.session-clip {
+/* A day's clips sit in a wrapping row, so two portrait reels stand side by side
+   instead of stacking the session card several screens tall. */
+.session-clips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.session-clip { margin: 0; flex: 1 1 320px; max-width: 560px; }
+.session-clip.vertical { flex: 0 1 300px; }
+
+.session-clip-frame {
   position: relative;
   aspect-ratio: 16 / 9;
-  max-width: 560px;
   background: #000;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
 }
 
-.session-clip iframe {
+.session-clip.vertical .session-clip-frame { aspect-ratio: 9 / 16; }
+
+.session-clip-frame iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
 }
+
+/* Every player keeps a way out to the post: a platform that will not serve the video
+   to a logged-out visitor shows its own "Video unavailable" panel in the frame. */
+.session-clip figcaption { margin-top: 5px; font-size: 12px; }
+.session-clip figcaption a { color: var(--text-muted); text-decoration: none; }
+.session-clip figcaption a:hover { color: var(--gold); }
 
 .session-cliplink {
   display: inline-flex;
@@ -726,7 +745,7 @@ section + section {
   gap: 10px;
 }
 
-.session-clip + .session-shots { margin-top: 12px; }
+.session-clips + .session-shots { margin-top: 14px; }
 
 .session-shots img {
   display: block;

@@ -403,6 +403,23 @@ body.lb-open { overflow: hidden; }
   color: var(--text-muted);
 }
 
+/* Reels and shorts are portrait. A 9:16 frame in a full-width grid cell would be
+   taller than the screen, so the cell is capped rather than the aspect ratio faked. */
+.clip.vertical { max-width: 330px; }
+.clip-frame.vertical { aspect-ratio: 9 / 16; }
+
+/* Facebook and friends render their own "Video unavailable" panel for anything they
+   will not serve to a logged-out visitor, so every player keeps a way out to the post. */
+.clip-out {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.clip-out:hover { color: var(--gold); }
+
 .clip-card {
   display: flex;
   flex-direction: column;

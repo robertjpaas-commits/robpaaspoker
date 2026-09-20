@@ -7,7 +7,7 @@
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=34">
+  <link rel="stylesheet" href="style.css?v=35">
   <script>
     // The home page's sections fade in as they scroll into view. Opted into here,
     // before first paint, so they never flash visible and then vanish — and without JS,
@@ -405,17 +405,26 @@
         `<b>${fmtMoney(s.value, { signed: true })}</b></span>`).join("");
 
       const media = [];
-      if (session.clip && session.clip.mode === "iframe") {
-        media.push(
-          `<div class="session-clip"><iframe src="${session.clip.embed}" ` +
-          `title="${session.clip.title}" loading="lazy" allowfullscreen ` +
+      // "clips" is the current key; "clip" is the single-clip shape older exports wrote.
+      const clips = session.clips || (session.clip ? [session.clip] : []);
+      const clipHtml = clips.map((clip) => {
+        if (clip.mode !== "iframe") {
+          return `<a class="session-cliplink" href="${clip.url}" target="_blank" ` +
+            `rel="noopener"><span class="clip-badge">${clip.platform}</span>` +
+            `<span>${clip.title}</span></a>`;
+        }
+        // A platform that will not serve the video to a visitor renders its own
+        // "Video unavailable" panel inside the frame, so keep a link to the post.
+        return `<figure class="session-clip${clip.vertical ? " vertical" : ""}">` +
+          `<div class="session-clip-frame"><iframe src="${clip.embed}" ` +
+          `title="${clip.title}" loading="lazy" allowfullscreen ` +
           `allow="autoplay; fullscreen; picture-in-picture" ` +
-          `referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`);
-      } else if (session.clip) {
-        media.push(
-          `<a class="session-cliplink" href="${session.clip.url}" target="_blank" ` +
-          `rel="noopener"><span class="clip-badge">${session.clip.platform}</span>` +
-          `<span>${session.clip.title}</span></a>`);
+          `referrerpolicy="strict-origin-when-cross-origin"></iframe></div>` +
+          `<figcaption><a href="${clip.url}" target="_blank" rel="noopener">` +
+          `Watch on ${clip.platform} &rarr;</a></figcaption></figure>`;
+      });
+      if (clipHtml.length) {
+        media.push(`<div class="session-clips">${clipHtml.join("")}</div>`);
       }
       if (session.photos.length) {
         media.push(`<div class="session-shots">` + session.photos.map((p) =>
