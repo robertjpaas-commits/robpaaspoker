@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T00:26:38",
+  "generated_at": "2026-09-20T00:26:41",
   "session": {
     "date": "2026-09-19",
     "pretty": "Saturday, September 19",
@@ -38,7 +38,23 @@
         "caption": ""
       }
     ],
-    "clip": null,
-    "clips": []
+    "clip": {
+      "platform": "Facebook",
+      "mode": "iframe",
+      "embed": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F1RGqZGAYZR%2F&show_text=false&autoplay=false",
+      "vertical": true,
+      "url": "https://www.facebook.com/share/r/1RGqZGAYZR/",
+      "title": "Facebook clip"
+    },
+    "clips": [
+      {
+        "platform": "Facebook",
+        "mode": "iframe",
+        "embed": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F1RGqZGAYZR%2F&show_text=false&autoplay=false",
+        "vertical": true,
+        "url": "https://www.facebook.com/share/r/1RGqZGAYZR/",
+        "title": "Facebook clip"
+      }
+    ]
   }
 }
