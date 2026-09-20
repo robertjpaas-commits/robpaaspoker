@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T00:31:15",
+  "generated_at": "2026-09-20T00:33:00",
   "session": {
     "date": "2026-09-19",
     "pretty": "Saturday, September 19",
@@ -38,23 +38,7 @@
         "caption": ""
       }
     ],
-    "clip": {
-      "platform": "YouTube",
-      "mode": "iframe",
-      "embed": "https://www.youtube.com/embed/3dcK_BUAJBM",
-      "vertical": true,
-      "url": "https://www.youtube.com/shorts/3dcK_BUAJBM",
-      "title": "YouTube clip"
-    },
-    "clips": [
-      {
-        "platform": "YouTube",
-        "mode": "iframe",
-        "embed": "https://www.youtube.com/embed/3dcK_BUAJBM",
-        "vertical": true,
-        "url": "https://www.youtube.com/shorts/3dcK_BUAJBM",
-        "title": "YouTube clip"
-      }
-    ]
+    "clip": null,
+    "clips": []
   }
 }
