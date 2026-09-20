@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T00:33:00",
+  "generated_at": "2026-09-20T00:33:02",
   "session": {
     "date": "2026-09-19",
     "pretty": "Saturday, September 19",
@@ -38,7 +38,23 @@
         "caption": ""
       }
     ],
-    "clip": null,
-    "clips": []
+    "clip": {
+      "platform": "X",
+      "mode": "link",
+      "embed": null,
+      "vertical": false,
+      "url": "https://x.com/RobPaasPoker/status/2101529933549817938",
+      "title": "X clip"
+    },
+    "clips": [
+      {
+        "platform": "X",
+        "mode": "link",
+        "embed": null,
+        "vertical": false,
+        "url": "https://x.com/RobPaasPoker/status/2101529933549817938",
+        "title": "X clip"
+      }
+    ]
   }
 }
