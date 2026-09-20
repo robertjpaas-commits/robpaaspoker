@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T00:10:18",
+  "generated_at": "2026-09-20T00:26:38",
   "session": {
     "date": "2026-09-19",
     "pretty": "Saturday, September 19",
@@ -38,23 +38,7 @@
         "caption": ""
       }
     ],
-    "clip": {
-      "platform": "Facebook",
-      "mode": "iframe",
-      "embed": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3195129380686718&show_text=false&autoplay=false",
-      "vertical": true,
-      "url": "https://www.facebook.com/reel/3195129380686718",
-      "title": "Facebook clip"
-    },
-    "clips": [
-      {
-        "platform": "Facebook",
-        "mode": "iframe",
-        "embed": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3195129380686718&show_text=false&autoplay=false",
-        "vertical": true,
-        "url": "https://www.facebook.com/reel/3195129380686718",
-        "title": "Facebook clip"
-      }
-    ]
+    "clip": null,
+    "clips": []
   }
 }
