@@ -1,43 +1,49 @@
 {
-  "generated_at": "2026-09-19T23:55:24",
+  "generated_at": "2026-09-19T23:55:30",
   "session": {
-    "date": "2026-09-12",
-    "pretty": "Saturday, September 12",
-    "url": "daily/2026-09-12.html",
-    "total": 1614.8,
-    "hours": 5.7,
+    "date": "2026-09-19",
+    "pretty": "Saturday, September 19",
+    "url": "daily/2026-09-19.html",
+    "total": 2791.46,
+    "hours": 6.67,
     "sites": [
       {
-        "name": "PartyPoker",
-        "value": 803.92
+        "name": "WPT Global",
+        "value": 2975.4
       },
       {
         "name": "888poker",
-        "value": 728.4
-      },
-      {
-        "name": "WPT Global",
-        "value": 396.9
+        "value": 1095.1
       },
       {
         "name": "GGPoker",
-        "value": -262.5
+        "value": -461.5
+      },
+      {
+        "name": "PartyPoker",
+        "value": -409.37
       },
       {
         "name": "PokerStars",
-        "value": -51.92
+        "value": -408.17
       }
     ],
     "photos": [
       {
-        "src": "daily/media/2026-09-12/10.jpg",
+        "src": "daily/media/2026-09-19/12.jpg",
         "caption": ""
       },
       {
-        "src": "daily/media/2026-09-12/11.jpg",
+        "src": "daily/media/2026-09-19/13.jpg",
         "caption": ""
       }
     ],
-    "clip": null
+    "clip": {
+      "platform": "YouTube",
+      "mode": "iframe",
+      "embed": "https://www.youtube.com/embed/dq1VIBHN0jg",
+      "url": "https://www.youtube.com/shorts/dq1VIBHN0jg",
+      "title": "YouTube clip"
+    }
   }
 }
