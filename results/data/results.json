@@ -11515,5 +11515,101 @@
     "winnings": 0,
     "profit": -165,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$110 Chip Freezeout",
+    "site": "WPT Gold",
+    "type": "Standard",
+    "buyin": 110,
+    "rebuys": 0,
+    "totalInvested": 110,
+    "winnings": 0,
+    "profit": -110,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$150 Sat to $1500",
+    "site": "GGPoker",
+    "type": "Satellite",
+    "buyin": 150,
+    "rebuys": 0,
+    "totalInvested": 150,
+    "winnings": 1500,
+    "profit": 1350,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$20 Sat to $150",
+    "site": "GGPoker",
+    "type": "Satellite",
+    "buyin": 20,
+    "rebuys": 0,
+    "totalInvested": 20,
+    "winnings": 0,
+    "profit": -20,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$20 Sat to $200",
+    "site": "PokerStars",
+    "type": "Satellite",
+    "buyin": 20,
+    "rebuys": 1,
+    "totalInvested": 40,
+    "winnings": 0,
+    "profit": -40,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$25 Sat to $250",
+    "site": "GGPoker",
+    "type": "Satellite",
+    "buyin": 25,
+    "rebuys": 0,
+    "totalInvested": 25,
+    "winnings": 0,
+    "profit": -25,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$50 Sat to $500",
+    "site": "PokerStars",
+    "type": "Satellite",
+    "buyin": 50,
+    "rebuys": 1,
+    "totalInvested": 100,
+    "winnings": 0,
+    "profit": -100,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$50 Sat to $500",
+    "site": "PokerStars",
+    "type": "Satellite",
+    "buyin": 50,
+    "rebuys": 2,
+    "totalInvested": 150,
+    "winnings": 0,
+    "profit": -150,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$55 Chip Sunday Vanilla",
+    "site": "WPT Gold",
+    "type": "Standard",
+    "buyin": 55,
+    "rebuys": 1,
+    "totalInvested": 110,
+    "winnings": 0,
+    "profit": -110,
+    "onlyBounty": false
   }
 ]

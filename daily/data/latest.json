@@ -1,60 +1,31 @@
 {
-  "generated_at": "2026-09-20T00:33:11",
+  "generated_at": "2026-09-20T23:56:36",
   "session": {
-    "date": "2026-09-19",
-    "pretty": "Saturday, September 19",
-    "url": "daily/2026-09-19.html",
-    "total": 2791.46,
-    "hours": 6.27,
+    "date": "2026-09-20",
+    "pretty": "Sunday, September 20",
+    "url": "daily/2026-09-20.html",
+    "total": 375.16,
+    "hours": 7.0,
     "sites": [
       {
-        "name": "WPT Global",
-        "value": 2975.4
-      },
-      {
-        "name": "888poker",
-        "value": 1095.1
-      },
-      {
         "name": "GGPoker",
-        "value": -461.5
+        "value": 1644.36
+      },
+      {
+        "name": "WPT Global",
+        "value": -1318.95
       },
       {
         "name": "PartyPoker",
-        "value": -409.37
+        "value": 174.36
       },
       {
-        "name": "PokerStars",
-        "value": -408.17
+        "name": "888poker",
+        "value": -124.61
       }
     ],
-    "photos": [
-      {
-        "src": "daily/media/2026-09-19/12.jpg",
-        "caption": ""
-      },
-      {
-        "src": "daily/media/2026-09-19/13.jpg",
-        "caption": ""
-      }
-    ],
-    "clip": {
-      "platform": "X",
-      "mode": "link",
-      "embed": null,
-      "vertical": false,
-      "url": "https://x.com/RobPaasPoker/status/2101529933549817938",
-      "title": "X clip"
-    },
-    "clips": [
-      {
-        "platform": "X",
-        "mode": "link",
-        "embed": null,
-        "vertical": false,
-        "url": "https://x.com/RobPaasPoker/status/2101529933549817938",
-        "title": "X clip"
-      }
-    ]
+    "photos": [],
+    "clip": null,
+    "clips": []
   }
 }
