@@ -547,3 +547,43 @@ body.lb-open { overflow: hidden; }
   .lightbox { padding: 48px 12px; }
   .lb-prev, .lb-next { font-size: 38px; }
 }
+
+/* ---------- cross-page view transitions ---------- */
+
+/* Mirrors the block in Roadto$100k/style.css — a cross-document transition only runs if
+   both documents opt in, so these two have to stay in step like the header rules do. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+
+.brand-name { view-transition-name: brand-name; }
+.brand-rule { view-transition-name: brand-rule; }
+.social-row { view-transition-name: social-row; }
+
+/* The calendar cell that was clicked lands here. Named in CSS rather than in the
+   generated HTML, so this needs no regeneration and no BuildBankroll.bat: "Profit /
+   loss" is always stats[0] in export_daily_pages.py, which is the same assumption the
+   560px rule above already makes. */
+.stat:first-child .stat-value { view-transition-name: day-figure; }
+
+@keyframes vt-out { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+
+::view-transition-old(root) { animation: vt-out 0.24s cubic-bezier(0.4, 0, 1, 1) both; }
+::view-transition-new(root) { animation: vt-fade-in 0.34s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+::view-transition-group(day-figure) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* The transition pseudo-elements are styled by the document being navigated *to*, so
+   these govern the calendar -> day direction and the matching pair in
+   Roadto$100k/style.css governs the way back. The cell is a small coloured block and the
+   figure is large text, so a straight cross-fade spends most of the flight as a
+   stretched green rectangle; dropping the old one early reads instead as the colour
+   resolving into the number. */
+@keyframes vt-fade-out { to { opacity: 0; } }
+
+::view-transition-old(day-figure) { animation: vt-fade-out 0.16s linear both; }
+::view-transition-new(day-figure) { animation: vt-fade-in 0.3s linear 0.16s both; }

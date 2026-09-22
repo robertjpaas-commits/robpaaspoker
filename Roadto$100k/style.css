@@ -550,3 +550,48 @@ a.day-cell.no-session { color: var(--text-secondary); }
   .social-icon img { width: 16px; height: 16px; }
   .brand-name { font-size: 30px; }
 }
+
+/* ---------- cross-page view transitions ---------- */
+
+/* A day cell links to daily/YYYY-MM-DD.html, which is a separate document, so this is
+   a cross-document transition: both stylesheets have to opt in or nothing fires at all.
+   Held inside prefers-reduced-motion like every other animation on the site. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+
+/* The header is pixel-identical on both pages, so naming its three parts holds them
+   perfectly still while the rest of the page swaps underneath. That stillness is the
+   whole effect. Naming the whole .site-header instead would morph the day page's extra
+   .page-title in as a height change, which squashes the wordmark on the way through. */
+.brand-name { view-transition-name: brand-name; }
+.brand-rule { view-transition-name: brand-rule; }
+.social-row { view-transition-name: social-row; }
+
+@keyframes vt-out { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+
+/* The body crosses over as a fade with a little drift. The arriving page's own `rise`
+   stagger supplies the motion, so nothing here needs to travel far. */
+::view-transition-old(root) { animation: vt-out 0.24s cubic-bezier(0.4, 0, 1, 1) both; }
+::view-transition-new(root) { animation: vt-fade-in 0.34s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* The clicked cell flies out of the calendar and lands as the day's headline figure.
+   Only that one cell is tagged, in app.js on pageswap: a view-transition-name has to be
+   unique in the document and there are 365 cells. */
+::view-transition-group(day-figure) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* The cell is a small coloured block and the figure is large text, so a straight
+   cross-fade spends most of the flight as a stretched green rectangle. Dropping the old
+   one early reads instead as the colour resolving into the number. */
+::view-transition-old(day-figure) { animation: vt-fade-out 0.16s linear both; }
+::view-transition-new(day-figure) { animation: vt-fade-in 0.3s linear 0.16s both; }
+
+/* The tooltip is open under the cursor at the moment of the click and the marker dot
+   would fly along with it, so both are dropped for the snapshot. */
+.day-cell.vt-leaving .cell-tooltip,
+.day-cell.vt-leaving .day-dot { display: none; }

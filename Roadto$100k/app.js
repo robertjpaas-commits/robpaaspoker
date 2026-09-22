@@ -696,3 +696,35 @@ async function init() {
 }
 
 init();
+
+/* ---------------- cross-page view transition ---------------- */
+
+// The cell being navigated to is the one that flies out of the calendar and lands as the
+// day page's headline figure. It is tagged here at the last moment rather than in
+// renderCalendar because a view-transition-name has to be unique in the document, and
+// tagging all 365 cells up front would make every one of them its own transition group.
+//
+// pageswap fires once the navigation is committed but before the outgoing snapshot is
+// taken, so what is set here is what gets captured.
+addEventListener("pageswap", (event) => {
+  if (!event.viewTransition) return;
+  const activation = event.activation;
+  const target = activation && activation.entry ? activation.entry.url : null;
+  if (!target) return;
+
+  // A cell can still be carrying the name from an earlier navigation (the back button
+  // restores this page from bfcache untouched). Two cells sharing a name makes the
+  // browser skip the group, so clear before tagging. Leaving the name on until then is
+  // deliberate: it is what gives the return trip the same morph in reverse.
+  for (const stale of document.querySelectorAll("a.day-cell.vt-leaving")) {
+    stale.classList.remove("vt-leaving");
+    stale.style.viewTransitionName = "";
+  }
+
+  for (const cell of document.querySelectorAll("a.day-cell")) {
+    if (cell.href !== target) continue;
+    cell.classList.add("vt-leaving");
+    cell.style.viewTransitionName = "day-figure";
+    break;
+  }
+});
