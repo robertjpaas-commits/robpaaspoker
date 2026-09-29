@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-29T00:55:18",
+  "generated_at": "2026-09-29T00:55:50",
   "session": {
     "date": "2026-09-28",
     "pretty": "Monday, September 28",
     "url": "daily/2026-09-28.html",
-    "total": 1055.21,
+    "total": 760.91,
     "hours": 7.0,
     "sites": [
       {
@@ -12,12 +12,12 @@
         "value": 1573.07
       },
       {
-        "name": "888poker",
-        "value": 1249.47
+        "name": "WPT Gold",
+        "value": -1397.25
       },
       {
-        "name": "WPT Gold",
-        "value": -1102.95
+        "name": "888poker",
+        "value": 1249.47
       },
       {
         "name": "GGPoker",
