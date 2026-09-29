@@ -18,6 +18,10 @@ var trnSortDir     = -1;
 // total/stat below; individual row Buy-in/Winnings columns stay raw as entered.
 var USD_SITES = { 'wpt gold': true, 'coinpoker': true, 'acr': true };
 var USD_RATE  = 1.35;
+// Live events are logged with site "Live". They get their own Online vs Live
+// table and filter rather than sitting among the online rooms.
+function isLive(r) { return (r.site || '').toLowerCase() === 'live'; }
+
 function siteRate(site) { return USD_SITES[(site || '').toLowerCase()] ? USD_RATE : 1; }
 
 // Display money with thousands separators ("$111,079.35"). The CSV export keeps plain
@@ -190,7 +194,7 @@ function load() {
 
 function populateSiteFilter() {
   var sites = {};
-  allResults.forEach(function(r) { if (r.site) sites[r.site] = true; });
+  allResults.forEach(function(r) { if (r.site && !isLive(r)) sites[r.site] = true; });
   var sel = document.getElementById('f-site');
   var prev = sel.value;
   while (sel.options.length > 1) sel.remove(1);
@@ -204,6 +208,7 @@ function populateSiteFilter() {
 function applyFilters() {
   var fName   = (document.getElementById('f-name').value || '').toLowerCase();
   var fSite   = document.getElementById('f-site').value;
+  var fVenue  = document.getElementById('f-venue').value;
   var fType   = document.getElementById('f-type').value;
   var fFrom   = document.getElementById('f-date-from').value;
   var fTo     = document.getElementById('f-date-to').value;
@@ -215,6 +220,8 @@ function applyFilters() {
   filtered = allResults.filter(function(r) {
     if (fName && (r.name || '').toLowerCase().indexOf(fName) === -1) return false;
     if (fSite && r.site !== fSite) return false;
+    if (fVenue === 'live'   && !isLive(r)) return false;
+    if (fVenue === 'online' &&  isLive(r)) return false;
     if (fType && r.type !== fType) return false;
     if (fFrom && r.date < fFrom) return false;
     if (fTo   && r.date > fTo)   return false;
@@ -227,7 +234,7 @@ function applyFilters() {
     return true;
   });
 
-  var hasFilter = fName || fSite || fType || fFrom || fTo || fBuyMin || fBuyMax < Infinity || fResult || fEntries;
+  var hasFilter = fName || fSite || fVenue || fType || fFrom || fTo || fBuyMin || fBuyMax < Infinity || fResult || fEntries;
   document.getElementById('result-count').textContent = filtered.length + ' of ' + allResults.length + ' entries';
   document.getElementById('summary-scope').textContent = hasFilter ? '(filtered)' : '(all time)';
 
@@ -238,6 +245,7 @@ function applyFilters() {
 function resetFilters() {
   ['f-name','f-date-from','f-date-to','f-buyin-min','f-buyin-max'].forEach(function(id) { document.getElementById(id).value = ''; });
   document.getElementById('f-site').value    = '';
+  document.getElementById('f-venue').value   = '';
   document.getElementById('f-type').value    = '';
   document.getElementById('f-result').value  = '';
   document.getElementById('f-entries').value = '';
@@ -256,6 +264,7 @@ function renderAll(rows) {
   renderTop5Bottom5(rows);
   renderEntryTypeBreakdown(rows);
   renderStakeBreakdown(rows);
+  renderVenueBreakdown(rows);
   renderSiteBreakdown(rows);
   renderTournamentBreakdown(rows);
   renderMonthlyTrend(rows);
@@ -399,10 +408,33 @@ function renderStakeBreakdown(rows) {
   }).join('');
 }
 
+// ── Online vs Live ────────────────────────────────
+function renderVenueBreakdown(rows) {
+  var groups = [
+    { label: 'Online', rows: rows.filter(function(r) { return !isLive(r); }) },
+    { label: 'Live',   rows: rows.filter(isLive) }
+  ].filter(function(g) { return g.rows.length; });
+  var tbody = document.getElementById('venue-body');
+  if (!groups.length) { tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">No data</td></tr>'; return; }
+  tbody.innerHTML = groups.map(function(g) {
+    var s = calcStats(g.rows);
+    return '<tr>' +
+      '<td><b>' + g.label + '</b></td>' +
+      '<td>' + s.count + '</td>' +
+      '<td>' + s.itm + '%</td>' +
+      '<td>$' + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
+      '<td>' + fmtProfit(s.profit) + '</td>' +
+      '<td>' + fmtRoi(s.roi) + '</td>' +
+      '</tr>';
+  }).join('');
+}
+
 // ── Site Breakdown ────────────────────────────────
 function renderSiteBreakdown(rows) {
   var map = {};
   rows.forEach(function(r) {
+    if (isLive(r)) return;
     var k = r.site || '(no site)';
     if (!map[k]) map[k] = [];
     map[k].push(r);

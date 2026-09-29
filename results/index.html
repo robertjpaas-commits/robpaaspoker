@@ -36,6 +36,14 @@
           <input type="text" id="f-name" placeholder="e.g. GG Masters…" oninput="applyFilters()">
         </div>
         <div class="filter-group">
+          <label>Online / Live</label>
+          <select id="f-venue" onchange="applyFilters()">
+            <option value="">Both</option>
+            <option value="online">Online</option>
+            <option value="live">Live</option>
+          </select>
+        </div>
+        <div class="filter-group">
           <label>Site</label>
           <select id="f-site" onchange="applyFilters()">
             <option value="">All sites</option>
@@ -133,6 +141,19 @@
       </div>
     </section>
 
+    <!-- ── Online vs Live ─────────────────────────────── -->
+    <section class="card">
+      <div class="card-title">Online vs Live</div>
+      <div class="table-wrap">
+        <table class="breakdown-table" id="venue-table">
+          <thead><tr>
+            <th>Where</th><th>Played</th><th>ITM%</th><th>Invested</th><th>Won</th><th>Profit</th><th>ROI</th>
+          </tr></thead>
+          <tbody id="venue-body"><tr><td colspan="7" class="empty-msg">No data</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ── Stake Level / Site Breakdown ────────────────── -->
     <section class="row">
       <div class="card">
@@ -147,7 +168,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-title">By Site</div>
+        <div class="card-title">By Site <small>online</small></div>
         <div class="table-wrap">
           <table class="breakdown-table compact-table" id="site-table">
             <thead><tr>
@@ -228,6 +249,6 @@
 
   </div>
 
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
