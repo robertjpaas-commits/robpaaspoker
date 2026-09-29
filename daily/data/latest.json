@@ -1,12 +1,16 @@
 {
-  "generated_at": "2026-09-29T00:29:00",
+  "generated_at": "2026-09-29T00:55:10",
   "session": {
     "date": "2026-09-28",
     "pretty": "Monday, September 28",
     "url": "daily/2026-09-28.html",
-    "total": -517.86,
+    "total": 1055.21,
     "hours": 7.0,
     "sites": [
+      {
+        "name": "PartyPoker",
+        "value": 1573.07
+      },
       {
         "name": "888poker",
         "value": 1249.47
