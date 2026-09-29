@@ -85,12 +85,94 @@ function monthLabel(dateStr) {
   return months[parseInt(parts[1], 10) - 1] + ' ' + parts[0];
 }
 
+// ── Multi-day events ─────────────────────────────
+// The log writes a multi-day tournament the way the money moved: each Day 1
+// flight on its own date with its buy-in, then the Day 2 later at a $0 buy-in
+// with the whole payout. Read row by row, a Day 2 looks like a free tournament
+// that ran deep. So each Day 2 is folded together with the Day 1 flights
+// behind it (same site and name, up to LINK_DAYS before, never past an earlier
+// Day 2 of the same event) into one row dated on the Day 2. Busted flights
+// count: another flight is another bullet, like a rebuy. Mirrors
+// link_days() in StreamScripts\poker_results.py - change both together.
+var DAY_PART  = /[\s\-–:\[(]*\b(?:day\s*(\d+)\s*[a-z]?|final\s+day)\b.*$/i;
+var LINK_DAYS = 14;
+
+function dayPart(name) {
+  name = name || '';
+  var m = DAY_PART.exec(name);
+  if (!m) return { base: name, day: null };
+  return { base: name.slice(0, m.index).trim(), day: m[1] ? parseInt(m[1], 10) : 2 };
+}
+function daysBetween(a, b) {
+  return Math.round((new Date(b + 'T12:00:00') - new Date(a + 'T12:00:00')) / 86400000);
+}
+function shortDate(d) { return (d || '').slice(5); }
+
+// A Day 1 is the first day of a real tournament, never a satellite, though
+// some are logged as one - take its format from the name instead.
+function dayOneType(r) {
+  if (r.type !== 'Satellite') return r.type;
+  var low = (r.name || '').toLowerCase();
+  return low.indexOf('mystery') >= 0 ? 'Mystery'
+       : (low.indexOf('bounty') >= 0 || low.indexOf('pko') >= 0) ? 'PKO' : 'Standard';
+}
+
+function linkDays(rows) {
+  rows.forEach(function(r, i) {
+    var p = dayPart(r.name);
+    r._i = i; r._base = p.base; r._day = p.day; r._key = (r.site || '') + '|' + p.base.toLowerCase();
+  });
+  var taken = {}, lastDay2 = {}, events = [];
+  rows.forEach(function(r) {
+    if (!r._day || r._day < 2) return;
+    var prev = lastDay2[r._key];
+    var flights = rows.filter(function(f) {
+      if (f._day !== 1 || taken[f._i] || f._key !== r._key) return false;
+      var gap = daysBetween(f.date, r.date);
+      if (gap < 0 || gap > LINK_DAYS) return false;
+      if (prev && f.date <= prev) return false;
+      return f.date < r.date || f._i < r._i;
+    });
+    lastDay2[r._key] = r.date;
+    if (!flights.length) return;  // no Day 1 logged: leave the Day 2 as it is
+    flights.forEach(function(f) { taken[f._i] = true; });
+    taken[r._i] = true;
+    var parts = flights.concat([r]);
+    var bullets = 0, inv = 0, win = 0;
+    parts.forEach(function(p) {
+      if (p._day === 1 || (p.buyin || 0) > 0) bullets += getBullets(p);
+      inv += getInvested(p); win += p.winnings || 0;
+    });
+    var type = r.type === 'Satellite' ? dayOneType(flights[0]) : r.type;
+    events.push({
+      date: r.date, name: r._base, site: r.site, type: type,
+      buyin: Math.max.apply(null, flights.map(function(f) { return f.buyin || 0; })),
+      rebuys: Math.max(bullets - 1, 0),
+      totalInvested: Math.round(inv * 100) / 100,
+      winnings: Math.round(win * 100) / 100,
+      profit: Math.round((win - inv) * 100) / 100,
+      onlyBounty: r.onlyBounty,
+      days: 'Day 1 ' + flights.map(function(f) { return shortDate(f.date); }).join(', ') +
+            ' · Day 2 ' + shortDate(r.date)
+    });
+  });
+  var out = rows.filter(function(r) { return !taken[r._i]; }).map(function(r) {
+    // A Day 1 nothing claimed: a bust, or a Day 2 not played yet. It keeps
+    // its own row but groups under the event's name.
+    if (r._day === 1) { r.days = 'Day 1 ' + shortDate(r.date); r.name = r._base; r.type = dayOneType(r); }
+    return r;
+  });
+  return out.concat(events).sort(function(a, b) {
+    return a.date < b.date ? -1 : a.date > b.date ? 1 : 0;
+  });
+}
+
 // ── Load ─────────────────────────────────────────
 function load() {
   fetch('data/results.json', { cache: 'no-store' })
     .then(function(r) { if (!r.ok) throw r.status; return r.json(); })
     .then(function(data) {
-      allResults = (data || []).map(function(r) {
+      allResults = linkDays(data || []).map(function(r) {
         if (r.profit == null) r.profit = Math.round(((r.winnings || 0) - getInvested(r)) * 100) / 100;
         return r;
       });
@@ -499,7 +581,8 @@ function renderResultsTable(rows) {
       : '<span style="color:var(--text-muted);">Original</span>';
     return '<tr>' +
       '<td class="col-date">' + (r.date || '—') + '</td>' +
-      '<td><span class="name-link" onclick="filterByName(' + escAttr(JSON.stringify(r.name || '')) + ')">' + escH(r.name) + '</span></td>' +
+      '<td><span class="name-link" onclick="filterByName(' + escAttr(JSON.stringify(r.name || '')) + ')">' + escH(r.name) + '</span>' +
+        (r.days ? '<div class="days-note">' + escH(r.days) + '</div>' : '') + '</td>' +
       '<td style="font-size:11px;color:#4a7fc1;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">' + escH(r.type || '—') + '</td>' +
       '<td class="col-site">' + escH(r.site || '—') + '</td>' +
       '<td class="col-num" style="color:var(--negative);">-$' + money((r.buyin || 0)) + '</td>' +

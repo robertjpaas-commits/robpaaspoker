@@ -50,7 +50,7 @@
   {
     "date": "2026-06-30",
     "name": "$150 The Super PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 150,
     "rebuys": 0,
@@ -145,7 +145,7 @@
   {
     "date": "2026-06-30",
     "name": "$22 The Monsterstack",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "Standard",
     "buyin": 22,
     "rebuys": 1,
@@ -156,7 +156,7 @@
   {
     "date": "2026-06-30",
     "name": "$22 The Turbo",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "Standard",
     "buyin": 22,
     "rebuys": 0,
@@ -384,7 +384,7 @@
   {
     "date": "2026-06-30",
     "name": "$55 The Fast PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 55,
     "rebuys": 0,
@@ -396,7 +396,7 @@
   {
     "date": "2026-06-30",
     "name": "$55 The Super PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 55,
     "rebuys": 2,
@@ -528,7 +528,7 @@
   {
     "date": "2026-07-02",
     "name": "$22 Sat to $150",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "Satellite",
     "buyin": 22,
     "rebuys": 0,
@@ -540,7 +540,7 @@
   {
     "date": "2026-07-02",
     "name": "$22 The Monsterstack",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "Standard",
     "buyin": 22,
     "rebuys": 0,
@@ -552,7 +552,7 @@
   {
     "date": "2026-07-02",
     "name": "$22 The Turbo PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 22,
     "rebuys": 2,
@@ -647,7 +647,7 @@
   {
     "date": "2026-07-02",
     "name": "$33 7-Max PKO Hyper",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 33,
     "rebuys": 0,
@@ -803,7 +803,7 @@
   {
     "date": "2026-07-02",
     "name": "$55 The Fast PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 55,
     "rebuys": 0,
@@ -815,7 +815,7 @@
   {
     "date": "2026-07-02",
     "name": "$55 The Super PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 55,
     "rebuys": 0,
@@ -887,7 +887,7 @@
   {
     "date": "2026-07-03",
     "name": "$109 The Super PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 109,
     "rebuys": 0,
@@ -935,7 +935,7 @@
   {
     "date": "2026-07-03",
     "name": "$16.50 Sat to $109",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "Satellite",
     "buyin": 16.5,
     "rebuys": 0,
@@ -947,7 +947,7 @@
   {
     "date": "2026-07-03",
     "name": "$16.50 Sat to $150",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "Satellite",
     "buyin": 16.5,
     "rebuys": 1,
@@ -995,7 +995,7 @@
   {
     "date": "2026-07-03",
     "name": "$22 6-Max",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "Standard",
     "buyin": 22,
     "rebuys": 0,
@@ -1043,7 +1043,7 @@
   {
     "date": "2026-07-03",
     "name": "$22 The Monsterstack",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "Standard",
     "buyin": 22,
     "rebuys": 1,
@@ -1223,7 +1223,7 @@
   {
     "date": "2026-07-03",
     "name": "$55 The Fast PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 55,
     "rebuys": 0,
@@ -1235,7 +1235,7 @@
   {
     "date": "2026-07-03",
     "name": "$55 The Fast PKO",
-    "site": "partypoker",
+    "site": "PartyPoker",
     "type": "PKO",
     "buyin": 55,
     "rebuys": 0,
@@ -2614,6 +2614,18 @@
   },
   {
     "date": "2026-07-16",
+    "name": "$22 Sat to $218",
+    "site": "WPT Gold",
+    "type": "Satellite",
+    "buyin": 22,
+    "rebuys": 2,
+    "totalInvested": 66,
+    "winnings": 0,
+    "profit": -66,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-07-16",
     "name": "$25 Big Starter",
     "site": "PokerStars",
     "type": "Standard",
@@ -2826,18 +2838,6 @@
     "totalInvested": 120,
     "winnings": 0,
     "profit": -120,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-07-16",
-    "name": "22 Sat to $218",
-    "site": "WPT Gold",
-    "type": "Satellite",
-    "buyin": 22,
-    "rebuys": 2,
-    "totalInvested": 66,
-    "winnings": 0,
-    "profit": -66,
     "onlyBounty": false
   },
   {
@@ -3466,6 +3466,18 @@
   },
   {
     "date": "2026-07-28",
+    "name": "$33 Chip 6-Max",
+    "site": "WPT Gold",
+    "type": "Standard",
+    "buyin": 33,
+    "rebuys": 1,
+    "totalInvested": 66,
+    "winnings": 0,
+    "profit": -66,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-07-28",
     "name": "$33 Chip Daily Mystery Bounty",
     "site": "WPT Gold",
     "type": "Mystery",
@@ -3606,18 +3618,6 @@
     "totalInvested": 55,
     "winnings": 653.4,
     "profit": 598.4,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-07-28",
-    "name": "33 Chip 6-Max",
-    "site": "WPT Gold",
-    "type": "Standard",
-    "buyin": 33,
-    "rebuys": 1,
-    "totalInvested": 66,
-    "winnings": 0,
-    "profit": -66,
     "onlyBounty": false
   },
   {
@@ -5326,6 +5326,30 @@
   },
   {
     "date": "2026-08-07",
+    "name": "$22 Sat to $218",
+    "site": "WPT Gold",
+    "type": "Satellite",
+    "buyin": 22,
+    "rebuys": 3,
+    "totalInvested": 88,
+    "winnings": 0,
+    "profit": -88,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-07",
+    "name": "$22 Sat to $218",
+    "site": "WPT Gold",
+    "type": "Satellite",
+    "buyin": 22,
+    "rebuys": 0,
+    "totalInvested": 22,
+    "winnings": 0,
+    "profit": -22,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-07",
     "name": "$25 6-Max Hyper",
     "site": "CoinPoker",
     "type": "Standard",
@@ -5673,30 +5697,6 @@
     "onlyBounty": false
   },
   {
-    "date": "2026-08-07",
-    "name": "22 Sat to $218",
-    "site": "WPT Gold",
-    "type": "Satellite",
-    "buyin": 22,
-    "rebuys": 3,
-    "totalInvested": 88,
-    "winnings": 0,
-    "profit": -88,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-08-07",
-    "name": "22 Sat to $218",
-    "site": "WPT Gold",
-    "type": "Satellite",
-    "buyin": 22,
-    "rebuys": 0,
-    "totalInvested": 22,
-    "winnings": 0,
-    "profit": -22,
-    "onlyBounty": false
-  },
-  {
     "date": "2026-08-09",
     "name": "$100 Sunday Dynasty",
     "site": "PokerStars",
@@ -5782,6 +5782,18 @@
   },
   {
     "date": "2026-08-09",
+    "name": "$110 Chip Sunday Deepstack",
+    "site": "WPT Gold",
+    "type": "Standard",
+    "buyin": 110,
+    "rebuys": 0,
+    "totalInvested": 110,
+    "winnings": 0,
+    "profit": -110,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-09",
     "name": "$15 Sunday Turbo",
     "site": "GGPoker",
     "type": "Standard",
@@ -5831,7 +5843,7 @@
   {
     "date": "2026-08-09",
     "name": "$22 6-Max Fast",
-    "site": "",
+    "site": "PartyPoker",
     "type": "Standard",
     "buyin": 22,
     "rebuys": 0,
@@ -6078,18 +6090,6 @@
     "totalInvested": 120,
     "winnings": 0,
     "profit": -120,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-08-09",
-    "name": "110 Chip Sunday Deepstack",
-    "site": "WPT Gold",
-    "type": "Standard",
-    "buyin": 110,
-    "rebuys": 0,
-    "totalInvested": 110,
-    "winnings": 0,
-    "profit": -110,
     "onlyBounty": false
   },
   {
@@ -7150,6 +7150,18 @@
   },
   {
     "date": "2026-08-16",
+    "name": "$110 Chip Sunday Deepstack",
+    "site": "WPT Gold",
+    "type": "Standard",
+    "buyin": 110,
+    "rebuys": 1,
+    "totalInvested": 220,
+    "winnings": 0,
+    "profit": -220,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-08-16",
     "name": "$15 Sat to $150",
     "site": "GGPoker",
     "type": "Satellite",
@@ -7247,7 +7259,7 @@
   {
     "date": "2026-08-16",
     "name": "$22 6-Max Fast",
-    "site": "",
+    "site": "PartyPoker",
     "type": "Standard",
     "buyin": 22,
     "rebuys": 2,
@@ -7494,18 +7506,6 @@
     "totalInvested": 60,
     "winnings": 475,
     "profit": 415,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-08-16",
-    "name": "110 Chip Sunday Deepstack",
-    "site": "WPT Gold",
-    "type": "Standard",
-    "buyin": 110,
-    "rebuys": 1,
-    "totalInvested": 220,
-    "winnings": 0,
-    "profit": -220,
     "onlyBounty": false
   },
   {
@@ -9058,6 +9058,30 @@
   },
   {
     "date": "2026-09-08",
+    "name": "$22 Sat to $218",
+    "site": "WPT Gold",
+    "type": "Satellite",
+    "buyin": 22,
+    "rebuys": 0,
+    "totalInvested": 22,
+    "winnings": 0,
+    "profit": -22,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-08",
+    "name": "$22 Sat to $218",
+    "site": "WPT Gold",
+    "type": "Satellite",
+    "buyin": 22,
+    "rebuys": 1,
+    "totalInvested": 44,
+    "winnings": 0,
+    "profit": -44,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-08",
     "name": "$25 Big Starter",
     "site": "PokerStars",
     "type": "Standard",
@@ -9234,30 +9258,6 @@
     "totalInvested": 55,
     "winnings": 129.82,
     "profit": 74.82,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-09-08",
-    "name": "22 Sat to $218",
-    "site": "WPT Gold",
-    "type": "Satellite",
-    "buyin": 22,
-    "rebuys": 0,
-    "totalInvested": 22,
-    "winnings": 0,
-    "profit": -22,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-09-08",
-    "name": "22 Sat to $218",
-    "site": "WPT Gold",
-    "type": "Satellite",
-    "buyin": 22,
-    "rebuys": 1,
-    "totalInvested": 44,
-    "winnings": 0,
-    "profit": -44,
     "onlyBounty": false
   },
   {
@@ -10274,6 +10274,18 @@
     "site": "WPT Gold",
     "type": "Satellite",
     "buyin": 22,
+    "rebuys": 0,
+    "totalInvested": 22,
+    "winnings": 218,
+    "profit": 196,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-12",
+    "name": "$22 Sat to $218",
+    "site": "WPT Gold",
+    "type": "Satellite",
+    "buyin": 22,
     "rebuys": 1,
     "totalInvested": 44,
     "winnings": 0,
@@ -10473,18 +10485,6 @@
     "onlyBounty": false
   },
   {
-    "date": "2026-09-12",
-    "name": "22 Sat to $218",
-    "site": "WPT Gold",
-    "type": "Satellite",
-    "buyin": 22,
-    "rebuys": 0,
-    "totalInvested": 22,
-    "winnings": 218,
-    "profit": 196,
-    "onlyBounty": false
-  },
-  {
     "date": "2026-09-13",
     "name": "$100 Hundred Stack",
     "site": "GGPoker",
@@ -10585,6 +10585,18 @@
     "name": "$110 Chip Sunday Blame Canada Mystery Bounty",
     "site": "WPT Gold",
     "type": "Mystery",
+    "buyin": 110,
+    "rebuys": 0,
+    "totalInvested": 110,
+    "winnings": 0,
+    "profit": -110,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-13",
+    "name": "$110 Chip Sunday Deepstack",
+    "site": "WPT Gold",
+    "type": "Standard",
     "buyin": 110,
     "rebuys": 0,
     "totalInvested": 110,
@@ -11121,18 +11133,6 @@
     "onlyBounty": false
   },
   {
-    "date": "2026-09-13",
-    "name": "110 Chip Sunday Deepstack",
-    "site": "WPT Gold",
-    "type": "Standard",
-    "buyin": 110,
-    "rebuys": 0,
-    "totalInvested": 110,
-    "winnings": 0,
-    "profit": -110,
-    "onlyBounty": false
-  },
-  {
     "date": "2026-09-19",
     "name": "$100 Dynasty Fight",
     "site": "PokerStars",
@@ -11562,6 +11562,18 @@
     "totalInvested": 40,
     "winnings": 0,
     "profit": -40,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
+    "name": "$200 Dynasty Bounty - Day 1",
+    "site": "PokerStars",
+    "type": "PKO",
+    "buyin": 200,
+    "rebuys": 0,
+    "totalInvested": 200,
+    "winnings": 0,
+    "profit": -200,
     "onlyBounty": false
   },
   {

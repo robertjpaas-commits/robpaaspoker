@@ -452,3 +452,6 @@ th.sorted-desc::after { content: ' \25BC'; color: var(--gold); }
   .social-icon img { width: 16px; height: 16px; }
   .brand-name { font-size: 30px; }
 }
+
+/* "Day 1 07-28 · Day 2 08-02" under a multi-day event in the results table */
+.days-note { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
