@@ -11590,6 +11590,18 @@
   },
   {
     "date": "2026-09-20",
+    "name": "$25 Summer Storm Hyper Qualifier",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-09-20",
     "name": "$50 Sat to $500",
     "site": "PokerStars",
     "type": "Satellite",
