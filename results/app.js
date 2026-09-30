@@ -414,6 +414,9 @@ function renderVenueBreakdown(rows) {
     { label: 'Online', rows: rows.filter(function(r) { return !isLive(r); }) },
     { label: 'Live',   rows: rows.filter(isLive) }
   ].filter(function(g) { return g.rows.length; });
+  // A comparison of one: with the filters down to online-only or live-only,
+  // the table would just repeat the summary tiles, so it goes.
+  document.getElementById('venue-card').style.display = groups.length < 2 ? 'none' : '';
   var tbody = document.getElementById('venue-body');
   if (!groups.length) { tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">No data</td></tr>'; return; }
   tbody.innerHTML = groups.map(function(g) {
