@@ -201,7 +201,7 @@
         form.hidden = true;
         var link = document.getElementById("dl-link");
         link.href = res.data.url;
-        var mb = res.data.size ? " (" + Math.round(res.data.size / 1048576) + " MB)" : "";
+        var mb = res.data.size ? " (" + Math.round(res.data.size / 1e6) + " MB)" : "";
         document.getElementById("dl-label").textContent = "Download " + (res.data.version ? "version " + res.data.version : "for Windows") + mb;
         document.getElementById("dl-note").textContent =
           "Your download should start by itself. This link works for " + res.data.hours + " hours.";
