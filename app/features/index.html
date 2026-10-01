@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Features &middot; Play &amp; Study &middot; RobPaasPoker</title>
+  <meta name="description" content="The Table Tiler, HUD, Opponent lookup, Lab, Results and Bankroll in RobPaasPoker Play and Study.">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=1">
+</head>
+<body>
+
+  <div class="wrap">
+    <!-- The same logo header as every other page of the site. -->
+    <header class="site-header">
+      <a class="brand-name" href="../../">Rob<span>Paas</span>Poker</a>
+      <div class="brand-rule"></div>
+      <nav class="social-row" aria-label="Social media">
+        <a class="social-icon instagram" href="https://www.instagram.com/robpaaspoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="Instagram" loading="lazy"></a>
+        <a class="social-icon x" href="https://x.com/RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" loading="lazy"></a>
+        <a class="social-icon youtube" href="https://www.youtube.com/@robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="YouTube" loading="lazy"></a>
+        <a class="social-icon facebook" href="https://www.facebook.com/RobertPaasPoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="Facebook" loading="lazy"></a>
+        <a class="social-icon twitch" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/twitch/FFFFFF" alt="Twitch" loading="lazy"></a>
+        <a class="social-icon kick" href="https://kick.com/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/kick/000000" alt="Kick" loading="lazy"></a>
+        <a class="social-icon discord" href="https://discord.gg/Pz7nrhqhHF" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" loading="lazy"></a>
+      </nav>
+    </header>
+
+    <div class="top">
+      <a class="brand" href="../">Play <span>&amp;</span> Study</a>
+      <nav class="nav" aria-label="App pages">
+        <a href="../">Overview</a>
+        <a href="../features/" aria-current="page">Features</a>
+        <a href="../download/" class="nav-cta">Download</a>
+      </nav>
+    </div>
+  </div>
+  <div class="rule"></div>
+
+<main class="wrap">
+
+  <div class="group">
+    <div class="group-label"><h2>RobPaasPoker <span>Play</span></h2><span class="when">While playing</span></div>
+    <div>
+      <div class="feature">
+        <div class="feature-copy">
+          <h3>Table Tiler</h3>
+          <ul class="ticks">
+            <li>Moves every table into its own spot as it opens.</li>
+            <li>Set up per screen: pick the monitor and how many tables.</li>
+            <li>Drag and drop to move tables around.</li>
+            <li>Draw your own boxes, any size and layout.</li>
+            <li>Grid, custom boxes, or watch-only mode.</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <span class="example-tag">Most tables per screen</span>
+          <div class="sizes card" id="sizes"></div>
+        </div>
+      </div>
+
+      <div class="feature flip">
+        <div class="feature-copy">
+          <h3>HUD</h3>
+          <ul class="ticks">
+            <li><b>VPIP / PFR / 3-bet</b>, hands and aggression. Pick your own rows.</li>
+            <li>Numbers only, with nothing covering the felt.</li>
+            <li>Hover a player for every stat.</li>
+            <li>Updates every hand.</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <span class="example-tag">Example table &middot; made-up players</span>
+          <div class="hud-table" aria-label="Illustration: a poker table with HUD stats beside each seat and one player's stats expanded">
+            <div class="felt"></div>
+            <div class="pot">Pot 14,400
+              <div class="cards"><i>K&#9824;</i><i class="r">9&#9829;</i><i>4&#9827;</i></div>
+            </div>
+            <div id="seats"></div>
+            <div class="hover-card" aria-hidden="true">
+              <b>Seat 3 &middot; 412 hands</b>
+              <dl>
+                <dt>VPIP</dt><dd>31</dd>
+                <dt>PFR</dt><dd>22</dd>
+                <dt>3-bet</dt><dd>9.4</dd>
+                <dt>Fold to 3-bet</dt><dd>58</dd>
+                <dt>C-bet</dt><dd>66</dd>
+                <dt>WTSD</dt><dd>27</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-copy">
+          <h3>Opponent lookup</h3>
+          <ul class="ticks">
+            <li>Pull up any player you've faced and see how they play.</li>
+            <li>Their full stats, to work out a plan against them.</li>
+            <li>Keep your notes on each player, right beside their stats.</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <span class="example-tag">Example player &middot; made-up figures</span>
+          <div class="opp card">
+            <div class="opp-search"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="2"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Screen name</span></div>
+            <div class="opp-head">
+              <div><b>Example player</b><small>PokerStars / FanDuel</small></div>
+              <div class="opp-hands"><strong>1,284</strong><small>hands</small></div>
+            </div>
+            <div class="opp-stats">
+              <div><small>VPIP</small><strong>29</strong></div>
+              <div><small>PFR</small><strong>21</strong></div>
+              <div><small>3-bet</small><strong>8.7</strong></div>
+              <div><small>Fold to 3-bet</small><strong>61</strong></div>
+              <div><small>Steal</small><strong>38</strong></div>
+              <div><small>C-bet</small><strong>64</strong></div>
+              <div><small>Fold to c-bet</small><strong>47</strong></div>
+              <div><small>WTSD</small><strong>26</strong></div>
+            </div>
+            <div class="opp-note"><small>Your note</small>Shoves 15bb from the button light. Folds to river bets.</div>
+            <p class="opp-foot">212 hands together &middot; last seen Sep 28</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label"><h2>RobPaasPoker <span>Study</span></h2><span class="when">Before and after</span></div>
+    <div>
+      <div class="feature">
+        <div class="feature-copy">
+          <h3>Lab</h3>
+          <ul class="ticks">
+            <li>Set your own targets, seat by seat.</li>
+            <li>Every hand you've played, filtered by seat, stack and action.</li>
+            <li>Reports by position, stack depth and table size.</li>
+            <li>Compare your last month with the months before to see what's improved.</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <span class="example-tag">Example report &middot; preflop by position</span>
+          <div class="pos card">
+            <div class="pos-scroll">
+              <table>
+                <thead><tr><th></th><th>EP</th><th>MP</th><th>HJ</th><th>CO</th><th>BTN</th><th>SB</th><th>BB</th></tr></thead>
+                <tbody id="pos-body"></tbody>
+              </table>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--good)"></i>Within 10 points</span>
+              <span><i style="background:var(--warn)"></i>10+ points off</span>
+              <span><i style="background:var(--bad)"></i>25+ points off</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature flip">
+        <div class="feature-copy">
+          <h3>Results</h3>
+          <ul class="ticks">
+            <li>Buy-ins tracked automatically.</li>
+            <li>A pop-up when a tournament ends lets you enter your winnings.</li>
+            <li>ROI and in-the-money % for everything you play.</li>
+            <li>By tournament type: vanilla, PKO, mystery bounty and more.</li>
+            <li>By day, month and buy-in.</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <span class="example-tag">Example figures</span>
+          <div class="res card">
+            <div class="tiles">
+              <div class="tile"><small>Tournaments</small><strong>486</strong></div>
+              <div class="tile"><small>ROI</small><strong class="pos-v">+14%</strong></div>
+              <div class="tile"><small>In the money</small><strong>17.6%</strong></div>
+            </div>
+            <div class="types-scroll">
+              <table class="types">
+                <thead><tr><th>Type</th><th>Played</th><th>ITM</th><th>ROI</th></tr></thead>
+                <tbody>
+                  <tr><th>Vanilla</th><td>212</td><td>16.0%</td><td class="up">+9%</td></tr>
+                  <tr><th>PKO</th><td>168</td><td>18.5%</td><td class="up">+22%</td></tr>
+                  <tr><th>Mystery bounty</th><td>64</td><td>17.2%</td><td class="down">&minus;6%</td></tr>
+                  <tr><th>Satellite</th><td>42</td><td>23.8%</td><td class="up">+31%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="win-pop" aria-label="Example winnings pop-up">
+              <div class="win-top"><b>Tournament finished</b><span>$55 Bounty Builder</span></div>
+              <div class="win-row"><span class="win-field">Winnings <i>$312.40</i></span><span class="win-save">Save</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-copy">
+          <h3>Bankroll</h3>
+          <ul class="ticks">
+            <li>Track your bankroll by site, by day.</li>
+            <li>A calendar of every day's result.</li>
+            <li>See results over a week, month, year or all time.</li>
+            <li>Counts deposits, withdrawals and tickets.</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <span class="example-tag">Example figures</span>
+          <div class="bank card">
+            <div class="bank-head">
+              <div><small class="fine">September 2026</small><br><strong>+$2,380</strong></div>
+              <div class="tabs"><i class="on">All sites</i><i>PokerStars</i><i>GGPoker</i><i>888</i></div>
+            </div>
+            <div class="cal" id="cal" aria-label="Example calendar of daily results for September 2026"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+  <footer>
+    <div class="wrap foot">
+      <a class="brand" href="../../">Rob<span>Paas</span>Poker</a>
+      <p>RobPaasPoker Play &amp; Study is independent software, not made by or connected to any poker site. Provided as it is, with no warranty.</p>
+    </div>
+  </footer>
+
+  <script src="../app.js?v=1"></script>
+</body>
+</html>

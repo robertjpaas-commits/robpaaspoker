@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download &middot; Play &amp; Study &middot; RobPaasPoker</title>
+  <meta name="description" content="Download RobPaasPoker Play and Study for Windows with an invite code.">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=1">
+</head>
+<body>
+
+  <div class="wrap">
+    <!-- The same logo header as every other page of the site. -->
+    <header class="site-header">
+      <a class="brand-name" href="../../">Rob<span>Paas</span>Poker</a>
+      <div class="brand-rule"></div>
+      <nav class="social-row" aria-label="Social media">
+        <a class="social-icon instagram" href="https://www.instagram.com/robpaaspoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="Instagram" loading="lazy"></a>
+        <a class="social-icon x" href="https://x.com/RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" loading="lazy"></a>
+        <a class="social-icon youtube" href="https://www.youtube.com/@robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="YouTube" loading="lazy"></a>
+        <a class="social-icon facebook" href="https://www.facebook.com/RobertPaasPoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="Facebook" loading="lazy"></a>
+        <a class="social-icon twitch" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/twitch/FFFFFF" alt="Twitch" loading="lazy"></a>
+        <a class="social-icon kick" href="https://kick.com/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/kick/000000" alt="Kick" loading="lazy"></a>
+        <a class="social-icon discord" href="https://discord.gg/Pz7nrhqhHF" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" loading="lazy"></a>
+      </nav>
+    </header>
+
+    <div class="top">
+      <a class="brand" href="../">Play <span>&amp;</span> Study</a>
+      <nav class="nav" aria-label="App pages">
+        <a href="../">Overview</a>
+        <a href="../features/">Features</a>
+        <a href="../download/" class="nav-cta" aria-current="page">Download</a>
+      </nav>
+    </div>
+  </div>
+  <div class="rule"></div>
+
+<main class="wrap dl-page">
+  <div class="dl card">
+    <div class="dl-copy">
+      <div class="eyebrow">Download</div>
+      <h1 class="dl-title">RobPaasPoker Play &amp; Study</h1>
+      <p>Downloads are invite-only for now. Enter your code to get the installer.</p>
+
+      <form class="code-form" id="code-form" novalidate>
+        <label class="code-label" for="code">Invite code</label>
+        <div class="code-row">
+          <input class="code-input" id="code" name="code" type="text" inputmode="latin" autocomplete="off"
+                 autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX" maxlength="20">
+          <button class="btn btn-gold" type="submit" id="code-go">Unlock</button>
+        </div>
+        <p class="code-msg" id="code-msg" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="unlocked" id="unlocked" hidden>
+        <a class="btn btn-gold" id="dl-link" href="#">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span id="dl-label">Download for Windows</span>
+        </a>
+        <p class="fine" id="dl-note"></p>
+      </div>
+    </div>
+    <dl class="dl-specs">
+      <div><dt>Version</dt><dd>0.1.0</dd></div>
+      <div><dt>Size</dt><dd>16 MB</dd></div>
+      <div><dt>Needs</dt><dd>Windows 10 or 11, 64-bit</dd></div>
+      <div><dt>Installs</dt><dd>For you only, no admin password</dd></div>
+    </dl>
+  </div>
+
+  <div class="notes">
+    <div class="card">
+      <h3>If Windows warns you</h3>
+      <p>"Windows protected your PC" appears for new programs. Click <b>More info</b>, then <b>Run anyway</b>.</p>
+    </div>
+    <div class="card">
+      <h3>Updating</h3>
+      <p>Run the new Setup over the old one. Your data is kept.</p>
+    </div>
+    <div class="card">
+      <h3>Need a code?</h3>
+      <p>Codes come from Rob, and each one works once.</p>
+    </div>
+    <div class="card">
+      <h3>Found a bug?</h3>
+      <p>Send what you were doing and the files from Settings &rsaquo; Open logs folder.</p>
+      <div class="email-row">
+        <span class="email" id="email">robpaaspoker@gmail.com</span>
+        <button class="copy" type="button" id="copy-email">Copy</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <footer>
+    <div class="wrap foot">
+      <a class="brand" href="../../">Rob<span>Paas</span>Poker</a>
+      <p>RobPaasPoker Play &amp; Study is independent software, not made by or connected to any poker site. Provided as it is, with no warranty.</p>
+    </div>
+  </footer>
+
+  <script src="../app.js?v=1"></script>
+</body>
+</html>
