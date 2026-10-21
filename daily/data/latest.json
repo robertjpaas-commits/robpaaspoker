@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-21T13:30:01",
+  "generated_at": "2026-10-21T13:35:48",
   "session": {
-    "date": "2026-10-08",
-    "pretty": "Thursday, October 8",
-    "url": "daily/2026-10-08.html",
-    "total": -2300.0,
-    "hours": 6.0,
+    "date": "2026-10-07",
+    "pretty": "Wednesday, October 7",
+    "url": "daily/2026-10-07.html",
+    "total": -800.0,
+    "hours": 12.0,
     "sites": [
       {
         "name": "Live",
-        "value": -2300.0
+        "value": -800.0
       }
     ],
     "photos": [],
