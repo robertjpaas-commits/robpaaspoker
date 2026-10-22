@@ -9,6 +9,14 @@
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=31">
+  <style>
+    .doc h2 { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin: 26px 0 8px; }
+    .doc h1 { font-family: 'Barlow', sans-serif; font-size: 24px; color: var(--text); margin: 0 0 4px; }
+    .doc .updated { font-size: 14px; color: var(--text-secondary); margin: 0 0 6px; }
+    .doc a { color: var(--gold-light); }
+    .doc ul { color: var(--text-secondary); font-size: 16px; line-height: 1.65; margin: 8px 0 0; padding-left: 22px; }
+    .doc .links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 26px; font-weight: 600; }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -28,11 +36,27 @@
     </header>
 
     <section class="card about-card">
-      <div class="bio">
-        <p><strong>Privacy policy</strong> &middot; updated October 22, 2026</p>
-        <p>RobPaasPoker's tools (the posting tool that publishes my own videos to YouTube, Facebook, Instagram and X, and my personal planner) are used by me alone, on my own computer, with my own accounts.</p>
-        <p>They read and write only my accounts' data: uploading my videos to my own channels and pages, and reading my own calendar, email and fitness data for my own planning. That data stays on my computer. It is never sold, shared, or used for advertising, and no one else's data is collected.</p>
-        <p>Access can be removed at any time from the connected account's security settings. Questions: reach me through any of the links above.</p>
+      <div class="bio doc">
+        <h1>Privacy policy</h1>
+        <p class="updated">Updated October 22, 2026</p>
+        <p>This policy covers RobPaasPoker's own tools: <a href="../posting/">RobPaasPoker Posting</a>, which publishes my own videos to my own YouTube channel, Facebook Page, Instagram and X accounts, and my personal planner. I am their only user. They run on my own computer and sign in only to my own accounts.</p>
+        <h2>YouTube API Services</h2>
+        <p>RobPaasPoker Posting uses YouTube API Services. By using it you agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>. Google's use of data is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+        <h2>What is accessed and stored</h2>
+        <ul>
+          <li>YouTube: permission to upload videos to the signed-in channel, and to read that channel's basic details (its name), to confirm the connection.</li>
+          <li>Facebook, Instagram and X: permission to publish to my own Page and accounts, and to read their names.</li>
+          <li>My personal planner: read access to my own calendar, email and fitness data, and adding events to a calendar it created.</li>
+          <li>The sign-in tokens these services issue, and a local log of each post and the ID the platform returned.</li>
+        </ul>
+        <p>All of it is stored only on my own computer. No data about viewers, other channels or other people is read or stored.</p>
+        <h2>How it is used and shared</h2>
+        <p>The data is used only to publish my videos and to record that they were published. It is not shared with, sold to, or disclosed to any third party, and it is not used for advertising or analytics. The tools set no cookies and use no tracking.</p>
+        <h2>Deleting data and revoking access</h2>
+        <p>Access to a Google account can be revoked at any time from the <a href="https://security.google.com/settings/security/permissions">Google security settings page</a>, which stops the tool from reaching YouTube. Deleting the tool's local token and log files removes everything it stored. Facebook, Instagram and X access can be removed from each service's own app settings.</p>
+        <h2>Contact</h2>
+        <p>Questions about this policy: reach me through any of the links above.</p>
+        <div class="links"><a href="../posting/">RobPaasPoker Posting</a><a href="../terms/">Terms of service</a></div>
       </div>
     </section>
 
