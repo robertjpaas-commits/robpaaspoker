@@ -12283,5 +12283,53 @@
     "winnings": 0,
     "profit": -77,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$10 Sunday Dynasty Mega Qualifier",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 1,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$30 Afternoon Mystery",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$30 Sunday Shield",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 113.53,
+    "profit": 83.53,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$50 Sunday Mini Cooldown",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 50.0,
+    "rebuys": 1,
+    "totalInvested": 100.0,
+    "winnings": 0.0,
+    "profit": -100.0,
+    "onlyBounty": false
   }
 ]
