@@ -2,43 +2,52 @@
    change it there first, then mirror here. Bump CSS_VERSION in export_daily_pages.py
    after editing this file, or published pages will serve a cached copy. */
 
+/* Tokens from C:\StreamScripts\DESIGN.md (sections 2 and 3). Change them there first.
+   The older names below are aliases so the rest of this sheet reads the same. */
 :root {
-  --bg: #0d0d0d;
-  --card-bg: #1a1a1a;
-  --surface2: #141414;
-  --text: #e8e2d6;
-  --text-secondary: #c3c2b7;
-  --text-muted: #898781;
-  --border: #2a2a2a;
-  --gridline: #2c2c2a;
+  --canvas: #0d0d0d;
+  --surface-1: #151412;
+  --surface-2: #1c1a17;
+  --surface-3: #24221e;
+  --hairline: #2a2722;
+  --hairline-strong: #3b372f;
+  --ink: #e8e2d6;
+  --ink-muted: #bdb7aa;
+  --ink-subtle: #8c867b;
+  --ink-faint: #5f5a52;
   --gold: #c9a84c;
-  --gold-light: #e8cc7a;
+  --gold-hover: #ddc06c;
   --gold-dim: #7a5e28;
-  --gold-track: #3a2f16;
-  --positive: #22c55e;
-  --positive-dim: #143a24;
-  --negative: #ef4444;
-  --negative-dim: #3a1616;
-  /* Warm charcoal, not neutral grey: grey next to gold read as a stock dark theme.
-     Mirrors style.css at the site root. */
-  --card-top: #1c1a17;
-  --card-bottom: #151412;
-  --card-border: #2c2924;
+  --gold-wash: rgba(201, 168, 76, 0.10);
+  --on-gold: #14110a;
+  --up: #5fb67c;
+  --down: #e0675c;
+  --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-figure: "Barlow Condensed", "Barlow", system-ui, sans-serif;
+
+  --bg: var(--canvas);
+  --card-bg: var(--surface-1);
+  --surface2: var(--surface-2);
+  --text: var(--ink);
+  --text-secondary: var(--ink-muted);
+  --text-muted: var(--ink-subtle);
+  --border: var(--hairline);
+  --gridline: var(--hairline);
+  --gold-light: var(--gold-hover);
+  --gold-track: var(--gold-wash);
+  --positive: var(--up);
+  --negative: var(--down);
+  --card-border: var(--hairline);
 }
 
 * { box-sizing: border-box; }
 
-/* A soft gold light behind the logo and a fainter one at the foot (mirrors the root
-   style.css). Scrolls with the page: background-attachment: fixed janks on phones. */
+/* Flat canvas (DESIGN.md section 6). The gold glow that was here went on 2026-11-11. */
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse 900px 420px at 50% -120px, rgba(201, 168, 76, 0.14), transparent 70%),
-    radial-gradient(ellipse 1100px 500px at 50% 100%, rgba(201, 168, 76, 0.045), transparent 70%),
-    var(--bg);
+  background: var(--canvas);
   color: var(--text);
   font-family: var(--font-body);
 }
@@ -97,7 +106,6 @@ body.lb-open { overflow: hidden; }
 
 .social-icon:hover {
   opacity: 1;
-  transform: translateY(-1px);
 }
 
 .social-icon.instagram { background: #e1306c; }
@@ -114,13 +122,14 @@ body.lb-open { overflow: hidden; }
   display: block;
 }
 
+/* Heading (DESIGN.md section 3): cream, not gold. Gold is kept for what's clickable. */
 .page-title {
-  margin-top: 18px;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.03em;
+  margin-top: 24px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
 }
 
 /* ---------- prev / next ---------- */
@@ -145,53 +154,42 @@ body.lb-open { overflow: hidden; }
 
 .nav-short { display: none; }
 
+/* Secondary buttons (DESIGN.md section 4); hover changes the border only. */
 .day-nav-link,
 .day-nav-home {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.04em;
   text-decoration: none;
-  color: var(--text-secondary);
-  padding: 7px 12px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
+  color: var(--ink);
+  padding: 8px 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 2px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: border-color 0.15s ease-out;
 }
 
 .day-nav-link:hover,
-.day-nav-home:hover { border-color: var(--gold-dim); color: var(--gold-light); }
-
-.day-nav-home {
-  color: var(--gold);
-  border-color: var(--gold-dim);
-}
+.day-nav-home:hover { border-color: var(--gold-dim); }
 
 /* ---------- cards ---------- */
 
+/* A panel (DESIGN.md section 4): flat, one step above the canvas, a hairline edge.
+   The gold stripe along the top went with the gradient on 2026-11-11. */
 .card {
   position: relative;
-  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
-  border: 1px solid var(--card-border);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.045),
-    0 18px 40px -22px rgba(0, 0, 0, 0.9);
-  border-radius: 10px;
-  padding: 20px;
+  background: var(--surface-1);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 24px;
   overflow: hidden;
 }
 
-.card + .card, section + section { margin-top: 18px; }
+.card + .card, section + section { margin-top: 24px; }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-
+/* The section label: one per card (DESIGN.md section 3). */
 .card-title {
   font-size: 11px;
   font-weight: 600;
@@ -218,28 +216,26 @@ body.lb-open { overflow: hidden; }
 /* Centred: left-aligned, a wide value under a short label read as misaligned. */
 .stat { text-align: center; }
 
+/* Sentence case: a second uppercase label in the same card competed with the first. */
 .stat-label {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-subtle);
+  margin-bottom: 4px;
 }
 
 /* Condensed scoreboard figures, as on the home page. */
 .stat-value {
   font-family: var(--font-figure);
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 600;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
 }
 
-/* The day's own result is the headline; the rest are supporting figures. */
-.stat:first-child .stat-value { font-size: 46px; }
-.stat:first-child .stat-value.positive { text-shadow: 0 0 32px rgba(34, 197, 94, 0.32); }
-.stat:first-child .stat-value.negative { text-shadow: 0 0 32px rgba(239, 68, 68, 0.32); }
+/* The day's own result is the headline (Figure L); the rest are supporting figures.
+   No glow: its colour alone says up or down. */
+.stat:first-child .stat-value { font-size: 48px; }
 
 .site-breakdown {
   margin-top: 24px;
@@ -298,7 +294,6 @@ body.lb-open { overflow: hidden; }
   left: 50%;
   background: var(--positive);
   border-radius: 0 999px 999px 0;
-  box-shadow: 0 0 10px -1px rgba(34, 197, 94, 0.45);
   transform-origin: left center;
 }
 
@@ -306,7 +301,6 @@ body.lb-open { overflow: hidden; }
   right: 50%;
   background: var(--negative);
   border-radius: 999px 0 0 999px;
-  box-shadow: 0 0 10px -1px rgba(239, 68, 68, 0.45);
   transform-origin: right center;
 }
 
@@ -341,15 +335,15 @@ body.lb-open { overflow: hidden; }
   display: block;
   width: 100%;
   padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
   background: var(--surface2);
   cursor: zoom-in;
   overflow: hidden;
-  transition: border-color 0.15s, transform 0.15s;
+  transition: border-color 0.15s ease-out;
 }
 
-.shot-btn:hover { border-color: var(--gold-dim); transform: translateY(-2px); }
+.shot-btn:hover { border-color: var(--gold); }
 .shot-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 /* Square rather than 4:3: the grid mixes landscape screenshots with portrait phone
@@ -384,8 +378,8 @@ body.lb-open { overflow: hidden; }
   position: relative;
   aspect-ratio: 16 / 9;
   background: #000;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -425,15 +419,16 @@ body.lb-open { overflow: hidden; }
   flex-direction: column;
   gap: 8px;
   padding: 16px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
   text-decoration: none;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s ease-out;
 }
 
 .clip-card:hover { border-color: var(--gold-dim); }
 
+/* A tag (DESIGN.md section 4), matching the home page's. */
 .clip-badge {
   align-self: flex-start;
   font-size: 10px;
@@ -442,8 +437,8 @@ body.lb-open { overflow: hidden; }
   letter-spacing: 0.12em;
   color: var(--gold);
   border: 1px solid var(--gold-dim);
-  border-radius: 999px;
-  padding: 3px 9px;
+  border-radius: 2px;
+  padding: 3px 8px;
 }
 
 .clip-card-title {
@@ -465,7 +460,7 @@ body.lb-open { overflow: hidden; }
   justify-content: center;
   gap: 10px;
   padding: 40px 56px;
-  background: rgba(5, 5, 5, 0.94);
+  background: rgba(6, 6, 5, 0.9);
 }
 
 .lightbox[hidden] { display: none; }
@@ -507,11 +502,11 @@ body.lb-open { overflow: hidden; }
 
 /* ---------- entrance (mirrors the root style.css) ---------- */
 
-/* Sections rise in one after another. Fill mode is backwards, not both, so once the
-   animation ends no transform lingers to trap fixed or z-indexed descendants. */
+/* Sections fade in one after another; opacity only, nothing moves (DESIGN.md
+   section 7). Fill mode stays backwards. The site bars still grow: data may animate. */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .page > :not(.site-header) {
@@ -540,9 +535,10 @@ body.lb-open { overflow: hidden; }
   .nav-long { display: none; }
   .nav-short { display: inline; }
   .brand-name { font-size: 30px; }
-  .page-title { font-size: 21px; }
-  .stat:first-child .stat-value { font-size: 38px; }
-  .stat-value { font-size: 28px; }
+  .page-title { font-size: 24px; }
+  .stat:first-child .stat-value { font-size: 40px; }
+  .stat-value { font-size: 24px; }
+  .card { padding: 18px; }
   .site-row { grid-template-columns: 78px 1fr 80px; gap: 8px; }
   .lightbox { padding: 48px 12px; }
   .lb-prev, .lb-next { font-size: 38px; }
@@ -566,7 +562,7 @@ body.lb-open { overflow: hidden; }
    560px rule above already makes. */
 .stat:first-child .stat-value { view-transition-name: day-figure; }
 
-@keyframes vt-out { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes vt-out { to { opacity: 0; } }
 @keyframes vt-fade-in { from { opacity: 0; } }
 
 ::view-transition-old(root) { animation: vt-out 0.24s cubic-bezier(0.4, 0, 1, 1) both; }

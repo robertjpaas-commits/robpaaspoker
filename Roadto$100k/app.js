@@ -1,5 +1,6 @@
-const POSITIVE = "#22c55e";
-const NEGATIVE = "#ef4444";
+// --up / --down from C:\StreamScripts\DESIGN.md: softer than Tailwind's defaults.
+const POSITIVE = "#5fb67c";
+const NEGATIVE = "#e0675c";
 const GOLD = "#c9a84c";
 const WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"];
 const MONTH_NAMES = [
@@ -340,7 +341,7 @@ function renderCalendar() {
 
         if (isWin || isLoss) {
           const alpha = 0.28 + 0.62 * Math.min(1, Math.abs(value) / maxAbs);
-          const rgb = isWin ? "34,197,94" : "239,68,68";
+          const rgb = isWin ? "95,182,124" : "224,103,92";
           cell.style.background = `rgba(${rgb},${alpha})`;
         }
 
@@ -414,21 +415,9 @@ const goalLinePlugin = {
 const SPADE_PATH = new Path2D(
   "M12 2C9 7 4 9 4 14c0 2 2 4 4 4 1 0 2 0 3-1 0 0 .32 2-2 5h6c-2-3-2-5-2-5 1 1 2 1 3 1 2 0 4-2 4-4 0-5-5-7-8-12Z");
 
-// A soft gold glow under the cumulative line, like the home page's hero curve. Canvas
-// shadow state is saved before the dataset draws and restored after, so the axes, the
-// goal line and the tooltip stay crisp.
-const lineGlowPlugin = {
-  id: "lineGlow",
-  beforeDatasetDraw(chartInstance) {
-    const { ctx } = chartInstance;
-    ctx.save();
-    ctx.shadowColor = "rgba(201,168,76,0.55)";
-    ctx.shadowBlur = 10;
-  },
-  afterDatasetDraw(chartInstance) {
-    chartInstance.ctx.restore();
-  },
-};
+// The line's gold glow went on 2026-11-11: DESIGN.md section 6 rules out glows on
+// chart lines. A no-op, so the plugin lists below read the same.
+const lineGlowPlugin = { id: "lineGlow" };
 
 const spadeEndpointPlugin = {
   id: "spadeEndpoint",
@@ -451,8 +440,6 @@ const spadeEndpointPlugin = {
     ctx.scale(0.9, 0.9);
     ctx.translate(-12, -12);
     ctx.fillStyle = GOLD;
-    ctx.shadowColor = "rgba(232,204,122,0.8)";
-    ctx.shadowBlur = 8;
     ctx.fill(SPADE_PATH);
     ctx.restore();
   },
@@ -472,7 +459,7 @@ function renderChart() {
   const commonScales = {
     x: {
       ticks: {
-        color: "#898781",
+        color: "#8c867b",
         autoSkip: false,
         callback: (value, index, ticks) => {
           const date = labels[ticks[index].value];
@@ -486,20 +473,20 @@ function renderChart() {
     },
     y: {
       ticks: {
-        color: "#898781",
+        color: "#8c867b",
         // Sign outside the dollar sign: "$-20,000" reads as a typo.
         callback: (v) => (v < 0 ? "-$" : "$") + Math.abs(v).toLocaleString("en-US"),
       },
-      grid: { color: "#2c2c2a" },
+      grid: { color: "#2a2722" },
     },
   };
 
   const tooltipBase = {
     displayColors: false,
-    backgroundColor: "#050505",
-    borderColor: "#2a2a2a",
+    backgroundColor: "#24221e",
+    borderColor: "#3b372f",
     borderWidth: 1,
-    titleColor: "#c3c2b7",
+    titleColor: "#bdb7aa",
     bodyColor: "#e8e2d6",
     bodyFont: { weight: "600" },
     callbacks: {
@@ -654,7 +641,7 @@ function renderChart() {
         },
         scales: {
           // Twelve real categories, so none of the daily axis's tick filtering applies.
-          x: { ticks: { color: "#898781" }, grid: { display: false } },
+          x: { ticks: { color: "#8c867b" }, grid: { display: false } },
           y: { ...commonScales.y, ...paddedAxis(realMonthly) },
         },
       },

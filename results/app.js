@@ -493,7 +493,7 @@ function renderTournamentBreakdown(rows) {
   var html = shown.map(function(g) {
     return '<tr>' +
       '<td><span class="name-link" onclick="filterByName(' + escAttr(JSON.stringify(g.name)) + ')">' + escH(g.name) + '</span></td>' +
-      '<td style="font-size:11px; color:#4a7fc1; text-transform:uppercase; letter-spacing:0.05em;">' + escH(g.type || '—') + '</td>' +
+      '<td style="font-size:12px; color:#8c867b;">' + escH(g.type || '—') + '</td>' +
       '<td style="font-size:11px; color:var(--gold-dim);">' + escH(g.site || '—') + '</td>' +
       '<td>' + g.played + '</td>' +
       '<td>' + g.itm + '%</td>' +
@@ -618,7 +618,7 @@ function renderResultsTable(rows) {
       '<td class="col-date">' + (r.date || '—') + '</td>' +
       '<td><span class="name-link" onclick="filterByName(' + escAttr(JSON.stringify(r.name || '')) + ')">' + escH(r.name) + '</span>' +
         (r.days ? '<div class="days-note">' + escH(r.days) + '</div>' : '') + '</td>' +
-      '<td style="font-size:11px;color:#4a7fc1;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">' + escH(r.type || '—') + '</td>' +
+      '<td style="font-size:12px;color:#8c867b;white-space:nowrap;">' + escH(r.type || '—') + '</td>' +
       '<td class="col-site">' + escH(r.site || '—') + '</td>' +
       '<td class="col-num" style="color:var(--negative);">-$' + money((r.buyin || 0)) + '</td>' +
       '<td class="col-num">' + entriesCell + '</td>' +

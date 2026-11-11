@@ -1,42 +1,51 @@
+/* Tokens from C:\StreamScripts\DESIGN.md (sections 2 and 3). Change them there first.
+   The older names below are aliases so the rest of this sheet reads the same. */
 :root {
-  --bg: #0d0d0d;
-  --card-bg: #1a1a1a;
-  --surface2: #141414;
-  --text: #e8e2d6;
-  --text-secondary: #c3c2b7;
-  --text-muted: #898781;
-  --border: #2a2a2a;
-  --gridline: #2c2c2a;
+  --canvas: #0d0d0d;
+  --surface-1: #151412;
+  --surface-2: #1c1a17;
+  --surface-3: #24221e;
+  --hairline: #2a2722;
+  --hairline-strong: #3b372f;
+  --ink: #e8e2d6;
+  --ink-muted: #bdb7aa;
+  --ink-subtle: #8c867b;
+  --ink-faint: #5f5a52;
   --gold: #c9a84c;
-  --gold-light: #e8cc7a;
+  --gold-hover: #ddc06c;
   --gold-dim: #7a5e28;
-  --gold-track: #3a2f16;
-  --positive: #22c55e;
-  --positive-dim: #143a24;
-  --negative: #ef4444;
-  --negative-dim: #3a1616;
-  /* Warm charcoal, not neutral grey: grey next to gold read as a stock dark theme.
-     Mirrors style.css at the site root. */
-  --card-top: #1c1a17;
-  --card-bottom: #151412;
-  --card-border: #2c2924;
+  --gold-wash: rgba(201, 168, 76, 0.10);
+  --on-gold: #14110a;
+  --up: #5fb67c;
+  --down: #e0675c;
+  --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-figure: "Barlow Condensed", "Barlow", system-ui, sans-serif;
+
+  --bg: var(--canvas);
+  --card-bg: var(--surface-1);
+  --surface2: var(--surface-2);
+  --text: var(--ink);
+  --text-secondary: var(--ink-muted);
+  --text-muted: var(--ink-subtle);
+  --border: var(--hairline);
+  --gridline: var(--hairline);
+  --gold-light: var(--gold-hover);
+  --gold-track: var(--gold-wash);
+  --positive: var(--up);
+  --negative: var(--down);
+  --card-border: var(--hairline);
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* A soft gold light behind the logo and a fainter one at the foot (mirrors the root
-   style.css). Scrolls with the page: background-attachment: fixed janks on phones. */
+/* Flat canvas (DESIGN.md section 6). The gold glow that was here went on 2026-11-11. */
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse 900px 420px at 50% -120px, rgba(201, 168, 76, 0.14), transparent 70%),
-    radial-gradient(ellipse 1100px 500px at 50% 100%, rgba(201, 168, 76, 0.045), transparent 70%),
-    var(--bg);
+  background: var(--canvas);
   color: var(--text);
   font-family: var(--font-body);
 }
@@ -96,7 +105,6 @@ body {
 
 .social-icon:hover {
   opacity: 1;
-  transform: translateY(-1px);
 }
 
 .social-icon.instagram { background: #e1306c; }
@@ -115,22 +123,16 @@ body {
 
 /* ---------- hero / progress ---------- */
 
+/* A panel (DESIGN.md section 4): flat, one step above the canvas, a hairline edge. */
 .card {
-  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 24px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.045),
-    0 18px 40px -22px rgba(0, 0, 0, 0.9);
+  background: var(--surface-1);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 32px;
 }
 
 .hero {
   margin-bottom: 24px;
-  /* Gold light pooling in the top corner, as on the home page's hero. */
-  background:
-    radial-gradient(520px 260px at 88% -40px, rgba(201, 168, 76, 0.11), transparent 70%),
-    linear-gradient(180deg, var(--card-top), var(--card-bottom));
 }
 
 /* The total is the chart's heading, not a banner over it: left-aligned with the
@@ -139,60 +141,57 @@ body {
   text-align: left;
 }
 
+/* The section label: the one uppercase line a section gets (DESIGN.md section 3). */
 .hero-label {
-  color: var(--text-muted);
-  font-size: 12px;
+  color: var(--ink-subtle);
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 6px;
+  letter-spacing: 0.14em;
+  margin-bottom: 8px;
 }
 
-/* Condensed scoreboard figures with a glow in their own colour, as on the home page. */
+/* Figure XL: printed, no glow; its colour alone says up or down. */
 .hero-figure {
   font-family: var(--font-figure);
-  font-size: 58px;
-  font-weight: 700;
+  font-size: 72px;
+  font-weight: 600;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 
-.hero-figure.positive { color: var(--positive); text-shadow: 0 0 36px rgba(34, 197, 94, 0.3); }
-.hero-figure.negative { color: var(--negative); text-shadow: 0 0 36px rgba(239, 68, 68, 0.3); }
+.hero-figure.positive { color: var(--positive); }
+.hero-figure.negative { color: var(--negative); }
 
-/* The logo's gold rule, fading one way only so it reads as an underline for a
-   left-aligned figure. Gold whatever the sign: it frames the figure. */
-.hero-rule {
-  width: 120px;
-  height: 1px;
-  margin-top: 12px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-}
+/* The gold rule under the figure went on 2026-11-11: gradient rules are on the
+   avoid list (DESIGN.md section 2). */
+.hero-rule { display: none; }
 
 .stat-row {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 16px;
   margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
 }
 
 .stat {
   text-align: center;
 }
 
+/* Sentence case: the section already has its one uppercase label. */
 .stat-label {
-  color: var(--text-muted);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  color: var(--ink-subtle);
+  font-size: 13px;
+  font-weight: 500;
   margin-bottom: 4px;
 }
 
 .stat-value {
   font-family: var(--font-figure);
-  font-size: 27px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 600;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
 }
@@ -220,22 +219,22 @@ body {
   border-radius: 999px;
   cursor: pointer;
   font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  transition: border-color 0.15s ease-out, background 0.15s ease-out, color 0.15s ease-out;
 }
 
 .pill:hover {
-  border-color: var(--gold-dim, #7a5e28);
+  border-color: var(--gold-dim);
+  color: var(--ink);
 }
 
 .pill.active {
   background: var(--gold);
   border-color: var(--gold);
-  color: #16130a;
-  box-shadow: 0 0 18px -4px rgba(201, 168, 76, 0.6);
+  color: var(--on-gold);
 }
 
 section + section {
-  margin-top: 36px;
+  margin-top: 48px;
 }
 
 /* ---------- calendar ---------- */
@@ -252,20 +251,16 @@ section + section {
 }
 
 .month-card {
-  background: linear-gradient(180deg, #191815, #121110);
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
+  background: var(--surface-1);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
   padding: 12px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
-  transition: border-color 0.2s ease;
 }
-
-.month-card:hover { border-color: var(--gold-dim); }
 
 .month-card h3 {
   margin: 0 0 8px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   color: var(--text);
 }
@@ -277,19 +272,22 @@ section + section {
   gap: 5px;
 }
 
+/* A tag (DESIGN.md section 4): only the figure takes the result colour. */
 .month-total {
-  font-size: 10px;
-  font-weight: 700;
+  font-family: var(--font-figure);
+  font-size: 12px;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   line-height: 1;
-  padding: 3px 9px;
-  border-radius: 999px;
-  border: 1px solid transparent;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
 }
 
-.month-total.positive { color: var(--positive); background: var(--positive-dim); border-color: rgba(34, 197, 94, 0.35); }
-.month-total.negative { color: var(--negative); background: var(--negative-dim); border-color: rgba(239, 68, 68, 0.35); }
-.month-total.neutral { color: var(--text-muted); background: var(--surface2); border-color: var(--border); }
+.month-total.positive { color: var(--positive); }
+.month-total.negative { color: var(--negative); }
+.month-total.neutral { color: var(--text-muted); }
 
 .month-weekdays,
 .month-days {
@@ -317,18 +315,14 @@ section + section {
   background: var(--bg);
   position: relative;
   cursor: default;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* A played day pops forward under the cursor, lit in its own colour. */
+/* Hover marks a day with an edge, never a pop or glow (DESIGN.md section 7). */
 .day-cell.win:hover,
 .day-cell.loss:hover {
-  transform: scale(1.12);
+  outline: 1px solid var(--ink-muted);
   z-index: 3;
 }
-
-.day-cell.win:hover { box-shadow: 0 0 14px -2px rgba(34, 197, 94, 0.6); }
-.day-cell.loss:hover { box-shadow: 0 0 14px -2px rgba(239, 68, 68, 0.6); }
 
 .day-cell.empty {
   background: transparent;
@@ -353,16 +347,16 @@ section + section {
   bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
-  background: #050505;
-  border: 1px solid var(--border);
+  background: var(--surface-3);
+  border: 1px solid var(--hairline-strong);
   font-size: 11px;
   font-weight: 500;
   white-space: nowrap;
-  padding: 7px 10px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  border-radius: 4px;
   z-index: 5;
   pointer-events: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   /* display, not visibility: a hidden-but-laid-out tooltip on the rightmost month
      card still counts toward the document's scroll width, which gave the page ~113px
      of phantom horizontal scroll. Costs the 0.1s fade, which nobody will miss. */
@@ -376,8 +370,8 @@ section + section {
 
 .tt-date {
   text-align: center;
-  color: var(--gold);
-  font-weight: 700;
+  color: var(--ink);
+  font-weight: 600;
   margin-bottom: 4px;
 }
 
@@ -438,7 +432,7 @@ section + section {
 
 .graph-toggle .pill.active {
   z-index: 1;
-  background: var(--gold-track);
+  background: var(--gold-wash);
   border-color: var(--gold);
   color: var(--gold-light);
 }
@@ -454,11 +448,11 @@ section + section {
 
 /* ---------- entrance (mirrors the root style.css) ---------- */
 
-/* Sections rise in one after another. Fill mode is backwards, not both, so once the
-   animation ends no transform lingers to trap fixed or z-indexed descendants. */
+/* Sections fade in one after another; opacity only, nothing moves (DESIGN.md
+   section 7). Fill mode stays backwards. */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .page > :not(.site-header) {
@@ -491,7 +485,10 @@ section + section {
     grid-template-columns: repeat(2, 1fr);
   }
   .hero-figure {
-    font-size: 44px;
+    font-size: 56px;
+  }
+  .card {
+    padding: 18px;
   }
   .stat-value {
     font-size: 24px;
@@ -568,7 +565,7 @@ a.day-cell.no-session { color: var(--text-secondary); }
 .brand-rule { view-transition-name: brand-rule; }
 .social-row { view-transition-name: social-row; }
 
-@keyframes vt-out { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes vt-out { to { opacity: 0; } }
 @keyframes vt-fade-out { to { opacity: 0; } }
 @keyframes vt-fade-in { from { opacity: 0; } }
 

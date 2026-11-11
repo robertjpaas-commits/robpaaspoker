@@ -3,43 +3,56 @@
    The logo header below is this section's copy of the site-wide one: keep it
    in step with style.css, Roadto$100k, results and daily. Bump ?v= in the three
    pages after editing. */
+/* Tokens from C:\StreamScripts\DESIGN.md (sections 2 and 3). Change them there first.
+   The older names below are aliases so the rest of this sheet reads the same. The
+   felt, rail and warn colours belong to the drawings of the app, not the page. */
 :root {
   color-scheme: dark;
-  --bg: #0d0d0d;
+  --canvas: #0d0d0d;
+  --surface-1: #151412;
+  --surface-2: #1c1a17;
+  --surface-3: #24221e;
+  --hairline: #2a2722;
+  --hairline-strong: #3b372f;
   --ink: #e8e2d6;
-  --ink-2: #c3c2b7;
-  --muted: #8f8c85;
+  --ink-muted: #bdb7aa;
+  --ink-subtle: #8c867b;
+  --ink-faint: #5f5a52;
   --gold: #c9a84c;
-  --gold-light: #e8cc7a;
+  --gold-hover: #ddc06c;
   --gold-dim: #7a5e28;
-  --gold-track: #3a2f16;
-  --card-top: #1c1a17;
-  --card-bottom: #151412;
-  --card-border: #2c2924;
-  --line: #2a2723;
-  --felt: #1d4a36;
-  --felt-deep: #11301f;
-  --rail: #2a1d12;
-  --good: #22c55e;
-  --warn: #f59e0b;
-  --bad: #ef4444;
-  --on-gold: #17130a;
+  --gold-wash: rgba(201, 168, 76, 0.10);
+  --on-gold: #14110a;
+  --up: #5fb67c;
+  --down: #e0675c;
   --font-brand: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-figure: "Barlow Condensed", "Barlow", system-ui, sans-serif;
-  --radius: 12px;
+
+  --bg: var(--canvas);
+  --ink-2: var(--ink-muted);
+  --muted: var(--ink-subtle);
+  --gold-light: var(--gold-hover);
+  --gold-track: #2a2416;
+  --card-border: var(--hairline);
+  --line: var(--hairline);
+  --felt: #1d4a36;
+  --felt-deep: #11301f;
+  --rail: #2a1d12;
+  --good: var(--up);
+  --warn: #d9a53f;
+  --bad: var(--down);
+  --radius: 4px;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+/* Flat canvas (DESIGN.md section 6). The gold glow that was here went on 2026-11-11. */
 body {
   margin: 0;
-  background:
-    radial-gradient(ellipse 1000px 480px at 50% -140px, rgba(201, 168, 76, 0.15), transparent 70%),
-    radial-gradient(ellipse 1100px 520px at 50% 100%, rgba(201, 168, 76, 0.05), transparent 70%),
-    var(--bg);
+  background: var(--canvas);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 17px;
@@ -48,9 +61,9 @@ body {
 
 .wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
 
-a { color: var(--gold-light); }
+a { color: var(--gold); }
 a:focus-visible, button:focus-visible, summary:focus-visible {
-  outline: 2px solid var(--gold-light);
+  outline: 2px solid var(--gold);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -58,20 +71,21 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 h1, h2, h3 { text-wrap: balance; margin: 0; }
 p { margin: 0; }
 
+/* The section label: the one uppercase line a section gets, not gold (DESIGN.md 3). */
 .eyebrow {
-  font-family: var(--font-figure);
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--ink-subtle);
 }
 
+/* A panel (DESIGN.md section 4): flat, one step above the canvas, a hairline edge. */
 .card {
-  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
-  border: 1px solid var(--card-border);
+  background: var(--surface-1);
+  border: 1px solid var(--hairline);
   border-radius: var(--radius);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* ---------- header ---------- */
@@ -101,18 +115,19 @@ p { margin: 0; }
   font-weight: 500;
   font-size: 15px;
 }
-.nav a:hover { color: var(--gold-light); }
+.nav a:hover { color: var(--ink); }
 .nav .nav-cta {
-  color: var(--gold-light);
-  border: 1px solid var(--gold-dim);
+  color: var(--ink);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline-strong);
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: 2px;
 }
-.nav .nav-cta:hover { border-color: var(--gold); }
+.nav .nav-cta:hover { border-color: var(--gold-dim); }
+/* A hairline, not a gold gradient rule (DESIGN.md section 2). */
 .rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-dim) 20%, var(--gold) 50%, var(--gold-dim) 80%, transparent);
-  opacity: 0.7;
+  background: var(--hairline);
 }
 
 /* ---------- hero ---------- */
@@ -128,9 +143,9 @@ p { margin: 0; }
 .hero h1 {
   font-family: var(--font-brand);
   font-size: clamp(40px, 5.2vw, 60px);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: 0.005em;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 .hero h1 em { font-style: normal; color: var(--gold); }
 .lede { color: var(--ink-2); font-size: 19px; max-width: 34em; }
@@ -141,23 +156,23 @@ p { margin: 0; }
   align-items: center;
   gap: 10px;
   font-family: var(--font-body);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 16px;
   text-decoration: none;
-  border-radius: 10px;
-  padding: 13px 22px;
+  border-radius: 2px;
+  padding: 12px 22px;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition: background 0.15s ease-out, border-color 0.15s ease-out, color 0.15s ease-out;
 }
+/* Primary: a flat gold fill, no gradient or glow (DESIGN.md section 4). */
 .btn-gold {
-  background: linear-gradient(180deg, var(--gold-light), var(--gold));
+  background: var(--gold);
   color: var(--on-gold);
-  box-shadow: 0 6px 22px rgba(201, 168, 76, 0.25);
 }
-.btn-gold:hover { background: var(--gold-light); }
-.btn-ghost { color: var(--ink); border-color: var(--line); background: transparent; }
-.btn-ghost:hover { border-color: var(--gold-dim); color: var(--gold-light); }
+.btn-gold:hover { background: var(--gold-hover); }
+.btn-ghost { color: var(--ink); border-color: var(--hairline-strong); background: var(--surface-2); }
+.btn-ghost:hover { border-color: var(--gold-dim); color: var(--ink); }
 .btn svg { width: 18px; height: 18px; flex: none; }
 .fine { color: var(--muted); font-size: 14px; }
 .fine b { color: var(--ink-2); font-weight: 600; }
@@ -171,7 +186,6 @@ p { margin: 0; }
   border: 1px solid #262320;
   border-radius: 14px;
   padding: 10px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(201, 168, 76, 0.08);
 }
 .screen {
   position: relative;
@@ -236,7 +250,7 @@ section { padding-block: 72px; }
 .sec-head h2 {
   font-family: var(--font-brand);
   font-size: clamp(34px, 4.4vw, 46px);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.08;
 }
 .sec-head p { color: var(--ink-2); }
@@ -245,18 +259,18 @@ section { padding-block: 72px; }
 .apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .app { padding: 28px; display: grid; gap: 16px; align-content: start; }
 .app-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.app h3 { font-family: var(--font-brand); font-size: 32px; font-weight: 700; line-height: 1.1; }
+.app h3 { font-family: var(--font-brand); font-size: 32px; font-weight: 600; line-height: 1.1; }
 .app h3 span { color: var(--gold); }
+/* A tag (DESIGN.md section 4), not a gold pill. */
 .when {
-  font-family: var(--font-figure);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  border: 1px solid var(--gold-dim);
-  border-radius: 999px;
-  padding: 2px 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  padding: 3px 8px;
   white-space: nowrap;
 }
 .app > p { color: var(--ink-2); }
@@ -284,7 +298,7 @@ section { padding-block: 72px; }
 .feature:first-of-type { border-top: 0; }
 .feature.flip > .feature-copy { order: 2; }
 .feature-copy { display: grid; gap: 16px; min-width: 0; }
-.feature-copy h3 { font-family: var(--font-brand); font-size: 34px; font-weight: 700; line-height: 1.1; }
+.feature-copy h3 { font-family: var(--font-brand); font-size: 34px; font-weight: 600; line-height: 1.1; }
 .feature-copy > p { color: var(--ink-2); }
 .ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .ticks li { position: relative; padding-left: 24px; color: var(--ink-2); font-size: 16px; }
@@ -431,9 +445,9 @@ section { padding-block: 72px; }
 .pos tbody th { text-align: left; font-weight: 600; font-size: 14px; color: var(--ink-2); white-space: nowrap; }
 .pos td { font-family: var(--font-figure); font-size: 16px; font-weight: 600; }
 .pos td span { display: inline-block; min-width: 2.5em; padding: 1px 3px; border-radius: 5px; }
-.g { color: var(--good); background: rgba(34, 197, 94, 0.1); }
-.y { color: var(--warn); background: rgba(245, 158, 11, 0.1); }
-.r { color: var(--bad); background: rgba(239, 68, 68, 0.1); }
+.g { color: var(--good); background: rgba(95, 182, 124, 0.1); }
+.y { color: var(--warn); background: rgba(217, 165, 63, 0.1); }
+.r { color: var(--bad); background: rgba(224, 103, 92, 0.1); }
 .n { color: var(--muted); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font-size: 13px; color: var(--muted); }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
@@ -445,12 +459,12 @@ section { padding-block: 72px; }
 .tile { background: #121110; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
 .tile small { display: block; color: var(--muted); font-size: 12.5px; letter-spacing: 0.02em; }
 .tile strong { font-family: var(--font-figure); font-size: 28px; font-weight: 700; line-height: 1.15; font-variant-numeric: tabular-nums; }
-.tile strong.pos-v { color: var(--good); text-shadow: 0 0 18px rgba(34, 197, 94, 0.25); }
+.tile strong.pos-v { color: var(--good); }
 .tile em { font-style: normal; font-family: var(--font-figure); color: var(--muted); font-size: 15px; }
 .bars { display: grid; gap: 10px; }
 .bar-row { display: grid; grid-template-columns: 8.5em minmax(0, 1fr) 3em; gap: 12px; align-items: center; font-size: 14px; color: var(--ink-2); }
 .bar { height: 8px; border-radius: 4px; background: var(--gold-track); overflow: hidden; }
-.bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-dim), var(--gold)); border-radius: 4px; }
+.bar i { display: block; height: 100%; background: var(--gold); border-radius: 4px; }
 .bar-row b { font-family: var(--font-figure); font-size: 16px; text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
 .res-note { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; }
 
@@ -479,7 +493,7 @@ section { padding-block: 72px; }
 .rooms tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; }
 .rooms td { color: var(--ink-2); font-size: 15.5px; }
 .chip { display: inline-block; font-size: 12.5px; font-weight: 700; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
-.chip.yes { color: var(--good); background: rgba(34, 197, 94, 0.12); }
+.chip.yes { color: var(--good); background: rgba(95, 182, 124, 0.12); }
 .chip.no { color: var(--muted); background: rgba(143, 140, 133, 0.12); }
 .rooms-note { margin-top: 18px; color: var(--muted); font-size: 14.5px; max-width: 52em; }
 
@@ -526,17 +540,9 @@ section { padding-block: 72px; }
 
 /* download */
 .dl { padding: 40px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; align-items: center; position: relative; overflow: hidden; }
-.dl::before {
-  content: "";
-  position: absolute;
-  inset: -40% -10% auto auto;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(201, 168, 76, 0.13), transparent 65%);
-  pointer-events: none;
-}
+/* The gold glow in this panel's corner went on 2026-11-11 (DESIGN.md section 6). */
 .dl-copy { display: grid; gap: 16px; position: relative; min-width: 0; }
-.dl h2 { font-family: var(--font-brand); font-size: clamp(34px, 4.4vw, 46px); font-weight: 700; line-height: 1.08; }
+.dl h2 { font-family: var(--font-brand); font-size: clamp(34px, 4.4vw, 46px); font-weight: 600; line-height: 1.08; }
 .dl-copy > p { color: var(--ink-2); }
 .dl-specs { position: relative; display: grid; gap: 0; margin: 0; min-width: 0; }
 .dl-specs div { display: grid; grid-template-columns: 8em minmax(0, 1fr); gap: 12px; padding-block: 10px; border-top: 1px solid var(--line); font-size: 15px; }
@@ -556,12 +562,12 @@ section { padding-block: 72px; }
   font-weight: 600;
   color: var(--ink-2);
   background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 2px;
   padding: 3px 10px;
   cursor: pointer;
 }
-.copy:hover { border-color: var(--gold-dim); color: var(--gold-light); }
+.copy:hover { border-color: var(--gold-dim); color: var(--ink); }
 
 /* footer */
 footer { padding-block: 40px 56px; border-top: 1px solid var(--line); margin-top: 32px; }
@@ -570,7 +576,8 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); margin-top
 .foot a { color: var(--ink-2); }
 
 /* ---------- motion ---------- */
-@keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
+/* Opacity only: nothing moves on load (DESIGN.md section 7). */
+@keyframes rise { from { opacity: 0; } to { opacity: 1; } }
 .hero-copy, .monitor { animation: rise 0.7s ease-out backwards; }
 .monitor { animation-delay: 0.1s; }
 @media (prefers-reduced-motion: reduce) {
@@ -603,15 +610,17 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); margin-top
 
 /* ---------- multi-page additions ---------- */
 
-.nav a[aria-current="page"] { color: var(--gold-light); }
-.nav a.nav-cta[aria-current="page"] { border-color: var(--gold); }
+/* The current page: cream with a gold underline, like a current tab (DESIGN.md 4). */
+.nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.nav a.nav-cta[aria-current="page"] { border-color: var(--gold); text-decoration: none; }
 
 /* sub-page heading: smaller than the home hero */
 .page-head { padding-block: 56px 8px; display: grid; gap: 12px; max-width: 44em; }
 .page-head h1 {
   font-family: var(--font-brand);
   font-size: clamp(40px, 5vw, 56px);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.05;
 }
 .page-head p { color: var(--ink-2); font-size: 18px; }
@@ -625,21 +634,21 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); margin-top
   padding-bottom: 6px;
   border-bottom: 1px solid var(--line);
 }
-.group-label h2 { font-family: var(--font-brand); font-size: 34px; font-weight: 700; }
+.group-label h2 { font-family: var(--font-brand); font-size: 34px; font-weight: 600; }
 .group-label h2 span { color: var(--gold); }
 .feature:first-of-type { border-top: 0; }
 
 /* home: your-data strip */
 .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
 .split .card { padding: 28px; display: grid; gap: 12px; align-content: start; }
-.split h3 { font-family: var(--font-brand); font-size: 30px; font-weight: 700; line-height: 1.1; }
+.split h3 { font-family: var(--font-brand); font-size: 30px; font-weight: 600; line-height: 1.1; }
 .split p { color: var(--ink-2); }
 
 /* download page */
 .dl-page { padding-block: 56px 72px; display: grid; gap: 24px; }
 .notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .notes .card { padding: 24px; display: grid; gap: 10px; align-content: start; }
-.notes h3 { font-size: 19px; font-weight: 700; }
+.notes h3 { font-size: 19px; font-weight: 600; }
 .notes p { color: var(--ink-2); font-size: 15.5px; }
 
 .faq-page { padding-block: 32px 72px; }
@@ -707,9 +716,9 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); margin-top
 .cal-day { min-height: 46px; border-radius: 6px; background: #121110; border: 1px solid var(--line); padding: 4px 5px; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
 .cal-day small { font-size: 11px; color: var(--muted); line-height: 1; }
 .cal-day b { font-family: var(--font-figure); font-size: 14px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; }
-.cal-day.win { background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.3); }
+.cal-day.win { background: rgba(95, 182, 124, 0.12); border-color: rgba(95, 182, 124, 0.3); }
 .cal-day.win b { color: var(--good); }
-.cal-day.loss { background: rgba(239, 68, 68, 0.11); border-color: rgba(239, 68, 68, 0.28); }
+.cal-day.loss { background: rgba(224, 103, 92, 0.11); border-color: rgba(224, 103, 92, 0.28); }
 .cal-day.loss b { color: var(--bad); }
 .cal-day.even b { color: var(--ink-2); }
 @media (max-width: 560px) {
@@ -747,7 +756,7 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); margin-top
   opacity: 0.9;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
-.social-icon:hover { opacity: 1; transform: translateY(-1px); }
+.social-icon:hover { opacity: 1; }
 .social-icon.instagram { background: #e1306c; }
 .social-icon.x { background: #000000; }
 .social-icon.youtube { background: #ff0000; }
@@ -769,15 +778,14 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); margin-top
 
 /* ---------- download: the invite-code form ---------- */
 
-.dl-title { font-family: var(--font-brand); font-size: clamp(38px, 4.8vw, 52px); font-weight: 700; line-height: 1.05; }
+.dl-title { font-family: var(--font-brand); font-size: clamp(38px, 4.8vw, 52px); font-weight: 600; line-height: 1.05; }
 .code-form { display: grid; gap: 8px; }
+/* Field label (DESIGN.md section 3): sentence case. */
 .code-label {
-  font-family: var(--font-figure);
+  font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-weight: 500;
+  color: var(--ink-subtle);
 }
 .code-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .code-input {
@@ -788,13 +796,13 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); margin-top
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
-  background: #121110;
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
+  background: var(--surface-1);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 2px;
   padding: 12px 14px;
 }
-.code-input::placeholder { color: #55524c; }
-.code-input:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+.code-input::placeholder { color: var(--ink-faint); }
+.code-input:focus { outline: 0; border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-wash); }
 .code-input.bad { border-color: var(--bad); }
 .code-msg { min-height: 1.5em; font-size: 15px; color: var(--bad); }
 .btn[disabled] { opacity: 0.6; cursor: default; }
