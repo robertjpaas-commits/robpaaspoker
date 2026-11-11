@@ -12502,18 +12502,6 @@
   },
   {
     "date": "2026-11-10",
-    "name": "$16.5 The Sunday Party Phased Satellite: 10 x",
-    "type": "Satellite",
-    "site": "888poker",
-    "buyin": 16.5,
-    "rebuys": 0,
-    "totalInvested": 16.5,
-    "winnings": 0.0,
-    "profit": -16.5,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-10",
     "name": "$20 Mystery Express",
     "type": "Mystery",
     "site": "PokerStars",
