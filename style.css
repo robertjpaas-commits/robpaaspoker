@@ -1,40 +1,51 @@
+/* Tokens from C:\StreamScripts\DESIGN.md (section 2 and 3). Change them there first.
+   The older names below are aliases so the rest of this sheet reads the same. */
 :root {
-  --bg: #0d0d0d;
-  --card-bg: #1a1a1a;
-  --surface2: #141414;
-  --text: #e8e2d6;
-  --text-secondary: #c3c2b7;
-  --text-muted: #898781;
-  --border: #2a2a2a;
+  --canvas: #0d0d0d;
+  --surface-1: #151412;
+  --surface-2: #1c1a17;
+  --surface-3: #24221e;
+  --hairline: #2a2722;
+  --hairline-strong: #3b372f;
+  --ink: #e8e2d6;
+  --ink-muted: #bdb7aa;
+  --ink-subtle: #8c867b;
+  --ink-faint: #5f5a52;
   --gold: #c9a84c;
-  --gold-light: #e8cc7a;
+  --gold-hover: #ddc06c;
   --gold-dim: #7a5e28;
-  --gold-track: #3a2f16;
-  --positive: #22c55e;
-  --negative: #ef4444;
-  /* Warm charcoal, not neutral grey: grey next to gold read as a stock dark theme. */
-  --card-top: #1c1a17;
-  --card-bottom: #151412;
-  --card-border: #2c2924;
+  --gold-wash: rgba(201, 168, 76, 0.10);
+  --on-gold: #14110a;
+  --up: #5fb67c;
+  --down: #e0675c;
+  --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-figure: "Barlow Condensed", "Barlow", system-ui, sans-serif;
+
+  --bg: var(--canvas);
+  --card-bg: var(--surface-1);
+  --surface2: var(--surface-2);
+  --text: var(--ink);
+  --text-secondary: var(--ink-muted);
+  --text-muted: var(--ink-subtle);
+  --border: var(--hairline);
+  --gold-light: var(--gold-hover);
+  --gold-track: #3a2f16;
+  --positive: var(--up);
+  --negative: var(--down);
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* A soft gold light behind the logo and a fainter one at the foot, so the page has a
-   source of light instead of a flat black ground. Scrolls with the page on purpose:
-   background-attachment: fixed repaints on every scroll frame on phones. */
+/* Flat canvas (DESIGN.md section 6): depth comes from panels one step lighter, not
+   from light behind the page. The gold glow that was here went on 2026-11-10. */
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse 900px 420px at 50% -120px, rgba(201, 168, 76, 0.14), transparent 70%),
-    radial-gradient(ellipse 1100px 500px at 50% 100%, rgba(201, 168, 76, 0.045), transparent 70%),
-    var(--bg);
-  color: var(--text);
+  background: var(--canvas);
+  color: var(--ink);
   font-family: var(--font-body);
 }
 
@@ -93,7 +104,6 @@ body {
 
 .social-icon:hover {
   opacity: 1;
-  transform: translateY(-1px);
 }
 
 .social-icon.instagram { background: #e1306c; }
@@ -112,26 +122,22 @@ body {
 
 /* ---------- shared card ---------- */
 
+/* A panel (DESIGN.md section 4): flat, one step above the canvas, a hairline edge. */
 .card {
-  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 24px;
-  /* A 1px top highlight and a drop shadow give the cards an edge to catch the light. */
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.045),
-    0 18px 40px -22px rgba(0, 0, 0, 0.9);
+  background: var(--surface-1);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 32px;
 }
 
 /* ---------- entrance ---------- */
 
-/* Sections rise in one after another. The session card is revealed by script after its
-   fetch, and un-hiding it restarts the animation, so it arrives when its data does.
-   Fill mode is backwards, not both, so once it ends no transform lingers to trap fixed
-   or z-indexed descendants. */
+/* Sections fade in one after another; opacity only, nothing moves (DESIGN.md section 7).
+   The session card is revealed by script after its fetch, and un-hiding it restarts the
+   animation, so it arrives when its data does. Fill mode stays backwards. */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* .reveal sections (the home page below its opening photo) fade in on scroll instead. */
@@ -150,13 +156,11 @@ body {
 /* Only once the head script has opted in (see index.html): without JS these stay visible. */
 .js-reveal .reveal {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: opacity 0.8s ease-out;
 }
 
 .js-reveal .reveal.in {
   opacity: 1;
-  transform: none;
 }
 
 /* ---------- home: stream shorts ---------- */
@@ -171,11 +175,8 @@ body {
   grid-template-areas:
     "title phones"
     "link  phones";
-  column-gap: 28px;
+  column-gap: 32px;
   overflow: hidden;
-  background:
-    radial-gradient(420px 320px at 85% 60%, rgba(145, 70, 255, 0.1), transparent 70%),
-    linear-gradient(180deg, var(--card-top), var(--card-bottom));
 }
 
 .clips .section-title { grid-area: title; align-self: center; margin: 0; }
@@ -185,11 +186,12 @@ body {
 
 .section-title {
   margin: 10px 0 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 40px;
-  font-weight: 700;
-  line-height: 1.02;
-  color: var(--text);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 .section-title span { color: var(--gold); }
@@ -210,17 +212,14 @@ body {
   aspect-ratio: 9 / 16;
   overflow: hidden;
   background: #000;
-  border: 1px solid #3a352c;
+  border: 1px solid var(--hairline-strong);
   border-radius: 22px;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 24px 50px -20px rgba(0, 0, 0, 0.95);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: border-color 0.15s ease-out;
 }
 
+/* The clip playing sound is marked by a gold edge, not a glow. */
 .short.has-sound .short-frame {
-  border-color: var(--gold-dim);
-  box-shadow: 0 0 0 1px var(--gold-dim), 0 24px 60px -18px rgba(201, 168, 76, 0.45);
+  border-color: var(--gold);
 }
 
 .short-video {
@@ -242,20 +241,18 @@ body {
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
-  background: rgba(10, 10, 10, 0.55);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.15s ease-out, border-color 0.15s ease-out;
 }
 
-.short-sound:hover { background: rgba(10, 10, 10, 0.8); transform: scale(1.06); }
+.short-sound:hover { background: rgba(0, 0, 0, 0.85); }
 .short-sound svg { width: 18px; height: 18px; fill: currentColor; }
 .short.has-sound .short-sound,
 .viewer-frame.has-sound .short-sound { background: var(--gold); color: #16130a; border-color: var(--gold); }
 
-/* Same glass button as the sound one, in the opposite corner. */
+/* Same solid button as the sound one, in the opposite corner. No blur (DESIGN.md 6). */
 .short-expand,
 .viewer-close {
   position: absolute;
@@ -269,16 +266,14 @@ body {
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
-  background: rgba(10, 10, 10, 0.55);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition: background 0.15s ease-out, border-color 0.15s ease-out;
 }
 
 .short-expand:hover,
-.viewer-close:hover { background: rgba(10, 10, 10, 0.8); border-color: var(--gold); transform: scale(1.06); }
+.viewer-close:hover { background: rgba(0, 0, 0, 0.85); border-color: var(--gold); }
 .short-expand svg { width: 17px; height: 17px; }
 .viewer-close svg { width: 18px; height: 18px; }
 
@@ -295,15 +290,11 @@ body {
   justify-content: center;
   padding: 16px;
   background: rgba(6, 6, 5, 0);
-  -webkit-backdrop-filter: blur(0);
-  backdrop-filter: blur(0);
-  transition: background 0.32s ease, backdrop-filter 0.32s ease, -webkit-backdrop-filter 0.32s ease;
+  transition: background 0.32s ease;
 }
 
 .short-viewer.is-open {
-  background: rgba(6, 6, 5, 0.86);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: rgba(6, 6, 5, 0.92);
 }
 
 /* As tall as the screen allows, 9:16, and never wider than the screen. */
@@ -315,9 +306,8 @@ body {
   max-width: 100%;
   overflow: hidden;
   background: #000;
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--hairline-strong);
   border-radius: 26px;
-  box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.18), 0 40px 120px -30px rgba(201, 168, 76, 0.35);
   transform-origin: center;
   transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -356,7 +346,7 @@ body {
 }
 
 section + section {
-  margin-top: 22px;
+  margin-top: 48px;
 }
 
 /* ---------- about ---------- */
@@ -367,9 +357,9 @@ section + section {
   max-width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border: 2px solid var(--gold);
-  border-radius: 16px;
-  margin: 0 auto 22px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 4px;
+  margin: 0 auto 24px;
 }
 
 .bio p {
@@ -434,19 +424,7 @@ section + section {
 .hero {
   position: relative;
   overflow: hidden;
-  padding-bottom: 20px;
-  /* Gold light pooling in the top corner, over the card's own gradient. */
-  background:
-    radial-gradient(520px 260px at 88% -40px, rgba(201, 168, 76, 0.11), transparent 70%),
-    linear-gradient(180deg, var(--card-top), var(--card-bottom));
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  padding-bottom: 28px;
 }
 
 .hero-top,
@@ -458,19 +436,19 @@ section + section {
   flex-wrap: wrap;
 }
 
+/* The section label: the one uppercase line a section gets (DESIGN.md section 3). */
 .hero-eyebrow {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text-muted);
+  letter-spacing: 0.14em;
+  color: var(--ink-subtle);
 }
 
+/* Sentence case: a second uppercase label in the same row competed with the first. */
 .hero-pace {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .hero-figure-row {
@@ -481,24 +459,18 @@ section + section {
   margin-top: 10px;
 }
 
-/* Condensed figures read like a broadcast scoreboard, and the glow in the figure's own
-   colour makes the number feel lit rather than printed. */
+/* Condensed figures read like a broadcast scoreboard. No glow: the figure is printed,
+   and its colour alone says up or down (DESIGN.md section 3). */
 .hero-figure {
   font-family: var(--font-figure);
-  font-size: 76px;
-  font-weight: 700;
+  font-size: 72px;
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: 0.005em;
   font-variant-numeric: tabular-nums;
 }
 
-.hero-figure.positive,
-.session-figure.positive { text-shadow: 0 0 36px rgba(34, 197, 94, 0.3); }
-.hero-figure.negative,
-.session-figure.negative { text-shadow: 0 0 36px rgba(239, 68, 68, 0.3); }
-
 .hero-chart {
-  margin-top: 18px;
+  margin-top: 24px;
 }
 
 /* The width/height attributes are set by the script to the container's own pixel size,
@@ -532,7 +504,6 @@ section + section {
   stroke: var(--gold);
   stroke-width: 2;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 5px rgba(201, 168, 76, 0.55));
   /* Without this the horizontal stretch would thicken the line unevenly. */
   vector-effect: non-scaling-stroke;
 }
@@ -546,54 +517,36 @@ section + section {
 .hero-svg .spade {
   /* Same gold as the Road to $100K chart's spade (GOLD in its app.js). */
   fill: var(--gold);
-  filter: drop-shadow(0 0 4px rgba(232, 204, 122, 0.8));
 }
 
-/* Invisible until the entrance animation has placed the curve, then a slow ripple
-   out from the spade: "this is where the year is right now". */
-.hero-svg .beacon {
-  fill: none;
-  stroke: var(--gold-light);
-  stroke-width: 1.5;
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.hero-svg.settled .beacon {
-  animation: beacon 2.6s ease-out infinite;
-}
-
-@keyframes beacon {
-  0% { transform: scale(0.35); opacity: 0.85; }
-  80%, 100% { transform: scale(2.2); opacity: 0; }
-}
+/* The pulsing ring around the spade went on 2026-11-10: a pulsing marker is on the
+   avoid list (DESIGN.md section 7). The spade alone marks today. */
+.hero-svg .beacon { display: none; }
 
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 14px;
-  margin-top: 6px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
+  gap: 16px;
+  margin-top: 8px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
 }
 
+/* Sentence case: the section already has its one uppercase label. */
 .hero-stat-label {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-subtle);
   margin-bottom: 4px;
 }
 
 .hero-stat-value {
   font-family: var(--font-figure);
-  font-size: 26px;
+  font-size: 28px;
   line-height: 1.1;
-  font-weight: 700;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
-  color: var(--text-secondary);
+  color: var(--ink);
 }
 
 /* Money stats take the same green / red as the total. Needs the compound selector:
@@ -603,10 +556,9 @@ section + section {
 
 .hero-link {
   display: inline-block;
-  margin-top: 18px;
-  font-size: 13px;
+  margin-top: 24px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.04em;
   color: var(--gold);
   text-decoration: none;
 }
@@ -634,9 +586,9 @@ section + section {
 
 .session-figure {
   font-family: var(--font-figure);
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.05;
   font-variant-numeric: tabular-nums;
 }
 
@@ -649,25 +601,26 @@ section + section {
 .site-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
   margin-top: 16px;
 }
 
+/* A tag (DESIGN.md section 4): only the figure takes the result colour. */
 .site-chip {
   display: inline-flex;
   align-items: baseline;
-  gap: 7px;
-  font-size: 12px;
-  color: var(--text-secondary);
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 5px 11px;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  padding: 4px 10px;
 }
 
-.site-chip b { font-variant-numeric: tabular-nums; }
-.site-chip.positive { border-color: rgba(34, 197, 94, 0.28); background: rgba(34, 197, 94, 0.06); }
-.site-chip.negative { border-color: rgba(239, 68, 68, 0.28); background: rgba(239, 68, 68, 0.06); }
+.site-chip b { font-family: var(--font-figure); font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.site-chip.positive { color: var(--ink-muted); }
+.site-chip.negative { color: var(--ink-muted); }
 .site-chip.positive b { color: var(--positive); }
 .site-chip.negative b { color: var(--negative); }
 
@@ -689,8 +642,8 @@ section + section {
   position: relative;
   aspect-ratio: 16 / 9;
   background: #000;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -714,10 +667,10 @@ section + section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 15px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  padding: 12px 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
   text-decoration: none;
   color: var(--text);
   font-size: 14px;
@@ -733,8 +686,8 @@ section + section {
   letter-spacing: 0.12em;
   color: var(--gold);
   border: 1px solid var(--gold-dim);
-  border-radius: 999px;
-  padding: 3px 9px;
+  border-radius: 2px;
+  padding: 3px 8px;
 }
 
 /* Fixed four columns, not auto-fill: the exporter caps this at four photos, and
@@ -752,66 +705,48 @@ section + section {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-out;
 }
 
 .session-shots a:hover img {
-  border-color: var(--gold-dim);
-  transform: translateY(-2px);
+  border-color: var(--gold);
 }
 
 /* ---------- secondary links ---------- */
 
-/* Three across on desktop: with the hero and last session above them these are
-   navigation now, not the main event. */
+/* A link list, not three identical cards (DESIGN.md section 4): rows between hairlines,
+   a serif title, a one-line description, the suit as a small gold mark. The anchors
+   still carry .card from the markup, so the rows undo its panel look. */
 .link-grid {
+  display: block;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.link-grid .cta-card {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.cta-card {
-  position: relative;
-  overflow: hidden;
-  /* So the suit watermark's z-index: -1 stays above the card's own background. */
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  grid-template-columns: 22px 240px 1fr;
+  align-items: baseline;
+  column-gap: 16px;
+  padding: 24px 4px;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  border-radius: 0;
   text-decoration: none;
-  text-align: center;
-  padding: 22px 18px;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.15s ease-out;
 }
 
-.cta-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-3px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 18px 40px -18px rgba(201, 168, 76, 0.35);
-}
+.link-grid .cta-card:hover { background: var(--surface-1); }
 
-/* One card suit per card, drawn huge and faint in the corner. SVG paths rather than the
-   suit characters, which phones swap for their own coloured emoji. */
+/* SVG paths rather than the suit characters, which phones swap for coloured emoji. */
 .cta-card::before {
   content: "";
-  position: absolute;
-  right: -22px;
-  bottom: -30px;
-  width: 100px;
-  height: 100px;
+  width: 18px;
+  height: 18px;
+  align-self: center;
   background: var(--suit) no-repeat center / contain;
-  opacity: 0.055;
-  z-index: -1;
-  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-.cta-card:hover::before {
-  opacity: 0.2;
-  transform: rotate(-10deg) scale(1.08);
 }
 
 .suit-heart { --suit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c9a84c' d='M12 21.5S2.5 15.6 2.5 9.1C2.5 6 4.8 3.5 7.7 3.5c1.9 0 3.4 1 4.3 2.6.9-1.6 2.4-2.6 4.3-2.6 2.9 0 5.2 2.5 5.2 5.6 0 6.5-9.5 12.4-9.5 12.4Z'/%3E%3C/svg%3E"); }
@@ -819,17 +754,19 @@ section + section {
 .suit-diamond { --suit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c9a84c' d='M12 1.5c-2.2 3.8-4.7 7.3-7.5 10.5 2.8 3.2 5.3 6.7 7.5 10.5 2.2-3.8 4.7-7.3 7.5-10.5C16.7 8.8 14.2 5.3 12 1.5Z'/%3E%3C/svg%3E"); }
 
 .cta-title {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
   font-size: 26px;
-  font-weight: 700;
-  color: var(--gold);
+  font-weight: 600;
+  color: var(--ink);
   line-height: 1.15;
+  transition: color 0.15s ease-out;
 }
 
+.cta-card:hover .cta-title { color: var(--gold); }
+
 .cta-sub {
-  margin-top: 8px;
-  color: var(--text-secondary);
-  font-size: 13px;
+  color: var(--ink-muted);
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -839,15 +776,17 @@ section + section {
 
 /* Same selector as the entrance rule: a less specific one silently loses. */
 @media (prefers-reduced-motion: reduce) {
-  .page > :not(.site-header):not(.reveal),
-  .hero-svg.settled .beacon { animation: none; }
+  .page > :not(.site-header):not(.reveal) { animation: none; }
   .short-viewer, .viewer-frame { transition: none; }
 }
 
 /* ---------- responsive ---------- */
 
 @media (max-width: 760px) {
-  .link-grid { grid-template-columns: 1fr; }
+  /* The description drops under the title, beside the suit. */
+  .link-grid .cta-card { grid-template-columns: 22px 1fr; row-gap: 4px; padding: 20px 4px; }
+  .cta-sub { grid-column: 2; }
+  section + section { margin-top: 32px; }
   .clips {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -862,14 +801,14 @@ section + section {
      minimum from the phones' intrinsic width (a percentage resolves as auto there),
      which can push the card wider than the screen. */
   .short { width: min(46%, 200px); }
-  .cta-title { font-size: 26px; }
+  .cta-title { font-size: 24px; }
 }
 
 @media (max-width: 520px) {
-  .section-title { font-size: 32px; }
+  .section-title { font-size: 34px; }
   .hero-figure { font-size: 56px; }
   .session-figure { font-size: 40px; }
-  .hero-stat-value { font-size: 23px; }
+  .hero-stat-value { font-size: 24px; }
   /* The total stays left-aligned as the chart's heading; the tile grid and
      site chips below it read better centred at phone width. */
   .hero-stats { text-align: center; }
