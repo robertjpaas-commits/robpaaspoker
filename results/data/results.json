@@ -12398,10 +12398,10 @@
     "type": "Mystery",
     "site": "WPT Gold",
     "buyin": 110.0,
-    "rebuys": 0,
-    "totalInvested": 110.0,
-    "winnings": 0.0,
-    "profit": -110.0,
+    "rebuys": 1,
+    "totalInvested": 220.0,
+    "winnings": 26.0,
+    "profit": -194.0,
     "onlyBounty": false
   },
   {
@@ -12856,8 +12856,8 @@
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
-    "winnings": 250.0,
-    "profit": 195.0,
+    "winnings": 390.0,
+    "profit": 335.0,
     "onlyBounty": false
   },
   {
