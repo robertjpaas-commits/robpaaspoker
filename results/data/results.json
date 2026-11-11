@@ -12466,6 +12466,30 @@
   },
   {
     "date": "2026-11-10",
+    "name": "$150 The Super PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 150.0,
+    "rebuys": 0,
+    "totalInvested": 150.0,
+    "winnings": 35.0,
+    "profit": -115.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$16.5 The Sunday Party Phased Satellite: 10 x",
+    "type": "Satellite",
+    "site": "PartyPoker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
     "name": "$20 Mystery Express",
     "type": "Mystery",
     "site": "PokerStars",
@@ -12498,6 +12522,18 @@
     "totalInvested": 21.0,
     "winnings": 0.0,
     "profit": -21.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$22 6-Max Hyper",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
     "onlyBounty": false
   },
   {
@@ -12538,6 +12574,18 @@
   },
   {
     "date": "2026-11-10",
+    "name": "$33 7-Max PKO Hyper",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 33.0,
+    "rebuys": 1,
+    "totalInvested": 66.0,
+    "winnings": 15.0,
+    "profit": -51.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
     "name": "$50 Day Saver [Hyper]",
     "type": "Standard",
     "site": "GGPoker",
@@ -12558,6 +12606,18 @@
     "totalInvested": 50.0,
     "winnings": 0.0,
     "profit": -50.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$55 The Fast PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   },
   {
