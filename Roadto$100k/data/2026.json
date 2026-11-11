@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T19:53:58",
+  "generated_at": "2026-11-11T01:43:21",
   "year": 2026,
   "goal": 100000,
   "sites": [
@@ -4195,6 +4195,24 @@
         "Live": 0.0
       },
       "hours": 6.5,
+      "page": true,
+      "photos": 0,
+      "clips": 0
+    },
+    {
+      "date": "2026-11-10",
+      "total": -696.17,
+      "sites": {
+        "GG": -393.01,
+        "PS": 113.84,
+        "PP": -257.5,
+        "888": -159.5,
+        "Coin": 0.0,
+        "WPT": 0.0,
+        "ACR": 0.0,
+        "Live": 0.0
+      },
+      "hours": 7.5,
       "page": true,
       "photos": 0,
       "clips": 0

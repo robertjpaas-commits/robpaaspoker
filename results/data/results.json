@@ -12439,5 +12439,53 @@
     "winnings": 0.0,
     "profit": -100.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$100 Nightly Stars",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 100.0,
+    "rebuys": 4,
+    "totalInvested": 500.0,
+    "winnings": 0.0,
+    "profit": -500.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$25 Mini Bounty Stars",
+    "type": "Bounty",
+    "site": "PokerStars",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$250 Super Tuesday",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 250.0,
+    "rebuys": 2,
+    "totalInvested": 750.0,
+    "winnings": 1104.21,
+    "profit": 354.21,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "Bounty Builder $20",
+    "type": "Bounty",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
   }
 ]
