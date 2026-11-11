@@ -12506,10 +12506,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
+    "rebuys": 3,
+    "totalInvested": 88.0,
     "winnings": 0.0,
-    "profit": -22.0,
+    "profit": -88.0,
     "onlyBounty": false
   },
   {
