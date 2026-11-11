@@ -1,15 +1,19 @@
 {
-  "generated_at": "2026-11-11T03:24:17",
+  "generated_at": "2026-11-11T03:28:09",
   "session": {
     "date": "2026-11-10",
     "pretty": "Tuesday, November 10",
     "url": "daily/2026-11-10.html",
-    "total": -696.17,
+    "total": -401.87,
     "hours": 7.5,
     "sites": [
       {
         "name": "GGPoker",
         "value": -393.01
+      },
+      {
+        "name": "WPT Gold",
+        "value": 294.3
       },
       {
         "name": "PartyPoker",
