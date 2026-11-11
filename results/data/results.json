@@ -12562,18 +12562,6 @@
   },
   {
     "date": "2026-11-10",
-    "name": "$22 6-Max Hyper",
-    "type": "Standard",
-    "site": "888poker",
-    "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
-    "winnings": 0.0,
-    "profit": -22.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-10",
     "name": "$25 Mini Bounty Stars",
     "type": "Bounty",
     "site": "PokerStars",
