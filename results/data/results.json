@@ -12466,6 +12466,18 @@
   },
   {
     "date": "2026-11-08",
+    "name": "$265 The Sunday Party",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 265.0,
+    "rebuys": 0,
+    "totalInvested": 265.0,
+    "winnings": 62.5,
+    "profit": -202.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
     "name": "$30 Afternoon Mystery",
     "type": "Mystery",
     "site": "PokerStars",
@@ -12486,6 +12498,18 @@
     "totalInvested": 30.0,
     "winnings": 113.53,
     "profit": 83.53,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$33 The Super Sunday PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 33.0,
+    "rebuys": 2,
+    "totalInvested": 99.0,
+    "winnings": 7.5,
+    "profit": -91.5,
     "onlyBounty": false
   },
   {
@@ -12558,6 +12582,30 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$55 The Sunday Carnival",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 55.0,
+    "rebuys": 1,
+    "totalInvested": 110.0,
+    "winnings": 12.5,
+    "profit": -97.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$55 The Sunday Fast PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 138.38,
+    "profit": 83.38,
     "onlyBounty": false
   },
   {
