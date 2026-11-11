@@ -12622,6 +12622,18 @@
   },
   {
     "date": "2026-11-10",
+    "name": "$110 Chip Hyper",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
     "name": "$110 Chip Nightly Saver",
     "type": "Standard",
     "site": "WPT Gold",
@@ -12706,6 +12718,18 @@
   },
   {
     "date": "2026-11-10",
+    "name": "$22 Chip Battle Arena - Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
     "name": "$25 Mini Bounty Stars",
     "type": "Bounty",
     "site": "PokerStars",
@@ -12754,8 +12778,32 @@
   },
   {
     "date": "2026-11-10",
+    "name": "$33 Chip 6-Max PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
     "name": "$33 Chip Daily Mystery Bounty",
     "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$33 Chip Turbo",
+    "type": "Standard",
     "site": "WPT Gold",
     "buyin": 33.0,
     "rebuys": 0,
@@ -12786,6 +12834,18 @@
     "totalInvested": 100.0,
     "winnings": 0.0,
     "profit": -100.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$55 Chip PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 250.0,
+    "profit": 195.0,
     "onlyBounty": false
   },
   {
