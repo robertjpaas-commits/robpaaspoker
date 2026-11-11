@@ -12478,18 +12478,6 @@
   },
   {
     "date": "2026-11-10",
-    "name": "$150 The Super PKO",
-    "type": "PKO",
-    "site": "888poker",
-    "buyin": 150.0,
-    "rebuys": 0,
-    "totalInvested": 150.0,
-    "winnings": 35.0,
-    "profit": -115.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-10",
     "name": "$16.5 The Sunday Party Phased Satellite: 10 x",
     "type": "Satellite",
     "site": "PartyPoker",
@@ -12589,18 +12577,6 @@
     "name": "$33 7-Max PKO Hyper",
     "type": "PKO",
     "site": "PartyPoker",
-    "buyin": 33.0,
-    "rebuys": 1,
-    "totalInvested": 66.0,
-    "winnings": 15.0,
-    "profit": -51.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-10",
-    "name": "$33 7-Max PKO Hyper",
-    "type": "PKO",
-    "site": "888poker",
     "buyin": 33.0,
     "rebuys": 1,
     "totalInvested": 66.0,
