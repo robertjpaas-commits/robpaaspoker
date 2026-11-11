@@ -12370,6 +12370,30 @@
   },
   {
     "date": "2026-11-08",
+    "name": "$110 Chip Freezeout",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$110 Chip Sunday Blame Canada Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
     "name": "$15 Sat to $150",
     "type": "Satellite",
     "site": "GGPoker",
@@ -12501,6 +12525,30 @@
     "onlyBounty": false
   },
   {
+    "date": "2026-11-08",
+    "name": "$55 Chip 6-Max Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-08",
+    "name": "$55 Chip Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
     "date": "2026-11-09",
     "name": "$1,200 Mystery Bounty 22",
     "type": "Mystery",
@@ -12558,6 +12606,30 @@
     "totalInvested": 105.0,
     "winnings": 25.0,
     "profit": -80.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$110 Chip Blitz PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$110 Chip Nightly Saver",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
     "onlyBounty": false
   },
   {
@@ -12678,6 +12750,18 @@
     "totalInvested": 66.0,
     "winnings": 15.0,
     "profit": -51.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-10",
+    "name": "$33 Chip Daily Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
