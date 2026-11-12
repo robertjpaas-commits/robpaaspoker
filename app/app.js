@@ -179,7 +179,7 @@
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var code = input.value.replace(/[^A-Za-z0-9]/g, "");
-      if (code.length < 8) {
+      if (code.length < 6) {
         input.classList.add("bad");
         msg.textContent = "Enter the code you were given.";
         return;
