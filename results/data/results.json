@@ -12991,5 +12991,17 @@
     "winnings": 0.0,
     "profit": -22.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
+    "name": "[Stage 2] $150 to WSOP Paradise Super Main Event",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 150.0,
+    "rebuys": 0,
+    "totalInvested": 150.0,
+    "winnings": 0.0,
+    "profit": -150.0,
+    "onlyBounty": false
   }
 ]
