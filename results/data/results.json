@@ -12967,5 +12967,29 @@
     "winnings": 423.0,
     "profit": 368.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
+    "name": "$20 Mystery Express",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 1,
+    "totalInvested": 40.0,
+    "winnings": 0.0,
+    "profit": -40.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
+    "name": "$22 Chip PLO Turbo Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
   }
 ]
