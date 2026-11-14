@@ -13111,5 +13111,29 @@
     "winnings": 0.0,
     "profit": -900.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-14",
+    "name": "$22 Chip Daily Start",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-14",
+    "name": "$22 Chip Derek's Vanilla Turbo",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
   }
 ]
