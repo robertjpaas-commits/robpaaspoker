@@ -1,15 +1,19 @@
 {
-  "generated_at": "2026-11-14T14:24:35",
+  "generated_at": "2026-11-14T14:32:35",
   "session": {
     "date": "2026-11-13",
     "pretty": "Friday, November 13",
     "url": "daily/2026-11-13.html",
-    "total": 1562.36,
-    "hours": 5.5,
+    "total": 1422.03,
+    "hours": 5.1,
     "sites": [
       {
         "name": "PokerStars",
         "value": 1815.94
+      },
+      {
+        "name": "WPT Gold",
+        "value": -452.18
       },
       {
         "name": "GGPoker",
@@ -18,10 +22,6 @@
       {
         "name": "888poker",
         "value": 411.45
-      },
-      {
-        "name": "WPT Gold",
-        "value": -311.85
       },
       {
         "name": "PartyPoker",
