@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Download &middot; Play &amp; Study &middot; RobPaasPoker</title>
-  <meta name="description" content="Download RobPaasPoker Play and Study for Windows, free.">
+  <meta name="description" content="Download RobPaasPoker Play and Study for Windows with an invite code.">
   <link rel="icon" type="image/png" href="../../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=2">
@@ -43,13 +43,24 @@
     <div class="dl-copy">
       <div class="eyebrow">Download</div>
       <h1 class="dl-title">RobPaasPoker Play &amp; Study</h1>
-      <p>Free. If it helps your game, there's a Buy me a coffee link in the app.</p>
+      <p>Downloads are invite-only for now. Enter your code to get the installer.</p>
 
-      <div class="unlocked">
-        <a class="btn btn-gold" href="https://get.robpaaspoker.com/download">
+      <form class="code-form" id="code-form" novalidate>
+        <label class="code-label" for="code">Invite code</label>
+        <div class="code-row">
+          <input class="code-input" id="code" name="code" type="text" inputmode="latin" autocomplete="off"
+                 autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX" maxlength="20">
+          <button class="btn btn-gold" type="submit" id="code-go">Unlock</button>
+        </div>
+        <p class="code-msg" id="code-msg" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="unlocked" id="unlocked" hidden>
+        <a class="btn btn-gold" id="dl-link" href="#">
           <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Download for Windows</span>
+          <span id="dl-label">Download for Windows</span>
         </a>
+        <p class="fine" id="dl-note"></p>
       </div>
     </div>
     <dl class="dl-specs">
@@ -70,6 +81,10 @@
       <p>Run the new Setup over the old one. Your data is kept.</p>
     </div>
     <div class="card">
+      <h3>Need a code?</h3>
+      <p>Email <b>robpaaspoker@gmail.com</b> to get a code.</p>
+    </div>
+    <div class="card">
       <h3>Found a bug?</h3>
       <p>Send what you were doing and the files from Settings &rsaquo; Open logs folder.</p>
       <div class="email-row">
@@ -87,6 +102,6 @@
     </div>
   </footer>
 
-  <script src="../app.js?v=4"></script>
+  <script src="../app.js?v=3"></script>
 </body>
 </html>
