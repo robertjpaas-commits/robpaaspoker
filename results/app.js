@@ -14,15 +14,16 @@ var resultsShowAll = false;
 var trnSortKey     = 'profit';
 var trnSortDir     = -1;
 
-// USD-denominated sites get converted to a CAD estimate for every aggregate
-// total/stat below; individual row Buy-in/Winnings columns stay raw as entered.
+// USD-denominated sites. Nothing is converted (2026-11-14): the page shows one
+// currency at a time (the Currency filter), so every total and stat adds only
+// dollars of one kind. CAD is "$", USD "US$".
 var USD_SITES = { 'wpt gold': true, 'coinpoker': true, 'acr': true };
-var USD_RATE  = 1.35;
+function curOf(r) { return USD_SITES[(r.site || '').toLowerCase()] ? 'USD' : 'CAD'; }
+var SYM = '$';
 // Live events are logged with site "Live". They get their own Online vs Live
 // table and filter rather than sitting among the online rooms.
 function isLive(r) { return (r.site || '').toLowerCase() === 'live'; }
 
-function siteRate(site) { return USD_SITES[(site || '').toLowerCase()] ? USD_RATE : 1; }
 
 // Display money with thousands separators ("$111,079.35"). The CSV export keeps plain
 // toFixed(2) so spreadsheets read the numbers as numbers.
@@ -32,9 +33,9 @@ function dollars(n) { return Math.round(n).toLocaleString('en-US'); }
 
 function getInvested(r) { return r.totalInvested != null ? r.totalInvested : (r.buyin || 0); }
 function fmtProfit(n) {
-  if (n > 0)  return '<span class="positive">+$' + money(n) + '</span>';
-  if (n < 0)  return '<span class="negative">-$' + money(Math.abs(n)) + '</span>';
-  return '<span class="neutral">$0.00</span>';
+  if (n > 0)  return '<span class="positive">+' + SYM + money(n) + '</span>';
+  if (n < 0)  return '<span class="negative">-' + SYM + money(Math.abs(n)) + '</span>';
+  return '<span class="neutral">' + SYM + '0.00</span>';
 }
 function fmtRoi(roi) {
   if (roi > 0)  return '<span class="positive">+' + roi + '%</span>';
@@ -55,10 +56,9 @@ function getBullets(r) { return 1 + (r.rebuys || 0); }
 function calcStats(rows) {
   var inv = 0, baseInv = 0, win = 0, cashes = 0, best = 0, bullets = 0;
   rows.forEach(function(r) {
-    var rate = siteRate(r.site);
-    var rWin = (r.winnings || 0) * rate;
-    inv     += getInvested(r) * rate;
-    baseInv += (r.buyin || 0) * rate;
+    var rWin = (r.winnings || 0);
+    inv     += getInvested(r);
+    baseInv += (r.buyin || 0);
     win     += rWin;
     bullets += getBullets(r);
     if (isItm(r)) { cashes++; if (rWin > best) best = rWin; }
@@ -194,7 +194,8 @@ function load() {
 
 function populateSiteFilter() {
   var sites = {};
-  allResults.forEach(function(r) { if (r.site && !isLive(r)) sites[r.site] = true; });
+  var fCur = document.getElementById('f-cur').value || 'CAD';
+  allResults.forEach(function(r) { if (r.site && !isLive(r) && curOf(r) === fCur) sites[r.site] = true; });
   var sel = document.getElementById('f-site');
   var prev = sel.value;
   while (sel.options.length > 1) sel.remove(1);
@@ -216,8 +217,11 @@ function applyFilters() {
   var fBuyMax = parseFloat(document.getElementById('f-buyin-max').value) || Infinity;
   var fResult  = document.getElementById('f-result').value;
   var fEntries = document.getElementById('f-entries').value;
+  var fCur     = document.getElementById('f-cur').value || 'CAD';
+  SYM = fCur === 'USD' ? 'US$' : '$';
 
-  filtered = allResults.filter(function(r) {
+  var inCur = allResults.filter(function(r) { return curOf(r) === fCur; });
+  filtered = inCur.filter(function(r) {
     if (fName && (r.name || '').toLowerCase().indexOf(fName) === -1) return false;
     if (fSite && r.site !== fSite) return false;
     if (fVenue === 'live'   && !isLive(r)) return false;
@@ -235,7 +239,7 @@ function applyFilters() {
   });
 
   var hasFilter = fName || fSite || fVenue || fType || fFrom || fTo || fBuyMin || fBuyMax < Infinity || fResult || fEntries;
-  document.getElementById('result-count').textContent = filtered.length + ' of ' + allResults.length + ' entries';
+  document.getElementById('result-count').textContent = filtered.length + ' of ' + inCur.length + ' ' + fCur + ' entries';
   document.getElementById('summary-scope').textContent = hasFilter ? '(filtered)' : '(all time)';
 
   sortFiltered();
@@ -277,13 +281,13 @@ function renderSummary(rows) {
   var s = calcStats(rows);
   document.getElementById('s-count').textContent    = s.count;
   document.getElementById('s-bullets').textContent  = s.bullets;
-  document.getElementById('s-invested').textContent = '$' + dollars(s.invested);
-  document.getElementById('s-winnings').textContent = '$' + dollars(s.winnings);
-  document.getElementById('s-avg-buyin').textContent    = s.count > 0 ? '$' + money((s.baseInvested / s.count)) : '—';
+  document.getElementById('s-invested').textContent = SYM + dollars(s.invested);
+  document.getElementById('s-winnings').textContent = SYM + dollars(s.winnings);
+  document.getElementById('s-avg-buyin').textContent    = s.count > 0 ? SYM + money((s.baseInvested / s.count)) : '—';
   document.getElementById('s-avg-bullets').textContent  = s.count > 0 ? (s.bullets / s.count).toFixed(2) : '—';
 
   var profEl = document.getElementById('s-profit');
-  profEl.textContent = (s.profit >= 0 ? '+$' : '-$') + dollars(Math.abs(s.profit));
+  profEl.textContent = (s.profit >= 0 ? '+' : '-') + SYM + dollars(Math.abs(s.profit));
   profEl.className = 'stat-value ' + (s.profit > 0 ? 'positive' : s.profit < 0 ? 'negative' : 'neutral');
 
   var roiEl = document.getElementById('s-roi');
@@ -336,11 +340,10 @@ function renderEntryTypeBreakdown(rows) {
   var orig   = { count: 0, cashes: 0, invested: 0, winnings: 0 };
   var rebuy  = { count: 0, cashes: 0, invested: 0, winnings: 0 };
   rows.forEach(function(r) {
-    var rate     = siteRate(r.site);
-    var buyin    = (r.buyin || 0) * rate;
-    var totalInv = getInvested(r) * rate;
+    var buyin    = (r.buyin || 0);
+    var totalInv = getInvested(r);
     var rebuyInv = Math.max(0, totalInv - buyin);
-    var win      = (r.winnings || 0) * rate;
+    var win      = (r.winnings || 0);
     var cashed   = isItm(r) ? 1 : 0;
     var hasRebuy = rebuyInv > 0;
 
@@ -375,8 +378,8 @@ function renderEntryTypeBreakdown(rows) {
       '<td><b>' + k + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + money(s.invested) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
+      '<td>' + SYM + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? SYM + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -400,8 +403,8 @@ function renderStakeBreakdown(rows) {
       '<td><b>' + tier + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + money(s.invested) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
+      '<td>' + SYM + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? SYM + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -425,8 +428,8 @@ function renderVenueBreakdown(rows) {
       '<td><b>' + g.label + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + money(s.invested) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
+      '<td>' + SYM + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? SYM + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -453,8 +456,8 @@ function renderSiteBreakdown(rows) {
       '<td><b>' + escH(site) + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + money(s.invested) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
+      '<td>' + SYM + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? SYM + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -498,8 +501,8 @@ function renderTournamentBreakdown(rows) {
       '<td>' + g.played + '</td>' +
       '<td>' + g.itm + '%</td>' +
       '<td>' + g.avgBullets.toFixed(2) + '</td>' +
-      '<td>$' + money(g.invested) + '</td>' +
-      '<td>' + (g.winnings > 0 ? '$' + money(g.winnings) : '—') + '</td>' +
+      '<td>' + SYM + money(g.invested) + '</td>' +
+      '<td>' + (g.winnings > 0 ? SYM + money(g.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(g.profit) + '</td>' +
       '<td>' + fmtRoi(g.roi) + '</td>' +
       '</tr>';
@@ -535,10 +538,10 @@ function renderMonthlyTrend(rows) {
       '<td><b>' + monthLabel(mo + '-01') + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + money(s.invested) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
+      '<td>' + SYM + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? SYM + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
-      '<td class="' + runCls + '">' + (running >= 0 ? '+$' : '-$') + money(Math.abs(running)) + '</td>' +
+      '<td class="' + runCls + '">' + (running >= 0 ? '+' : '-') + SYM + money(Math.abs(running)) + '</td>' +
       '</tr>';
   }).join('');
 }
@@ -570,8 +573,8 @@ function renderDayOfWeek(rows) {
       '<td><b>' + day + '</b></td>' +
       '<td>' + s.count + '</td>' +
       '<td>' + s.itm + '%</td>' +
-      '<td>$' + money(s.invested) + '</td>' +
-      '<td>' + (s.winnings > 0 ? '$' + money(s.winnings) : '—') + '</td>' +
+      '<td>' + SYM + money(s.invested) + '</td>' +
+      '<td>' + (s.winnings > 0 ? SYM + money(s.winnings) : '—') + '</td>' +
       '<td>' + fmtProfit(s.profit) + '</td>' +
       '<td>' + fmtRoi(s.roi) + '</td>' +
       '</tr>';
@@ -610,7 +613,7 @@ function renderResultsTable(rows) {
     var win      = r.winnings || 0;
     var inv      = getInvested(r);
     var prof     = r.profit != null ? r.profit : Math.round((win - inv) * 100) / 100;
-    var invCell  = '-$' + money(inv);
+    var invCell  = '-' + SYM + money(inv);
     var entriesCell = r.rebuys > 0
       ? '<span class="rebuy-badge">+' + r.rebuys + ' rebuy' + (r.rebuys > 1 ? 's' : '') + '</span>'
       : '<span style="color:var(--text-muted);">Original</span>';
@@ -620,10 +623,10 @@ function renderResultsTable(rows) {
         (r.days ? '<div class="days-note">' + escH(r.days) + '</div>' : '') + '</td>' +
       '<td style="font-size:12px;color:#8c867b;white-space:nowrap;">' + escH(r.type || '—') + '</td>' +
       '<td class="col-site">' + escH(r.site || '—') + '</td>' +
-      '<td class="col-num" style="color:var(--negative);">-$' + money((r.buyin || 0)) + '</td>' +
+      '<td class="col-num" style="color:var(--negative);">-' + SYM + money((r.buyin || 0)) + '</td>' +
       '<td class="col-num">' + entriesCell + '</td>' +
       '<td class="col-num">' + invCell + '</td>' +
-      '<td class="col-num">' + (win > 0 ? '<span style="color:var(--positive);">+$' + money(win) + '</span>' : '<span style="color:var(--text-muted);">—</span>') + '</td>' +
+      '<td class="col-num">' + (win > 0 ? '<span style="color:var(--positive);">+' + SYM + money(win) + '</span>' : '<span style="color:var(--text-muted);">—</span>') + '</td>' +
       '<td class="col-num">' + fmtProfit(prof) + '</td>' +
       '</tr>';
   }).join('');

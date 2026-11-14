@@ -74,7 +74,7 @@
     <!-- ── The hero: 2026 progress, the curve, and pace against the goal ── -->
     <section class="card hero reveal">
       <div class="hero-top">
-        <div class="hero-eyebrow">2026 Road to $100K</div>
+        <div class="hero-eyebrow">2026 Road to $100K<span id="hero-rate"></span></div>
         <div class="hero-pace" id="hero-pace"></div>
       </div>
 
@@ -140,13 +140,15 @@
   <script>
     const MONTH_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    function fmtMoney(value, { signed = false, compact = false } = {}) {
+    // CAD is "$", USD "US$": rooms keep their own currency (2026-11-14). The
+    // $100K hero is the one combined figure, with USD at data.goal_rate.
+    function fmtMoney(value, { signed = false, compact = false, cur = "CAD" } = {}) {
       const sign = value < -0.005 ? "-" : (signed && value > 0.005 ? "+" : "");
       const abs = Math.abs(value);
       const body = compact && abs >= 1000
         ? (abs / 1000).toFixed(abs >= 10000 ? 0 : 1) + "K"
         : abs.toLocaleString("en-US", { maximumFractionDigits: 0 });
-      return `${sign}$${body}`;
+      return `${sign}${cur === "USD" ? "US$" : "$"}${body}`;
     }
 
     function signClass(value) {
@@ -328,6 +330,10 @@
 
     function renderHero(data) {
       const total = data.days.reduce((sum, d) => sum + d.total, 0);
+      // The one figure that adds the currencies: USD at the fixed goal rate.
+      if (data.goal_rate && data.days.some((d) => Math.abs(d.usd || 0) > 0.005)) {
+        document.getElementById("hero-rate").textContent = ` \u00b7 USD at ${data.goal_rate}`;
+      }
       const totalEl = document.getElementById("hero-total");
       totalEl.classList.add(signClass(total));
       totalEl.textContent = fmtMoney(0, { signed: true });
@@ -389,20 +395,27 @@
       dateEl.href = session.url;
       document.getElementById("session-link").href = session.url;
 
+      // Each currency on its own; an export from before the split has only total.
+      const both = session.cad !== undefined ? { CAD: session.cad, USD: session.usd || 0 }
+                                             : { CAD: session.total, USD: 0 };
+      const played = ["CAD", "USD"].filter((c) => Math.abs(both[c]) > 0.005);
+      if (!played.length) played.push("CAD");
       const totalEl = document.getElementById("session-total");
-      totalEl.textContent = fmtMoney(session.total, { signed: true });
+      totalEl.textContent = played.map((c) => fmtMoney(both[c], { signed: true, cur: c })).join(" / ");
       totalEl.className = "session-figure " + signClass(session.total);
 
       const meta = [];
       if (session.hours > 0) {
         meta.push(`${session.hours}${session.hours === 1 ? " hr" : " hrs"}`);
-        meta.push(`${fmtMoney(session.total / session.hours, { signed: true })}/hr`);
+        for (const c of played) {
+          meta.push(`${fmtMoney(both[c] / session.hours, { signed: true, cur: c })}/hr`);
+        }
       }
       document.getElementById("session-meta").textContent = meta.join(" · ");
 
       document.getElementById("session-sites").innerHTML = session.sites.map((s) =>
         `<span class="site-chip ${signClass(s.value)}">${s.name}` +
-        `<b>${fmtMoney(s.value, { signed: true })}</b></span>`).join("");
+        `<b>${fmtMoney(s.value, { signed: true, cur: s.cur || "CAD" })}</b></span>`).join("");
 
       const media = [];
       // "clips" is the current key; "clip" is the single-clip shape older exports wrote.

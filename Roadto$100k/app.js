@@ -17,7 +17,14 @@ let chart = null;
 // The home page's hand-built curve uses the same 2s to match.
 Chart.defaults.animation.duration = 2000;
 
-function fmtMoney(value, { signed = false, compact = false } = {}) {
+// Each site is in its own currency (DATA.currency): CAD is "$", USD "US$".
+// "All sites" is the Road to $100K figure, CAD plus USD at DATA.goal_rate,
+// and is the only place the two are added (2026-11-14).
+function curOf(site) {
+  return site === "ALL" ? "CAD" : (DATA.currency || {})[site] || "CAD";
+}
+
+function fmtMoney(value, { signed = false, compact = false, cur = curOf(currentSite) } = {}) {
   const sign = value < 0 ? "-" : signed ? "+" : "";
   const abs = Math.abs(value);
   let body;
@@ -26,7 +33,7 @@ function fmtMoney(value, { signed = false, compact = false } = {}) {
   } else {
     body = abs.toLocaleString("en-US", { maximumFractionDigits: 0 });
   }
-  return `${sign}$${body}`;
+  return `${sign}${cur === "USD" ? "US$" : "$"}${body}`;
 }
 
 function dayValue(day) {
@@ -115,13 +122,13 @@ function makeTooltip(dateLabel) {
   return tip;
 }
 
-function addTooltipLine(tip, label, value, isTotal) {
+function addTooltipLine(tip, label, value, isTotal, cur) {
   const line = document.createElement("div");
   line.className = "tt-line" + (isTotal ? " tt-total" : "");
   line.appendChild(document.createTextNode(label));
   const val = document.createElement("span");
   val.className = value >= 0 ? "tt-positive" : "tt-negative";
-  val.textContent = fmtMoney(value, { signed: true });
+  val.textContent = fmtMoney(value, { signed: true, cur: cur || curOf(currentSite) });
   line.appendChild(val);
   tip.appendChild(line);
 }
@@ -159,7 +166,19 @@ function renderHero({ animate = false } = {}) {
   const total = days.reduce((sum, d) => sum + dayValue(d), 0);
 
   document.getElementById("hero-label").textContent =
-    `${isAll ? "All sites" : DATA.site_names[currentSite] || currentSite} · ${DATA.year} profit`;
+    `${isAll ? "All sites" : DATA.site_names[currentSite] || currentSite} · ${DATA.year} profit` +
+    (isAll && DATA.goal_rate ? ` · USD at ${DATA.goal_rate}` : "");
+
+  // Under the combined figure, what it's made of: the CAD and the USD, each
+  // in its own currency.
+  const split = document.getElementById("hero-split");
+  if (split) {
+    const cad = days.reduce((s, d) => s + (d.cad ?? d.total), 0);
+    const usd = days.reduce((s, d) => s + (d.usd || 0), 0);
+    split.textContent = isAll && Math.abs(usd) > 0.005
+      ? `${fmtMoney(cad, { signed: true, cur: "CAD" })} CAD · ${fmtMoney(usd, { signed: true, cur: "USD" })} USD`
+      : "";
+  }
 
   const heroEl = document.getElementById("hero-total");
   heroEl.className = "hero-figure " + (total >= 0 ? "positive" : "negative");
@@ -350,9 +369,10 @@ function renderCalendar() {
           const activeSites = DATA.sites.filter((s) => Math.abs(entry.sites[s]) > 0.005);
           if (activeSites.length) {
             for (const s of activeSites) {
-              addTooltipLine(tip, `${DATA.site_names[s] || s}: `, entry.sites[s], false);
+              addTooltipLine(tip, `${DATA.site_names[s] || s}: `, entry.sites[s], false, curOf(s));
             }
-            addTooltipLine(tip, "Total: ", entry.total, true);
+            addTooltipLine(tip, Math.abs(entry.usd || 0) > 0.005 ? `Total (USD at ${DATA.goal_rate}): ` : "Total: ",
+                           entry.total, true, "CAD");
           } else {
             addTooltipNote(tip, played ? "Played — broke even" : "No activity");
           }

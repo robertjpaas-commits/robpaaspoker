@@ -163,6 +163,15 @@ body {
 .hero-figure.positive { color: var(--positive); }
 .hero-figure.negative { color: var(--negative); }
 
+/* What the combined figure is made of, each currency on its own. */
+.hero-split {
+  color: var(--ink-subtle);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  margin-top: 8px;
+}
+.hero-split:empty { display: none; }
+
 /* The gold rule under the figure went on 2026-11-11: gradient rules are on the
    avoid list (DESIGN.md section 2). */
 .hero-rule { display: none; }
