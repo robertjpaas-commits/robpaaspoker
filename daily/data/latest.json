@@ -1,34 +1,43 @@
 {
-  "generated_at": "2026-11-14T13:38:12",
+  "generated_at": "2026-11-14T13:38:19",
   "session": {
-    "date": "2026-11-10",
-    "pretty": "Tuesday, November 10",
-    "url": "daily/2026-11-10.html",
-    "total": -852.77,
-    "hours": 7.9,
+    "date": "2026-11-13",
+    "pretty": "Friday, November 13",
+    "url": "daily/2026-11-13.html",
+    "total": 1562.36,
+    "hours": 5.5,
     "sites": [
       {
-        "name": "GGPoker",
-        "value": -393.01
+        "name": "PokerStars",
+        "value": 1815.94
       },
       {
-        "name": "PartyPoker",
-        "value": -257.5
+        "name": "GGPoker",
+        "value": -444.93
       },
       {
         "name": "888poker",
-        "value": -159.5
+        "value": 411.45
       },
       {
         "name": "WPT Gold",
-        "value": -156.6
+        "value": -311.85
       },
       {
-        "name": "PokerStars",
-        "value": 113.84
+        "name": "PartyPoker",
+        "value": 91.75
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "src": "daily/media/2026-11-13/16.jpg",
+        "caption": ""
+      },
+      {
+        "src": "daily/media/2026-11-13/17.jpg",
+        "caption": ""
+      }
+    ],
     "clip": null,
     "clips": []
   }
