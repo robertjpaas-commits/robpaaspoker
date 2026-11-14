@@ -12986,10 +12986,10 @@
     "type": "PKO",
     "site": "WPT Gold",
     "buyin": 110.0,
-    "rebuys": 0,
-    "totalInvested": 110.0,
+    "rebuys": 2,
+    "totalInvested": 330.0,
     "winnings": 50.0,
-    "profit": -60.0,
+    "profit": -280.0,
     "onlyBounty": false
   },
   {
