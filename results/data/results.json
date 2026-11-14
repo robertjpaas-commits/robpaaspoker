@@ -13094,10 +13094,10 @@
     "type": "Standard",
     "site": "GGPoker",
     "buyin": 150.0,
-    "rebuys": 0,
-    "totalInvested": 150.0,
+    "rebuys": 5,
+    "totalInvested": 900.0,
     "winnings": 0.0,
-    "profit": -150.0,
+    "profit": -900.0,
     "onlyBounty": false
   }
 ]
