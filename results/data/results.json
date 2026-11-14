@@ -12982,6 +12982,18 @@
   },
   {
     "date": "2026-11-13",
+    "name": "$110 Chip PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 1,
+    "totalInvested": 220.0,
+    "winnings": 0.0,
+    "profit": -220.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
     "name": "$2,000 Mystery Bounty 55",
     "type": "Mystery",
     "site": "888poker",
