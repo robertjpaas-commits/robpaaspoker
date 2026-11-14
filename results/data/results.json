@@ -12946,6 +12946,18 @@
   },
   {
     "date": "2026-11-13",
+    "name": "$100 Nightly Stars",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 100.0,
+    "rebuys": 0,
+    "totalInvested": 100.0,
+    "winnings": 1955.26,
+    "profit": 1855.26,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
     "name": "$11 Chip Turbo Freezeout",
     "type": "Standard",
     "site": "WPT Gold",
