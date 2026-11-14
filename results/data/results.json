@@ -12434,10 +12434,10 @@
     "type": "Mystery",
     "site": "PokerStars",
     "buyin": 20.0,
-    "rebuys": 0,
-    "totalInvested": 20.0,
+    "rebuys": 1,
+    "totalInvested": 40.0,
     "winnings": 101.3,
-    "profit": 81.3,
+    "profit": 61.3,
     "onlyBounty": false
   },
   {
