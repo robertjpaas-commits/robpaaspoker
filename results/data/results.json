@@ -12994,6 +12994,18 @@
   },
   {
     "date": "2026-11-13",
+    "name": "$22 6-Max",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 113.0,
+    "profit": 91.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
     "name": "$22 Chip PLO Turbo Mystery Bounty",
     "type": "Mystery",
     "site": "WPT Gold",
