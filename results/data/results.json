@@ -13006,6 +13006,18 @@
   },
   {
     "date": "2026-11-13",
+    "name": "$33 Chip 6-Max PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 22.5,
+    "profit": -10.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
     "name": "$84 Midnight Madness [Bounty Hyper]",
     "type": "PKO",
     "site": "GGPoker",
