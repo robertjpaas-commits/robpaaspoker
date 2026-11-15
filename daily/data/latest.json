@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-15T01:28:17",
+  "generated_at": "2026-11-15T01:53:34",
   "session": {
     "date": "2026-11-14",
     "pretty": "Saturday, November 14",
     "url": "daily/2026-11-14.html",
-    "total": 1238.19,
-    "cad": 0,
+    "total": 1447.41,
+    "cad": 209.22,
     "usd": 917.18,
     "hours": 3.03,
     "sites": [
@@ -13,6 +13,16 @@
         "name": "WPT Gold",
         "value": 917.18,
         "cur": "USD"
+      },
+      {
+        "name": "PokerStars",
+        "value": 185.6,
+        "cur": "CAD"
+      },
+      {
+        "name": "PartyPoker",
+        "value": 23.62,
+        "cur": "CAD"
       }
     ],
     "photos": [
