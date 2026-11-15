@@ -13426,6 +13426,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$22 Sat to $218",
+    "type": "Satellite",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$22 sat to $218",
     "type": "Satellite",
     "site": "WPT Gold",
@@ -13454,10 +13466,10 @@
     "type": "Mystery",
     "site": "PokerStars",
     "buyin": 50.0,
-    "rebuys": 0,
-    "totalInvested": 50.0,
+    "rebuys": 1,
+    "totalInvested": 100.0,
     "winnings": 0.0,
-    "profit": -50.0,
+    "profit": -100.0,
     "onlyBounty": false
   },
   {
