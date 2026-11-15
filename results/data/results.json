@@ -13306,6 +13306,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$100 Sunday Dynasty",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 100.0,
+    "rebuys": 0,
+    "totalInvested": 100.0,
+    "winnings": 0.0,
+    "profit": -100.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$11 Sat to $110",
     "type": "Bounty",
     "site": "WPT Gold",
