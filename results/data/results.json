@@ -13342,6 +13342,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$1500 [Final Stage] WSOP Paradise Super Main: 2x $42K Package",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 1500.0,
+    "rebuys": 0,
+    "totalInvested": 1500.0,
+    "winnings": 0.0,
+    "profit": -1500.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$16.5 Sunday Mystery Bounty Main Event - 5 Seats GTD",
     "type": "Mystery",
     "site": "888poker",
@@ -13350,6 +13362,18 @@
     "totalInvested": 33.0,
     "winnings": 0.0,
     "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$16.5 Sunday Mystery Bounty Main Event - 5 Seats GTD",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
     "onlyBounty": false
   },
   {
@@ -13585,6 +13609,18 @@
     "name": "$55 Chip Crown Cup Day 1",
     "type": "Standard",
     "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$55 Sunday High Roller - 2 Seats GTD",
+    "type": "Standard",
+    "site": "888poker",
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
