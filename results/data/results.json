@@ -13318,6 +13318,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$110 Chip Freezeout",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$150 GGMasters $50K GTD",
     "type": "Standard",
     "site": "GGPoker",
@@ -13420,8 +13432,8 @@
     "buyin": 200.0,
     "rebuys": 0,
     "totalInvested": 200.0,
-    "winnings": 0.0,
-    "profit": -200.0,
+    "winnings": 1500.0,
+    "profit": 1300.0,
     "onlyBounty": false
   },
   {
