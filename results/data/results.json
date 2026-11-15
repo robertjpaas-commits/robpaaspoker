@@ -13378,6 +13378,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$20 Step to Road to Paradise Super Main Event [Final Stage]",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$200 MEGA to Road to Paradise Super Main Event [Final Stage]",
     "type": "Standard",
     "site": "GGPoker",
@@ -13456,9 +13468,9 @@
     "buyin": 33.0,
     "rebuys": 1,
     "totalInvested": 66.0,
-    "winnings": 0.0,
-    "profit": -66.0,
-    "onlyBounty": false
+    "winnings": 15.0,
+    "profit": -51.0,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-15",
