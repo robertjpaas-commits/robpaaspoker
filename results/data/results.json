@@ -12622,6 +12622,18 @@
   },
   {
     "date": "2026-11-09",
+    "name": "$16.50 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-09",
     "name": "$2,000 Mystery Bounty 55",
     "type": "Mystery",
     "site": "888poker",
@@ -12630,18 +12642,6 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-09",
-    "name": "$700 Mystery Bounty 16.5",
-    "type": "Mystery",
-    "site": "888poker",
-    "buyin": 16.5,
-    "rebuys": 0,
-    "totalInvested": 16.5,
-    "winnings": 0.0,
-    "profit": -16.5,
     "onlyBounty": false
   },
   {
@@ -12994,6 +12994,18 @@
   },
   {
     "date": "2026-11-13",
+    "name": "$16.50 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 59.95,
+    "profit": 43.45,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
     "name": "$2,000 Mystery Bounty 55",
     "type": "Mystery",
     "site": "888poker",
@@ -13062,18 +13074,6 @@
     "totalInvested": 50.0,
     "winnings": 0.0,
     "profit": -50.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-13",
-    "name": "$700 Mystery Bounty 16.5",
-    "type": "Mystery",
-    "site": "888poker",
-    "buyin": 16.5,
-    "rebuys": 0,
-    "totalInvested": 16.5,
-    "winnings": 59.95,
-    "profit": 43.45,
     "onlyBounty": false
   },
   {
@@ -13158,6 +13158,18 @@
     "totalInvested": 110.0,
     "winnings": 0.0,
     "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-14",
+    "name": "$16.50 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 1,
+    "totalInvested": 33.0,
+    "winnings": 147.52,
+    "profit": 114.52,
     "onlyBounty": false
   },
   {
@@ -13266,18 +13278,6 @@
     "totalInvested": 300.0,
     "winnings": 0.0,
     "profit": -300.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-14",
-    "name": "$700 Mystery Bounty 16.5",
-    "type": "Mystery",
-    "site": "888poker",
-    "buyin": 16.5,
-    "rebuys": 1,
-    "totalInvested": 33.0,
-    "winnings": 147.52,
-    "profit": 114.52,
     "onlyBounty": false
   },
   {
