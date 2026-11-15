@@ -13318,6 +13318,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$109 Sunday Mystery Bounty Main Event",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$11 Sat to $110",
     "type": "Bounty",
     "site": "WPT Gold",
@@ -13672,9 +13684,9 @@
     "buyin": 52.5,
     "rebuys": 0,
     "totalInvested": 52.5,
-    "winnings": 0.0,
-    "profit": -52.5,
-    "onlyBounty": false
+    "winnings": 75.0,
+    "profit": 22.5,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-15",
