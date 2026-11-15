@@ -13378,6 +13378,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$200 MEGA to Road to Paradise Super Main Event [Final Stage]",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 200.0,
+    "rebuys": 0,
+    "totalInvested": 200.0,
+    "winnings": 0.0,
+    "profit": -200.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$22 6-Max PKO",
     "type": "Standard",
     "site": "PartyPoker",
@@ -13393,6 +13405,18 @@
     "name": "$22 Chip Daily Start",
     "type": "Standard",
     "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 52.05,
+    "profit": 30.05,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$22 DOUBLE DEUCE",
+    "type": "Standard",
+    "site": "CoinPoker",
     "buyin": 22.0,
     "rebuys": 0,
     "totalInvested": 22.0,
