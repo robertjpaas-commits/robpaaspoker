@@ -13306,6 +13306,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$110 Chip Bounty",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 1,
+    "totalInvested": 220.0,
+    "winnings": 0.0,
+    "profit": -220.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$16.5 Sunday Mystery Bounty Main Event - 5 Seats GTD",
     "type": "Mystery",
     "site": "888poker",
@@ -13334,10 +13346,10 @@
     "type": "Standard",
     "site": "PokerStars",
     "buyin": 20.0,
-    "rebuys": 0,
-    "totalInvested": 20.0,
+    "rebuys": 1,
+    "totalInvested": 40.0,
     "winnings": 0.0,
-    "profit": -20.0,
+    "profit": -40.0,
     "onlyBounty": false
   },
   {
@@ -13366,21 +13378,45 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$33 Chip Bounty",
-    "type": "Bounty",
+    "name": "$22 sat to $218",
+    "type": "Satellite",
     "site": "WPT Gold",
-    "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
+    "buyin": 22.0,
+    "rebuys": 2,
+    "totalInvested": 66.0,
     "winnings": 0.0,
-    "profit": -33.0,
+    "profit": -66.0,
     "onlyBounty": false
   },
   {
     "date": "2026-11-15",
-    "name": "$55 Chip Sunday PKO",
-    "type": "PKO",
+    "name": "$33 Chip Bounty",
+    "type": "Bounty",
     "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 1,
+    "totalInvested": 66.0,
+    "winnings": 0.0,
+    "profit": -66.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$52.50 Bounty Hunters Warm-Up",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 52.5,
+    "rebuys": 0,
+    "totalInvested": 52.5,
+    "winnings": 0.0,
+    "profit": -52.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "PGT #25-L: ₮55 PGT Mini Main [DAY 1]",
+    "type": "Standard",
+    "site": "CoinPoker",
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
@@ -13398,6 +13434,30 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "PGT-H: ₮109 Gold Rush [Mystery Bounty]",
+    "type": "Mystery",
+    "site": "CoinPoker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "PGT-L: ₮33 Gold Rush [Mystery Bounty]",
+    "type": "Mystery",
+    "site": "CoinPoker",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   }
 ]
