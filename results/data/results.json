@@ -13294,6 +13294,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$10 Sunday Dynasty Mega Qualifier",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$11 Sat to $110",
     "type": "Bounty",
     "site": "WPT Gold",
@@ -13546,6 +13558,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$320 Chip Crown Championship Ticket Satellite (3 Seats GTD)",
+    "type": "Satellite",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$33 7-Max PKO",
     "type": "PKO",
     "site": "PartyPoker",
@@ -13698,6 +13722,18 @@
     "totalInvested": 33.0,
     "winnings": 0.0,
     "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "The Sunday Party Phased Satellite - Day 2",
+    "site": "PartyPoker",
+    "type": "Satellite",
+    "buyin": 0,
+    "rebuys": 0,
+    "totalInvested": 0,
+    "winnings": 265.0,
+    "profit": 265.0,
     "onlyBounty": false
   }
 ]
