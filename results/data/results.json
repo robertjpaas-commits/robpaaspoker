@@ -13303,5 +13303,101 @@
     "winnings": 0.0,
     "profit": -22.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$16.5 Sunday Mystery Bounty Main Event - 5 Seats GTD",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$20 Bounty Builder",
+    "type": "PKO",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$20 Lunchtime Hot",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$22 6-Max PKO",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$22 Chip Daily Start",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$33 Chip Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$55 Chip Sunday PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "PGT #8-L: ₮55 Mystery Kickoff [Mystery Bounty]",
+    "type": "Mystery",
+    "site": "CoinPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
   }
 ]
