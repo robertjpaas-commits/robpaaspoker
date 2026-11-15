@@ -13534,6 +13534,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$30 Afternoon Mystery",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$33 7-Max PKO",
     "type": "PKO",
     "site": "PartyPoker",
@@ -13564,8 +13576,8 @@
     "buyin": 50.0,
     "rebuys": 0,
     "totalInvested": 50.0,
-    "winnings": 0.0,
-    "profit": -50.0,
+    "winnings": 193.86,
+    "profit": 143.86,
     "onlyBounty": false
   },
   {
