@@ -13558,6 +13558,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$500 Sunday Storm",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 50.0,
+    "rebuys": 0,
+    "totalInvested": 50.0,
+    "winnings": 0.0,
+    "profit": -50.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$52.50 Bounty Hunters Warm-Up",
     "type": "PKO",
     "site": "GGPoker",
@@ -13566,6 +13578,18 @@
     "totalInvested": 52.5,
     "winnings": 0.0,
     "profit": -52.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$55 Chip Crown Cup Day 1",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   },
   {
