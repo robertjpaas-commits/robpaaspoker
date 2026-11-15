@@ -13310,10 +13310,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 16.5,
-    "rebuys": 0,
-    "totalInvested": 16.5,
+    "rebuys": 1,
+    "totalInvested": 33.0,
     "winnings": 0.0,
-    "profit": -16.5,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
@@ -13321,11 +13321,11 @@
     "name": "$20 Bounty Builder",
     "type": "PKO",
     "site": "PokerStars",
-    "buyin": 20.0,
-    "rebuys": 0,
-    "totalInvested": 20.0,
+    "buyin": 30.0,
+    "rebuys": 1,
+    "totalInvested": 60.0,
     "winnings": 0.0,
-    "profit": -20.0,
+    "profit": -60.0,
     "onlyBounty": false
   },
   {
@@ -13346,10 +13346,10 @@
     "type": "Standard",
     "site": "PartyPoker",
     "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
+    "rebuys": 1,
+    "totalInvested": 44.0,
     "winnings": 0.0,
-    "profit": -22.0,
+    "profit": -44.0,
     "onlyBounty": false
   },
   {
