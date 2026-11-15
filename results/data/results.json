@@ -13444,8 +13444,8 @@
     "buyin": 22.0,
     "rebuys": 0,
     "totalInvested": 22.0,
-    "winnings": 0.0,
-    "profit": -22.0,
+    "winnings": 55.2,
+    "profit": 33.2,
     "onlyBounty": false
   },
   {
@@ -13590,6 +13590,18 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "Bounty Hunters Sunday Big Game $21",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 0.0,
+    "profit": -21.0,
     "onlyBounty": false
   },
   {
