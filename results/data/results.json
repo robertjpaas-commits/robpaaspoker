@@ -13204,8 +13204,20 @@
     "buyin": 22.0,
     "rebuys": 0,
     "totalInvested": 22.0,
+    "winnings": 18.68,
+    "profit": -3.32,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-14",
+    "name": "$25 Off Peak Turbo",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
     "winnings": 0.0,
-    "profit": -22.0,
+    "profit": -25.0,
     "onlyBounty": false
   },
   {
