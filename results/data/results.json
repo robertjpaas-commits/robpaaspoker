@@ -13618,18 +13618,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$22 6-Max Fast",
-    "type": "Standard",
-    "site": "888poker",
-    "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
-    "winnings": 55.2,
-    "profit": 33.2,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
     "name": "$22 6-Max PKO",
     "type": "Standard",
     "site": "PartyPoker",
