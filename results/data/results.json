@@ -13510,6 +13510,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$2,000 Mystery Bounty 55",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 55.0,
+    "rebuys": 1,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$2,000 Sunday PKO Rumble 109",
     "type": "PKO",
     "site": "888poker",
@@ -14010,6 +14022,18 @@
     "totalInvested": 15.0,
     "winnings": 150.0,
     "profit": 135.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "[Stage 2] $150 to WSOP Paradise Super Main Event",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 150.0,
+    "rebuys": 0,
+    "totalInvested": 150.0,
+    "winnings": 0.0,
+    "profit": -150.0,
     "onlyBounty": false
   }
 ]
