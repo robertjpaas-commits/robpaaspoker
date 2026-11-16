@@ -237,7 +237,18 @@ body.lb-open { overflow: hidden; }
 
 /* The day's own result is the headline (Figure L); the rest are supporting figures.
    No glow: its colour alone says up or down. */
-.stat:first-child .stat-value { font-size: 48px; }
+/* The day's profit / loss is the anchor: centred on top at headline size, one
+   figure per currency side by side. Everything under it is one size
+   (2026-11-16, by request; year to date came off the day pages then). */
+.day-anchor {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+  margin-bottom: 24px;
+}
+.day-anchor .stat-value { font-size: 48px; line-height: 1.05; }
+.day-anchor + .stat-row { padding-top: 24px; border-top: 1px solid var(--hairline); }
 
 .site-breakdown {
   margin-top: 24px;
@@ -538,7 +549,7 @@ body.lb-open { overflow: hidden; }
   .nav-short { display: inline; }
   .brand-name { font-size: 30px; }
   .page-title { font-size: 24px; }
-  .stat:first-child .stat-value { font-size: 40px; }
+  .day-anchor .stat-value { font-size: 40px; }
   .stat-value { font-size: 24px; }
   .card { padding: 18px; }
   .site-row { grid-template-columns: 78px 1fr 80px; gap: 8px; }
@@ -562,7 +573,7 @@ body.lb-open { overflow: hidden; }
    generated HTML, so this needs no regeneration and no BuildBankroll.bat: "Profit /
    loss" is always stats[0] in export_daily_pages.py, which is the same assumption the
    560px rule above already makes. */
-.stat:first-child .stat-value { view-transition-name: day-figure; }
+.day-anchor .stat:first-child .stat-value { view-transition-name: day-figure; }
 
 @keyframes vt-out { to { opacity: 0; } }
 @keyframes vt-fade-in { from { opacity: 0; } }

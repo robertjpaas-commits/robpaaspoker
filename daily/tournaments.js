@@ -72,7 +72,17 @@
     return li;
   }
 
+  // The Tournaments and Cashes tiles in the money card (written by the
+  // generator from the results log) follow the list, so they stay live too.
+  function counts(rows) {
+    var trn = document.getElementById("day-count-tournaments");
+    var cash = document.getElementById("day-count-cashes");
+    if (trn) trn.textContent = String(rows.length);
+    if (cash) cash.textContent = String(rows.filter(function (r) { return r.winnings > 0; }).length);
+  }
+
   function render(rows, note) {
+    counts(rows);
     box.textContent = "";
     if (!rows.length) { box.hidden = true; return; }
     box.appendChild(el("div", "card-title", "Tournaments (" + rows.length + ")"));

@@ -12,13 +12,10 @@
   <meta property="og:url" content="https://robpaaspoker.com/today/">
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../daily/style.css?v=12">
+  <link rel="stylesheet" href="../daily/style.css?v=13">
   <style>
     /* Today's page: the day page's look, plus the tournament list. */
     .today-when { margin-top: 8px; font-size: 13px; color: var(--ink-subtle); }
-    .today-final { margin-top: 12px; font-size: 15px; }
-    .today-final a { color: var(--gold); text-decoration: none; }
-    .today-final a:hover { text-decoration: underline; }
     .trn-list { list-style: none; margin: 0; padding: 0; }
     .trn {
       display: grid;
@@ -71,7 +68,6 @@
       </nav>
       <div class="page-title" id="title">Today's session</div>
       <div class="today-when" id="when"></div>
-      <div class="today-final" id="final" hidden></div>
     </header>
 
     <section class="card" id="stats-card" hidden>
@@ -113,7 +109,6 @@
       var bankroll = null;
       var STALE_SECONDS = 20 * 60;
       var REFRESH_MS = 60 * 1000;
-      var finalChecked = {};
 
       function $(id) { return document.getElementById(id); }
 
@@ -181,23 +176,6 @@
         $(list + "-card").hidden = !rows.length;
       }
 
-      // Once the stream is over, the day's own page (from the bankroll) is the
-      // final word. It goes up after the session, so look for it.
-      function showFinal(day) {
-        var box = $("final");
-        if (finalChecked[day] === true) { box.hidden = false; return; }
-        if (finalChecked[day] === false) return;
-        fetch("../daily/" + day + ".html", { method: "HEAD", cache: "no-store" }).then(function (r) {
-          finalChecked[day] = r.ok;
-          if (!r.ok) return;
-          box.textContent = "";
-          var a = el("a", null, "Final results for " + longDay(day).replace(/^\w+, /, "") + " \u2192");
-          a.href = "../daily/" + day + ".html";
-          box.appendChild(a);
-          box.hidden = false;
-        }).catch(function () {});
-      }
-
       // The per-site bars, drawn as the day pages draw them: a win grows right
       // of the zero line, a loss left, the biggest either way fills half.
       // Each room in its own currency.
@@ -253,9 +231,11 @@
         var at = new Date((snap.updated || 0) * 1000)
           .toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
 
-        $("title").textContent = (live ? "Today, " : "Last session, ") + longDay(snap.day).replace(/, \d{4}$/, "");
-        $("when").textContent = live ? "Live \u00b7 updated " + at : "Stream over \u00b7 last updated " + at;
-        if (live) $("final").hidden = true; else showFinal(snap.day);
+        // Live: "Today's session", the date under it. Otherwise the session it
+        // was (by request; a link to that day's page here was dropped: same data).
+        var date = longDay(snap.day).replace(/, \d{4}$/, "");
+        $("title").textContent = live ? "Today\u2019s session" : "Last session, " + date;
+        $("when").textContent = live ? "Live \u00b7 " + date + " \u00b7 updated " + at : "Last updated " + at;
 
         // The bankroll's own entry for this day, once the evening's save has
         // published it. It wins over the tournament log for money.
