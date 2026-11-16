@@ -13318,6 +13318,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$105 Sunday Bounty King",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 105.0,
+    "rebuys": 0,
+    "totalInvested": 105.0,
+    "winnings": 0.0,
+    "profit": -105.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$109 Sunday Mystery Bounty Main Event",
     "type": "Mystery",
     "site": "888poker",
@@ -13630,6 +13642,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$30 Sunday Shield",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$320 Chip Crown Championship Ticket Satellite (3 Seats GTD)",
     "type": "Satellite",
     "site": "WPT Gold",
@@ -13741,6 +13765,18 @@
     "name": "$55 Chip Mystery Bounty",
     "type": "Mystery",
     "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$55 Sunday Carnival",
+    "type": "PKO",
+    "site": "PartyPoker",
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
