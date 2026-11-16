@@ -1,0 +1,10 @@
+# Everything is public and every crawler is welcome, AI crawlers included
+# (GPTBot, ClaudeBot, PerplexityBot, Google-Extended and the rest).
+# sitemap.xml and llms.txt are rewritten on every publish by RPP Study.
+User-agent: *
+Allow: /
+Disallow: /mockup.html
+Disallow: /mockup2.html
+Disallow: /mockup-portrait.jpg
+
+Sitemap: https://robpaaspoker.com/sitemap.xml

@@ -826,3 +826,20 @@ section + section {
   .social-icon img { width: 16px; height: 16px; }
   .brand-name { font-size: 30px; }
 }
+
+/* Figures site_prerender.py (RPP Study) writes into the HTML for crawlers. With
+   scripts on they stay hidden until the page's own script takes over. */
+.js .prerendered { visibility: hidden; }
+
+/* A summary paragraph for crawlers and screen readers, not shown. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

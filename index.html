@@ -3,12 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobPaasPoker</title>
+  <title>RobPaasPoker · Rob Paas, tournament poker player and streamer</title>
   <meta name="description" content="Rob Paas — professional tournament poker player. Streams, strategy breakdowns, and the Road to 100K challenge.">
+  <link rel="canonical" href="https://robpaaspoker.com/">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=38">
+  <link rel="stylesheet" href="style.css?v=39">
+  <!-- Who Rob is, for search engines and AI tools: the same Person as about/. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://robpaaspoker.com/#site",
+        "name": "RobPaasPoker",
+        "url": "https://robpaaspoker.com/",
+        "publisher": { "@id": "https://robpaaspoker.com/#rob" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://robpaaspoker.com/#rob",
+        "name": "Rob Paas",
+        "alternateName": "RobPaasPoker",
+        "jobTitle": "Professional tournament poker player",
+        "description": "Professional online tournament poker player and Twitch streamer based in London, Ontario.",
+        "url": "https://robpaaspoker.com/about/",
+        "image": "https://robpaaspoker.com/assets/profile.png",
+        "homeLocation": { "@type": "Place", "name": "London, Ontario, Canada" },
+        "sameAs": [
+          "https://www.twitch.tv/robpaaspoker",
+          "https://www.youtube.com/@robpaaspoker",
+          "https://www.instagram.com/robpaaspoker/",
+          "https://x.com/RobPaasPoker",
+          "https://kick.com/robpaaspoker",
+          "https://www.facebook.com/RobertPaasPoker/"
+        ]
+      }
+    ]
+  }
+  </script>
   <script>
+    // site_prerender.py (RPP Study) writes the hero's figures into this file for
+    // crawlers; with scripts on, `.js .prerendered` hides them until renderHero().
+    document.documentElement.classList.add("js");
     // The home page's sections fade in as they scroll into view. Opted into here,
     // before first paint, so they never flash visible and then vanish — and without JS,
     // an observer, or with reduced motion, they simply stay visible.
@@ -42,6 +80,10 @@
       </div>
     </header>
 
+    <!-- prerender:summary -->
+    <p class="visually-hidden">Rob Paas (RobPaasPoker) is a professional online tournament poker player and Twitch streamer based in London, Ontario, Canada. His 2026 goal is $100,000 in poker profit: so far +$85,902, $1.5K behind pace, over 147 days and 1,311.4 hours played. Updated <time datetime="2026-11-16">November 16, 2026</time>.</p>
+    <!-- /prerender:summary -->
+
     <!-- ── Shorts from the stream: muted loops that play while on screen ── -->
     <section class="card clips reveal" aria-labelledby="clips-title">
       <h2 class="section-title" id="clips-title">Costumes optional.<br><span>Suckouts guaranteed.</span></h2>
@@ -74,18 +116,20 @@
     <!-- ── The hero: 2026 progress, the curve, and pace against the goal ── -->
     <section class="card hero reveal">
       <div class="hero-top">
-        <div class="hero-eyebrow">2026 Road to $100K<span id="hero-rate"></span></div>
-        <div class="hero-pace" id="hero-pace"></div>
+        <div class="hero-eyebrow">2026 Road to $100K<span id="hero-rate"> · USD at 1.35</span></div>
+        <div class="hero-pace negative" id="hero-pace">$1.5K behind pace</div>
       </div>
 
       <div class="hero-figure-row">
-        <div class="hero-figure" id="hero-total">&nbsp;</div>
+        <div class="hero-figure positive prerendered" id="hero-total">+$85,902</div>
       </div>
 
       <div class="hero-chart" id="hero-chart" role="img"
            aria-label="Cumulative 2026 profit against the $100,000 goal"></div>
 
-      <div class="hero-stats" id="hero-stats"></div>
+      <!-- prerender:hero-stats -->
+      <div class="hero-stats prerendered" id="hero-stats"><div class="hero-stat"><div class="hero-stat-label">Days played</div><div class="hero-stat-value ">147</div></div><div class="hero-stat"><div class="hero-stat-label">Avg / day</div><div class="hero-stat-value positive">+$584</div></div><div class="hero-stat"><div class="hero-stat-label">Best day</div><div class="hero-stat-value positive">+$15,899</div></div><div class="hero-stat"><div class="hero-stat-label">Hourly</div><div class="hero-stat-value positive">+$66/hr</div></div></div>
+      <!-- /prerender:hero-stats -->
 
       <a class="hero-link" href="Roadto$100k/">Full calendar &amp; daily breakdown &rarr;</a>
     </section>
@@ -328,6 +372,10 @@
       }
     }
 
+    function showPrerendered() {
+      document.querySelectorAll(".prerendered").forEach((el) => el.classList.remove("prerendered"));
+    }
+
     function renderHero(data) {
       const total = data.days.reduce((sum, d) => sum + d.total, 0);
       // The one figure that adds the currencies: USD at the fixed goal rate.
@@ -335,6 +383,9 @@
         document.getElementById("hero-rate").textContent = ` \u00b7 USD at ${data.goal_rate}`;
       }
       const totalEl = document.getElementById("hero-total");
+      // Everything below is rewritten in this same task, so the pre-rendered figures
+      // can show again: the count-up starts from $0 as before.
+      showPrerendered();
       totalEl.classList.add(signClass(total));
       totalEl.textContent = fmtMoney(0, { signed: true });
       whenVisible(document.getElementById("hero-chart"), () =>
@@ -636,7 +687,7 @@
           timer = setTimeout(() => renderHeroChart(data), 150);
         });
       })
-      .catch(() => {});
+      .catch(showPrerendered);  // no data: the pre-rendered figures beat a blank hero
 
     fetch("daily/data/latest.json", { cache: "no-store" })
       .then((r) => r.json())

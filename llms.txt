@@ -1,0 +1,39 @@
+# RobPaasPoker
+
+> Rob Paas is a professional online tournament poker player and Twitch streamer based in London, Ontario, Canada. robpaaspoker.com tracks his 2026 "Road to $100K" profit goal day by day, and every tournament he has logged.
+
+Figures as of November 16, 2026, updated automatically after each session:
+
+- 2026 profit: +$85,902 toward a $100,000 goal (Canadian dollars, US-dollar rooms counted at 1.35), $1.5K behind pace
+- 147 days and 1,311.4 hours played, +$66 per hour
+- Tournaments logged in Canadian-dollar rooms: 837, net +$9,385, ROI +9.7%, in the money 17.8% of buy-ins
+- Tournaments logged in US-dollar rooms: 326, net +US$23,142, ROI +79.6%, in the money 18.4% of buy-ins
+
+## Pages
+
+- [Road to $100K](https://robpaaspoker.com/Roadto$100k/): 2026 profit by day, month and poker site, with a calendar linking every session
+- [Tournament results](https://robpaaspoker.com/results/): every logged tournament, with ROI and in-the-money rate by site, stake and tournament
+- [About](https://robpaaspoker.com/about/): who Rob is and how he plays
+- [Play & Study](https://robpaaspoker.com/app/): Rob's free Windows poker software: table tiler, HUD, hand tracker and study tools
+
+## Recent sessions
+
+- [November 15, 2026](https://robpaaspoker.com/daily/2026-11-15.html): -$2,105 in 10.5 hours
+- [November 14, 2026](https://robpaaspoker.com/daily/2026-11-14.html): +$1,036 in 3 hours
+- [November 13, 2026](https://robpaaspoker.com/daily/2026-11-13.html): +$1,422 in 5.1 hours
+- [November 10, 2026](https://robpaaspoker.com/daily/2026-11-10.html): -$853 in 7.9 hours
+- [November 8, 2026](https://robpaaspoker.com/daily/2026-11-08.html): -$311 in 6.1 hours
+- [October 9, 2026](https://robpaaspoker.com/daily/2026-10-09.html): -$238 in 4 hours
+- [October 8, 2026](https://robpaaspoker.com/daily/2026-10-08.html): -$2,300 in 6 hours
+- [October 7, 2026](https://robpaaspoker.com/daily/2026-10-07.html): -$800 in 12 hours
+- [October 5, 2026](https://robpaaspoker.com/daily/2026-10-05.html): +$2,940 in 12 hours
+- [September 28, 2026](https://robpaaspoker.com/daily/2026-09-28.html): +$761 in 7 hours
+
+## Elsewhere
+
+- [Twitch](https://www.twitch.tv/robpaaspoker)
+- [YouTube](https://www.youtube.com/@robpaaspoker)
+- [Instagram](https://www.instagram.com/robpaaspoker/)
+- [X](https://x.com/RobPaasPoker)
+- [Kick](https://kick.com/robpaaspoker)
+- [Facebook](https://www.facebook.com/RobertPaasPoker/)
