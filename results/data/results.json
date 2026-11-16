@@ -13630,18 +13630,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$22 6-Max PKO",
-    "type": "PKO",
-    "site": "888poker",
-    "buyin": 22.0,
-    "rebuys": 2,
-    "totalInvested": 66.0,
-    "winnings": 35.63,
-    "profit": -30.37,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
     "name": "$22 Chip Daily Start",
     "type": "Standard",
     "site": "WPT Gold",
