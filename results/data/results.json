@@ -13670,10 +13670,10 @@
     "type": "Satellite",
     "site": "WPT Gold",
     "buyin": 22.0,
-    "rebuys": 2,
-    "totalInvested": 66.0,
+    "rebuys": 3,
+    "totalInvested": 88.0,
     "winnings": 0.0,
-    "profit": -66.0,
+    "profit": -88.0,
     "onlyBounty": false
   },
   {
