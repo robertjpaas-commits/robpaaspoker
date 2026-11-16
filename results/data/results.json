@@ -13594,6 +13594,30 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$25 Sunday Deepstack",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$265 The Sunday Party",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 265.0,
+    "rebuys": 0,
+    "totalInvested": 265.0,
+    "winnings": 0.0,
+    "profit": -265.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$30 Afternoon Mystery",
     "type": "Mystery",
     "site": "PokerStars",
@@ -13624,8 +13648,8 @@
     "buyin": 33.0,
     "rebuys": 0,
     "totalInvested": 33.0,
-    "winnings": 0.0,
-    "profit": -33.0,
+    "winnings": 18.75,
+    "profit": -14.25,
     "onlyBounty": false
   },
   {
@@ -13674,6 +13698,18 @@
     "totalInvested": 100.0,
     "winnings": 0.0,
     "profit": -100.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$500 Sunday Storm",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 50.0,
+    "rebuys": 0,
+    "totalInvested": 50.0,
+    "winnings": 0.0,
+    "profit": -50.0,
     "onlyBounty": false
   },
   {
