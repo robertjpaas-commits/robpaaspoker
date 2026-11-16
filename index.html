@@ -464,16 +464,17 @@
       const played = ["CAD", "USD"].filter((c) => Math.abs(both[c]) > 0.005);
       if (!played.length) played.push("CAD");
       const totalEl = document.getElementById("session-total");
-      // "$823 CAD + $949 US": the currency as a word after each figure (by request).
-      totalEl.textContent = played.map((c) =>
-        `${fmtMoney(both[c], { signed: true })} ${c === "USD" ? "US" : "CAD"}`).join(" + ");
+      // "$823 CAD + $949 US": the currency as a word after each figure (by request),
+      // and the hourly rates below match ("$78 CAD/hr").
+      const withCur = (value, c) => `${fmtMoney(value, { signed: true })} ${c === "USD" ? "US" : "CAD"}`;
+      totalEl.textContent = played.map((c) => withCur(both[c], c)).join(" + ");
       totalEl.className = "session-figure " + signClass(session.total);
 
       const meta = [];
       if (session.hours > 0) {
         meta.push(`${session.hours}${session.hours === 1 ? " hr" : " hrs"}`);
         for (const c of played) {
-          meta.push(`${fmtMoney(both[c] / session.hours, { signed: true, cur: c })}/hr`);
+          meta.push(`${withCur(both[c] / session.hours, c)}/hr`);
         }
       }
       document.getElementById("session-meta").textContent = meta.join(" · ");
