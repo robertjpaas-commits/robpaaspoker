@@ -13822,18 +13822,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$33 The Super Sunday PKO",
-    "type": "PKO",
-    "site": "888poker",
-    "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
-    "winnings": 0.0,
-    "profit": -33.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
     "name": "$50 Sunday Marathon",
     "type": "Standard",
     "site": "GGPoker",
