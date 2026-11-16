@@ -13618,6 +13618,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$22 6-Max Fast",
+    "type": "Standard",
+    "site": "888poker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 55.2,
+    "profit": 33.2,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$22 6-Max PKO",
     "type": "Standard",
     "site": "PartyPoker",
@@ -13626,6 +13638,18 @@
     "totalInvested": 44.0,
     "winnings": 35.63,
     "profit": -8.37,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$22 6-Max PKO",
+    "type": "PKO",
+    "site": "888poker",
+    "buyin": 22.0,
+    "rebuys": 2,
+    "totalInvested": 66.0,
+    "winnings": 35.63,
+    "profit": -30.37,
     "onlyBounty": false
   },
   {
@@ -13750,6 +13774,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$33 7-Max PKO",
+    "type": "PKO",
+    "site": "888poker",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 18.75,
+    "profit": -14.25,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$33 Chip Bounty",
     "type": "Bounty",
     "site": "WPT Gold",
@@ -13777,6 +13813,18 @@
     "name": "$33 The Super Sunday PKO",
     "type": "PKO",
     "site": "PartyPoker",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$33 The Super Sunday PKO",
+    "type": "PKO",
+    "site": "888poker",
     "buyin": 33.0,
     "rebuys": 0,
     "totalInvested": 33.0,
@@ -13936,8 +13984,8 @@
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
-    "winnings": 412.5,
-    "profit": 357.5,
+    "winnings": 50.0,
+    "profit": -5.0,
     "onlyBounty": false
   },
   {
