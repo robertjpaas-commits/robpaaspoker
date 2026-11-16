@@ -455,7 +455,9 @@
       const played = ["CAD", "USD"].filter((c) => Math.abs(both[c]) > 0.005);
       if (!played.length) played.push("CAD");
       const totalEl = document.getElementById("session-total");
-      totalEl.textContent = played.map((c) => fmtMoney(both[c], { signed: true, cur: c })).join(" / ");
+      // "$823 CAD + $949 US": the currency as a word after each figure (by request).
+      totalEl.textContent = played.map((c) =>
+        `${fmtMoney(both[c], { signed: true })} ${c === "USD" ? "US" : "CAD"}`).join(" + ");
       totalEl.className = "session-figure " + signClass(session.total);
 
       const meta = [];
