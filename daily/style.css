@@ -250,6 +250,15 @@ body.lb-open { overflow: hidden; }
 .day-anchor .stat-value { font-size: 48px; line-height: 1.05; }
 .day-anchor + .stat-row { padding-top: 24px; border-top: 1px solid var(--hairline); }
 
+/* The counts (Tournaments, Cashes, Still running) head the Tournaments card,
+   above its list, rather than sitting under profit / loss (2026-11-16, by
+   request). Used by daily/tournaments.js and the today page. */
+.trn-stats {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--hairline);
+}
+
 .site-breakdown {
   margin-top: 24px;
   padding-top: 20px;

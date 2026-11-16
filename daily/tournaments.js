@@ -79,21 +79,26 @@
     return r.cashed != null ? !!r.cashed : r.winnings > 0 && !r.onlyBounty;
   }
 
-  // The Tournaments and Cashes tiles in the money card (written by the
-  // generator from the results log) follow the list, so they stay live too.
-  function counts(rows) {
-    var trn = document.getElementById("day-count-tournaments");
-    var cash = document.getElementById("day-count-cashes");
-    if (trn) trn.textContent = String(rows.length);
-    if (cash) cash.textContent = String(rows.filter(isCash).length);
+  function stat(label, value) {
+    var s = el("div", "stat");
+    s.appendChild(el("div", "stat-label", label));
+    s.appendChild(el("div", "stat-value neutral", String(value)));
+    return s;
   }
 
+  // The counts head this card, above the list (2026-11-16, by request; they
+  // were in the money card before).
   function render(rows, note) {
-    counts(rows);
     box.textContent = "";
     if (!rows.length) { box.hidden = true; return; }
-    box.appendChild(el("div", "card-title", "Tournaments (" + rows.length + ")"));
+    box.appendChild(el("div", "card-title", "Tournaments"));
     if (note) box.appendChild(el("div", "trn-when", note));
+    var strip = el("div", "stat-row trn-stats");
+    strip.appendChild(stat("Tournaments", rows.length));
+    strip.appendChild(stat("Cashes", rows.filter(isCash).length));
+    var running = rows.filter(function (r) { return r.status === "running"; }).length;
+    if (running) strip.appendChild(stat("Still running", running));
+    box.appendChild(strip);
     var ul = el("ul", "trn-list");
     rows.forEach(function (t) { ul.appendChild(row(t)); });
     box.appendChild(ul);

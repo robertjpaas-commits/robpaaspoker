@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://robpaaspoker.com/today/">
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../daily/style.css?v=13">
+  <link rel="stylesheet" href="../daily/style.css?v=14">
   <style>
     /* Today's page: the day page's look, plus the tournament list. */
     .today-when { margin-top: 8px; font-size: 13px; color: var(--ink-subtle); }
@@ -63,21 +63,18 @@
 
     <section class="card" id="stats-card" hidden>
       <!-- The day pages' layout (daily/style.css): profit / loss centred on
-           top, the counts under it at one size. Year to date was taken off by
-           request (2026-11-16): it confused more than it told. -->
+           top, then the site bars. Year to date was taken off by request
+           (2026-11-16): it confused more than it told. -->
       <div class="day-anchor" id="anchor" hidden></div>
-      <div class="stat-row" id="stats"></div>
       <div class="site-breakdown" id="sites" hidden></div>
     </section>
 
-    <section class="card" id="running-card" hidden>
-      <div class="card-title">Still running</div>
-      <ul class="trn-list" id="running"></ul>
-    </section>
-
-    <section class="card" id="done-card" hidden>
-      <div class="card-title">Finished</div>
-      <ul class="trn-list" id="done"></ul>
+    <!-- One card for every tournament, its counts on top (by request, as on
+         the day pages): running ones first with their stage, then finished. -->
+    <section class="card" id="trn-card" hidden>
+      <div class="card-title">Tournaments</div>
+      <div class="stat-row trn-stats" id="stats"></div>
+      <ul class="trn-list" id="trn"></ul>
     </section>
 
     <section class="card" id="empty-card">
@@ -163,11 +160,10 @@
         return li;
       }
 
-      function fill(list, rows) {
-        var ul = $(list);
+      function fill(rows) {
+        var ul = $("trn");
         ul.textContent = "";
         rows.forEach(function (t) { ul.appendChild(row(t)); });
-        $(list + "-card").hidden = !rows.length;
       }
 
       // The per-site bars, drawn as the day pages draw them: a win grows right
@@ -249,17 +245,17 @@
         if (hasUsd) anchor.appendChild(stat("Profit / loss (USD)", money(usd, true, true), tone(usd)));
         anchor.hidden = !anchor.children.length;
 
+        renderSites(booked, rows);
+        $("stats-card").hidden = false;
+
         var stats = $("stats");
         stats.textContent = "";
         stats.appendChild(stat("Tournaments", String(t.count || 0)));
         stats.appendChild(stat("Cashes", String(t.cashes || 0)));
         if (live) stats.appendChild(stat("Still running", String(t.running || 0)));
-
-        renderSites(booked, rows);
-        $("stats-card").hidden = false;
-
-        fill("running", rows.filter(function (r) { return r.status === "running"; }));
-        fill("done", rows.filter(function (r) { return r.status !== "running"; }));
+        // StreamServer sends the running ones first, newest finished after.
+        fill(rows);
+        $("trn-card").hidden = rows.length === 0;
         $("empty-card").hidden = rows.length > 0;
         if (!rows.length) $("empty").textContent = "No tournaments yet.";
       }
