@@ -72,13 +72,20 @@
     return li;
   }
 
+  // A cash is prize money: a tournament that won only bounties isn't one
+  // (2026-11-16, by request). StreamServer's rows carry `cashed`; the log's
+  // are worked out in fromLog.
+  function isCash(r) {
+    return r.cashed != null ? !!r.cashed : r.winnings > 0 && !r.onlyBounty;
+  }
+
   // The Tournaments and Cashes tiles in the money card (written by the
   // generator from the results log) follow the list, so they stay live too.
   function counts(rows) {
     var trn = document.getElementById("day-count-tournaments");
     var cash = document.getElementById("day-count-cashes");
     if (trn) trn.textContent = String(rows.length);
-    if (cash) cash.textContent = String(rows.filter(function (r) { return r.winnings > 0; }).length);
+    if (cash) cash.textContent = String(rows.filter(isCash).length);
   }
 
   function render(rows, note) {
@@ -110,14 +117,16 @@
         t = byKey[key] = {
           name: r.name || "", site: r.site || "", buyin: buyin, entries: 0,
           usd: USD_SITES.indexOf((r.site || "").trim().toLowerCase()) >= 0,
-          invested: 0, winnings: 0, onlyBounty: true, status: "done"
+          invested: 0, winnings: 0, onlyBounty: true, cashed: false, status: "done"
         };
         rows.push(t);
       }
+      var won = Number(r.winnings) || 0;
       t.entries += 1 + rebuys;
       t.invested += Number(r.totalInvested) || buyin * (1 + rebuys);
-      t.winnings += Number(r.winnings) || 0;
+      t.winnings += won;
       t.onlyBounty = t.onlyBounty && !!r.onlyBounty;
+      t.cashed = t.cashed || (won > 0 && !r.onlyBounty);
     });
     return rows.sort(function (a, b) { return (b.winnings - b.invested) - (a.winnings - a.invested); });
   }

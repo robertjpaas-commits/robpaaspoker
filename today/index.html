@@ -38,17 +38,8 @@
     }
     .trn-stage { font-size: 14px; font-weight: 500; color: var(--ink-muted); }
     .today-empty { color: var(--ink-muted); margin: 0; }
-    /* The day pages make their first figure the headline; here the figures are
-       peers, so they're one size (by request: Tournaments looked oversized). */
-    .stat:first-child .stat-value { font-size: 28px; }
-    /* Year to date heads the card, centred, at the day pages' headline size. */
-    .today-ytd { text-align: center; margin-bottom: 24px; }
-    .today-ytd .stat-value { font-size: 48px; line-height: 1.05; }
-    .today-ytd .stat-label { margin-bottom: 4px; }
-    .today-ytd + .stat-row { padding-top: 24px; border-top: 1px solid var(--hairline); }
     /* Re-drawn every minute while live: the bars grow in once, not each time. */
     .settled .site-bar-fill { animation: none; }
-    @media (max-width: 520px) { .today-ytd .stat-value { font-size: 40px; } }
   </style>
 </head>
 <body>
@@ -71,7 +62,10 @@
     </header>
 
     <section class="card" id="stats-card" hidden>
-      <div class="today-ytd" id="ytd" hidden></div>
+      <!-- The day pages' layout (daily/style.css): profit / loss centred on
+           top, the counts under it at one size. Year to date was taken off by
+           request (2026-11-16): it confused more than it told. -->
+      <div class="day-anchor" id="anchor" hidden></div>
       <div class="stat-row" id="stats"></div>
       <div class="site-breakdown" id="sites" hidden></div>
     </section>
@@ -99,10 +93,10 @@
 
   <script>
     // Filled from the today-relay Worker, which StreamServer updates every
-    // 5 minutes while the stream is on (C:\StreamScripts\today-relay), and
-    // from the bankroll's 2026.json for year to date. Once the bankroll has
-    // the day (after the evening's save), its profit / loss and site figures
-    // replace the tournament log's, so this page agrees with the calendar.
+    // 5 minutes while the stream is on (C:\StreamScripts\today-relay). Once
+    // the bankroll's 2026.json has the day (after the evening's save), its
+    // profit / loss and site figures replace the tournament log's, so this
+    // page agrees with the calendar.
     (function () {
       var SOURCE = "https://live.robpaaspoker.com/today.json";
       var BANKROLL = "../Roadto$100k/data/2026.json";
@@ -243,32 +237,23 @@
         var booked = null;
         days.forEach(function (d) { if (d.date === snap.day) booked = d; });
 
-        // CAD and USD are never added together, except in year to date (the
-        // $100K goal), which counts USD at the goal's rate like the calendar.
+        // CAD and USD are never added together: a figure per currency played.
         var cad = booked ? (booked.cad || 0) : (t.cad ? t.cad.net : null);
         var usd = booked ? (booked.usd || 0) : (t.usd ? t.usd.net : null);
         var hasCad = booked ? (cad !== 0 || !usd) : cad != null;
         var hasUsd = booked ? usd !== 0 : usd != null;
 
-        var ytdBox = $("ytd");
-        if (bankroll) {
-          var rate = bankroll.goal_rate || 1.35;
-          var ytd = 0;
-          days.forEach(function (d) { if (d.date <= snap.day) ytd += d.total || 0; });
-          if (!booked) ytd += (cad || 0) + (usd || 0) * rate;   // today, live
-          ytdBox.textContent = "";
-          ytdBox.appendChild(el("div", "stat-label", "Year to date (USD at " + rate + ")"));
-          ytdBox.appendChild(el("div", "stat-value " + tone(ytd), money(Math.round(ytd), false, true)));
-          ytdBox.hidden = false;
-        }
+        var anchor = $("anchor");
+        anchor.textContent = "";
+        if (hasCad) anchor.appendChild(stat("Profit / loss (CAD)", money(cad, false, true), tone(cad)));
+        if (hasUsd) anchor.appendChild(stat("Profit / loss (USD)", money(usd, true, true), tone(usd)));
+        anchor.hidden = !anchor.children.length;
 
         var stats = $("stats");
         stats.textContent = "";
         stats.appendChild(stat("Tournaments", String(t.count || 0)));
         stats.appendChild(stat("Cashes", String(t.cashes || 0)));
         if (live) stats.appendChild(stat("Still running", String(t.running || 0)));
-        if (hasCad) stats.appendChild(stat("Profit / loss (CAD)", money(cad, false, true), tone(cad)));
-        if (hasUsd) stats.appendChild(stat("Profit / loss (USD)", money(usd, true, true), tone(usd)));
 
         renderSites(booked, rows);
         $("stats-card").hidden = false;
