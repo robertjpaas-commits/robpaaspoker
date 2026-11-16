@@ -13762,14 +13762,14 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$33 Chip Bounty",
+    "name": "$33 Chip Daily Mystery Bounty",
     "type": "Bounty",
     "site": "WPT Gold",
     "buyin": 33.0,
     "rebuys": 0,
     "totalInvested": 33.0,
-    "winnings": 0.0,
-    "profit": -33.0,
+    "winnings": 115.3,
+    "profit": 82.3,
     "onlyBounty": false
   },
   {
