@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page not found · RobPaasPoker</title>
   <meta name="robots" content="noindex">
+  <script>
+    // A day page that isn't published yet (mid-stream, before the bankroll
+    // save that writes it): Nightbot's !results links to it, so show the live
+    // view of the day instead of a dead end.
+    if (/^\/daily\/\d{4}-\d{2}-\d{2}\.html$/.test(location.pathname)) location.replace("/today/");
+  </script>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css?v=39">
