@@ -13334,10 +13334,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 109.0,
-    "rebuys": 0,
-    "totalInvested": 109.0,
+    "rebuys": 1,
+    "totalInvested": 218.0,
     "winnings": 0.0,
-    "profit": -109.0,
+    "profit": -218.0,
     "onlyBounty": false
   },
   {
@@ -13502,10 +13502,10 @@
     "type": "PKO",
     "site": "888poker",
     "buyin": 109.0,
-    "rebuys": 0,
-    "totalInvested": 109.0,
+    "rebuys": 1,
+    "totalInvested": 218.0,
     "winnings": 0.0,
-    "profit": -109.0,
+    "profit": -218.0,
     "onlyBounty": false
   },
   {
@@ -13798,6 +13798,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$52.50 Bounty Hunters Special",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 52.5,
+    "rebuys": 0,
+    "totalInvested": 52.5,
+    "winnings": 0.0,
+    "profit": -52.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$52.50 Bounty Hunters Warm-Up",
     "type": "PKO",
     "site": "GGPoker",
@@ -13814,10 +13826,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 55.0,
-    "rebuys": 3,
-    "totalInvested": 220.0,
+    "rebuys": 4,
+    "totalInvested": 275.0,
     "winnings": 0.0,
-    "profit": -220.0,
+    "profit": -275.0,
     "onlyBounty": false
   },
   {
@@ -13825,6 +13837,18 @@
     "name": "$55 Chip Mystery Bounty",
     "type": "Mystery",
     "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$55 Fifty Stack",
+    "type": "Standard",
+    "site": "GGPoker",
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
