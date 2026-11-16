@@ -13762,18 +13762,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$33 7-Max PKO",
-    "type": "PKO",
-    "site": "888poker",
-    "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
-    "winnings": 18.75,
-    "profit": -14.25,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
     "name": "$33 Chip Bounty",
     "type": "Bounty",
     "site": "WPT Gold",
