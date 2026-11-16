@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://robpaaspoker.com/today/">
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../daily/style.css?v=11">
+  <link rel="stylesheet" href="../daily/style.css?v=12">
   <style>
     /* Today's page: the day page's look, plus the tournament list. */
     .today-when { margin-top: 8px; font-size: 13px; color: var(--ink-subtle); }
@@ -44,6 +44,14 @@
     /* The day pages make their first figure the headline; here the figures are
        peers, so they're one size (by request: Tournaments looked oversized). */
     .stat:first-child .stat-value { font-size: 28px; }
+    /* Year to date heads the card, centred, at the day pages' headline size. */
+    .today-ytd { text-align: center; margin-bottom: 24px; }
+    .today-ytd .stat-value { font-size: 48px; line-height: 1.05; }
+    .today-ytd .stat-label { margin-bottom: 4px; }
+    .today-ytd + .stat-row { padding-top: 24px; border-top: 1px solid var(--hairline); }
+    /* Re-drawn every minute while live: the bars grow in once, not each time. */
+    .settled .site-bar-fill { animation: none; }
+    @media (max-width: 520px) { .today-ytd .stat-value { font-size: 40px; } }
   </style>
 </head>
 <body>
@@ -67,7 +75,9 @@
     </header>
 
     <section class="card" id="stats-card" hidden>
+      <div class="today-ytd" id="ytd" hidden></div>
       <div class="stat-row" id="stats"></div>
+      <div class="site-breakdown" id="sites" hidden></div>
     </section>
 
     <section class="card" id="running-card" hidden>
@@ -93,9 +103,14 @@
 
   <script>
     // Filled from the today-relay Worker, which StreamServer updates every
-    // 5 minutes while the stream is on (C:\StreamScripts\today-relay).
+    // 5 minutes while the stream is on (C:\StreamScripts\today-relay), and
+    // from the bankroll's 2026.json for year to date. Once the bankroll has
+    // the day (after the evening's save), its profit / loss and site figures
+    // replace the tournament log's, so this page agrees with the calendar.
     (function () {
       var SOURCE = "https://live.robpaaspoker.com/today.json";
+      var BANKROLL = "../Roadto$100k/data/2026.json";
+      var bankroll = null;
       var STALE_SECONDS = 20 * 60;
       var REFRESH_MS = 60 * 1000;
       var finalChecked = {};
@@ -183,6 +198,50 @@
         }).catch(function () {});
       }
 
+      // The per-site bars, drawn as the day pages draw them: a win grows right
+      // of the zero line, a loss left, the biggest either way fills half.
+      // Each room in its own currency.
+      var lastSites = "";
+      function renderSites(booked, rows) {
+        var list = [];
+        if (booked && bankroll) {
+          Object.keys(booked.sites || {}).forEach(function (k) {
+            var v = booked.sites[k];
+            if (!v) return;
+            list.push({ name: (bankroll.site_names || {})[k] || k, value: v,
+                        usd: (bankroll.currency || {})[k] === "USD" });
+          });
+        } else {
+          var by = {};
+          rows.forEach(function (r) {
+            var key = r.site || "Other";
+            if (!by[key]) list.push(by[key] = { name: key, value: 0, usd: !!r.usd });
+            by[key].value += (r.status === "running" ? 0 : r.winnings) - r.invested;
+          });
+          list = list.filter(function (s) { return Math.round(s.value * 100); });
+        }
+        list.sort(function (a, b) { return b.value - a.value; });
+        var box = $("sites");
+        var sig = JSON.stringify(list);
+        if (sig === lastSites) return;
+        if (lastSites) box.classList.add("settled");
+        lastSites = sig;
+        box.textContent = "";
+        var max = Math.max.apply(null, list.map(function (s) { return Math.abs(s.value); }).concat([0]));
+        list.forEach(function (s) {
+          var r = el("div", "site-row");
+          r.appendChild(el("span", "site-name", s.name));
+          var bar = el("span", "site-bar");
+          var fill = el("span", "site-bar-fill " + tone(s.value));
+          fill.style.width = (max ? Math.abs(s.value) / max * 50 : 0).toFixed(1) + "%";
+          bar.appendChild(fill);
+          r.appendChild(bar);
+          r.appendChild(el("span", "site-value " + tone(s.value), money(s.value, s.usd, true)));
+          box.appendChild(r);
+        });
+        box.hidden = !list.length;
+      }
+
       function render(snap) {
         if (!snap || !snap.day) {
           $("empty").textContent = "No session yet.";
@@ -198,15 +257,40 @@
         $("when").textContent = live ? "Live \u00b7 updated " + at : "Stream over \u00b7 last updated " + at;
         if (live) $("final").hidden = true; else showFinal(snap.day);
 
+        // The bankroll's own entry for this day, once the evening's save has
+        // published it. It wins over the tournament log for money.
+        var days = (bankroll && bankroll.days) || [];
+        var booked = null;
+        days.forEach(function (d) { if (d.date === snap.day) booked = d; });
+
+        // CAD and USD are never added together, except in year to date (the
+        // $100K goal), which counts USD at the goal's rate like the calendar.
+        var cad = booked ? (booked.cad || 0) : (t.cad ? t.cad.net : null);
+        var usd = booked ? (booked.usd || 0) : (t.usd ? t.usd.net : null);
+        var hasCad = booked ? (cad !== 0 || !usd) : cad != null;
+        var hasUsd = booked ? usd !== 0 : usd != null;
+
+        var ytdBox = $("ytd");
+        if (bankroll) {
+          var rate = bankroll.goal_rate || 1.35;
+          var ytd = 0;
+          days.forEach(function (d) { if (d.date <= snap.day) ytd += d.total || 0; });
+          if (!booked) ytd += (cad || 0) + (usd || 0) * rate;   // today, live
+          ytdBox.textContent = "";
+          ytdBox.appendChild(el("div", "stat-label", "Year to date (USD at " + rate + ")"));
+          ytdBox.appendChild(el("div", "stat-value " + tone(ytd), money(Math.round(ytd), false, true)));
+          ytdBox.hidden = false;
+        }
+
         var stats = $("stats");
         stats.textContent = "";
         stats.appendChild(stat("Tournaments", String(t.count || 0)));
+        stats.appendChild(stat("Cashes", String(t.cashes || 0)));
         if (live) stats.appendChild(stat("Still running", String(t.running || 0)));
-        else stats.appendChild(stat("Cashes", String(t.cashes || 0)));
-        // CAD and USD are never added together: a figure per currency played.
-        var label = live ? "Net so far" : "Net";
-        if (t.cad) stats.appendChild(stat(label + " (CAD)", money(t.cad.net, false, true), tone(t.cad.net)));
-        if (t.usd) stats.appendChild(stat(label + " (USD)", money(t.usd.net, true, true), tone(t.usd.net)));
+        if (hasCad) stats.appendChild(stat("Profit / loss (CAD)", money(cad, false, true), tone(cad)));
+        if (hasUsd) stats.appendChild(stat("Profit / loss (USD)", money(usd, true, true), tone(usd)));
+
+        renderSites(booked, rows);
         $("stats-card").hidden = false;
 
         fill("running", rows.filter(function (r) { return r.status === "running"; }));
@@ -216,9 +300,12 @@
       }
 
       function load() {
-        fetch(SOURCE, { cache: "no-store" })
+        var year = fetch(BANKROLL, { cache: "no-store" })
           .then(function (r) { return r.json(); })
-          .then(render)
+          .then(function (b) { bankroll = b; })
+          .catch(function () {});  // year to date just stays hidden
+        Promise.all([fetch(SOURCE, { cache: "no-store" }).then(function (r) { return r.json(); }), year])
+          .then(function (got) { render(got[0]); })
           .catch(function () {
             if (!$("stats-card").hidden) return; // keep what's showing
             $("empty").textContent = "Couldn't load today's session. Try again in a minute.";
