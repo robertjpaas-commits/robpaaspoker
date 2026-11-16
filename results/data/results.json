@@ -13294,6 +13294,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$1,200 Mystery Bounty 22",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$10 Sunday Dynasty Mega Qualifier",
     "type": "Satellite",
     "site": "PokerStars",
@@ -13819,6 +13831,18 @@
     "winnings": 75.0,
     "profit": 22.5,
     "onlyBounty": true
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$55 Chip 6-Max Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
   },
   {
     "date": "2026-11-15",
