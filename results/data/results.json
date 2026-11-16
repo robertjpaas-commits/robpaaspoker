@@ -13610,10 +13610,10 @@
     "type": "Standard",
     "site": "PartyPoker",
     "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
+    "rebuys": 1,
+    "totalInvested": 44.0,
     "winnings": 55.2,
-    "profit": 33.2,
+    "profit": 11.2,
     "onlyBounty": false
   },
   {
