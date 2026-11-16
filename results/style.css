@@ -98,7 +98,7 @@ body {
   font-weight: 600;
   line-height: 1.1;
   color: var(--ink);
-  margin-top: 24px;
+  margin: 24px 0 0;  /* in full: an <h1> since 2026-11-16, laid out as the <div> was */
 }
 
 .social-icon {
