@@ -3,11 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobPaasPoker — Tournament Results</title>
-  <meta name="description" content="Every online tournament Rob Paas has logged — filterable results, breakdowns by site/stake/tournament, and monthly trend.">
+  <!-- Between the prerender markers, and the summary tiles, are rewritten on every
+       publish by site_prerender.py in RPP Study, so crawlers that don't run app.js
+       still read the numbers. Edit the rest of the page by hand as usual. -->
+  <!-- prerender:head -->
+  <title>Tournament Results: Rob Paas poker results · RobPaasPoker</title>
+  <meta name="description" content="Every online tournament Rob Paas has logged: 837 CAD tournaments, +$9,385 net, +9.7% ROI, 17.8% in the money. Filter by site, stake and tournament. Updated November 16, 2026.">
+  <link rel="canonical" href="https://robpaaspoker.com/results/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tournament Results: Rob Paas poker results · RobPaasPoker">
+  <meta property="og:description" content="Every online tournament Rob Paas has logged: 837 CAD tournaments, +$9,385 net, +9.7% ROI, 17.8% in the money. Filter by site, stake and tournament. Updated November 16, 2026.">
+  <meta property="og:url" content="https://robpaaspoker.com/results/">
+  <meta property="og:image" content="https://robpaaspoker.com/favicon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Tournament Results: Rob Paas poker results · RobPaasPoker",
+    "description": "Every online tournament Rob Paas has logged: 837 CAD tournaments, +$9,385 net, +9.7% ROI, 17.8% in the money. Filter by site, stake and tournament. Updated November 16, 2026.",
+    "url": "https://robpaaspoker.com/results/",
+    "dateModified": "2026-11-16",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Person",
+      "name": "Rob Paas",
+      "url": "https://robpaaspoker.com/"
+    }
+  }
+  </script>
+  <!-- /prerender:head -->
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
   <div class="page">
@@ -26,6 +53,10 @@
       </nav>
       <div class="page-title">Tournament Results</div>
     </header>
+
+    <!-- prerender:summary -->
+    <p class="visually-hidden">Rob Paas's logged tournament results, all time. Canadian-dollar rooms: 837 tournaments (1391 buy-ins) from 2026-06-30 to 2026-11-15, $96,720 invested, $106,105 won, net +$9,385, ROI +9.7%, in the money 17.8% of buy-ins. US-dollar rooms: 326 tournaments (521 buy-ins) from 2026-06-30 to 2026-11-15, US$29,055 invested, US$52,197 won, net +US$23,142, ROI +79.6%, in the money 18.4% of buy-ins. Most profitable tournament: $100 Nightly Stars (+$6,245.50). Updated <time datetime="2026-11-16">November 16, 2026</time>.</p>
+    <!-- /prerender:summary -->
 
     <!-- ── Filters ─────────────────────────────────────── -->
     <section class="card">
@@ -111,15 +142,15 @@
     <section class="card">
       <div class="card-title">Summary <small id="summary-scope"></small></div>
       <div class="summary-grid">
-        <div class="stat-box"><div class="stat-label">Tournaments</div><div class="stat-value gold"  id="s-count">0</div></div>
-        <div class="stat-box"><div class="stat-label">Total Buy-ins</div><div class="stat-value gold"  id="s-bullets">0</div></div>
-        <div class="stat-box"><div class="stat-label">Total Invested</div><div class="stat-value negative" id="s-invested">$0</div></div>
-        <div class="stat-box"><div class="stat-label">Total Winnings</div><div class="stat-value positive" id="s-winnings">$0</div></div>
-        <div class="stat-box"><div class="stat-label">Net Profit</div><div class="stat-value neutral" id="s-profit">$0</div></div>
-        <div class="stat-box"><div class="stat-label">ROI</div><div class="stat-value neutral" id="s-roi">0%</div></div>
-        <div class="stat-box"><div class="stat-label">ITM Rate</div><div class="stat-value neutral" id="s-itm">0%</div></div>
-        <div class="stat-box"><div class="stat-label">Avg Buy-in</div><div class="stat-value neutral" id="s-avg-buyin">$0</div></div>
-        <div class="stat-box"><div class="stat-label">Avg Bullets</div><div class="stat-value neutral" id="s-avg-bullets">0</div></div>
+        <div class="stat-box"><div class="stat-label">Tournaments</div><div class="stat-value gold"  id="s-count">837</div></div>
+        <div class="stat-box"><div class="stat-label">Total Buy-ins</div><div class="stat-value gold"  id="s-bullets">1391</div></div>
+        <div class="stat-box"><div class="stat-label">Total Invested</div><div class="stat-value negative" id="s-invested">$96,720</div></div>
+        <div class="stat-box"><div class="stat-label">Total Winnings</div><div class="stat-value positive" id="s-winnings">$106,105</div></div>
+        <div class="stat-box"><div class="stat-label">Net Profit</div><div class="stat-value positive" id="s-profit">+$9,385</div></div>
+        <div class="stat-box"><div class="stat-label">ROI</div><div class="stat-value positive" id="s-roi">+9.7%</div></div>
+        <div class="stat-box"><div class="stat-label">ITM Rate</div><div class="stat-value neutral" id="s-itm">17.8%</div></div>
+        <div class="stat-box"><div class="stat-label">Avg Buy-in</div><div class="stat-value neutral" id="s-avg-buyin">$72.13</div></div>
+        <div class="stat-box"><div class="stat-label">Avg Bullets</div><div class="stat-value neutral" id="s-avg-bullets">1.66</div></div>
       </div>
     </section>
 
@@ -127,11 +158,15 @@
     <section class="row">
       <div class="card">
         <div class="card-title">Top 5 Most Profitable</div>
-        <div id="top5-body"><div class="empty-msg">No data</div></div>
+        <!-- prerender:top5 -->
+        <div id="top5-body"><table class="top5-table"><tr><td style="width:28px;"><span class="rank-num">1</span></td><td><div class="top5-name" onclick="filterByName(&quot;$100 Nightly Stars&quot;)">$100 Nightly Stars</div><div class="top5-meta">PokerStars · 21 played + 40 rebuys · 11.5% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="positive">+$6,245.50</span><br><span style="font-size:11px;color:var(--text-muted);">+102.4% ROI</span></td></tr><tr><td style="width:28px;"><span class="rank-num">2</span></td><td><div class="top5-name" onclick="filterByName(&quot;$109 Sunday Mystery Bounty Main Event&quot;)">$109 Sunday Mystery Bounty Main Event</div><div class="top5-meta">888poker · 9 played + 13 rebuys · 18.2% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="positive">+$6,227.42</span><br><span style="font-size:11px;color:var(--text-muted);">+259.7% ROI</span></td></tr><tr><td style="width:28px;"><span class="rank-num">3</span></td><td><div class="top5-name" onclick="filterByName(&quot;$500 Sat to $5k WSOP Main Event&quot;)">$500 Sat to $5k WSOP Main Event</div><div class="top5-meta">GGPoker · 2 played · 50% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="positive">+$4,000.00</span><br><span style="font-size:11px;color:var(--text-muted);">+400% ROI</span></td></tr><tr><td style="width:28px;"><span class="rank-num">4</span></td><td><div class="top5-name" onclick="filterByName(&quot;$100 Sunday Dynasty&quot;)">$100 Sunday Dynasty</div><div class="top5-meta">PokerStars · 9 played + 6 rebuys · 26.7% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="positive">+$3,853.47</span><br><span style="font-size:11px;color:var(--text-muted);">+256.9% ROI</span></td></tr><tr><td style="width:28px;"><span class="rank-num">5</span></td><td><div class="top5-name" onclick="filterByName(&quot;$250 Sat to $2300&quot;)">$250 Sat to $2300</div><div class="top5-meta">GGPoker · 4 played + 1 rebuy · 40% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="positive">+$2,200.00</span><br><span style="font-size:11px;color:var(--text-muted);">+176% ROI</span></td></tr></table></div>
+        <!-- /prerender:top5 -->
       </div>
       <div class="card">
         <div class="card-title">Bottom 5 Least Profitable</div>
-        <div id="bottom5-body"><div class="empty-msg">No data</div></div>
+        <!-- prerender:bottom5 -->
+        <div id="bottom5-body"><table class="top5-table"><tr><td style="width:28px;"><span class="rank-num">1</span></td><td><div class="top5-name" onclick="filterByName(&quot;$5000 WSOP Main Event&quot;)">$5000 WSOP Main Event</div><div class="top5-meta">Live · 1 played · 0% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="negative">-$5,000.00</span><br><span style="font-size:11px;color:var(--text-muted);">-100% ROI</span></td></tr><tr><td style="width:28px;"><span class="rank-num">2</span></td><td><div class="top5-name" onclick="filterByName(&quot;$500 Mini Main Event&quot;)">$500 Mini Main Event</div><div class="top5-meta">Live · 3 played + 7 rebuys · 20% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="negative">-$2,675.00</span><br><span style="font-size:11px;color:var(--text-muted);">-53.5% ROI</span></td></tr><tr><td style="width:28px;"><span class="rank-num">3</span></td><td><div class="top5-name" onclick="filterByName(&quot;$1000 WSOP Mystery Bounty&quot;)">$1000 WSOP Mystery Bounty</div><div class="top5-meta">Live · 1 played + 1 rebuy · 0% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="negative">-$2,000.00</span><br><span style="font-size:11px;color:var(--text-muted);">-100% ROI</span></td></tr><tr><td style="width:28px;"><span class="rank-num">4</span></td><td><div class="top5-name" onclick="filterByName(&quot;$200 Thrill&quot;)">$200 Thrill</div><div class="top5-meta">PokerStars · 6 played + 5 rebuys · 9.1% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="negative">-$1,785.09</span><br><span style="font-size:11px;color:var(--text-muted);">-81.1% ROI</span></td></tr><tr><td style="width:28px;"><span class="rank-num">5</span></td><td><div class="top5-name" onclick="filterByName(&quot;$250 Half Price Summer Storm&quot;)">$250 Half Price Summer Storm</div><div class="top5-meta">PokerStars · 7 played + 2 rebuys · 11.1% ITM</div></td><td style="text-align:right; white-space:nowrap;"><span class="negative">-$1,719.18</span><br><span style="font-size:11px;color:var(--text-muted);">-76.4% ROI</span></td></tr></table></div>
+        <!-- /prerender:bottom5 -->
       </div>
     </section>
 

@@ -702,7 +702,11 @@ async function init() {
   renderChart();
 }
 
-init();
+// The HTML carries a pre-rendered total (site_prerender.py), hidden while the script
+// runs so the count-up starts from $0. If loading fails, show it rather than nothing.
+init().catch(() => {
+  document.getElementById("hero-total").classList.remove("prerendered");
+});
 
 /* ---------------- cross-page view transition ---------------- */
 

@@ -163,6 +163,23 @@ body {
 .hero-figure.positive { color: var(--positive); }
 .hero-figure.negative { color: var(--negative); }
 
+/* The pre-rendered total (site_prerender.py) is for crawlers. With scripts on it
+   stays hidden until renderHero() replaces the class and counts up from $0. */
+.js .hero-figure.prerendered { visibility: hidden; }
+
+/* The pre-rendered summary paragraph: read by crawlers and screen readers. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* What the combined figure is made of, each currency on its own. */
 .hero-split {
   color: var(--ink-subtle);

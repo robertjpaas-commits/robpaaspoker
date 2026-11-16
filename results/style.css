@@ -474,3 +474,17 @@ th.sorted-desc::after { content: ' \25BC'; color: var(--gold); }
 
 /* "Day 1 07-28 · Day 2 08-02" under a multi-day event in the results table */
 .days-note { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* The pre-rendered summary paragraph (site_prerender.py in RPP Study): read by
+   crawlers and screen readers, not shown. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

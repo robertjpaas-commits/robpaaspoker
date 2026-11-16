@@ -3,11 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobPaasPoker</title>
-  <meta name="description" content="Tracking a $100,000 poker profit goal for 2026, day by day.">
+  <!-- Between the prerender markers, and the hero and stat figures, are rewritten on
+       every publish by site_prerender.py in RPP Study, so crawlers that don't run
+       app.js still read the numbers. Edit the rest of the page by hand as usual. -->
+  <!-- prerender:head -->
+  <title>Road to $100K: Rob Paas 2026 poker results · RobPaasPoker</title>
+  <meta name="description" content="Rob Paas's 2026 poker profit, tracked day by day toward $100,000: +$85,902 over 147 days and 1,311.4 hours played. Updated November 16, 2026.">
+  <link rel="canonical" href="https://robpaaspoker.com/Roadto$100k/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Road to $100K: Rob Paas 2026 poker results · RobPaasPoker">
+  <meta property="og:description" content="Rob Paas's 2026 poker profit, tracked day by day toward $100,000: +$85,902 over 147 days and 1,311.4 hours played. Updated November 16, 2026.">
+  <meta property="og:url" content="https://robpaaspoker.com/Roadto$100k/">
+  <meta property="og:image" content="https://robpaaspoker.com/favicon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Road to $100K: Rob Paas 2026 poker results · RobPaasPoker",
+    "description": "Rob Paas's 2026 poker profit, tracked day by day toward $100,000: +$85,902 over 147 days and 1,311.4 hours played. Updated November 16, 2026.",
+    "url": "https://robpaaspoker.com/Roadto$100k/",
+    "dateModified": "2026-11-16T00:55:14",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Person",
+      "name": "Rob Paas",
+      "url": "https://robpaaspoker.com/"
+    }
+  }
+  </script>
+  <!-- /prerender:head -->
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="icon" type="image/png" href="../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=31">
+  <link rel="stylesheet" href="style.css?v=32">
 </head>
 <body>
   <div class="page">
@@ -26,11 +54,15 @@
       </nav>
     </header>
 
+    <!-- prerender:summary -->
+    <p class="visually-hidden">Rob Paas, Road to $100K, 2026: +$85,902 profit across all poker sites (US dollars counted at 1.35), against a goal of $100,000. That is +$55,865 in Canadian-dollar rooms and +US$22,249 in US-dollar rooms. 147 days played, 1,311.4 hours, an average of +$619 per day played and +$66 per hour. Best day: +$15,899. Updated <time datetime="2026-11-16">November 16, 2026</time>.</p>
+    <!-- /prerender:summary -->
+
     <section class="card hero">
       <div class="hero-head">
-        <div class="hero-label" id="hero-label">All sites &middot; 2026 profit</div>
-        <div class="hero-figure" id="hero-total">$0</div>
-        <div class="hero-split" id="hero-split"></div>
+        <div class="hero-label" id="hero-label">All sites · 2026 profit · USD at 1.35</div>
+        <div class="hero-figure positive prerendered" id="hero-total">+$85,902</div>
+        <div class="hero-split" id="hero-split">+$55,865 CAD · +US$22,249 USD</div>
         <div class="hero-rule"></div>
       </div>
 
@@ -43,23 +75,23 @@
       <div class="stat-row">
         <div class="stat">
           <div class="stat-label" id="label-days">Days played</div>
-          <div class="stat-value" id="stat-days">&mdash;</div>
+          <div class="stat-value" id="stat-days">147</div>
         </div>
         <div class="stat">
           <div class="stat-label" id="label-avg">Avg / day played</div>
-          <div class="stat-value" id="stat-avg">&mdash;</div>
+          <div class="stat-value positive" id="stat-avg">+$619</div>
         </div>
         <div class="stat">
           <div class="stat-label">Best day</div>
-          <div class="stat-value" id="stat-best">&mdash;</div>
+          <div class="stat-value positive" id="stat-best">+$15,899</div>
         </div>
         <div class="stat" id="stat-hourly-tile">
           <div class="stat-label" id="label-hourly">Hourly rate</div>
-          <div class="stat-value" id="stat-hourly">&mdash;</div>
+          <div class="stat-value positive" id="stat-hourly">+$66/hr</div>
         </div>
         <div class="stat" id="stat-hours-tile">
           <div class="stat-label" id="label-hours">Hours played</div>
-          <div class="stat-value" id="stat-hours">&mdash;</div>
+          <div class="stat-value" id="stat-hours">1,311.4</div>
         </div>
       </div>
     </section>
@@ -79,6 +111,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script src="app.js?v=25"></script>
+  <script src="app.js?v=26"></script>
 </body>
 </html>
