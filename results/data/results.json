@@ -13594,6 +13594,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$215 Sunday Big Shot",
+    "type": "Standard",
+    "site": "888poker",
+    "buyin": 215.0,
+    "rebuys": 0,
+    "totalInvested": 215.0,
+    "winnings": 0.0,
+    "profit": -215.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$22 6-Max Fast",
     "type": "Standard",
     "site": "PartyPoker",
@@ -13708,8 +13720,8 @@
     "buyin": 30.0,
     "rebuys": 0,
     "totalInvested": 30.0,
-    "winnings": 0.0,
-    "profit": -30.0,
+    "winnings": 80.89,
+    "profit": 50.89,
     "onlyBounty": false
   },
   {
