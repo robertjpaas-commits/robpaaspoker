@@ -13378,6 +13378,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$110 Chip Sunday Blame Canada Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$150 GGMasters $50K GTD",
     "type": "Standard",
     "site": "GGPoker",
@@ -13458,6 +13470,18 @@
     "totalInvested": 16.5,
     "winnings": 0.0,
     "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$16.5 Sunday Mystery Bounty Main Event - 5 Seats GTD",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 1,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
