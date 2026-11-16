@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Today's session &middot; RobPaasPoker</title>
+  <meta name="description" content="Every tournament Rob has entered today, the ones still running and the results so far. Updated during the stream.">
+  <link rel="canonical" href="https://robpaaspoker.com/today/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Today's session &middot; RobPaasPoker">
+  <meta property="og:description" content="Every tournament entered today, still running or finished. Updated during the stream.">
+  <meta property="og:url" content="https://robpaaspoker.com/today/">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../daily/style.css?v=11">
+  <style>
+    /* Today's page: the day page's look, plus the tournament list. */
+    .today-when { margin-top: 8px; font-size: 13px; color: var(--ink-subtle); }
+    .today-final { margin-top: 12px; font-size: 15px; }
+    .today-final a { color: var(--gold); text-decoration: none; }
+    .today-final a:hover { text-decoration: underline; }
+    .trn-list { list-style: none; margin: 0; padding: 0; }
+    .trn {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 12px 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .trn:first-child { border-top: 0; padding-top: 0; }
+    .trn:last-child { padding-bottom: 0; }
+    .trn-name { color: var(--ink); font-size: 15px; line-height: 1.35; overflow-wrap: anywhere; }
+    .trn-meta, .trn-sub { margin-top: 2px; font-size: 13px; color: var(--ink-subtle); }
+    .trn-end { text-align: right; white-space: nowrap; }
+    .trn-figure {
+      font-family: var(--font-figure);
+      font-size: 18px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+    .trn-stage { font-size: 14px; font-weight: 500; color: var(--ink-muted); }
+    .today-empty { color: var(--ink-muted); margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <a class="brand-name" href="../">Rob<span>Paas</span>Poker</a>
+      <div class="brand-rule"></div>
+      <nav class="social-row" aria-label="Social media">
+        <a class="social-icon instagram" href="https://www.instagram.com/robpaaspoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="Instagram" loading="lazy"></a>
+        <a class="social-icon x" href="https://x.com/RobPaasPoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" loading="lazy"></a>
+        <a class="social-icon youtube" href="https://www.youtube.com/@robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="YouTube" loading="lazy"></a>
+        <a class="social-icon facebook" href="https://www.facebook.com/RobertPaasPoker/" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="Facebook" loading="lazy"></a>
+        <a class="social-icon twitch" href="https://www.twitch.tv/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/twitch/FFFFFF" alt="Twitch" loading="lazy"></a>
+        <a class="social-icon kick" href="https://kick.com/robpaaspoker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/kick/000000" alt="Kick" loading="lazy"></a>
+        <a class="social-icon discord" href="https://discord.gg/Pz7nrhqhHF" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" loading="lazy"></a>
+      </nav>
+      <div class="page-title" id="title">Today's session</div>
+      <div class="today-when" id="when"></div>
+      <div class="today-final" id="final" hidden></div>
+    </header>
+
+    <section class="card" id="stats-card" hidden>
+      <div class="stat-row" id="stats"></div>
+    </section>
+
+    <section class="card" id="running-card" hidden>
+      <div class="card-title">Still running</div>
+      <ul class="trn-list" id="running"></ul>
+    </section>
+
+    <section class="card" id="done-card" hidden>
+      <div class="card-title">Finished</div>
+      <ul class="trn-list" id="done"></ul>
+    </section>
+
+    <section class="card" id="empty-card">
+      <p class="today-empty" id="empty">Loading&hellip;</p>
+    </section>
+
+    <nav class="day-nav">
+      <span></span>
+      <a class="day-nav-home" href="../Roadto$100k/">Calendar</a>
+      <span></span>
+    </nav>
+  </div>
+
+  <script>
+    // Filled from the today-relay Worker, which StreamServer updates every
+    // 5 minutes while the stream is on (C:\StreamScripts\today-relay).
+    (function () {
+      var SOURCE = "https://live.robpaaspoker.com/today.json";
+      var STALE_SECONDS = 20 * 60;
+      var REFRESH_MS = 60 * 1000;
+      var finalChecked = {};
+
+      function $(id) { return document.getElementById(id); }
+
+      function money(n, usd, signed) {
+        var v = Math.round((Number(n) || 0) * 100) / 100;
+        var abs = Math.abs(v).toLocaleString("en-US", {
+          minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2
+        });
+        var s = (usd ? "US$" : "$") + abs;
+        if (v < 0) return "-" + s;
+        return signed && v > 0 ? "+" + s : s;
+      }
+
+      function tone(n) { return n > 0 ? "positive" : n < 0 ? "negative" : "neutral"; }
+
+      function longDay(day) {
+        var p = day.split("-");
+        var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+        return d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+      }
+
+      function el(tag, cls, text) {
+        var e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (text != null) e.textContent = text;
+        return e;
+      }
+
+      function stat(label, value, cls) {
+        var s = el("div", "stat");
+        s.appendChild(el("div", "stat-label", label));
+        s.appendChild(el("div", "stat-value " + (cls || "neutral"), value));
+        return s;
+      }
+
+      function row(t) {
+        var li = el("li", "trn");
+        var main = el("div");
+        main.appendChild(el("div", "trn-name", t.name));
+        var meta = [t.site, money(t.buyin, t.usd)];
+        if (t.entries > 1) meta.push(t.entries + " entries");
+        main.appendChild(el("div", "trn-meta", meta.filter(Boolean).join(" \u00b7 ")));
+        li.appendChild(main);
+
+        var end = el("div", "trn-end");
+        if (t.status === "running") {
+          end.appendChild(el("div", "trn-stage", t.stage || "Running"));
+          if (t.winnings > 0) end.appendChild(el("div", "trn-sub", "Won " + money(t.winnings, t.usd) + " before re-entering"));
+        } else {
+          var profit = t.winnings - t.invested;
+          end.appendChild(el("div", "trn-figure " + tone(profit), money(profit, t.usd, true)));
+          var sub = t.winnings > 0
+            ? (t.onlyBounty ? "Bounties " : "Cashed ") + money(t.winnings, t.usd)
+            : "Busted";
+          end.appendChild(el("div", "trn-sub", sub));
+        }
+        li.appendChild(end);
+        return li;
+      }
+
+      function fill(list, rows) {
+        var ul = $(list);
+        ul.textContent = "";
+        rows.forEach(function (t) { ul.appendChild(row(t)); });
+        $(list + "-card").hidden = !rows.length;
+      }
+
+      // Once the stream is over, the day's own page (from the bankroll) is the
+      // final word. It goes up after the session, so look for it.
+      function showFinal(day) {
+        var box = $("final");
+        if (finalChecked[day] === true) { box.hidden = false; return; }
+        if (finalChecked[day] === false) return;
+        fetch("../daily/" + day + ".html", { method: "HEAD", cache: "no-store" }).then(function (r) {
+          finalChecked[day] = r.ok;
+          if (!r.ok) return;
+          box.textContent = "";
+          var a = el("a", null, "Final results for " + longDay(day).replace(/^\w+, /, "") + " \u2192");
+          a.href = "../daily/" + day + ".html";
+          box.appendChild(a);
+          box.hidden = false;
+        }).catch(function () {});
+      }
+
+      function render(snap) {
+        if (!snap || !snap.day) {
+          $("empty").textContent = "No session yet.";
+          return;
+        }
+        var t = snap.totals || {};
+        var rows = snap.tournaments || [];
+        var live = Date.now() / 1000 - (snap.updated || 0) < STALE_SECONDS;
+        var at = new Date((snap.updated || 0) * 1000)
+          .toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+
+        $("title").textContent = (live ? "Today, " : "Last session, ") + longDay(snap.day).replace(/, \d{4}$/, "");
+        $("when").textContent = live ? "Live \u00b7 updated " + at : "Stream over \u00b7 last updated " + at;
+        if (live) $("final").hidden = true; else showFinal(snap.day);
+
+        var stats = $("stats");
+        stats.textContent = "";
+        stats.appendChild(stat("Tournaments", String(t.count || 0)));
+        if (live) stats.appendChild(stat("Still running", String(t.running || 0)));
+        else stats.appendChild(stat("Cashes", String(t.cashes || 0)));
+        // CAD and USD are never added together: a figure per currency played.
+        var label = live ? "Net so far" : "Net";
+        if (t.cad) stats.appendChild(stat(label + " (CAD)", money(t.cad.net, false, true), tone(t.cad.net)));
+        if (t.usd) stats.appendChild(stat(label + " (USD)", money(t.usd.net, true, true), tone(t.usd.net)));
+        $("stats-card").hidden = false;
+
+        fill("running", rows.filter(function (r) { return r.status === "running"; }));
+        fill("done", rows.filter(function (r) { return r.status !== "running"; }));
+        $("empty-card").hidden = rows.length > 0;
+        if (!rows.length) $("empty").textContent = "No tournaments yet.";
+      }
+
+      function load() {
+        fetch(SOURCE, { cache: "no-store" })
+          .then(function (r) { return r.json(); })
+          .then(render)
+          .catch(function () {
+            if (!$("stats-card").hidden) return; // keep what's showing
+            $("empty").textContent = "Couldn't load today's session. Try again in a minute.";
+          });
+      }
+
+      load();
+      setInterval(load, REFRESH_MS);
+    })();
+  </script>
+</body>
+</html>
