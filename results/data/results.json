@@ -13822,6 +13822,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$50 Sat to $500 Sunday Storm",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 50.0,
+    "rebuys": 0,
+    "totalInvested": 50.0,
+    "winnings": 0.0,
+    "profit": -50.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$50 Sunday Marathon",
     "type": "Standard",
     "site": "GGPoker",
@@ -13854,18 +13866,6 @@
     "totalInvested": 100.0,
     "winnings": 0.0,
     "profit": -100.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
-    "name": "$50 Sunday Storm Sat",
-    "type": "Standard",
-    "site": "PokerStars",
-    "buyin": 50.0,
-    "rebuys": 0,
-    "totalInvested": 50.0,
-    "winnings": 0.0,
-    "profit": -50.0,
     "onlyBounty": false
   },
   {
