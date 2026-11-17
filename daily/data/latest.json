@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-17T03:10:41",
+  "generated_at": "2026-11-17T03:11:32",
   "session": {
     "date": "2026-11-16",
     "pretty": "Monday, November 16",
     "url": "daily/2026-11-16.html",
-    "total": 7169.43,
-    "cad": -1476.51,
+    "total": 7199.61,
+    "cad": -1446.33,
     "usd": 6404.4,
     "hours": 9.0,
     "sites": [
@@ -28,6 +28,11 @@
         "name": "CoinPoker",
         "value": -99.56,
         "cur": "USD"
+      },
+      {
+        "name": "PartyPoker",
+        "value": 30.18,
+        "cur": "CAD"
       }
     ],
     "photos": [
