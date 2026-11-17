@@ -14554,18 +14554,6 @@
   },
   {
     "date": "2026-11-16",
-    "name": "$33 The Super PKO",
-    "type": "PKO",
-    "site": "PartyPoker",
-    "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
-    "winnings": 7.5,
-    "profit": -25.5,
-    "onlyBounty": true
-  },
-  {
-    "date": "2026-11-16",
     "name": "$50 Day Saver [Hyper]",
     "type": "Standard",
     "site": "GGPoker",
