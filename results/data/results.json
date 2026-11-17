@@ -14200,8 +14200,8 @@
     "buyin": 11.0,
     "rebuys": 0,
     "totalInvested": 11.0,
-    "winnings": 0.0,
-    "profit": -11.0,
+    "winnings": 21.19,
+    "profit": 10.19,
     "onlyBounty": false
   },
   {
@@ -14242,6 +14242,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$110 Chip Hyper",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$110 Chip Nightly Saver",
     "type": "Standard",
     "site": "WPT Gold",
@@ -14250,6 +14262,18 @@
     "totalInvested": 220.0,
     "winnings": 0.0,
     "profit": -220.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$15 Satellite to GGMasters $150, 1 Seat",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
     "onlyBounty": false
   },
   {
@@ -14354,10 +14378,10 @@
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
-    "rebuys": 3,
-    "totalInvested": 84.0,
+    "rebuys": 5,
+    "totalInvested": 126.0,
     "winnings": 0.0,
-    "profit": -84.0,
+    "profit": -126.0,
     "onlyBounty": false
   },
   {
