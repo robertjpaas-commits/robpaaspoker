@@ -14386,6 +14386,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 2,
+    "totalInvested": 63.0,
+    "winnings": 0.0,
+    "profit": -63.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$22 ON YOUR BIKE [TURBO]",
     "type": "Standard",
     "site": "CoinPoker",
