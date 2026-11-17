@@ -14138,10 +14138,10 @@
     "type": "PKO",
     "site": "GGPoker",
     "buyin": 105.0,
-    "rebuys": 0,
-    "totalInvested": 105.0,
+    "rebuys": 1,
+    "totalInvested": 210.0,
     "winnings": 146.1,
-    "profit": 41.1,
+    "profit": -63.9,
     "onlyBounty": false
   },
   {
@@ -14370,6 +14370,18 @@
     "totalInvested": 600.0,
     "winnings": 0.0,
     "profit": -600.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 0.0,
+    "profit": -21.0,
     "onlyBounty": false
   },
   {
@@ -14630,10 +14642,10 @@
     "type": "Bounty",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 0,
-    "totalInvested": 15.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
     "winnings": 23.15,
-    "profit": 8.15,
+    "profit": -6.85,
     "onlyBounty": false
   },
   {
