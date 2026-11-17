@@ -13762,18 +13762,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$33 Chip Bounty",
-    "type": "Bounty",
-    "site": "WPT Gold",
-    "buyin": 33.0,
-    "rebuys": 1,
-    "totalInvested": 66.0,
-    "winnings": 15.0,
-    "profit": -51.0,
-    "onlyBounty": true
-  },
-  {
-    "date": "2026-11-15",
     "name": "$33 Chip Daily Mystery Bounty",
     "type": "Bounty",
     "site": "WPT Gold",
@@ -13783,6 +13771,18 @@
     "winnings": 115.3,
     "profit": 82.3,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$33 Chip Sunday Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 1,
+    "totalInvested": 66.0,
+    "winnings": 15.0,
+    "profit": -51.0,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-15",
