@@ -13534,18 +13534,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$20 Bounty Builder",
-    "type": "PKO",
-    "site": "PokerStars",
-    "buyin": 30.0,
-    "rebuys": 1,
-    "totalInvested": 60.0,
-    "winnings": 6.83,
-    "profit": -53.17,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
     "name": "$20 Lunchtime Hot",
     "type": "Standard",
     "site": "PokerStars",
@@ -13734,6 +13722,18 @@
     "totalInvested": 30.0,
     "winnings": 27.5,
     "profit": -2.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$30 Bounty Builder",
+    "type": "PKO",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 1,
+    "totalInvested": 60.0,
+    "winnings": 6.83,
+    "profit": -53.17,
     "onlyBounty": false
   },
   {
