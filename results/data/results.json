@@ -14065,11 +14065,11 @@
     "name": "$0 The Super $109 PKO",
     "type": "PKO",
     "site": "PartyPoker",
-    "buyin": 0.0,
+    "buyin": 109.0,
     "rebuys": 0,
-    "totalInvested": 0.0,
+    "totalInvested": 109.0,
     "winnings": 188.43,
-    "profit": 188.43,
+    "profit": 79.43,
     "onlyBounty": false
   },
   {
