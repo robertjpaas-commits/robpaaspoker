@@ -14290,18 +14290,6 @@
   },
   {
     "date": "2026-11-16",
-    "name": "$16.5 The Sunday Party Phased Satellite: 10 x $265 Gtd [Phase 2]",
-    "type": "Satellite",
-    "site": "PartyPoker",
-    "buyin": 16.5,
-    "rebuys": 0,
-    "totalInvested": 16.5,
-    "winnings": 0.0,
-    "profit": -16.5,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-16",
     "name": "$16.5 The Super $109 PKO Sat: 2 x $109 Gtd [Auto-Reg]",
     "type": "PKO",
     "site": "PartyPoker",
@@ -14658,6 +14646,18 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "The Sunday Party Phased Satellite: 10 x $265 Gtd [Phase 2]",
+    "type": "Satellite",
+    "site": "PartyPoker",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 0.0,
+    "profit": 0.0,
     "onlyBounty": false
   }
 ]
