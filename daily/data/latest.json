@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-17T02:57:03",
+  "generated_at": "2026-11-17T02:57:12",
   "session": {
     "date": "2026-11-16",
     "pretty": "Monday, November 16",
     "url": "daily/2026-11-16.html",
-    "total": 4469.43,
+    "total": 7169.43,
     "cad": -1476.51,
-    "usd": 4404.4,
+    "usd": 6404.4,
     "hours": 9.0,
     "sites": [
       {
         "name": "WPT Gold",
-        "value": 4503.96,
+        "value": 6503.96,
         "cur": "USD"
       },
       {

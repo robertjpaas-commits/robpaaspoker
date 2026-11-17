@@ -4,8 +4,8 @@
 
 Figures as of November 17, 2026, updated automatically after each session:
 
-- 2026 profit: +$90,371 toward a $100,000 goal (Canadian dollars, US-dollar rooms counted at 1.35), $2.7K ahead of pace
-- 148 days and 1,320.4 hours played, +$68 per hour
+- 2026 profit: +$93,071 toward a $100,000 goal (Canadian dollars, US-dollar rooms counted at 1.35), $5.4K ahead of pace
+- 148 days and 1,320.4 hours played, +$70 per hour
 - Tournaments logged in Canadian-dollar rooms: 868, net +$8,692, ROI +8.8%, in the money 17.7% of buy-ins
 - Tournaments logged in US-dollar rooms: 343, net +US$29,460, ROI +97.8%, in the money 19.1% of buy-ins
 
@@ -18,7 +18,7 @@ Figures as of November 17, 2026, updated automatically after each session:
 
 ## Recent sessions
 
-- [November 16, 2026](https://robpaaspoker.com/daily/2026-11-16.html): +$4,469 in 9 hours
+- [November 16, 2026](https://robpaaspoker.com/daily/2026-11-16.html): +$7,169 in 9 hours
 - [November 15, 2026](https://robpaaspoker.com/daily/2026-11-15.html): -$2,105 in 10.5 hours
 - [November 14, 2026](https://robpaaspoker.com/daily/2026-11-14.html): +$1,036 in 3 hours
 - [November 13, 2026](https://robpaaspoker.com/daily/2026-11-13.html): +$1,422 in 5.1 hours
