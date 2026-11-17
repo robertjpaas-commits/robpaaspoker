@@ -14378,10 +14378,10 @@
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
-    "rebuys": 5,
-    "totalInvested": 126.0,
+    "rebuys": 3,
+    "totalInvested": 84.0,
     "winnings": 0.0,
-    "profit": -126.0,
+    "profit": -84.0,
     "onlyBounty": false
   },
   {
@@ -14546,10 +14546,10 @@
     "type": "Standard",
     "site": "GGPoker",
     "buyin": 50.0,
-    "rebuys": 3,
-    "totalInvested": 200.0,
+    "rebuys": 1,
+    "totalInvested": 100.0,
     "winnings": 0.0,
-    "profit": -200.0,
+    "profit": -100.0,
     "onlyBounty": false
   },
   {
