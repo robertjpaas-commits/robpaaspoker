@@ -14140,8 +14140,8 @@
     "buyin": 105.0,
     "rebuys": 0,
     "totalInvested": 105.0,
-    "winnings": 0.0,
-    "profit": -105.0,
+    "winnings": 146.1,
+    "profit": 41.1,
     "onlyBounty": false
   },
   {
@@ -14206,6 +14206,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$110 Chip Blitz PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$110 Chip Daily 6-Max PKO",
     "type": "PKO",
     "site": "WPT Gold",
@@ -14214,6 +14226,18 @@
     "totalInvested": 110.0,
     "winnings": 227.52,
     "profit": 117.52,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$110 Chip Nightly Saver",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
     "onlyBounty": false
   },
   {
@@ -14278,6 +14302,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$20 Mystery Express",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$200 Battle Royale",
     "type": "PKO",
     "site": "PokerStars",
@@ -14294,10 +14330,10 @@
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
-    "rebuys": 0,
-    "totalInvested": 21.0,
+    "rebuys": 3,
+    "totalInvested": 84.0,
     "winnings": 0.0,
-    "profit": -21.0,
+    "profit": -84.0,
     "onlyBounty": false
   },
   {
@@ -14386,6 +14422,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$33 Chip 6-Max PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$33 Chip Daily Mystery Bounty",
     "type": "Bounty",
     "site": "WPT Gold",
@@ -14419,6 +14467,18 @@
     "winnings": 7.5,
     "profit": -25.5,
     "onlyBounty": true
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$50 Day Saver [Hyper]",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 50.0,
+    "rebuys": 0,
+    "totalInvested": 50.0,
+    "winnings": 0.0,
+    "profit": -50.0,
+    "onlyBounty": false
   },
   {
     "date": "2026-11-16",
