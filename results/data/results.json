@@ -14116,8 +14116,8 @@
     "buyin": 10.0,
     "rebuys": 1,
     "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
+    "winnings": 100.0,
+    "profit": 80.0,
     "onlyBounty": false
   },
   {
@@ -14406,6 +14406,18 @@
     "totalInvested": 15.0,
     "winnings": 23.15,
     "profit": 8.15,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "The Fast $55 PKO: $1K Gtd",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   }
 ]
