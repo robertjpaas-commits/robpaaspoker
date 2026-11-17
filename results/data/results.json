@@ -14494,6 +14494,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$33 Americas Hyper",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$33 Chip 6-Max PKO",
     "type": "PKO",
     "site": "WPT Gold",
@@ -14514,18 +14526,6 @@
     "totalInvested": 33.0,
     "winnings": 332.71,
     "profit": 299.71,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-16",
-    "name": "$33 Hyper",
-    "type": "Standard",
-    "site": "CoinPoker",
-    "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
-    "winnings": 0.0,
-    "profit": -33.0,
     "onlyBounty": false
   },
   {
