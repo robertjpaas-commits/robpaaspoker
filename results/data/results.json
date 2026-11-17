@@ -13342,6 +13342,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$109 Sunday PKO Rumble",
+    "type": "PKO",
+    "site": "888poker",
+    "buyin": 109.0,
+    "rebuys": 1,
+    "totalInvested": 218.0,
+    "winnings": 0.0,
+    "profit": -218.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$11 Sat to $110",
     "type": "Bounty",
     "site": "WPT Gold",
@@ -13506,18 +13518,6 @@
     "totalInvested": 33.0,
     "winnings": 0.0,
     "profit": -33.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
-    "name": "$2,000 Sunday PKO Rumble 109",
-    "type": "PKO",
-    "site": "888poker",
-    "buyin": 109.0,
-    "rebuys": 1,
-    "totalInvested": 218.0,
-    "winnings": 0.0,
-    "profit": -218.0,
     "onlyBounty": false
   },
   {
