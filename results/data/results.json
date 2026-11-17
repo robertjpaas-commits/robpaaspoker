@@ -14126,10 +14126,10 @@
     "type": "Standard",
     "site": "PokerStars",
     "buyin": 100.0,
-    "rebuys": 2,
-    "totalInvested": 300.0,
+    "rebuys": 3,
+    "totalInvested": 400.0,
     "winnings": 0.0,
-    "profit": -300.0,
+    "profit": -400.0,
     "onlyBounty": false
   },
   {
