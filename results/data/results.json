@@ -14086,6 +14086,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$109 The Super PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$11 Collision 6-Max PKO",
     "type": "PKO",
     "site": "CoinPoker",
@@ -14154,6 +14166,18 @@
     "totalInvested": 31.5,
     "winnings": 0.0,
     "profit": -31.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$55 Chip 6-Max",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   },
   {
