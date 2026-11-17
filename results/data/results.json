@@ -13906,18 +13906,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$55 Fifty Stack",
-    "type": "Standard",
-    "site": "GGPoker",
-    "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
-    "winnings": 140.59,
-    "profit": 85.59,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
     "name": "$55 Mystery Bounty",
     "type": "Mystery",
     "site": "888poker",
@@ -13950,6 +13938,18 @@
     "totalInvested": 55.0,
     "winnings": 50.0,
     "profit": -5.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$55 Sunday Fifty Stack",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 140.59,
+    "profit": 85.59,
     "onlyBounty": false
   },
   {
