@@ -14150,10 +14150,10 @@
     "type": "PKO",
     "site": "888poker",
     "buyin": 109.0,
-    "rebuys": 0,
-    "totalInvested": 109.0,
+    "rebuys": 1,
+    "totalInvested": 218.0,
     "winnings": 25.0,
-    "profit": -84.0,
+    "profit": -193.0,
     "onlyBounty": true
   },
   {
