@@ -14674,6 +14674,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$15 Satellite to GGMasters $150, 1 Seat",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$15 sat to $150 WSOP Paradise Super Main Event",
     "type": "Satellite",
     "site": "GGPoker",
@@ -14773,6 +14785,18 @@
     "name": "$55 Chip Daily PKO",
     "type": "PKO",
     "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$55 The Super PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
