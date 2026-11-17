@@ -13366,18 +13366,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$110 Chip Bounty",
-    "type": "PKO",
-    "site": "WPT Gold",
-    "buyin": 110.0,
-    "rebuys": 1,
-    "totalInvested": 220.0,
-    "winnings": 75.0,
-    "profit": -145.0,
-    "onlyBounty": true
-  },
-  {
-    "date": "2026-11-15",
     "name": "$110 Chip Freezeout",
     "type": "Standard",
     "site": "WPT Gold",
@@ -13387,6 +13375,18 @@
     "winnings": 0.0,
     "profit": -110.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$110 Chip Mega Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 1,
+    "totalInvested": 220.0,
+    "winnings": 75.0,
+    "profit": -145.0,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-15",
