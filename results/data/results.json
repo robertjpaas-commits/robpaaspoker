@@ -13510,18 +13510,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$2,000 Mystery Bounty 55",
-    "type": "Mystery",
-    "site": "888poker",
-    "buyin": 55.0,
-    "rebuys": 1,
-    "totalInvested": 110.0,
-    "winnings": 30.0,
-    "profit": -80.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
     "name": "$2,000 Sunday PKO Rumble 109",
     "type": "PKO",
     "site": "888poker",
@@ -13918,6 +13906,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$55 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 55.0,
+    "rebuys": 1,
+    "totalInvested": 110.0,
+    "winnings": 30.0,
+    "profit": -80.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$55 Sunday Carnival",
     "type": "PKO",
     "site": "PartyPoker",
@@ -14302,18 +14302,6 @@
   },
   {
     "date": "2026-11-16",
-    "name": "$2,000 Mystery Bounty 55",
-    "type": "Mystery",
-    "site": "888poker",
-    "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
-    "winnings": 800.0,
-    "profit": 745.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-16",
     "name": "$20 Moonlight Express 2nd Chance",
     "type": "Standard",
     "site": "PokerStars",
@@ -14586,6 +14574,18 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$55 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 800.0,
+    "profit": 745.0,
     "onlyBounty": false
   },
   {
