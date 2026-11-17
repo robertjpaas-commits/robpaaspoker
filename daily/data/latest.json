@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-17T03:21:10",
+  "generated_at": "2026-11-17T03:27:16",
   "session": {
     "date": "2026-11-16",
     "pretty": "Monday, November 16",
     "url": "daily/2026-11-16.html",
-    "total": 7199.61,
-    "cad": -1446.33,
+    "total": 7709.76,
+    "cad": -936.18,
     "usd": 6404.4,
     "hours": 9.0,
     "sites": [
@@ -17,6 +17,11 @@
       {
         "name": "PokerStars",
         "value": -989.76,
+        "cur": "CAD"
+      },
+      {
+        "name": "888poker",
+        "value": 510.15,
         "cur": "CAD"
       },
       {
