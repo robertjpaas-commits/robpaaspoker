@@ -464,20 +464,16 @@
       const played = ["CAD", "USD"].filter((c) => Math.abs(both[c]) > 0.005);
       if (!played.length) played.push("CAD");
       const totalEl = document.getElementById("session-total");
-      // "$823 CAD + $949 US": the currency as a word after each figure (by request),
-      // and the hourly rates below match ("$78 CAD/hr").
+      // "$823 CAD + $949 US": the currency as a word after each figure (by request).
+      // Each figure takes its own colour: a CAD loss stays red beside a USD win.
+      // No hourly rate (removed 2026-11-17, by request: meaningless for one day).
       const withCur = (value, c) => `${fmtMoney(value, { signed: true })} ${c === "USD" ? "US" : "CAD"}`;
-      totalEl.textContent = played.map((c) => withCur(both[c], c)).join(" + ");
-      totalEl.className = "session-figure " + signClass(session.total);
+      totalEl.innerHTML = played.map((c) =>
+        `<span class="${signClass(both[c])}">${withCur(both[c], c)}</span>`).join(" + ");
+      totalEl.className = "session-figure";
 
-      const meta = [];
-      if (session.hours > 0) {
-        meta.push(`${session.hours}${session.hours === 1 ? " hr" : " hrs"}`);
-        for (const c of played) {
-          meta.push(`${withCur(both[c] / session.hours, c)}/hr`);
-        }
-      }
-      document.getElementById("session-meta").textContent = meta.join(" · ");
+      document.getElementById("session-meta").textContent =
+        session.hours > 0 ? `${session.hours}${session.hours === 1 ? " hr" : " hrs"}` : "";
 
       document.getElementById("session-sites").innerHTML = session.sites.map((s) =>
         `<span class="site-chip ${signClass(s.value)}">${s.name}` +
