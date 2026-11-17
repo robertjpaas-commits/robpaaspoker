@@ -14062,6 +14062,30 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$0 The Super $109 PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 188.43,
+    "profit": 188.43,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$0 The Super $55 PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 18.75,
+    "profit": 18.75,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$1,200 Mystery Bounty 22",
     "type": "Mystery",
     "site": "888poker",
@@ -14308,8 +14332,8 @@
     "buyin": 16.5,
     "rebuys": 0,
     "totalInvested": 16.5,
-    "winnings": 109.0,
-    "profit": 92.5,
+    "winnings": 0.0,
+    "profit": -16.5,
     "onlyBounty": false
   },
   {
@@ -14617,11 +14641,11 @@
     "name": "$55 The Super PKO",
     "type": "PKO",
     "site": "PartyPoker",
-    "buyin": 55.0,
+    "buyin": 33.0,
     "rebuys": 0,
-    "totalInvested": 55.0,
-    "winnings": 43.75,
-    "profit": -11.25,
+    "totalInvested": 33.0,
+    "winnings": 7.5,
+    "profit": -25.5,
     "onlyBounty": true
   },
   {
