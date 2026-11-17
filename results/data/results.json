@@ -14410,6 +14410,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$22 Sat to $218",
+    "type": "Satellite",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 5,
+    "totalInvested": 132.0,
+    "winnings": 218.0,
+    "profit": 86.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$22 The Turbo PKO",
     "type": "PKO",
     "site": "PartyPoker",
