@@ -14086,6 +14086,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$100 Nightly Stars",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 100.0,
+    "rebuys": 0,
+    "totalInvested": 100.0,
+    "winnings": 0.0,
+    "profit": -100.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$109 The Super PKO",
     "type": "PKO",
     "site": "PartyPoker",
@@ -14130,6 +14142,18 @@
     "totalInvested": 16.5,
     "winnings": 109.0,
     "profit": 92.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$16.5 The Super $109 PKO Sat: 2 x $109 Gtd [Auto-Reg]",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
     "onlyBounty": false
   },
   {
