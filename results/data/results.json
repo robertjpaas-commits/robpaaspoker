@@ -14659,5 +14659,101 @@
     "winnings": 0.0,
     "profit": 0.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 0.0,
+    "profit": -21.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$22 6-Max",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$22 The Super $150 PKO Sat: 2 x $150 Gtd",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$33 Sat to $320",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$50 Mystery Starter",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 50.0,
+    "rebuys": 1,
+    "totalInvested": 100.0,
+    "winnings": 0.0,
+    "profit": -100.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$52.50 Bounty Hunters Warm-Up",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 52.5,
+    "rebuys": 0,
+    "totalInvested": 52.5,
+    "winnings": 0.0,
+    "profit": -52.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$55 Chip Daily PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "Free 5M Day 1",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 0.0,
+    "profit": 0.0,
+    "onlyBounty": false
   }
 ]
