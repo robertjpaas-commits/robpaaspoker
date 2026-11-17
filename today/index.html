@@ -36,7 +36,53 @@
       font-weight: 600;
       font-variant-numeric: tabular-nums;
     }
-    .trn-stage { font-size: 14px; font-weight: 500; color: var(--ink-muted); }
+    /* Stages in the overlay's own colours (its legend): late reg white,
+       out of late reg red, bubble blue, in the money green, final table the
+       overlay's rainbow. */
+    .trn-stage { font-size: 14px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-muted); }
+    .stage-lr  { color: #ffffff; }
+    .stage-olr { color: #e05555; }
+    .stage-bub { color: #7ab3e8; }
+    .stage-itm { color: #4caf7d; }
+    .stage-ft  { color: #c9a84c; animation: rainbow-flash 5s linear infinite; }
+    @keyframes rainbow-flash {
+      0%     { color: #ff2222; }
+      14.3%  { color: #ff9900; }
+      28.6%  { color: #ffee00; }
+      42.9%  { color: #22dd44; }
+      57.1%  { color: #22aaff; }
+      71.4%  { color: #aa33ff; }
+      85.7%  { color: #ff22aa; }
+      100%   { color: #ff2222; }
+    }
+    @media (prefers-reduced-motion: reduce) { .stage-ft { animation: none; } }
+    .stage-legend {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 0 16px;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .stage-legend-item {
+      flex: 1 1 0;
+      min-width: 64px;
+      padding: 8px 4px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-left: 1px solid var(--hairline);
+    }
+    .stage-legend-item:first-child { border-left: 0; }
+    .stage-legend-count {
+      display: block;
+      margin-top: 2px;
+      font-family: var(--font-figure);
+      font-size: 18px;
+      letter-spacing: 0;
+      font-variant-numeric: tabular-nums;
+    }
     .today-empty { color: var(--ink-muted); margin: 0; }
     /* Re-drawn every minute while live: the bars grow in once, not each time. */
     .settled .site-bar-fill { animation: none; }
@@ -74,6 +120,7 @@
     <section class="card" id="trn-card" hidden>
       <div class="card-title">Tournaments</div>
       <div class="stat-row trn-stats" id="stats"></div>
+      <div class="stage-legend" id="stages" hidden></div>
       <ul class="trn-list" id="trn"></ul>
     </section>
 
@@ -90,14 +137,13 @@
 
   <script>
     // Filled from the today-relay Worker, which StreamServer updates every
-    // 5 minutes while the stream is on (C:\StreamScripts\today-relay). Once
-    // the bankroll's 2026.json has the day (after the evening's save), its
-    // profit / loss and site figures replace the tournament log's, so this
-    // page agrees with the calendar.
+    // 5 minutes while the stream is on (C:\StreamScripts\today-relay). It
+    // reads the tournament results and nothing else: the bankroll's 2026.json
+    // used to replace its money once it had the day, and a deposit or a
+    // close-out entered mid-session put the day there early, so the page
+    // flipped to one site's figures (2026-11-16). Never read the bankroll here.
     (function () {
       var SOURCE = "https://live.robpaaspoker.com/today.json";
-      var BANKROLL = "../Roadto$100k/data/2026.json";
-      var bankroll = null;
       var STALE_SECONDS = 20 * 60;
       var REFRESH_MS = 60 * 1000;
 
@@ -111,6 +157,23 @@
         var s = (usd ? "US$" : "$") + abs;
         if (v < 0) return "-" + s;
         return signed && v > 0 ? "+" + s : s;
+      }
+
+      // The five stages, in order. StreamServer sends stageKey; an older
+      // StreamServer sent only the name ("Running" for out of late reg).
+      var STAGES = [
+        { key: "lr",  label: "Late reg",        short: "Late reg" },
+        { key: "olr", label: "Out of late reg", short: "OLR" },
+        { key: "bub", label: "Bubble",          short: "BUB" },
+        { key: "itm", label: "In the money",    short: "ITM" },
+        { key: "ft",  label: "Final table",     short: "FT" }
+      ];
+      var BY_NAME = { "late reg": "lr", "running": "olr", "out of late reg": "olr",
+                      "bubble": "bub", "in the money": "itm", "final table": "ft" };
+      function stageOf(t) {
+        var key = t.stageKey || BY_NAME[(t.stage || "").toLowerCase()] || "lr";
+        for (var i = 0; i < STAGES.length; i++) if (STAGES[i].key === key) return i;
+        return 0;
       }
 
       function tone(n) { return n > 0 ? "positive" : n < 0 ? "negative" : "neutral"; }
@@ -146,7 +209,8 @@
 
         var end = el("div", "trn-end");
         if (t.status === "running") {
-          end.appendChild(el("div", "trn-stage", t.stage || "Running"));
+          var st = STAGES[stageOf(t)];
+          end.appendChild(el("div", "trn-stage stage-" + st.key, st.label));
           if (t.winnings > 0) end.appendChild(el("div", "trn-sub", "Won " + money(t.winnings, t.usd) + " before re-entering"));
         } else {
           var profit = t.winnings - t.invested;
@@ -170,24 +234,14 @@
       // of the zero line, a loss left, the biggest either way fills half.
       // Each room in its own currency.
       var lastSites = "";
-      function renderSites(booked, rows) {
-        var list = [];
-        if (booked && bankroll) {
-          Object.keys(booked.sites || {}).forEach(function (k) {
-            var v = booked.sites[k];
-            if (!v) return;
-            list.push({ name: (bankroll.site_names || {})[k] || k, value: v,
-                        usd: (bankroll.currency || {})[k] === "USD" });
-          });
-        } else {
-          var by = {};
-          rows.forEach(function (r) {
-            var key = r.site || "Other";
-            if (!by[key]) list.push(by[key] = { name: key, value: 0, usd: !!r.usd });
-            by[key].value += (r.status === "running" ? 0 : r.winnings) - r.invested;
-          });
-          list = list.filter(function (s) { return Math.round(s.value * 100); });
-        }
+      function renderSites(rows) {
+        var list = [], by = {};
+        rows.forEach(function (r) {
+          var key = r.site || "Other";
+          if (!by[key]) list.push(by[key] = { name: key, value: 0, usd: !!r.usd });
+          by[key].value += (r.status === "running" ? 0 : r.winnings) - r.invested;
+        });
+        list = list.filter(function (s) { return Math.round(s.value * 100); });
         list.sort(function (a, b) { return b.value - a.value; });
         var box = $("sites");
         var sig = JSON.stringify(list);
@@ -227,17 +281,11 @@
         $("title").textContent = live ? "Today\u2019s session" : "Last session, " + date;
         $("when").textContent = live ? "Live \u00b7 " + date + " \u00b7 updated " + at : "Last updated " + at;
 
-        // The bankroll's own entry for this day, once the evening's save has
-        // published it. It wins over the tournament log for money.
-        var days = (bankroll && bankroll.days) || [];
-        var booked = null;
-        days.forEach(function (d) { if (d.date === snap.day) booked = d; });
-
         // CAD and USD are never added together: a figure per currency played.
-        var cad = booked ? (booked.cad || 0) : (t.cad ? t.cad.net : null);
-        var usd = booked ? (booked.usd || 0) : (t.usd ? t.usd.net : null);
-        var hasCad = booked ? (cad !== 0 || !usd) : cad != null;
-        var hasUsd = booked ? usd !== 0 : usd != null;
+        var cad = t.cad ? t.cad.net : null;
+        var usd = t.usd ? t.usd.net : null;
+        var hasCad = cad != null;
+        var hasUsd = usd != null;
 
         var anchor = $("anchor");
         anchor.textContent = "";
@@ -245,7 +293,7 @@
         if (hasUsd) anchor.appendChild(stat("Profit / loss (USD)", money(usd, true, true), tone(usd)));
         anchor.hidden = !anchor.children.length;
 
-        renderSites(booked, rows);
+        renderSites(rows);
         $("stats-card").hidden = false;
 
         var stats = $("stats");
@@ -253,20 +301,36 @@
         stats.appendChild(stat("Tournaments", String(t.count || 0)));
         stats.appendChild(stat("Cashes", String(t.cashes || 0)));
         if (live) stats.appendChild(stat("Still running", String(t.running || 0)));
-        // StreamServer sends the running ones first, newest finished after.
-        fill(rows);
+        // Live: how many are at each stage, in the overlay's colours.
+        var running = rows.filter(function (r) { return r.status === "running"; });
+        var legend = $("stages");
+        legend.textContent = "";
+        if (live && running.length) {
+          var counts = STAGES.map(function () { return 0; });
+          running.forEach(function (r) { counts[stageOf(r)]++; });
+          STAGES.forEach(function (st, i) {
+            var item = el("div", "stage-legend-item stage-" + st.key, st.short);
+            item.title = st.label;
+            item.appendChild(el("span", "stage-legend-count", String(counts[i])));
+            legend.appendChild(item);
+          });
+        }
+        legend.hidden = !legend.children.length;
+        // Running first, the deepest runs on top (final table down to late
+        // reg), then the finished ones, newest first as StreamServer sends them.
+        running = running.map(function (r, i) { return { r: r, i: i }; })
+          .sort(function (a, b) { return stageOf(b.r) - stageOf(a.r) || a.i - b.i; })
+          .map(function (x) { return x.r; });
+        fill(running.concat(rows.filter(function (r) { return r.status !== "running"; })));
         $("trn-card").hidden = rows.length === 0;
         $("empty-card").hidden = rows.length > 0;
         if (!rows.length) $("empty").textContent = "No tournaments yet.";
       }
 
       function load() {
-        var year = fetch(BANKROLL, { cache: "no-store" })
+        fetch(SOURCE, { cache: "no-store" })
           .then(function (r) { return r.json(); })
-          .then(function (b) { bankroll = b; })
-          .catch(function () {});  // year to date just stays hidden
-        Promise.all([fetch(SOURCE, { cache: "no-store" }).then(function (r) { return r.json(); }), year])
-          .then(function (got) { render(got[0]); })
+          .then(render)
           .catch(function () {
             if (!$("stats-card").hidden) return; // keep what's showing
             $("empty").textContent = "Couldn't load today's session. Try again in a minute.";
