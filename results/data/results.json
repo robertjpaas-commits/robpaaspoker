@@ -14080,6 +14080,18 @@
     "buyin": 10.0,
     "rebuys": 0,
     "totalInvested": 10.0,
+    "winnings": 100.0,
+    "profit": 90.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$10 Sat to $100 Nightly Stars",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
     "winnings": 0.0,
     "profit": -10.0,
     "onlyBounty": false
@@ -14106,18 +14118,6 @@
     "totalInvested": 100.0,
     "winnings": 0.0,
     "profit": -100.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-16",
-    "name": "$100 Nightly Stars",
-    "type": "Standard",
-    "site": "PokerStars",
-    "buyin": 10.0,
-    "rebuys": 0,
-    "totalInvested": 10.0,
-    "winnings": 0.0,
-    "profit": -10.0,
     "onlyBounty": false
   },
   {
