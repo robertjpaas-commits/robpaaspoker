@@ -13402,6 +13402,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$15 sat to $150 WSOP Paradise Super Main Event",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
+    "winnings": 150.0,
+    "profit": 120.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$150 GGMasters $50K GTD",
     "type": "Standard",
     "site": "GGPoker",
@@ -14046,18 +14058,6 @@
     "totalInvested": 0,
     "winnings": 265.0,
     "profit": 265.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
-    "name": "[Stage 1] $15 to WSOP Paradise Super Main Event",
-    "type": "Standard",
-    "site": "GGPoker",
-    "buyin": 15.0,
-    "rebuys": 1,
-    "totalInvested": 30.0,
-    "winnings": 150.0,
-    "profit": 120.0,
     "onlyBounty": false
   },
   {
