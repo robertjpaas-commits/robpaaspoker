@@ -13427,7 +13427,7 @@
   {
     "date": "2026-11-15",
     "name": "$150 sat to $1500 WSOP Paradise Super Main Event",
-    "type": "Standard",
+    "type": "Satellite",
     "site": "GGPoker",
     "buyin": 150.0,
     "rebuys": 0,
