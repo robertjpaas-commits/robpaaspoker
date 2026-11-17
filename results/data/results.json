@@ -14113,11 +14113,11 @@
     "name": "$100 Nightly Stars",
     "type": "Standard",
     "site": "PokerStars",
-    "buyin": 100.0,
+    "buyin": 10.0,
     "rebuys": 3,
-    "totalInvested": 400.0,
+    "totalInvested": 40.0,
     "winnings": 0.0,
-    "profit": -400.0,
+    "profit": -40.0,
     "onlyBounty": false
   },
   {
