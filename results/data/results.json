@@ -14314,18 +14314,6 @@
   },
   {
     "date": "2026-11-16",
-    "name": "$16.5 The Super $109 PKO Sat: 2 x $109 Gtd [Auto-Reg]",
-    "type": "PKO",
-    "site": "PartyPoker",
-    "buyin": 16.5,
-    "rebuys": 0,
-    "totalInvested": 16.5,
-    "winnings": 0.0,
-    "profit": -16.5,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-16",
     "name": "$2,000 Mystery Bounty 55",
     "type": "Mystery",
     "site": "888poker",
