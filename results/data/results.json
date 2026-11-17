@@ -13246,18 +13246,6 @@
   },
   {
     "date": "2026-11-14",
-    "name": "$320 Chip Crown Championship Ticket Satellite (3 Seats GTD)",
-    "type": "Satellite",
-    "site": "WPT Gold",
-    "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
-    "winnings": 0.0,
-    "profit": -33.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-14",
     "name": "$33 Chip 6-Max PKO",
     "type": "PKO",
     "site": "WPT Gold",
@@ -13266,6 +13254,18 @@
     "totalInvested": 66.0,
     "winnings": 0.0,
     "profit": -66.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-14",
+    "name": "$33 Sat to $320 Chip Crown Championship",
+    "type": "Satellite",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
@@ -13738,18 +13738,6 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$320 Chip Crown Championship Ticket Satellite (3 Seats GTD)",
-    "type": "Satellite",
-    "site": "WPT Gold",
-    "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
-    "winnings": 0.0,
-    "profit": -33.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-15",
     "name": "$33 7-Max PKO",
     "type": "PKO",
     "site": "PartyPoker",
@@ -13782,6 +13770,18 @@
     "totalInvested": 33.0,
     "winnings": 115.3,
     "profit": 82.3,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
+    "name": "$33 Sat to $320 Chip Crown Championship",
+    "type": "Satellite",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
