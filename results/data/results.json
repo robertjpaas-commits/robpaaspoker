@@ -14638,18 +14638,6 @@
   },
   {
     "date": "2026-11-16",
-    "name": "$55 The Super PKO",
-    "type": "PKO",
-    "site": "PartyPoker",
-    "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
-    "winnings": 18.75,
-    "profit": -36.25,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-16",
     "name": "$84 Midnight Madness [Bounty Hyper]",
     "type": "PKO",
     "site": "GGPoker",
