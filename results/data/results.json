@@ -14074,6 +14074,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$10 Sat to $100 Nightly Stars",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$10 Sat to $100 Sunday Dynasty",
     "type": "Satellite",
     "site": "PokerStars",
@@ -14094,18 +14106,6 @@
     "totalInvested": 100.0,
     "winnings": 0.0,
     "profit": -100.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-16",
-    "name": "$100 Nightly Stars",
-    "type": "Standard",
-    "site": "PokerStars",
-    "buyin": 10.0,
-    "rebuys": 0,
-    "totalInvested": 10.0,
-    "winnings": 0.0,
-    "profit": -10.0,
     "onlyBounty": false
   },
   {
@@ -14206,6 +14206,18 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$200 Battle Royale",
+    "type": "PKO",
+    "site": "PokerStars",
+    "buyin": 200.0,
+    "rebuys": 0,
+    "totalInvested": 200.0,
+    "winnings": 0.0,
+    "profit": -200.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$22 ON YOUR BIKE [TURBO]",
     "type": "Standard",
     "site": "CoinPoker",
@@ -14220,6 +14232,18 @@
     "date": "2026-11-16",
     "name": "$30 Afternoon Mystery",
     "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$30 Mini Battle Royale",
+    "type": "PKO",
     "site": "PokerStars",
     "buyin": 30.0,
     "rebuys": 0,
