@@ -14098,6 +14098,30 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$105 Bounty King",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 105.0,
+    "rebuys": 0,
+    "totalInvested": 105.0,
+    "winnings": 0.0,
+    "profit": -105.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$109 $2,000 PKO Rumble 109",
+    "type": "PKO",
+    "site": "888poker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$109 The Super PKO",
     "type": "PKO",
     "site": "PartyPoker",
