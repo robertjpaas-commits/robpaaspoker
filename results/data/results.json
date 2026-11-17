@@ -14078,10 +14078,10 @@
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 10.0,
-    "rebuys": 1,
-    "totalInvested": 20.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
     "winnings": 0.0,
-    "profit": -20.0,
+    "profit": -10.0,
     "onlyBounty": false
   },
   {
@@ -14114,10 +14114,10 @@
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 10.0,
-    "rebuys": 1,
-    "totalInvested": 20.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
     "winnings": 100.0,
-    "profit": 80.0,
+    "profit": 90.0,
     "onlyBounty": false
   },
   {
@@ -14488,8 +14488,8 @@
     "buyin": 30.0,
     "rebuys": 0,
     "totalInvested": 30.0,
-    "winnings": 0.0,
-    "profit": -30.0,
+    "winnings": 10.24,
+    "profit": -19.76,
     "onlyBounty": false
   },
   {
