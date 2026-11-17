@@ -14662,6 +14662,30 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$15 Bounty Hunters Special",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$15 sat to $150 WSOP Paradise Super Main Event",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
     "type": "Mystery",
     "site": "GGPoker",
@@ -14710,6 +14734,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$5.5 Sat to $55",
+    "type": "Satellite",
+    "site": "WPT Gold",
+    "buyin": 5.5,
+    "rebuys": 0,
+    "totalInvested": 5.5,
+    "winnings": 0.0,
+    "profit": -5.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$50 Mystery Starter",
     "type": "Mystery",
     "site": "PokerStars",
@@ -14746,6 +14782,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$8.80 Mystery Bounty 55 - 5 Seats GTD",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 8.8,
+    "rebuys": 0,
+    "totalInvested": 8.8,
+    "winnings": 0.0,
+    "profit": -8.8,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "Free 5M Day 1",
     "type": "Standard",
     "site": "WPT Gold",
@@ -14754,6 +14802,18 @@
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "Mini Hundred Stack $10",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
     "onlyBounty": false
   }
 ]
