@@ -14218,6 +14218,30 @@
   },
   {
     "date": "2026-11-16",
+    "name": "$15 Turbo",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 15.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$16.5 The Sunday Party Phased Satellite: 10 x $265 Gtd [Phase 2]",
+    "type": "Satellite",
+    "site": "PartyPoker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-16",
     "name": "$16.5 The Super $109 PKO Sat: 2 x $109 Gtd [Auto-Reg]",
     "type": "PKO",
     "site": "PartyPoker",
@@ -14258,10 +14282,10 @@
     "type": "PKO",
     "site": "PokerStars",
     "buyin": 200.0,
-    "rebuys": 1,
-    "totalInvested": 400.0,
+    "rebuys": 2,
+    "totalInvested": 600.0,
     "winnings": 0.0,
-    "profit": -400.0,
+    "profit": -600.0,
     "onlyBounty": false
   },
   {
