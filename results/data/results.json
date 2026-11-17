@@ -13594,6 +13594,18 @@
   },
   {
     "date": "2026-11-15",
+    "name": "$21 Bounty Hunters Sunday Big Game",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 12.5,
+    "profit": -8.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-15",
     "name": "$215 Sunday Big Shot",
     "type": "Standard",
     "site": "888poker",
@@ -13987,18 +13999,6 @@
     "winnings": 50.0,
     "profit": -5.0,
     "onlyBounty": true
-  },
-  {
-    "date": "2026-11-15",
-    "name": "Bounty Hunters Sunday Big Game $21",
-    "type": "Bounty",
-    "site": "GGPoker",
-    "buyin": 21.0,
-    "rebuys": 0,
-    "totalInvested": 21.0,
-    "winnings": 12.5,
-    "profit": -8.5,
-    "onlyBounty": false
   },
   {
     "date": "2026-11-15",
