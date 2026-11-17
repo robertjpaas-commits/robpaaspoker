@@ -13558,8 +13558,8 @@
   },
   {
     "date": "2026-11-15",
-    "name": "$20 MEGA to GGMasters $150, 30 Seats",
-    "type": "Standard",
+    "name": "$20 Sat to $150 GGMasters",
+    "type": "Satellite",
     "site": "GGPoker",
     "buyin": 20.0,
     "rebuys": 0,
