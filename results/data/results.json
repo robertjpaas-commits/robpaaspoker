@@ -14158,18 +14158,6 @@
   },
   {
     "date": "2026-11-16",
-    "name": "$11 $800 Mystery Bounty 11",
-    "type": "Mystery",
-    "site": "888poker",
-    "buyin": 11.0,
-    "rebuys": 2,
-    "totalInvested": 33.0,
-    "winnings": 15.65,
-    "profit": -17.35,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-16",
     "name": "$11 Collision 6-Max PKO",
     "type": "PKO",
     "site": "CoinPoker",
@@ -14179,6 +14167,18 @@
     "winnings": 11.25,
     "profit": 0.25,
     "onlyBounty": true
+  },
+  {
+    "date": "2026-11-16",
+    "name": "$11 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 11.0,
+    "rebuys": 2,
+    "totalInvested": 33.0,
+    "winnings": 15.65,
+    "profit": -17.35,
+    "onlyBounty": false
   },
   {
     "date": "2026-11-16",
