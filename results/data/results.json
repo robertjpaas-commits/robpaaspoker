@@ -12958,7 +12958,7 @@
   },
   {
     "date": "2026-11-13",
-    "name": "$11 Chip Turbo Freezeout",
+    "name": "$11 Chip Turbo",
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 11.0,
@@ -12970,8 +12970,8 @@
   },
   {
     "date": "2026-11-13",
-    "name": "$11 Chip Turbo PKO",
-    "type": "PKO",
+    "name": "$11 Chip Turbo Freezeout",
+    "type": "Standard",
     "site": "WPT Gold",
     "buyin": 11.0,
     "rebuys": 0,
