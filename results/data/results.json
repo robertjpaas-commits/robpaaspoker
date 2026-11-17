@@ -13006,18 +13006,6 @@
   },
   {
     "date": "2026-11-13",
-    "name": "$2,000 Mystery Bounty 55",
-    "type": "Mystery",
-    "site": "888poker",
-    "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
-    "winnings": 423.0,
-    "profit": 368.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-13",
     "name": "$20 Mystery Express",
     "type": "Mystery",
     "site": "PokerStars",
@@ -13074,6 +13062,18 @@
     "totalInvested": 50.0,
     "winnings": 0.0,
     "profit": -50.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-13",
+    "name": "$55 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 423.0,
+    "profit": 368.0,
     "onlyBounty": false
   },
   {
