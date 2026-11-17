@@ -14662,6 +14662,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$10 Sat to $100 Nightly Stars",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$15 Bounty Hunters Special",
     "type": "Bounty",
     "site": "GGPoker",
@@ -14712,6 +14724,18 @@
     "date": "2026-11-17",
     "name": "$22 6-Max",
     "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$22 The Super $150 PKO Sat: 2 x $150 Gtd",
+    "type": "PKO",
     "site": "PartyPoker",
     "buyin": 22.0,
     "rebuys": 0,
