@@ -14185,11 +14185,11 @@
     "name": "$109 The Super PKO",
     "type": "PKO",
     "site": "PartyPoker",
-    "buyin": 109.0,
+    "buyin": 33.0,
     "rebuys": 0,
-    "totalInvested": 109.0,
-    "winnings": 188.43,
-    "profit": 79.43,
+    "totalInvested": 33.0,
+    "winnings": 7.5,
+    "profit": -25.5,
     "onlyBounty": false
   },
   {
@@ -14330,10 +14330,10 @@
     "type": "PKO",
     "site": "PartyPoker",
     "buyin": 16.5,
-    "rebuys": 0,
-    "totalInvested": 16.5,
+    "rebuys": 1,
+    "totalInvested": 33.0,
     "winnings": 0.0,
-    "profit": -16.5,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
@@ -14641,11 +14641,11 @@
     "name": "$55 The Super PKO",
     "type": "PKO",
     "site": "PartyPoker",
-    "buyin": 33.0,
+    "buyin": 55.0,
     "rebuys": 0,
-    "totalInvested": 33.0,
-    "winnings": 7.5,
-    "profit": -25.5,
+    "totalInvested": 55.0,
+    "winnings": 43.75,
+    "profit": -11.25,
     "onlyBounty": true
   },
   {
