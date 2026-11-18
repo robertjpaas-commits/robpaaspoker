@@ -14962,6 +14962,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$25 Mini Bounty Stars",
+    "type": "Bounty",
+    "site": "PokerStars",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$31.50 Bounty Hunters Deepstack",
     "type": "PKO",
     "site": "GGPoker",
