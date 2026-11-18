@@ -15118,6 +15118,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$25 Tuesday Heater [Bounty Turbo]",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 6.0,
+    "profit": -19.0,
+    "onlyBounty": true
+  },
+  {
+    "date": "2026-11-17",
     "name": "$31.50 Bounty Hunters Deepstack",
     "type": "PKO",
     "site": "GGPoker",
@@ -15367,17 +15379,5 @@
     "winnings": 0.0,
     "profit": -20.0,
     "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
-    "name": "Tuesday Heater $25 [Bounty Turbo]",
-    "type": "Bounty",
-    "site": "GGPoker",
-    "buyin": 25.0,
-    "rebuys": 0,
-    "totalInvested": 25.0,
-    "winnings": 6.0,
-    "profit": -19.0,
-    "onlyBounty": true
   }
 ]
