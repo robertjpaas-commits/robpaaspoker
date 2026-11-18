@@ -15098,18 +15098,6 @@
     "type": "Satellite",
     "site": "PartyPoker",
     "buyin": 22.0,
-    "rebuys": 5,
-    "totalInvested": 132.0,
-    "winnings": 0.0,
-    "profit": -132.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
-    "name": "$22 Sat to $150 The Super PKO",
-    "type": "Satellite",
-    "site": "PartyPoker",
-    "buyin": 22.0,
     "rebuys": 1,
     "totalInvested": 44.0,
     "winnings": 0.0,
