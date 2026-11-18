@@ -14926,18 +14926,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$20 Bounty Builder",
-    "type": "PKO",
-    "site": "PokerStars",
-    "buyin": 20.0,
-    "rebuys": 0,
-    "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$20 Sat to $200 Super Tuesday",
     "type": "Satellite",
     "site": "PokerStars",
