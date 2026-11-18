@@ -14758,6 +14758,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$110 Chip Daily 6-Max PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$110 Chip Freezeout",
     "type": "Standard",
     "site": "WPT Gold",
@@ -14902,6 +14914,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$25 Daily Deepstack",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$31.50 Bounty Hunters Deepstack",
     "type": "PKO",
     "site": "GGPoker",
@@ -14910,6 +14934,18 @@
     "totalInvested": 31.5,
     "winnings": 0.0,
     "profit": -31.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$33 Chip 6-Max",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
