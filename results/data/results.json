@@ -14710,18 +14710,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$100 Nightly Stars",
-    "type": "Standard",
-    "site": "PokerStars",
-    "buyin": 100.0,
-    "rebuys": 2,
-    "totalInvested": 300.0,
-    "winnings": 0.0,
-    "profit": -300.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$105 Bounty King",
     "type": "PKO",
     "site": "GGPoker",
