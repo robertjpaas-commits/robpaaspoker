@@ -14762,10 +14762,10 @@
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 4,
-    "totalInvested": 75.0,
+    "rebuys": 6,
+    "totalInvested": 105.0,
     "winnings": 0.0,
-    "profit": -75.0,
+    "profit": -105.0,
     "onlyBounty": false
   },
   {
