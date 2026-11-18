@@ -14834,11 +14834,59 @@
     "type": "Bounty",
     "site": "GGPoker",
     "buyin": 15.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
+    "winnings": 7.0,
+    "profit": -23.0,
+    "onlyBounty": true
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$15 Sat to $150",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
     "rebuys": 0,
     "totalInvested": 15.0,
-    "winnings": 7.0,
-    "profit": -8.0,
-    "onlyBounty": true
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$15 Sat to $150",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$15 Sat to $150",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 2,
+    "totalInvested": 45.0,
+    "winnings": 0.0,
+    "profit": -45.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$15 Sat to $150",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
   },
   {
     "date": "2026-11-17",
@@ -14846,10 +14894,10 @@
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 1,
-    "totalInvested": 30.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
     "winnings": 150.0,
-    "profit": 120.0,
+    "profit": 135.0,
     "onlyBounty": false
   },
   {
@@ -14882,10 +14930,10 @@
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 6,
-    "totalInvested": 105.0,
+    "rebuys": 2,
+    "totalInvested": 45.0,
     "winnings": 0.0,
-    "profit": -105.0,
+    "profit": -45.0,
     "onlyBounty": false
   },
   {
@@ -14978,10 +15026,34 @@
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
-    "rebuys": 5,
-    "totalInvested": 126.0,
+    "rebuys": 1,
+    "totalInvested": 42.0,
     "winnings": 0.0,
-    "profit": -126.0,
+    "profit": -42.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 1,
+    "totalInvested": 42.0,
+    "winnings": 0.0,
+    "profit": -42.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 1,
+    "totalInvested": 42.0,
+    "winnings": 0.0,
+    "profit": -42.0,
     "onlyBounty": false
   },
   {
@@ -15268,8 +15340,8 @@
     "buyin": 52.5,
     "rebuys": 0,
     "totalInvested": 52.5,
-    "winnings": 0.0,
-    "profit": -52.5,
+    "winnings": 21.87,
+    "profit": -30.63,
     "onlyBounty": false
   },
   {
