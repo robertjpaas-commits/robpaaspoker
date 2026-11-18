@@ -15142,18 +15142,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$25 Big Starter",
-    "type": "Standard",
-    "site": "PokerStars",
-    "buyin": 25.0,
-    "rebuys": 0,
-    "totalInvested": 25.0,
-    "winnings": 0.0,
-    "profit": -25.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$25 Daily Deepstack",
     "type": "Standard",
     "site": "GGPoker",
