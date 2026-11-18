@@ -15442,18 +15442,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "Bounty Builder $20",
-    "type": "Bounty",
-    "site": "PokerStars",
-    "buyin": 20.0,
-    "rebuys": 0,
-    "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "Free 5M Day 1",
     "type": "Standard",
     "site": "WPT Gold",
