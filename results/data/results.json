@@ -14674,18 +14674,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$10 Sat to $100 Nightly Stars",
-    "type": "Satellite",
-    "site": "PokerStars",
-    "buyin": 10.0,
-    "rebuys": 1,
-    "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$100 Hundred Stack",
     "type": "Standard",
     "site": "GGPoker",
@@ -14898,18 +14886,6 @@
     "totalInvested": 16.5,
     "winnings": 278.1,
     "profit": 261.6,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
-    "name": "$20 Sat to $200 Super Tuesday",
-    "type": "Satellite",
-    "site": "PokerStars",
-    "buyin": 20.0,
-    "rebuys": 0,
-    "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
     "onlyBounty": false
   },
   {
