@@ -15034,18 +15034,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$20 Super Tuesday Hyper Qualifier",
-    "type": "Satellite",
-    "site": "PokerStars",
-    "buyin": 20.0,
-    "rebuys": 2,
-    "totalInvested": 60.0,
-    "winnings": 0.0,
-    "profit": -60.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$20 Super Tuesday Qualifier",
     "type": "Satellite",
     "site": "PokerStars",
