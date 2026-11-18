@@ -14662,6 +14662,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$10 Mini Hundred Stack",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 10.0,
+    "rebuys": 1,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$10 Sat to $100 Nightly Stars",
     "type": "Satellite",
     "site": "PokerStars",
@@ -15366,18 +15378,6 @@
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
-    "name": "Mini Hundred Stack $10",
-    "type": "Standard",
-    "site": "GGPoker",
-    "buyin": 10.0,
-    "rebuys": 1,
-    "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
     "onlyBounty": false
   }
 ]
