@@ -14926,6 +14926,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$22 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 22.0,
+    "rebuys": 1,
+    "totalInvested": 44.0,
+    "winnings": 0.0,
+    "profit": -44.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$22 The Monsterstack",
     "type": "Standard",
     "site": "PartyPoker",
