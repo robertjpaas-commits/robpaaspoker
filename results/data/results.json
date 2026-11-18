@@ -14830,6 +14830,30 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$15 Tuesday Mini Cooldown",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$15 Turbo",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$15 sat to $150 WSOP Paradise Super Main Event",
     "type": "Satellite",
     "site": "GGPoker",
@@ -14850,6 +14874,18 @@
     "totalInvested": 150.0,
     "winnings": 0.0,
     "profit": -150.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$16.50 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
     "onlyBounty": false
   },
   {
@@ -15016,8 +15052,8 @@
     "buyin": 25.0,
     "rebuys": 1,
     "totalInvested": 50.0,
-    "winnings": 0.0,
-    "profit": -50.0,
+    "winnings": 24.75,
+    "profit": -25.25,
     "onlyBounty": false
   },
   {
