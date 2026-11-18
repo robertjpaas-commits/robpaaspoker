@@ -15178,18 +15178,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$25 Mini Bounty Stars",
-    "type": "Bounty",
-    "site": "PokerStars",
-    "buyin": 25.0,
-    "rebuys": 1,
-    "totalInvested": 50.0,
-    "winnings": 38.19,
-    "profit": -11.81,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$25 Mini Tuesday Classic",
     "type": "Standard",
     "site": "GGPoker",
