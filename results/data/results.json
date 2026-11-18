@@ -14698,18 +14698,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$10 Nightly Stars Qualifier",
-    "type": "Satellite",
-    "site": "PokerStars",
-    "buyin": 10.0,
-    "rebuys": 0,
-    "totalInvested": 10.0,
-    "winnings": 0.0,
-    "profit": -10.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$10 Sunday Dynasty Qualifier",
     "type": "Satellite",
     "site": "PokerStars",
