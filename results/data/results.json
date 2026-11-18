@@ -14902,6 +14902,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$21 Speed Racer Bounty [10 BB]",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 0.0,
+    "profit": -21.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$22 6-Max",
     "type": "Standard",
     "site": "PartyPoker",
@@ -15133,6 +15145,18 @@
     "name": "$55 Fifty Stack",
     "type": "Standard",
     "site": "GGPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$55 The Fast PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
