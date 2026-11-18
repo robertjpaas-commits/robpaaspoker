@@ -14962,18 +14962,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$20 Mystery Express",
-    "type": "Mystery",
-    "site": "PokerStars",
-    "buyin": 20.0,
-    "rebuys": 1,
-    "totalInvested": 40.0,
-    "winnings": 0.0,
-    "profit": -40.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$20 Sat to $200 Super Tuesday",
     "type": "Satellite",
     "site": "PokerStars",
