@@ -14962,18 +14962,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$15 Tuesday Mini Cooldown",
-    "type": "Standard",
-    "site": "PokerStars",
-    "buyin": 15.0,
-    "rebuys": 1,
-    "totalInvested": 30.0,
-    "winnings": 111.6,
-    "profit": 81.6,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$15 Turbo",
     "type": "Standard",
     "site": "CoinPoker",
