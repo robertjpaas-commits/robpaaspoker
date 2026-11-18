@@ -14750,16 +14750,16 @@
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 3,
-    "totalInvested": 60.0,
+    "rebuys": 4,
+    "totalInvested": 75.0,
     "winnings": 0.0,
-    "profit": -60.0,
+    "profit": -75.0,
     "onlyBounty": false
   },
   {
     "date": "2026-11-17",
-    "name": "$200 Super Tuesday",
-    "type": "Standard",
+    "name": "$20 Sat to $200 Super Tuesday",
+    "type": "Satellite",
     "site": "PokerStars",
     "buyin": 20.0,
     "rebuys": 0,
@@ -14814,6 +14814,18 @@
     "totalInvested": 44.0,
     "winnings": 0.0,
     "profit": -44.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$22 The Super $150 PKO Sat: 2 x $150 Gtd",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
     "onlyBounty": false
   },
   {
