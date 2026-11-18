@@ -15058,6 +15058,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$52.50 Bounty Hunters Special",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 52.5,
+    "rebuys": 0,
+    "totalInvested": 52.5,
+    "winnings": 0.0,
+    "profit": -52.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$52.50 Bounty Hunters Warm-Up",
     "type": "PKO",
     "site": "GGPoker",
@@ -15090,6 +15102,18 @@
     "totalInvested": 110.0,
     "winnings": 0.0,
     "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$55 Fifty Stack",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   },
   {
