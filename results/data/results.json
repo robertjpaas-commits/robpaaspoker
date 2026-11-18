@@ -14986,18 +14986,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$20 Super Tuesday Qualifier",
-    "type": "Satellite",
-    "site": "PokerStars",
-    "buyin": 20.0,
-    "rebuys": 0,
-    "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
     "type": "Mystery",
     "site": "GGPoker",
