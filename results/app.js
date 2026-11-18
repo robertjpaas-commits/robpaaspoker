@@ -240,7 +240,7 @@ function applyFilters() {
 
   var hasFilter = fName || fSite || fVenue || fType || fFrom || fTo || fBuyMin || fBuyMax < Infinity || fResult || fEntries;
   document.getElementById('result-count').textContent = filtered.length + ' of ' + inCur.length + ' ' + fCur + ' entries';
-  document.getElementById('summary-scope').textContent = hasFilter ? '(filtered)' : '(all time)';
+  document.getElementById('summary-scope').textContent = hasFilter ? '(filtered)' : '(since June 30, 2026)';
 
   sortFiltered();
   renderAll(filtered);
