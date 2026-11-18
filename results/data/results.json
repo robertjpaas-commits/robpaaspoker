@@ -14690,10 +14690,10 @@
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 10.0,
-    "rebuys": 0,
-    "totalInvested": 10.0,
-    "winnings": 100.0,
-    "profit": 90.0,
+    "rebuys": 1,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
     "onlyBounty": false
   },
   {
@@ -14702,10 +14702,10 @@
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 10.0,
-    "rebuys": 1,
-    "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 100.0,
+    "profit": 90.0,
     "onlyBounty": false
   },
   {
@@ -14930,6 +14930,18 @@
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 20.0,
+    "rebuys": 1,
+    "totalInvested": 40.0,
+    "winnings": 0.0,
+    "profit": -40.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$20 Sat to $200 Super Tuesday",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 20.0,
     "rebuys": 0,
     "totalInvested": 20.0,
     "winnings": 0.0,
@@ -14938,7 +14950,7 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$20 Sat to $200 Super Tuesday",
+    "name": "$20 Super Tuesday Qualifier",
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 20.0,
@@ -15088,8 +15100,8 @@
     "buyin": 25.0,
     "rebuys": 1,
     "totalInvested": 50.0,
-    "winnings": 24.75,
-    "profit": -25.25,
+    "winnings": 38.19,
+    "profit": -11.81,
     "onlyBounty": false
   },
   {
@@ -15208,8 +15220,8 @@
     "buyin": 50.0,
     "rebuys": 1,
     "totalInvested": 100.0,
-    "winnings": 266.19,
-    "profit": 166.19,
+    "winnings": 677.94,
+    "profit": 577.94,
     "onlyBounty": false
   },
   {
