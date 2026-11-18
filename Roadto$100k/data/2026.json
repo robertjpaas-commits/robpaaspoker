@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T01:12:39",
+  "generated_at": "2026-11-18T01:53:09",
   "year": 2026,
   "goal": 100000,
   "goal_rate": 1.35,
@@ -5012,6 +5012,27 @@
       "hours": 9.0,
       "page": true,
       "photos": 1,
+      "clips": 0
+    },
+    {
+      "date": "2026-11-17",
+      "cad": -220.19,
+      "usd": 3739.03,
+      "total": 4827.5,
+      "sites": {
+        "GG": -13.57,
+        "PS": 262.72,
+        "PP": -469.34,
+        "888": 0.0,
+        "Coin": -15.0,
+        "WPT": 3754.03,
+        "ACR": 0.0,
+        "Live": 0.0,
+        "LiveUSD": 0.0
+      },
+      "hours": 0.0,
+      "page": true,
+      "photos": 0,
       "clips": 0
     }
   ]
