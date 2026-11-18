@@ -14674,7 +14674,7 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$10 Sat to $100 Nightly Stars",
+    "name": "$10 Nightly Stars Hyper Qualifier",
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 10.0,
@@ -14682,6 +14682,18 @@
     "totalInvested": 10.0,
     "winnings": 0.0,
     "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$10 Nightly Stars Mega Qualifier",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 100.0,
+    "profit": 90.0,
     "onlyBounty": false
   },
   {
@@ -14699,6 +14711,30 @@
   {
     "date": "2026-11-17",
     "name": "$10 Sat to $100 Nightly Stars",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 100.0,
+    "profit": 90.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$10 Sat to $100 Nightly Stars",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$10 Sat to $100 Sunday Dynasty",
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 10.0,
@@ -14710,14 +14746,14 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$10 Sat to $100 Sunday Dynasty",
+    "name": "$10 Sunday Dynasty Qualifier",
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 10.0,
-    "rebuys": 0,
-    "totalInvested": 10.0,
-    "winnings": 100.0,
-    "profit": 90.0,
+    "rebuys": 1,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
     "onlyBounty": false
   },
   {
@@ -14730,6 +14766,18 @@
     "totalInvested": 100.0,
     "winnings": 0.0,
     "profit": -100.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$100 Nightly Stars",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 100.0,
+    "rebuys": 2,
+    "totalInvested": 300.0,
+    "winnings": 0.0,
+    "profit": -300.0,
     "onlyBounty": false
   },
   {
@@ -14914,6 +14962,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$15 Tuesday Mini Cooldown",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 15.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
+    "winnings": 111.6,
+    "profit": 81.6,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$15 Turbo",
     "type": "Standard",
     "site": "CoinPoker",
@@ -14986,6 +15046,30 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$20 Mystery Express",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 1,
+    "totalInvested": 40.0,
+    "winnings": 0.0,
+    "profit": -40.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$20 Sat to $200 Super Tuesday",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 2,
+    "totalInvested": 60.0,
+    "winnings": 0.0,
+    "profit": -60.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$20 Sat to $200 Super Tuesday",
     "type": "Satellite",
     "site": "PokerStars",
@@ -14998,7 +15082,19 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$20 Sat to $200 Super Tuesday",
+    "name": "$20 Super Tuesday Hyper Qualifier",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$20 Super Tuesday Qualifier",
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 20.0,
@@ -15166,6 +15262,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$25 Big Starter",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$25 Daily Deepstack",
     "type": "Standard",
     "site": "GGPoker",
@@ -15174,6 +15282,18 @@
     "totalInvested": 50.0,
     "winnings": 0.0,
     "profit": -50.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$25 Mini Bounty Stars",
+    "type": "Bounty",
+    "site": "PokerStars",
+    "buyin": 25.0,
+    "rebuys": 1,
+    "totalInvested": 50.0,
+    "winnings": 38.19,
+    "profit": -11.81,
     "onlyBounty": false
   },
   {
@@ -15334,6 +15454,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$50 Mystery Starter",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 50.0,
+    "rebuys": 1,
+    "totalInvested": 100.0,
+    "winnings": 677.94,
+    "profit": 577.94,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$52.50 Bounty Hunters Special",
     "type": "PKO",
     "site": "GGPoker",
@@ -15454,6 +15586,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "Bounty Builder $20",
+    "type": "Bounty",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "Free 5M Day 1",
     "type": "Standard",
     "site": "WPT Gold",
@@ -15462,6 +15606,18 @@
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "Nightly Stars $10 Qualifier",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
     "onlyBounty": false
   }
 ]
