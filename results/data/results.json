@@ -15130,6 +15130,18 @@
   },
   {
     "date": "2026-11-17",
+    "name": "$55 Chip Crown Cup - Day 1",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
     "name": "$55 Chip Daily PKO",
     "type": "PKO",
     "site": "WPT Gold",
