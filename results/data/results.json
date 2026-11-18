@@ -97,18 +97,7 @@
   },
   {
     "date": "2026-06-30",
-    "name": "$20 Super Tuesday Hyper Qualifier",
-    "site": "PokerStars",
-    "type": "Satellite",
-    "buyin": 20,
-    "rebuys": 1,
-    "totalInvested": 40,
-    "winnings": 0,
-    "profit": -40
-  },
-  {
-    "date": "2026-06-30",
-    "name": "$200 Super Tuesday",
+    "name": "$20 Sat to $200 Super Tuesday",
     "site": "PokerStars",
     "type": "Standard",
     "buyin": 200,
@@ -117,6 +106,17 @@
     "winnings": 422.79,
     "profit": 222.79,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-06-30",
+    "name": "$20 Super Tuesday Hyper Qualifier",
+    "site": "PokerStars",
+    "type": "Satellite",
+    "buyin": 20,
+    "rebuys": 1,
+    "totalInvested": 40,
+    "winnings": 0,
+    "profit": -40
   },
   {
     "date": "2026-06-30",
@@ -3370,7 +3370,7 @@
   },
   {
     "date": "2026-07-28",
-    "name": "$200 Super Tuesday",
+    "name": "$20 Sat to $200 Super Tuesday",
     "site": "PokerStars",
     "type": "Standard",
     "buyin": 200,
@@ -6166,7 +6166,7 @@
   },
   {
     "date": "2026-08-11",
-    "name": "$200 Super Tuesday",
+    "name": "$20 Sat to $200 Super Tuesday",
     "site": "PokerStars",
     "type": "Standard",
     "buyin": 200,
@@ -6178,7 +6178,7 @@
   },
   {
     "date": "2026-08-11",
-    "name": "$200 Super Tuesday",
+    "name": "$20 Sat to $200 Super Tuesday",
     "site": "PokerStars",
     "type": "Standard",
     "buyin": 200,
@@ -9022,7 +9022,7 @@
   },
   {
     "date": "2026-09-08",
-    "name": "$200 Super Tuesday",
+    "name": "$20 Sat to $200 Super Tuesday",
     "site": "PokerStars",
     "type": "Standard",
     "buyin": 200,
@@ -14826,6 +14826,18 @@
     "totalInvested": 20.0,
     "winnings": 0.0,
     "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$20 Sat to $200 Super Tuesday",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 1,
+    "totalInvested": 40.0,
+    "winnings": 0.0,
+    "profit": -40.0,
     "onlyBounty": false
   },
   {
