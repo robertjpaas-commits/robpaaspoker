@@ -14,12 +14,26 @@ var resultsShowAll = false;
 var trnSortKey     = 'profit';
 var trnSortDir     = -1;
 
-// USD-denominated sites. Nothing is converted (2026-11-14): the page shows one
-// currency at a time (the Currency filter), so every total and stat adds only
-// dollars of one kind. CAD is "$", USD "US$".
+// USD-denominated sites. CAD is "$", USD "US$". The Currency filter shows CAD
+// rooms, USD rooms, or Combined (the default since 2026-11-18, by request):
+// both together in CAD with USD at the Road to $100K's goal_rate, read from its
+// 2026.json (GOAL_RATE until that loads). Combined converts copies of the USD
+// rows (asCad); the results table and the CSV still show each row's own money.
 var USD_SITES = { 'wpt gold': true, 'coinpoker': true, 'acr': true };
 function curOf(r) { return USD_SITES[(r.site || '').toLowerCase()] ? 'USD' : 'CAD'; }
 var SYM = '$';
+var GOAL_RATE = 1.35;
+function symOf(r) { return curOf(r) === 'USD' ? 'US$' : '$'; }
+function asCad(r) {
+  if (curOf(r) !== 'USD') return r;
+  var c = {}, k;
+  for (k in r) c[k] = r[k];
+  ['buyin', 'totalInvested', 'winnings', 'profit'].forEach(function(f) {
+    if (r[f] != null) c[f] = Math.round(r[f] * GOAL_RATE * 100) / 100;
+  });
+  c._orig = r;
+  return c;
+}
 // Live events are logged with site "Live". They get their own Online vs Live
 // table and filter rather than sitting among the online rooms.
 function isLive(r) { return (r.site || '').toLowerCase() === 'live'; }
@@ -32,10 +46,11 @@ function money(n) { return n.toLocaleString('en-US', { minimumFractionDigits: 2,
 function dollars(n) { return Math.round(n).toLocaleString('en-US'); }
 
 function getInvested(r) { return r.totalInvested != null ? r.totalInvested : (r.buyin || 0); }
-function fmtProfit(n) {
-  if (n > 0)  return '<span class="positive">+' + SYM + money(n) + '</span>';
-  if (n < 0)  return '<span class="negative">-' + SYM + money(Math.abs(n)) + '</span>';
-  return '<span class="neutral">' + SYM + '0.00</span>';
+function fmtProfit(n, sym) {
+  sym = sym || SYM;
+  if (n > 0)  return '<span class="positive">+' + sym + money(n) + '</span>';
+  if (n < 0)  return '<span class="negative">-' + sym + money(Math.abs(n)) + '</span>';
+  return '<span class="neutral">' + sym + '0.00</span>';
 }
 function fmtRoi(roi) {
   if (roi > 0)  return '<span class="positive">+' + roi + '%</span>';
@@ -182,6 +197,13 @@ function load() {
       });
       populateSiteFilter();
       applyFilters();
+      // The goal's rate, so Combined matches the Road to $100K page.
+      fetch('../Roadto$100k/data/2026.json')
+        .then(function(r) { return r.ok ? r.json() : null; })
+        .then(function(d) {
+          if (d && d.goal_rate && d.goal_rate !== GOAL_RATE) { GOAL_RATE = d.goal_rate; applyFilters(); }
+        })
+        .catch(function() {});
     })
     .catch(function(err) {
       allResults = [];
@@ -194,8 +216,8 @@ function load() {
 
 function populateSiteFilter() {
   var sites = {};
-  var fCur = document.getElementById('f-cur').value || 'CAD';
-  allResults.forEach(function(r) { if (r.site && !isLive(r) && curOf(r) === fCur) sites[r.site] = true; });
+  var fCur = document.getElementById('f-cur').value || 'ALL';
+  allResults.forEach(function(r) { if (r.site && !isLive(r) && (fCur === 'ALL' || curOf(r) === fCur)) sites[r.site] = true; });
   var sel = document.getElementById('f-site');
   var prev = sel.value;
   while (sel.options.length > 1) sel.remove(1);
@@ -217,10 +239,12 @@ function applyFilters() {
   var fBuyMax = parseFloat(document.getElementById('f-buyin-max').value) || Infinity;
   var fResult  = document.getElementById('f-result').value;
   var fEntries = document.getElementById('f-entries').value;
-  var fCur     = document.getElementById('f-cur').value || 'CAD';
+  var fCur     = document.getElementById('f-cur').value || 'ALL';
   SYM = fCur === 'USD' ? 'US$' : '$';
 
-  var inCur = allResults.filter(function(r) { return curOf(r) === fCur; });
+  var inCur = fCur === 'ALL'
+    ? allResults.map(asCad)
+    : allResults.filter(function(r) { return curOf(r) === fCur; });
   filtered = inCur.filter(function(r) {
     if (fName && (r.name || '').toLowerCase().indexOf(fName) === -1) return false;
     if (fSite && r.site !== fSite) return false;
@@ -239,8 +263,9 @@ function applyFilters() {
   });
 
   var hasFilter = fName || fSite || fVenue || fType || fFrom || fTo || fBuyMin || fBuyMax < Infinity || fResult || fEntries;
-  document.getElementById('result-count').textContent = filtered.length + ' of ' + inCur.length + ' ' + fCur + ' entries';
-  document.getElementById('summary-scope').textContent = hasFilter ? '(filtered)' : '(since June 30, 2026)';
+  document.getElementById('result-count').textContent = filtered.length + ' of ' + inCur.length + (fCur === 'ALL' ? '' : ' ' + fCur) + ' entries';
+  document.getElementById('summary-scope').textContent = (hasFilter ? '(filtered' : '(since June 30, 2026') +
+    (fCur === 'ALL' ? ', USD at ' + GOAL_RATE + ')' : ')');
 
   sortFiltered();
   renderAll(filtered);
@@ -609,11 +634,14 @@ function renderResultsTable(rows) {
   var tbody = document.getElementById('results-body');
   if (!rows.length) { tbody.innerHTML = '<tr><td colspan="9" class="empty-msg">No results match the current filters.</td></tr>'; return; }
   var shown = resultsShowAll ? rows : rows.slice(0, PAGE_SIZE);
-  var html = shown.map(function(r) {
+  var html = shown.map(function(row) {
+    // Each row in the money it was played in, even under Combined.
+    var r        = row._orig || row;
+    var sym      = symOf(r);
     var win      = r.winnings || 0;
     var inv      = getInvested(r);
     var prof     = r.profit != null ? r.profit : Math.round((win - inv) * 100) / 100;
-    var invCell  = '-' + SYM + money(inv);
+    var invCell  = '-' + sym + money(inv);
     var entriesCell = r.rebuys > 0
       ? '<span class="rebuy-badge">+' + r.rebuys + ' rebuy' + (r.rebuys > 1 ? 's' : '') + '</span>'
       : '<span style="color:var(--text-muted);">Original</span>';
@@ -623,11 +651,11 @@ function renderResultsTable(rows) {
         (r.days ? '<div class="days-note">' + escH(r.days) + '</div>' : '') + '</td>' +
       '<td style="font-size:12px;color:#8c867b;white-space:nowrap;">' + escH(r.type || '—') + '</td>' +
       '<td class="col-site">' + escH(r.site || '—') + '</td>' +
-      '<td class="col-num" style="color:var(--negative);">-' + SYM + money((r.buyin || 0)) + '</td>' +
+      '<td class="col-num" style="color:var(--negative);">-' + sym + money((r.buyin || 0)) + '</td>' +
       '<td class="col-num">' + entriesCell + '</td>' +
       '<td class="col-num">' + invCell + '</td>' +
-      '<td class="col-num">' + (win > 0 ? '<span style="color:var(--positive);">+' + SYM + money(win) + '</span>' : '<span style="color:var(--text-muted);">—</span>') + '</td>' +
-      '<td class="col-num">' + fmtProfit(prof) + '</td>' +
+      '<td class="col-num">' + (win > 0 ? '<span style="color:var(--positive);">+' + sym + money(win) + '</span>' : '<span style="color:var(--text-muted);">—</span>') + '</td>' +
+      '<td class="col-num">' + fmtProfit(prof, sym) + '</td>' +
       '</tr>';
   }).join('');
   if (rows.length > PAGE_SIZE) {
@@ -642,12 +670,13 @@ function renderResultsTable(rows) {
 
 // ── Export CSV ─────────────────────────────────────
 function exportCSV() {
-  var rows = [['Date','Tournament','Site','Buy-in','Rebuys','Total Invested','Winnings','Profit']];
-  filtered.forEach(function(r) {
+  var rows = [['Date','Tournament','Site','Currency','Buy-in','Rebuys','Total Invested','Winnings','Profit']];
+  filtered.forEach(function(row) {
+    var r    = row._orig || row;
     var win  = r.winnings || 0;
     var inv  = getInvested(r);
     var prof = r.profit != null ? r.profit : Math.round((win - inv) * 100) / 100;
-    rows.push([r.date || '', '"' + (r.name || '').replace(/"/g,'""') + '"', r.site || '',
+    rows.push([r.date || '', '"' + (r.name || '').replace(/"/g,'""') + '"', r.site || '', curOf(r),
       (r.buyin || 0).toFixed(2), (r.rebuys || 0), inv.toFixed(2), win.toFixed(2), prof.toFixed(2)]);
   });
   var csv = rows.map(function(r) { return r.join(','); }).join('\n');
