@@ -15238,18 +15238,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$50 Mystery Starter",
-    "type": "Mystery",
-    "site": "PokerStars",
-    "buyin": 50.0,
-    "rebuys": 1,
-    "totalInvested": 100.0,
-    "winnings": 677.94,
-    "profit": 577.94,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$52.50 Bounty Hunters Special",
     "type": "PKO",
     "site": "GGPoker",
