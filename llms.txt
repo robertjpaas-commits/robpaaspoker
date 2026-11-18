@@ -6,7 +6,7 @@ Figures as of November 18, 2026, updated automatically after each session:
 
 - 2026 profit: +$98,439 toward a $100,000 goal (Canadian dollars, US-dollar rooms counted at 1.35), $10K ahead of pace
 - 148 days and 1,320.4 hours played, +$75 per hour
-- Tournaments logged in Canadian-dollar rooms: 917, net +$8,383, ROI +8.2%, in the money 17.6% of buy-ins
+- Tournaments logged in Canadian-dollar rooms: 917, net +$8,350, ROI +8.2%, in the money 17.6% of buy-ins
 - Tournaments logged in US-dollar rooms: 357, net +US$33,341, ROI +107.1%, in the money 19.2% of buy-ins
 
 ## Pages

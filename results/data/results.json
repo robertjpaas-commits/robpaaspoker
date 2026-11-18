@@ -14662,18 +14662,6 @@
   },
   {
     "date": "2026-11-17",
-    "name": "$0 7-Max PKO Hyper",
-    "type": "PKO",
-    "site": "PartyPoker",
-    "buyin": 0.0,
-    "rebuys": 0,
-    "totalInvested": 0.0,
-    "winnings": 0.0,
-    "profit": 0.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-17",
     "name": "$10 Mini Hundred Stack",
     "type": "Standard",
     "site": "GGPoker",
@@ -15167,6 +15155,18 @@
   {
     "date": "2026-11-17",
     "name": "$33 7-Max PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-17",
+    "name": "$33 7-Max PKO Hyper",
     "type": "PKO",
     "site": "PartyPoker",
     "buyin": 33.0,
