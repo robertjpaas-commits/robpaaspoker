@@ -356,11 +356,11 @@ body.lb-open { overflow: hidden; }
   gap: 12px;
 }
 
-.shot { margin: 0; width: min(200px, calc(50% - 6px)); }
+.shot { margin: 0; max-width: 100%; }
 
 .shot-btn {
   display: block;
-  width: 100%;
+  max-width: 100%;
   padding: 0;
   border: 1px solid var(--hairline);
   border-radius: 4px;
@@ -373,15 +373,21 @@ body.lb-open { overflow: hidden; }
 .shot-btn:hover { border-color: var(--gold); }
 .shot-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
-/* Square rather than 4:3: the grid mixes landscape screenshots with portrait phone
-   photos, and a landscape thumb crops a portrait shot down to a middle strip. The
-   lightbox shows the uncropped image either way. */
+/* Whole photos, never cropped (2026-11-19, by request: the square crop saved no
+   space and hid half the shot). One height for the row, each at its own shape, so
+   a portrait phone photo is narrow and a screenshot wide. A shot wider than the
+   page scales down with it rather than squashing. */
 .shot-btn img {
   display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 300px;
 }
+@media (max-width: 560px) {
+  .shot-btn img { max-height: 240px; }
+}
+.shot figcaption { max-width: 100%; }
 
 .shot figcaption {
   margin-top: 7px;
