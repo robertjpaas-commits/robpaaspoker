@@ -134,7 +134,46 @@ body.lb-open { overflow: hidden; }
   color: var(--ink);
 }
 
-/* ---------- prev / next ---------- */
+/* ---------- date, arrows, Calendar (day pages) ---------- */
+
+/* Small arrows either side of the date and a small Calendar link under it, no
+   boxes (2026-11-19, by request: they replaced the button strip at the foot). The
+   header's bottom margin shrinks so the link sits in the gap that was already
+   there above the photos. */
+.day-header { margin-bottom: 14px; }
+
+.date-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0 0;
+}
+.date-row .page-title { margin: 0; min-width: 0; }
+
+.date-step {
+  flex: 0 0 22px;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--gold-dim);
+  text-decoration: none;
+  transition: color 0.15s ease-out;
+}
+a.date-step:hover { color: var(--gold); }
+
+.date-cal {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-subtle);
+  text-decoration: none;
+  transition: color 0.15s ease-out;
+}
+.date-cal:hover { color: var(--gold); }
+
+/* ---------- prev / next (the Today page's foot) ---------- */
 
 /* Three columns rather than space-between, so Calendar sits dead centre even on the
    newest day, where there is no "Later" link to balance the "Earlier" one. The
