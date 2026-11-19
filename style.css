@@ -690,21 +690,27 @@ section + section {
   padding: 3px 8px;
 }
 
-/* Fixed four columns, not auto-fill: the exporter caps this at four photos, and
-   auto-fill would spread them into seven thin columns on a wide card. */
+/* Whole photos, never cropped (2026-11-19, by request, as on the day pages: the
+   square crop saved too little space to be worth hiding part of the shot). A
+   centred row at one capped height, each photo at its own shape. The exporter
+   sends at most four. */
 .session-shots {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
 
 .session-clips + .session-shots { margin-top: 14px; }
 
+.session-shots a { display: block; max-width: 100%; }
+
 .session-shots img {
   display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 260px;
   border: 1px solid var(--hairline);
   border-radius: 4px;
   transition: border-color 0.15s ease-out;
@@ -813,7 +819,7 @@ section + section {
      site chips below it read better centred at phone width. */
   .hero-stats { text-align: center; }
   .site-chips { justify-content: center; }
-  .session-shots { grid-template-columns: repeat(2, 1fr); }
+  .session-shots img { max-height: 220px; }
   .card { padding: 18px; }
 }
 
