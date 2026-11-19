@@ -91,7 +91,7 @@
   function render(rows, note) {
     box.textContent = "";
     if (!rows.length) { box.hidden = true; return; }
-    box.appendChild(el("div", "card-title", "Tournaments"));
+    // No "Tournaments" title (2026-11-19, by request): the count below says it.
     if (note) box.appendChild(el("div", "trn-when", note));
     var strip = el("div", "stat-row trn-stats");
     strip.appendChild(stat("Tournaments", rows.length));

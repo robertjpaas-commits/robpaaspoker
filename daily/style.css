@@ -345,13 +345,19 @@ body.lb-open { overflow: hidden; }
 
 /* ---------- photos ---------- */
 
+/* No card or title (2026-11-19, by request): the photos sit centred between the
+   money card and the tournaments card, closer to both than cards are to each other. */
+.page > .day-photos { margin-top: 16px; }
+.page > .day-photos + section { margin-top: 16px; }
+
 .shot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
 }
 
-.shot { margin: 0; }
+.shot { margin: 0; width: min(200px, calc(50% - 6px)); }
 
 .shot-btn {
   display: block;
