@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=40">
+  <link rel="stylesheet" href="style.css?v=41">
   <!-- Who Rob is, for search engines and AI tools: the same Person as about/. -->
   <script type="application/ld+json">
   {
@@ -153,9 +153,9 @@
         <a class="session-date" id="session-date" href="#"></a>
       </div>
 
+      <!-- No hours (2026-11-19, by request); the card is centred, like its photos. -->
       <div class="session-figures">
         <div class="session-figure" id="session-total"></div>
-        <div class="session-meta" id="session-meta"></div>
       </div>
 
       <div class="site-chips" id="session-sites"></div>
@@ -471,9 +471,6 @@
       totalEl.innerHTML = played.map((c) =>
         `<span class="${signClass(both[c])}">${withCur(both[c], c)}</span>`).join(" + ");
       totalEl.className = "session-figure";
-
-      document.getElementById("session-meta").textContent =
-        session.hours > 0 ? `${session.hours}${session.hours === 1 ? " hr" : " hrs"}` : "";
 
       document.getElementById("session-sites").innerHTML = session.sites.map((s) =>
         `<span class="site-chip ${signClass(s.value)}">${s.name}` +
