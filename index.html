@@ -128,7 +128,7 @@
     <!-- ── The hero: 2026 progress, the curve, and pace against the goal ── -->
     <section class="card hero reveal">
       <div class="hero-top">
-        <div class="hero-eyebrow">2026 Road to $100K<span id="hero-rate"> · USD at 1.35</span></div>
+        <div class="hero-eyebrow">2026 Road to $100K</div>
         <div class="hero-pace positive" id="hero-pace">$10K ahead of pace</div>
       </div>
 
@@ -391,10 +391,8 @@
 
     function renderHero(data) {
       const total = data.days.reduce((sum, d) => sum + d.total, 0);
-      // The one figure that adds the currencies: USD at the fixed goal rate.
-      if (data.goal_rate && data.days.some((d) => Math.abs(d.usd || 0) > 0.005)) {
-        document.getElementById("hero-rate").textContent = ` \u00b7 USD at ${data.goal_rate}`;
-      }
+      // CAD plus USD at the goal rate, said nowhere on the page (2026-11-19, by
+      // request: "USD at 1.35" only confused).
       const totalEl = document.getElementById("hero-total");
       // Everything below is rewritten in this same task, so the pre-rendered figures
       // can show again: the count-up starts from $0 as before.
@@ -458,18 +456,12 @@
       dateEl.textContent = session.pretty;
       dateEl.href = session.url;
 
-      // Each currency on its own; an export from before the split has only total.
-      const both = session.cad !== undefined ? { CAD: session.cad, USD: session.usd || 0 }
-                                             : { CAD: session.total, USD: 0 };
-      const played = ["CAD", "USD"].filter((c) => Math.abs(both[c]) > 0.005);
-      if (!played.length) played.push("CAD");
+      // One figure, no currency word (2026-11-19, by request): `total` is CAD
+      // plus USD at the goal rate, as the $100K hero counts it. The day page
+      // keeps each currency apart. No hours or hourly either.
       const totalEl = document.getElementById("session-total");
-      // "$823 CAD + $949 US": the currency as a word after each figure (by request).
-      // Each figure takes its own colour: a CAD loss stays red beside a USD win.
-      // No hourly rate (removed 2026-11-17, by request: meaningless for one day).
-      const withCur = (value, c) => `${fmtMoney(value, { signed: true })} ${c === "USD" ? "US" : "CAD"}`;
-      totalEl.innerHTML = played.map((c) =>
-        `<span class="${signClass(both[c])}">${withCur(both[c], c)}</span>`).join(" + ");
+      totalEl.innerHTML =
+        `<span class="${signClass(session.total)}">${fmtMoney(session.total, { signed: true })}</span>`;
       totalEl.className = "session-figure";
 
       document.getElementById("session-sites").innerHTML = session.sites.map((s) =>

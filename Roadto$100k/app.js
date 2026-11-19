@@ -165,20 +165,10 @@ function renderHero({ animate = false } = {}) {
   const isAll = currentSite === "ALL";
   const total = days.reduce((sum, d) => sum + dayValue(d), 0);
 
+  // One figure, no "USD at 1.35" and no CAD / USD split under it (2026-11-19,
+  // by request: that detail is for the day pages).
   document.getElementById("hero-label").textContent =
-    `${isAll ? "All sites" : DATA.site_names[currentSite] || currentSite} · ${DATA.year} profit` +
-    (isAll && DATA.goal_rate ? ` · USD at ${DATA.goal_rate}` : "");
-
-  // Under the combined figure, what it's made of: the CAD and the USD, each
-  // in its own currency.
-  const split = document.getElementById("hero-split");
-  if (split) {
-    const cad = days.reduce((s, d) => s + (d.cad ?? d.total), 0);
-    const usd = days.reduce((s, d) => s + (d.usd || 0), 0);
-    split.textContent = isAll && Math.abs(usd) > 0.005
-      ? `${fmtMoney(cad, { signed: true, cur: "CAD" })} CAD · ${fmtMoney(usd, { signed: true, cur: "USD" })} USD`
-      : "";
-  }
+    `${isAll ? "All sites" : DATA.site_names[currentSite] || currentSite} · ${DATA.year} profit`;
 
   const heroEl = document.getElementById("hero-total");
   heroEl.className = "hero-figure " + (total >= 0 ? "positive" : "negative");
