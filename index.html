@@ -161,8 +161,9 @@
       <div class="site-chips" id="session-sites"></div>
 
       <div class="session-media" id="session-media"></div>
-
-      <a class="hero-link" id="session-link" href="#">Full day breakdown &rarr;</a>
+      <!-- No "Full day breakdown" link (2026-11-19, by request): it sat
+           off-centre under the centred photos, and the gold date above and
+           the photos already open the day page. -->
     </section>
 
     <!-- ── Everything else ── -->
@@ -456,7 +457,6 @@
       const dateEl = document.getElementById("session-date");
       dateEl.textContent = session.pretty;
       dateEl.href = session.url;
-      document.getElementById("session-link").href = session.url;
 
       // Each currency on its own; an export from before the split has only total.
       const both = session.cad !== undefined ? { CAD: session.cad, USD: session.usd || 0 }
