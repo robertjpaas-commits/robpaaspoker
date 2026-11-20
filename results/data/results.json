@@ -15478,6 +15478,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$22 Chip 6-Max Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$30 Afternoon Mystery",
     "type": "Mystery",
     "site": "PokerStars",
@@ -15486,6 +15498,30 @@
     "totalInvested": 30.0,
     "winnings": 0.0,
     "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$33 Sat to $320",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$55 The Super PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   },
   {
