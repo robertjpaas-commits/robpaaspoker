@@ -15430,6 +15430,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$109 PKO Rumble",
+    "type": "PKO",
+    "site": "888poker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$110 Chip Afternoon Classic",
     "type": "Standard",
     "site": "WPT Gold",
@@ -15490,6 +15502,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$16.50 Sat to $109 The Super PKO",
+    "type": "Satellite",
+    "site": "PartyPoker",
+    "buyin": 16.5,
+    "rebuys": 1,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
     "type": "Mystery",
     "site": "GGPoker",
@@ -15522,6 +15546,18 @@
     "totalInvested": 30.0,
     "winnings": 0.0,
     "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$31.50 Bounty Hunters Deepstack",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 31.5,
+    "rebuys": 0,
+    "totalInvested": 31.5,
+    "winnings": 0.0,
+    "profit": -31.5,
     "onlyBounty": false
   },
   {
