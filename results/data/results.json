@@ -15430,6 +15430,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$110 Chip Afternoon Classic",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$15 sat to $150 WSOP Paradise Super Main Event",
     "type": "Satellite",
     "site": "GGPoker",
@@ -15506,10 +15518,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
+    "rebuys": 2,
+    "totalInvested": 99.0,
     "winnings": 0.0,
-    "profit": -33.0,
+    "profit": -99.0,
     "onlyBounty": false
   },
   {
@@ -15518,10 +15530,10 @@
     "type": "PKO",
     "site": "PartyPoker",
     "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
+    "rebuys": 1,
+    "totalInvested": 110.0,
     "winnings": 0.0,
-    "profit": -55.0,
+    "profit": -110.0,
     "onlyBounty": false
   },
   {
