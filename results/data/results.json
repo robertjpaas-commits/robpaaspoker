@@ -15442,14 +15442,26 @@
   },
   {
     "date": "2026-11-20",
-    "name": "$15 sat to $150 WSOP Paradise Super Main Event",
-    "type": "Satellite",
+    "name": "$15 Bounty Hunters Special",
+    "type": "Bounty",
     "site": "GGPoker",
     "buyin": 15.0,
     "rebuys": 0,
     "totalInvested": 15.0,
     "winnings": 0.0,
     "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$15 sat to $150 WSOP Paradise Super Main Event",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 3,
+    "totalInvested": 60.0,
+    "winnings": 0.0,
+    "profit": -60.0,
     "onlyBounty": false
   },
   {
@@ -15494,10 +15506,10 @@
     "type": "Bounty",
     "site": "WPT Gold",
     "buyin": 22.0,
-    "rebuys": 1,
-    "totalInvested": 44.0,
+    "rebuys": 2,
+    "totalInvested": 66.0,
     "winnings": 0.0,
-    "profit": -44.0,
+    "profit": -66.0,
     "onlyBounty": false
   },
   {
