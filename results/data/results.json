@@ -15415,5 +15415,101 @@
     "winnings": 0.0,
     "profit": 0.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$10 Mini Hundred Stack",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$15 sat to $150 WSOP Paradise Super Main Event",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$16.50 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$16.50 Sat to $109 The Super PKO",
+    "type": "Satellite",
+    "site": "PartyPoker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 0.0,
+    "profit": -21.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$30 Afternoon Mystery",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "10 Seats to ₮215 CoinMillion",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 24.0,
+    "rebuys": 0,
+    "totalInvested": 24.0,
+    "winnings": 0.0,
+    "profit": -24.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "Free 5M Day 1",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 0.0,
+    "profit": 0.0,
+    "onlyBounty": false
   }
 ]
