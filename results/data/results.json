@@ -15430,6 +15430,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$109 $20,000 Mystery Bounty 109 - Day 1",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$109 PKO Rumble",
     "type": "PKO",
     "site": "888poker",
@@ -15438,6 +15450,18 @@
     "totalInvested": 218.0,
     "winnings": 0.0,
     "profit": -218.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$109 Super PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
     "onlyBounty": false
   },
   {
@@ -15478,6 +15502,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$15 Big",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$15 Bounty Hunters Special",
     "type": "Bounty",
     "site": "GGPoker",
@@ -15514,6 +15550,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$16.50 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$16.50 Sat to $109 The Super PKO",
     "type": "Satellite",
     "site": "PartyPoker",
@@ -15534,6 +15582,18 @@
     "totalInvested": 33.0,
     "winnings": 0.0,
     "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$16.50 Sat to $109 The Super PKO",
+    "type": "Satellite",
+    "site": "PartyPoker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
     "onlyBounty": false
   },
   {
