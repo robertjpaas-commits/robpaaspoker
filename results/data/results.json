@@ -15520,9 +15520,9 @@
     "buyin": 15.0,
     "rebuys": 0,
     "totalInvested": 15.0,
-    "winnings": 0.0,
-    "profit": -15.0,
-    "onlyBounty": false
+    "winnings": 14.0,
+    "profit": -1.0,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-20",
@@ -15614,10 +15614,10 @@
     "type": "Bounty",
     "site": "WPT Gold",
     "buyin": 22.0,
-    "rebuys": 2,
-    "totalInvested": 66.0,
+    "rebuys": 3,
+    "totalInvested": 88.0,
     "winnings": 0.0,
-    "profit": -66.0,
+    "profit": -88.0,
     "onlyBounty": false
   },
   {
