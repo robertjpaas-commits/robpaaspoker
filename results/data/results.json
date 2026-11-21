@@ -15458,10 +15458,10 @@
     "type": "Standard",
     "site": "PokerStars",
     "buyin": 100.0,
-    "rebuys": 1,
-    "totalInvested": 200.0,
+    "rebuys": 2,
+    "totalInvested": 300.0,
     "winnings": 0.0,
-    "profit": -200.0,
+    "profit": -300.0,
     "onlyBounty": false
   },
   {
@@ -15694,6 +15694,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$20 Bounty Builder",
+    "type": "PKO",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
     "type": "Mystery",
     "site": "GGPoker",
@@ -15810,6 +15822,18 @@
     "totalInvested": 33.0,
     "winnings": 0.0,
     "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$52.50 Bounty Hunters Special",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 52.5,
+    "rebuys": 0,
+    "totalInvested": 52.5,
+    "winnings": 0.0,
+    "profit": -52.5,
     "onlyBounty": false
   },
   {
