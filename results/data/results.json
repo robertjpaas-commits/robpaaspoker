@@ -15904,18 +15904,6 @@
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
-    "winnings": 0.0,
-    "profit": -55.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-20",
-    "name": "$55 Chip Mystery Bounty",
-    "type": "Mystery",
-    "site": "WPT Gold",
-    "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
     "winnings": 6587.02,
     "profit": 6532.02,
     "onlyBounty": false
@@ -15942,6 +15930,18 @@
     "totalInvested": 55.0,
     "winnings": 921.43,
     "profit": 866.43,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$55 Sat to $530 Chip Crown Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   },
   {
