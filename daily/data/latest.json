@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-21T00:40:15",
+  "generated_at": "2026-11-21T00:40:58",
   "session": {
     "date": "2026-11-20",
     "pretty": "Friday, November 20",
     "url": "daily/2026-11-20.html",
-    "total": 9301.36,
+    "total": 9279.01,
     "cad": 950.23,
-    "usd": 6186.02,
+    "usd": 6169.47,
     "hours": 6.75,
     "sites": [
       {
@@ -33,6 +33,11 @@
         "name": "PokerStars",
         "value": -45.22,
         "cur": "CAD"
+      },
+      {
+        "name": "CoinPoker",
+        "value": -16.55,
+        "cur": "USD"
       }
     ],
     "photos": [
