@@ -15494,10 +15494,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 11.0,
-    "rebuys": 0,
-    "totalInvested": 11.0,
+    "rebuys": 2,
+    "totalInvested": 33.0,
     "winnings": 0.0,
-    "profit": -11.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
@@ -15514,6 +15514,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$11 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 11.0,
+    "rebuys": 1,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$110 Chip Afternoon Classic",
     "type": "Standard",
     "site": "WPT Gold",
@@ -15522,6 +15534,18 @@
     "totalInvested": 330.0,
     "winnings": 0.0,
     "profit": -330.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$110 Chip Daily 6-Max PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
     "onlyBounty": false
   },
   {
@@ -15654,6 +15678,18 @@
     "totalInvested": 88.0,
     "winnings": 0.0,
     "profit": -88.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$25 Big Starter",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
     "onlyBounty": false
   },
   {
