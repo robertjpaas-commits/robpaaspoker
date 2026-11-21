@@ -15820,9 +15820,9 @@
     "buyin": 33.0,
     "rebuys": 0,
     "totalInvested": 33.0,
-    "winnings": 0.0,
-    "profit": -33.0,
-    "onlyBounty": false
+    "winnings": 7.5,
+    "profit": -25.5,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-20",
