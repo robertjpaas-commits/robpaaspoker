@@ -15430,6 +15430,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$10 Sat to $100 Nightly Stars",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$105 Bounty King",
     "type": "PKO",
     "site": "GGPoker",
@@ -15638,10 +15650,10 @@
     "type": "Standard",
     "site": "GGPoker",
     "buyin": 25.0,
-    "rebuys": 0,
-    "totalInvested": 25.0,
+    "rebuys": 1,
+    "totalInvested": 50.0,
     "winnings": 0.0,
-    "profit": -25.0,
+    "profit": -50.0,
     "onlyBounty": false
   },
   {
@@ -15664,8 +15676,8 @@
     "buyin": 30.0,
     "rebuys": 0,
     "totalInvested": 30.0,
-    "winnings": 0.0,
-    "profit": -30.0,
+    "winnings": 354.8,
+    "profit": 324.8,
     "onlyBounty": false
   },
   {
