@@ -15430,6 +15430,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$105 Bounty King",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 105.0,
+    "rebuys": 0,
+    "totalInvested": 105.0,
+    "winnings": 0.0,
+    "profit": -105.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$109 $20,000 Mystery Bounty 109 - Day 1",
     "type": "Mystery",
     "site": "888poker",
@@ -15622,6 +15634,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$25 Mega to Friday Night Fight $210 [Bounty 6-Max], 2 Seats",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$30 Afternoon Mystery",
     "type": "Mystery",
     "site": "PokerStars",
@@ -15654,6 +15678,18 @@
     "totalInvested": 99.0,
     "winnings": 0.0,
     "profit": -99.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$55 Chip Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   },
   {
