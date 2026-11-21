@@ -15946,6 +15946,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$77 LUCKY SEVENS Superstack Turbo [7-Max]",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 77.0,
+    "rebuys": 0,
+    "totalInvested": 77.0,
+    "winnings": 0.0,
+    "profit": -77.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "10 Seats to ₮215 CoinMillion",
     "type": "Standard",
     "site": "CoinPoker",
