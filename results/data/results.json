@@ -15458,10 +15458,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 109.0,
-    "rebuys": 0,
-    "totalInvested": 109.0,
+    "rebuys": 1,
+    "totalInvested": 218.0,
     "winnings": 0.0,
-    "profit": -109.0,
+    "profit": -218.0,
     "onlyBounty": false
   },
   {
@@ -15742,6 +15742,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$33 Chip Daily Mystery Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$33 Sat to $320",
     "type": "Standard",
     "site": "WPT Gold",
@@ -15781,6 +15793,18 @@
     "name": "$55 Chip Mystery Bounty",
     "type": "Mystery",
     "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$55 Fifty Stack",
+    "type": "Standard",
+    "site": "GGPoker",
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
@@ -15830,10 +15854,10 @@
     "type": "Bounty",
     "site": "GGPoker",
     "buyin": 25.0,
-    "rebuys": 0,
-    "totalInvested": 25.0,
+    "rebuys": 1,
+    "totalInvested": 50.0,
     "winnings": 0.0,
-    "profit": -25.0,
+    "profit": -50.0,
     "onlyBounty": false
   }
 ]
