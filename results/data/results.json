@@ -15646,6 +15646,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$15 Sat to $150",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 2,
+    "totalInvested": 45.0,
+    "winnings": 0.0,
+    "profit": -45.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$15 sat to $150 WSOP Paradise Super Main Event",
     "type": "Satellite",
     "site": "GGPoker",
@@ -15726,6 +15738,30 @@
     "totalInvested": 20.0,
     "winnings": 131.04,
     "profit": 111.04,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 1,
+    "totalInvested": 42.0,
+    "winnings": 0.0,
+    "profit": -42.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 0.0,
+    "profit": -21.0,
     "onlyBounty": false
   },
   {
