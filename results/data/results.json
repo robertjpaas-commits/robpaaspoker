@@ -15550,6 +15550,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$11 Chip Turbo Freezeout",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$11 Mystery Bounty",
     "type": "Mystery",
     "site": "888poker",
@@ -15892,8 +15904,8 @@
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
-    "winnings": 0.0,
-    "profit": -55.0,
+    "winnings": 6587.02,
+    "profit": 6532.02,
     "onlyBounty": false
   },
   {
@@ -15950,7 +15962,7 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 0.0,
-    "rebuys": 0,
+    "rebuys": 1,
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
