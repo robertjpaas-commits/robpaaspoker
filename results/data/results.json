@@ -15766,6 +15766,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$24 Sat to ₮215 CoinMillion",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 24.0,
+    "rebuys": 0,
+    "totalInvested": 24.0,
+    "winnings": 0.0,
+    "profit": -24.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$25 Big Starter",
     "type": "Standard",
     "site": "PokerStars",
@@ -15966,18 +15978,6 @@
     "totalInvested": 77.0,
     "winnings": 845.83,
     "profit": 768.83,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-20",
-    "name": "10 Seats to ₮215 CoinMillion",
-    "type": "Standard",
-    "site": "CoinPoker",
-    "buyin": 24.0,
-    "rebuys": 0,
-    "totalInvested": 24.0,
-    "winnings": 0.0,
-    "profit": -24.0,
     "onlyBounty": false
   },
   {
