@@ -1,50 +1,41 @@
 {
-  "generated_at": "2026-11-20T23:06:07",
+  "generated_at": "2026-11-20T23:20:11",
   "session": {
-    "date": "2026-11-17",
-    "pretty": "Tuesday, November 17",
-    "url": "daily/2026-11-17.html",
-    "total": 4977.5,
-    "cad": -70.19,
-    "usd": 3739.03,
-    "hours": 9.0,
+    "date": "2026-11-20",
+    "pretty": "Friday, November 20",
+    "url": "daily/2026-11-20.html",
+    "total": 6664.59,
+    "cad": -1083.17,
+    "usd": 5739.08,
+    "hours": 5.5,
     "sites": [
       {
         "name": "WPT Gold",
-        "value": 3754.03,
+        "value": 5739.08,
         "cur": "USD"
       },
       {
-        "name": "PartyPoker",
-        "value": -469.34,
+        "name": "GGPoker",
+        "value": -483.45,
         "cur": "CAD"
       },
       {
         "name": "PokerStars",
-        "value": 262.72,
+        "value": -388.36,
         "cur": "CAD"
       },
       {
-        "name": "GGPoker",
-        "value": 136.43,
+        "name": "PartyPoker",
+        "value": -162.81,
         "cur": "CAD"
       },
       {
-        "name": "CoinPoker",
-        "value": -15.0,
-        "cur": "USD"
+        "name": "888poker",
+        "value": -48.55,
+        "cur": "CAD"
       }
     ],
-    "photos": [
-      {
-        "src": "daily/media/2026-11-17/21.jpg",
-        "caption": ""
-      },
-      {
-        "src": "daily/media/2026-11-17/22.jpg",
-        "caption": ""
-      }
-    ],
+    "photos": [],
     "clip": null,
     "clips": []
   }

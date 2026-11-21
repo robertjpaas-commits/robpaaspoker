@@ -15808,8 +15808,8 @@
     "buyin": 30.0,
     "rebuys": 0,
     "totalInvested": 30.0,
-    "winnings": 354.8,
-    "profit": 324.8,
+    "winnings": 147.5,
+    "profit": 117.5,
     "onlyBounty": false
   },
   {
@@ -15818,10 +15818,10 @@
     "type": "Mystery",
     "site": "PokerStars",
     "buyin": 30.0,
-    "rebuys": 0,
-    "totalInvested": 30.0,
+    "rebuys": 1,
+    "totalInvested": 60.0,
     "winnings": 0.0,
-    "profit": -30.0,
+    "profit": -60.0,
     "onlyBounty": false
   },
   {
