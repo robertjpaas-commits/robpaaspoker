@@ -15454,6 +15454,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$100 Nightly Stars",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 100.0,
+    "rebuys": 1,
+    "totalInvested": 200.0,
+    "winnings": 0.0,
+    "profit": -200.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$105 Bounty King",
     "type": "PKO",
     "site": "GGPoker",
@@ -15534,6 +15546,18 @@
     "totalInvested": 22.0,
     "winnings": 0.0,
     "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$11 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
     "onlyBounty": false
   },
   {
