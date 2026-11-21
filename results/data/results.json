@@ -15458,10 +15458,10 @@
     "type": "Standard",
     "site": "PokerStars",
     "buyin": 100.0,
-    "rebuys": 6,
-    "totalInvested": 700.0,
+    "rebuys": 5,
+    "totalInvested": 600.0,
     "winnings": 0.0,
-    "profit": -700.0,
+    "profit": -600.0,
     "onlyBounty": false
   },
   {
@@ -15724,8 +15724,8 @@
     "buyin": 20.0,
     "rebuys": 0,
     "totalInvested": 20.0,
-    "winnings": 349.97,
-    "profit": 329.97,
+    "winnings": 131.04,
+    "profit": 111.04,
     "onlyBounty": false
   },
   {
@@ -15928,8 +15928,8 @@
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
-    "winnings": 0.0,
-    "profit": -55.0,
+    "winnings": 921.43,
+    "profit": 866.43,
     "onlyBounty": false
   },
   {
