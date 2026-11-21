@@ -15490,6 +15490,18 @@
   },
   {
     "date": "2026-11-20",
+    "name": "$11 Chip Mini Crown Day 1",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
     "name": "$11 Chip Turbo Freezeout",
     "type": "Standard",
     "site": "WPT Gold",
@@ -15774,6 +15786,18 @@
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "Mini Friday Night Fight $25 [Bounty 6-Max]",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
     "onlyBounty": false
   }
 ]
