@@ -15458,10 +15458,10 @@
     "type": "Standard",
     "site": "PokerStars",
     "buyin": 100.0,
-    "rebuys": 2,
-    "totalInvested": 300.0,
+    "rebuys": 3,
+    "totalInvested": 400.0,
     "winnings": 0.0,
-    "profit": -300.0,
+    "profit": -400.0,
     "onlyBounty": false
   },
   {
@@ -15496,8 +15496,8 @@
     "buyin": 109.0,
     "rebuys": 1,
     "totalInvested": 218.0,
-    "winnings": 0.0,
-    "profit": -218.0,
+    "winnings": 556.25,
+    "profit": 338.25,
     "onlyBounty": false
   },
   {
@@ -15710,10 +15710,10 @@
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
-    "rebuys": 0,
-    "totalInvested": 21.0,
+    "rebuys": 1,
+    "totalInvested": 42.0,
     "winnings": 0.0,
-    "profit": -21.0,
+    "profit": -42.0,
     "onlyBounty": false
   },
   {
@@ -15726,6 +15726,18 @@
     "totalInvested": 88.0,
     "winnings": 0.0,
     "profit": -88.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$22 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
     "onlyBounty": false
   },
   {
@@ -15774,6 +15786,18 @@
     "totalInvested": 30.0,
     "winnings": 354.8,
     "profit": 324.8,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-20",
+    "name": "$30 Mini Friday Mystery",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
     "onlyBounty": false
   },
   {
