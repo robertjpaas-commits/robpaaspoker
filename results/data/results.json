@@ -16078,6 +16078,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$110 Chip Freezeout",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$15 Sunday Turbo",
     "type": "Standard",
     "site": "GGPoker",
