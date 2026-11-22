@@ -16082,10 +16082,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 109.0,
-    "rebuys": 0,
-    "totalInvested": 109.0,
+    "rebuys": 1,
+    "totalInvested": 218.0,
     "winnings": 0.0,
-    "profit": -109.0,
+    "profit": -218.0,
     "onlyBounty": false
   },
   {
@@ -16098,6 +16098,30 @@
     "totalInvested": 110.0,
     "winnings": 0.0,
     "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$110 Chip Sunday Blame Canada Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$15 Satellite to GGMasters $150, 1 Seat",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
     "onlyBounty": false
   },
   {
@@ -16138,14 +16162,26 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$21 Mystery Bounty MILLION$ Main Event [Last Chance]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 1,
+    "totalInvested": 42.0,
+    "winnings": 0.0,
+    "profit": -42.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
-    "rebuys": 4,
-    "totalInvested": 105.0,
+    "rebuys": 5,
+    "totalInvested": 126.0,
     "winnings": 0.0,
-    "profit": -105.0,
+    "profit": -126.0,
     "onlyBounty": false
   },
   {
@@ -16178,10 +16214,10 @@
     "type": "Mystery",
     "site": "PokerStars",
     "buyin": 30.0,
-    "rebuys": 0,
-    "totalInvested": 30.0,
+    "rebuys": 2,
+    "totalInvested": 90.0,
     "winnings": 0.0,
-    "profit": -30.0,
+    "profit": -90.0,
     "onlyBounty": false
   },
   {
