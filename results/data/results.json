@@ -16114,6 +16114,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 1,
+    "totalInvested": 42.0,
+    "winnings": 0.0,
+    "profit": -42.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$218 The Gold Million",
     "type": "Mystery",
     "site": "WPT Gold",
@@ -16146,6 +16158,18 @@
     "totalInvested": 66.0,
     "winnings": 0.0,
     "profit": -66.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$5.50 Chip Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 5.5,
+    "rebuys": 0,
+    "totalInvested": 5.5,
+    "winnings": 0.0,
+    "profit": -5.5,
     "onlyBounty": false
   },
   {
