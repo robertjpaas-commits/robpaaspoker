@@ -16198,6 +16198,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$21 Mystery Bounty MILLION$ Main Event [Last Minute]",
+    "type": "Mystery",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 0.0,
+    "profit": -21.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$21 Mystery Bounty Millions Main Event [Stage 1]",
     "type": "Mystery",
     "site": "GGPoker",
@@ -16264,8 +16276,8 @@
     "buyin": 33.0,
     "rebuys": 1,
     "totalInvested": 66.0,
-    "winnings": 0.0,
-    "profit": -66.0,
+    "winnings": 269.75,
+    "profit": 203.75,
     "onlyBounty": false
   },
   {
