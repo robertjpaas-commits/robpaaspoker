@@ -16090,6 +16090,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$109 Sunday Mystery Bounty Main Event",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$110 Chip Freezeout",
     "type": "Standard",
     "site": "WPT Gold",
@@ -16110,6 +16122,18 @@
     "totalInvested": 11.0,
     "winnings": 0.0,
     "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$110 Chip Sunday Deepstack",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
     "onlyBounty": false
   },
   {
@@ -16279,6 +16303,18 @@
     "winnings": 12.5,
     "profit": -40.0,
     "onlyBounty": true
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$55 Chip Sunday Mystery Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
   },
   {
     "date": "2026-11-22",
