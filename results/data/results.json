@@ -16054,6 +16054,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$100 Sunday Dynasty",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 100.0,
+    "rebuys": 0,
+    "totalInvested": 100.0,
+    "winnings": 0.0,
+    "profit": -100.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$109 Mystery Bounty - Day 1",
     "type": "Mystery",
     "site": "888poker",
@@ -16130,10 +16142,10 @@
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
-    "rebuys": 3,
-    "totalInvested": 84.0,
+    "rebuys": 4,
+    "totalInvested": 105.0,
     "winnings": 0.0,
-    "profit": -84.0,
+    "profit": -105.0,
     "onlyBounty": false
   },
   {
@@ -16158,6 +16170,18 @@
     "totalInvested": 22.0,
     "winnings": 0.0,
     "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$30 Afternoon Mystery",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
     "onlyBounty": false
   },
   {
