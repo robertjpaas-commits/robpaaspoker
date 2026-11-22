@@ -16027,5 +16027,17 @@
     "winnings": 0.0,
     "profit": 0.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-21",
+    "name": "$430 November Monthly Challenge",
+    "type": "Standard",
+    "site": "Live",
+    "buyin": 430.0,
+    "rebuys": 0,
+    "totalInvested": 430.0,
+    "winnings": 6000.0,
+    "profit": 5570.0,
+    "onlyBounty": false
   }
 ]
