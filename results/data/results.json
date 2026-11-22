@@ -16054,6 +16054,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$10 Sat to $100 Sunday Dynasty",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$100 Sunday Dynasty",
     "type": "Standard",
     "site": "PokerStars",
@@ -16102,6 +16114,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$11 Sat to $110 Chip Sunday Blame Canada Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$110 Chip Freezeout",
     "type": "Standard",
     "site": "WPT Gold",
@@ -16110,18 +16134,6 @@
     "totalInvested": 110.0,
     "winnings": 0.0,
     "profit": -110.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-22",
-    "name": "$110 Chip Sunday Blame Canada Mystery Bounty",
-    "type": "Mystery",
-    "site": "WPT Gold",
-    "buyin": 11.0,
-    "rebuys": 0,
-    "totalInvested": 11.0,
-    "winnings": 0.0,
-    "profit": -11.0,
     "onlyBounty": false
   },
   {
@@ -16138,7 +16150,7 @@
   },
   {
     "date": "2026-11-22",
-    "name": "$15 Satellite to GGMasters $150, 1 Seat",
+    "name": "$15 Sat to $150 GGMasters",
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
@@ -16186,7 +16198,7 @@
   },
   {
     "date": "2026-11-22",
-    "name": "$21 Mystery Bounty MILLION$ Main Event [Last Chance]",
+    "name": "$21 Mystery Bounty MILLION$ Main Event",
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
@@ -16198,7 +16210,7 @@
   },
   {
     "date": "2026-11-22",
-    "name": "$21 Mystery Bounty MILLION$ Main Event [Last Minute]",
+    "name": "$21 Mystery Bounty MILLION$ Main Event",
     "type": "Mystery",
     "site": "GGPoker",
     "buyin": 21.0,
