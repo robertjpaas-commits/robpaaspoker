@@ -16216,8 +16216,8 @@
     "buyin": 50.0,
     "rebuys": 2,
     "totalInvested": 150.0,
-    "winnings": 0.0,
-    "profit": -150.0,
+    "winnings": 500.0,
+    "profit": 350.0,
     "onlyBounty": false
   },
   {
