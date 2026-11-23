@@ -16714,6 +16714,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$100 Hundred Stack",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 100.0,
+    "rebuys": 1,
+    "totalInvested": 200.0,
+    "winnings": 0.0,
+    "profit": -200.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$109 Collision 6-Max PKO",
     "type": "PKO",
     "site": "CoinPoker",
@@ -16778,10 +16790,10 @@
     "type": "Standard",
     "site": "CoinPoker",
     "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
+    "rebuys": 1,
+    "totalInvested": 44.0,
     "winnings": 0.0,
-    "profit": -22.0,
+    "profit": -44.0,
     "onlyBounty": false
   },
   {
@@ -16794,6 +16806,18 @@
     "totalInvested": 120.0,
     "winnings": 0.0,
     "profit": -120.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$31.50 Bounty Hunters Deepstack",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 31.5,
+    "rebuys": 0,
+    "totalInvested": 31.5,
+    "winnings": 0.0,
+    "profit": -31.5,
     "onlyBounty": false
   },
   {
