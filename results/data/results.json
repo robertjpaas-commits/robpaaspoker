@@ -16078,6 +16078,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$105 Sunday Bounty King",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 105.0,
+    "rebuys": 0,
+    "totalInvested": 105.0,
+    "winnings": 0.0,
+    "profit": -105.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$109 Mystery Bounty - Day 1",
     "type": "Mystery",
     "site": "888poker",
@@ -16358,10 +16370,10 @@
     "type": "Bounty",
     "site": "WPT Gold",
     "buyin": 55.0,
-    "rebuys": 1,
-    "totalInvested": 110.0,
+    "rebuys": 2,
+    "totalInvested": 165.0,
     "winnings": 0.0,
-    "profit": -110.0,
+    "profit": -165.0,
     "onlyBounty": false
   },
   {
