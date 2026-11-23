@@ -16534,6 +16534,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$55 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$55 Sunday Carnival",
     "type": "PKO",
     "site": "PartyPoker",
