@@ -16432,8 +16432,8 @@
     "buyin": 33.0,
     "rebuys": 1,
     "totalInvested": 66.0,
-    "winnings": 0.0,
-    "profit": -66.0,
+    "winnings": 62.24,
+    "profit": -3.76,
     "onlyBounty": false
   },
   {
@@ -16598,7 +16598,7 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 0.0,
-    "rebuys": 0,
+    "rebuys": 1,
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
