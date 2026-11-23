@@ -16178,10 +16178,10 @@
     "type": "Mystery",
     "site": "WPT Gold",
     "buyin": 11.0,
-    "rebuys": 0,
-    "totalInvested": 11.0,
+    "rebuys": 1,
+    "totalInvested": 22.0,
     "winnings": 0.0,
-    "profit": -11.0,
+    "profit": -22.0,
     "onlyBounty": false
   },
   {
