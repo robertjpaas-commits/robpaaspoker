@@ -16598,10 +16598,10 @@
     "type": "PKO",
     "site": "PartyPoker",
     "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
-    "winnings": 0.0,
-    "profit": -55.0,
+    "rebuys": 1,
+    "totalInvested": 110.0,
+    "winnings": 12.5,
+    "profit": -97.5,
     "onlyBounty": false
   },
   {
