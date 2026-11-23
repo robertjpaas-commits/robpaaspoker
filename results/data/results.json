@@ -16675,5 +16675,17 @@
     "winnings": 0.0,
     "profit": -154.0,
     "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "The Sunday Party Phased Satellite: 10 x $265 Gtd [Phase 2]",
+    "type": "Satellite",
+    "site": "PartyPoker",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 265.0,
+    "profit": 265.0,
+    "onlyBounty": false
   }
 ]
