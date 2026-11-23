@@ -16418,10 +16418,10 @@
     "type": "Mystery",
     "site": "PokerStars",
     "buyin": 30.0,
-    "rebuys": 3,
-    "totalInvested": 120.0,
+    "rebuys": 4,
+    "totalInvested": 150.0,
     "winnings": 0.0,
-    "profit": -120.0,
+    "profit": -150.0,
     "onlyBounty": false
   },
   {
