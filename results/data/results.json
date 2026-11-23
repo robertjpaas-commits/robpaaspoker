@@ -16750,6 +16750,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$110 Chip Freezeout",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$15 Bounty Hunters Special",
     "type": "Bounty",
     "site": "GGPoker",
@@ -16782,6 +16794,18 @@
     "totalInvested": 16.5,
     "winnings": 0.0,
     "profit": -16.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$22 Chip 6-Max",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
     "onlyBounty": false
   },
   {
