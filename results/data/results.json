@@ -16550,10 +16550,10 @@
     "type": "PKO",
     "site": "GGPoker",
     "buyin": 52.5,
-    "rebuys": 0,
-    "totalInvested": 52.5,
+    "rebuys": 3,
+    "totalInvested": 210.0,
     "winnings": 12.5,
-    "profit": -40.0,
+    "profit": -197.5,
     "onlyBounty": true
   },
   {
