@@ -16178,10 +16178,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 110.0,
-    "rebuys": 1,
-    "totalInvested": 220.0,
+    "rebuys": 2,
+    "totalInvested": 330.0,
     "winnings": 0.0,
-    "profit": -220.0,
+    "profit": -330.0,
     "onlyBounty": false
   },
   {
@@ -16330,6 +16330,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$30 Sunday Shield",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$33 7-Max PKO",
     "type": "PKO",
     "site": "PartyPoker",
@@ -16338,6 +16350,18 @@
     "totalInvested": 66.0,
     "winnings": 269.75,
     "profit": 203.75,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$33 The Super Sunday PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
