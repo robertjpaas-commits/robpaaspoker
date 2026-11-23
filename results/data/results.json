@@ -16114,14 +16114,26 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$109 Mystery Bounty - Day 1",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 0.0,
+    "profit": 0.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$109 Sunday Mystery Bounty Main Event",
     "type": "Mystery",
     "site": "888poker",
     "buyin": 109.0,
-    "rebuys": 4,
-    "totalInvested": 545.0,
+    "rebuys": 6,
+    "totalInvested": 763.0,
     "winnings": 0.0,
-    "profit": -545.0,
+    "profit": -763.0,
     "onlyBounty": false
   },
   {
@@ -16134,6 +16146,18 @@
     "totalInvested": 218.0,
     "winnings": 0.0,
     "profit": -218.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$11 Mini Mystery Bounty - Day 2",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 0.0,
+    "profit": 0.0,
     "onlyBounty": false
   },
   {
@@ -16438,6 +16462,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$52.50 Bounty Hunters Special",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 52.5,
+    "rebuys": 0,
+    "totalInvested": 52.5,
+    "winnings": 0.0,
+    "profit": -52.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$52.50 Bounty Hunters Warm-Up",
     "type": "PKO",
     "site": "GGPoker",
@@ -16447,6 +16483,18 @@
     "winnings": 12.5,
     "profit": -40.0,
     "onlyBounty": true
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$55 Chip 6-Max Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
   },
   {
     "date": "2026-11-22",
@@ -16463,6 +16511,18 @@
   {
     "date": "2026-11-22",
     "name": "$55 Sunday Carnival",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$55 The Sunday Fast PKO",
     "type": "PKO",
     "site": "PartyPoker",
     "buyin": 55.0,
