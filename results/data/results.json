@@ -16082,10 +16082,10 @@
     "type": "PKO",
     "site": "GGPoker",
     "buyin": 105.0,
-    "rebuys": 0,
-    "totalInvested": 105.0,
+    "rebuys": 1,
+    "totalInvested": 210.0,
     "winnings": 0.0,
-    "profit": -105.0,
+    "profit": -210.0,
     "onlyBounty": false
   },
   {
@@ -16118,10 +16118,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 109.0,
-    "rebuys": 1,
-    "totalInvested": 218.0,
+    "rebuys": 3,
+    "totalInvested": 436.0,
     "winnings": 0.0,
-    "profit": -218.0,
+    "profit": -436.0,
     "onlyBounty": false
   },
   {
@@ -16276,8 +16276,8 @@
     "buyin": 218.0,
     "rebuys": 0,
     "totalInvested": 218.0,
-    "winnings": 0.0,
-    "profit": -218.0,
+    "winnings": 583.69,
+    "profit": 365.69,
     "onlyBounty": false
   },
   {
@@ -16334,10 +16334,10 @@
     "type": "Standard",
     "site": "PokerStars",
     "buyin": 30.0,
-    "rebuys": 0,
-    "totalInvested": 30.0,
+    "rebuys": 1,
+    "totalInvested": 60.0,
     "winnings": 0.0,
-    "profit": -30.0,
+    "profit": -60.0,
     "onlyBounty": false
   },
   {
@@ -16350,6 +16350,18 @@
     "totalInvested": 66.0,
     "winnings": 269.75,
     "profit": 203.75,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "$33 Chip Daily Mystery Bounty",
+    "type": "Mystery",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
@@ -16482,6 +16494,18 @@
     "totalInvested": 33.0,
     "winnings": 0.0,
     "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "Sunday Hyper $10",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
     "onlyBounty": false
   }
 ]
