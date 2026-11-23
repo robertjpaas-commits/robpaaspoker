@@ -16126,6 +16126,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$109 The Monsterstack",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$11 Sat to $110 Chip Sunday Blame Canada Mystery Bounty",
     "type": "Mystery",
     "site": "WPT Gold",
