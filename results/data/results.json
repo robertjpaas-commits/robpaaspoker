@@ -16046,10 +16046,10 @@
     "type": "Satellite",
     "site": "PokerStars",
     "buyin": 10.0,
-    "rebuys": 0,
-    "totalInvested": 10.0,
+    "rebuys": 1,
+    "totalInvested": 20.0,
     "winnings": 100.0,
-    "profit": 90.0,
+    "profit": 80.0,
     "onlyBounty": false
   },
   {
@@ -16118,10 +16118,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 109.0,
-    "rebuys": 0,
-    "totalInvested": 109.0,
+    "rebuys": 1,
+    "totalInvested": 218.0,
     "winnings": 0.0,
-    "profit": -109.0,
+    "profit": -218.0,
     "onlyBounty": false
   },
   {
@@ -16130,10 +16130,10 @@
     "type": "Standard",
     "site": "PartyPoker",
     "buyin": 109.0,
-    "rebuys": 0,
-    "totalInvested": 109.0,
+    "rebuys": 1,
+    "totalInvested": 218.0,
     "winnings": 0.0,
-    "profit": -109.0,
+    "profit": -218.0,
     "onlyBounty": false
   },
   {
@@ -16322,10 +16322,10 @@
     "type": "Mystery",
     "site": "PokerStars",
     "buyin": 30.0,
-    "rebuys": 2,
-    "totalInvested": 90.0,
+    "rebuys": 3,
+    "totalInvested": 120.0,
     "winnings": 0.0,
-    "profit": -90.0,
+    "profit": -120.0,
     "onlyBounty": false
   },
   {
@@ -16378,6 +16378,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$500 Sunday Storm",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 500.0,
+    "rebuys": 0,
+    "totalInvested": 500.0,
+    "winnings": 0.0,
+    "profit": -500.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$52.50 Bounty Hunters Warm-Up",
     "type": "PKO",
     "site": "GGPoker",
@@ -16394,10 +16406,10 @@
     "type": "Bounty",
     "site": "WPT Gold",
     "buyin": 55.0,
-    "rebuys": 2,
-    "totalInvested": 165.0,
+    "rebuys": 4,
+    "totalInvested": 275.0,
     "winnings": 0.0,
-    "profit": -165.0,
+    "profit": -275.0,
     "onlyBounty": false
   },
   {
