@@ -16714,6 +16714,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$109 Collision 6-Max PKO",
+    "type": "PKO",
+    "site": "CoinPoker",
+    "buyin": 109.0,
+    "rebuys": 0,
+    "totalInvested": 109.0,
+    "winnings": 0.0,
+    "profit": -109.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$110 Chip Afternoon Classic",
     "type": "Standard",
     "site": "WPT Gold",
@@ -16762,14 +16774,26 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$22 ON YOUR BIKE [TURBO]",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$30 Afternoon Mystery",
     "type": "Mystery",
     "site": "PokerStars",
     "buyin": 30.0,
-    "rebuys": 1,
-    "totalInvested": 60.0,
+    "rebuys": 3,
+    "totalInvested": 120.0,
     "winnings": 0.0,
-    "profit": -60.0,
+    "profit": -120.0,
     "onlyBounty": false
   },
   {
@@ -16806,6 +16830,18 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$77 ON YOUR BIKE [TURBO]",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 77.0,
+    "rebuys": 0,
+    "totalInvested": 77.0,
+    "winnings": 0.0,
+    "profit": -77.0,
     "onlyBounty": false
   },
   {
