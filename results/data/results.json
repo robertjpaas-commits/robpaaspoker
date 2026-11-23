@@ -16142,10 +16142,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 110.0,
-    "rebuys": 0,
-    "totalInvested": 110.0,
+    "rebuys": 1,
+    "totalInvested": 220.0,
     "winnings": 0.0,
-    "profit": -110.0,
+    "profit": -220.0,
     "onlyBounty": false
   },
   {
@@ -16358,10 +16358,10 @@
     "type": "Bounty",
     "site": "WPT Gold",
     "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
+    "rebuys": 1,
+    "totalInvested": 110.0,
     "winnings": 0.0,
-    "profit": -55.0,
+    "profit": -110.0,
     "onlyBounty": false
   },
   {
