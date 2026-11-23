@@ -16258,6 +16258,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$20 Mystery Express",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$21 Bounty Hunters Sunday Big Game",
     "type": "PKO",
     "site": "GGPoker",
@@ -16504,8 +16516,8 @@
     "buyin": 52.5,
     "rebuys": 0,
     "totalInvested": 52.5,
-    "winnings": 0.0,
-    "profit": -52.5,
+    "winnings": 133.35,
+    "profit": 80.85,
     "onlyBounty": false
   },
   {
