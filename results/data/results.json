@@ -16246,6 +16246,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$20 Bounty Builder",
+    "type": "PKO",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 1,
+    "totalInvested": 40.0,
+    "winnings": 0.0,
+    "profit": -40.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$21 Bounty Hunters Sunday Big Game",
     "type": "PKO",
     "site": "GGPoker",
@@ -16330,6 +16342,18 @@
   },
   {
     "date": "2026-11-22",
+    "name": "$22 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
     "name": "$25 Sunday Deepstack",
     "type": "Standard",
     "site": "GGPoker",
@@ -16394,10 +16418,10 @@
     "type": "Mystery",
     "site": "WPT Gold",
     "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
+    "rebuys": 1,
+    "totalInvested": 66.0,
     "winnings": 0.0,
-    "profit": -33.0,
+    "profit": -66.0,
     "onlyBounty": false
   },
   {
@@ -16530,6 +16554,18 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-22",
+    "name": "49-NLH: $25 Sunday Hold'em Classic",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 1,
+    "totalInvested": 50.0,
+    "winnings": 0.0,
+    "profit": -50.0,
     "onlyBounty": false
   },
   {
