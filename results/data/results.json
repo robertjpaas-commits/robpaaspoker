@@ -16726,6 +16726,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$10 Sat to $100 Nightly Stars",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$100 Hundred Stack",
     "type": "Standard",
     "site": "GGPoker",
@@ -16838,10 +16850,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
+    "rebuys": 1,
+    "totalInvested": 44.0,
     "winnings": 0.0,
-    "profit": -22.0,
+    "profit": -44.0,
     "onlyBounty": false
   },
   {
