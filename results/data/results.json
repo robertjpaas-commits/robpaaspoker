@@ -17446,6 +17446,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "Balance adjustment",
+    "type": "",
+    "site": "WPT Gold",
+    "buyin": 93.88,
+    "rebuys": 0,
+    "totalInvested": 93.88,
+    "winnings": 0.0,
+    "profit": -93.88,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "Daily Deepstack $200",
     "type": "Standard",
     "site": "GGPoker",
