@@ -16798,6 +16798,30 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$11 Chip Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$11 Chip Turbo",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$11 Mystery Bounty",
     "type": "Mystery",
     "site": "888poker",
@@ -16958,10 +16982,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 218.0,
-    "rebuys": 1,
-    "totalInvested": 436.0,
+    "rebuys": 2,
+    "totalInvested": 654.0,
     "winnings": 0.0,
-    "profit": -436.0,
+    "profit": -654.0,
     "onlyBounty": false
   },
   {
@@ -17146,6 +17170,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$5.5 Turbo",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 5.5,
+    "rebuys": 0,
+    "totalInvested": 5.5,
+    "winnings": 0.0,
+    "profit": -5.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$5.50 Chip Mystery Bounty",
     "type": "Mystery",
     "site": "WPT Gold",
@@ -17314,6 +17350,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$8.88 6-Max Hyper",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 8.88,
+    "rebuys": 0,
+    "totalInvested": 8.88,
+    "winnings": 0.0,
+    "profit": -8.88,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$84 Midnight Madness [Bounty Hyper]",
     "type": "PKO",
     "site": "GGPoker",
@@ -17334,6 +17382,18 @@
     "totalInvested": 200.0,
     "winnings": 2318.97,
     "profit": 2118.97,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "Daily Hyper $10",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
     "onlyBounty": false
   },
   {
