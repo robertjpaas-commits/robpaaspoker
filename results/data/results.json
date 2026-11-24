@@ -16768,8 +16768,8 @@
     "buyin": 105.0,
     "rebuys": 0,
     "totalInvested": 105.0,
-    "winnings": 0.0,
-    "profit": -105.0,
+    "winnings": 351.46,
+    "profit": 246.46,
     "onlyBounty": false
   },
   {
@@ -16818,6 +16818,18 @@
     "totalInvested": 220.0,
     "winnings": 929.53,
     "profit": 709.53,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$110 Chip Blitz PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
     "onlyBounty": false
   },
   {
@@ -16874,10 +16886,10 @@
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 0,
-    "totalInvested": 15.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
     "winnings": 0.0,
-    "profit": -15.0,
+    "profit": -30.0,
     "onlyBounty": false
   },
   {
@@ -17066,10 +17078,10 @@
     "type": "PKO",
     "site": "WPT Gold",
     "buyin": 33.0,
-    "rebuys": 1,
-    "totalInvested": 66.0,
+    "rebuys": 2,
+    "totalInvested": 99.0,
     "winnings": 0.0,
-    "profit": -66.0,
+    "profit": -99.0,
     "onlyBounty": false
   },
   {
