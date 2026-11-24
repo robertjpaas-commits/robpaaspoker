@@ -16970,10 +16970,10 @@
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 2,
-    "totalInvested": 45.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
     "winnings": 0.0,
-    "profit": -45.0,
+    "profit": -15.0,
     "onlyBounty": false
   },
   {
