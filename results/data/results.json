@@ -16966,6 +16966,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$15 Satellite to GGMasters $150, 1 Seat",
+    "type": "Satellite",
+    "site": "GGPoker",
+    "buyin": 15.0,
+    "rebuys": 2,
+    "totalInvested": 45.0,
+    "winnings": 0.0,
+    "profit": -45.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$15 Turbo",
     "type": "Standard",
     "site": "CoinPoker",
