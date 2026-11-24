@@ -16738,6 +16738,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$10 Sat to $100 Nightly Stars",
+    "type": "Satellite",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$100 Hundred Stack",
     "type": "Standard",
     "site": "GGPoker",
@@ -16790,10 +16802,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 110.0,
-    "rebuys": 0,
-    "totalInvested": 110.0,
+    "rebuys": 1,
+    "totalInvested": 220.0,
     "winnings": 0.0,
-    "profit": -110.0,
+    "profit": -220.0,
     "onlyBounty": false
   },
   {
@@ -16850,10 +16862,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 22.0,
-    "rebuys": 1,
-    "totalInvested": 44.0,
+    "rebuys": 2,
+    "totalInvested": 66.0,
     "winnings": 0.0,
-    "profit": -44.0,
+    "profit": -66.0,
     "onlyBounty": false
   },
   {
@@ -16886,10 +16898,10 @@
     "type": "PKO",
     "site": "GGPoker",
     "buyin": 31.5,
-    "rebuys": 0,
-    "totalInvested": 31.5,
+    "rebuys": 1,
+    "totalInvested": 63.0,
     "winnings": 0.0,
-    "profit": -31.5,
+    "profit": -63.0,
     "onlyBounty": false
   },
   {
@@ -16922,10 +16934,10 @@
     "type": "Mystery",
     "site": "WPT Gold",
     "buyin": 55.0,
-    "rebuys": 1,
-    "totalInvested": 110.0,
+    "rebuys": 2,
+    "totalInvested": 165.0,
     "winnings": 0.0,
-    "profit": -110.0,
+    "profit": -165.0,
     "onlyBounty": false
   },
   {
