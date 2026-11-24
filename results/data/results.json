@@ -16898,10 +16898,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 110.0,
-    "rebuys": 0,
-    "totalInvested": 110.0,
+    "rebuys": 1,
+    "totalInvested": 220.0,
     "winnings": 0.0,
-    "profit": -110.0,
+    "profit": -220.0,
     "onlyBounty": false
   },
   {
@@ -16934,10 +16934,10 @@
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 1,
-    "totalInvested": 30.0,
+    "rebuys": 2,
+    "totalInvested": 45.0,
     "winnings": 0.0,
-    "profit": -30.0,
+    "profit": -45.0,
     "onlyBounty": false
   },
   {
@@ -16946,10 +16946,10 @@
     "type": "Standard",
     "site": "CoinPoker",
     "buyin": 15.0,
-    "rebuys": 0,
-    "totalInvested": 15.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
     "winnings": 0.0,
-    "profit": -15.0,
+    "profit": -30.0,
     "onlyBounty": false
   },
   {
