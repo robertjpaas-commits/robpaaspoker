@@ -17086,15 +17086,27 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$50 Day Saver [Hyper]",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 50.0,
+    "rebuys": 0,
+    "totalInvested": 50.0,
+    "winnings": 0.0,
+    "profit": -50.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$52.50 Bounty Hunters Special",
     "type": "PKO",
     "site": "GGPoker",
     "buyin": 52.5,
     "rebuys": 0,
     "totalInvested": 52.5,
-    "winnings": 0.0,
-    "profit": -52.5,
-    "onlyBounty": false
+    "winnings": 87.5,
+    "profit": 35.0,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-23",
