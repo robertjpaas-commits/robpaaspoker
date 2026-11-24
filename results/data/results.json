@@ -16756,8 +16756,8 @@
     "buyin": 100.0,
     "rebuys": 1,
     "totalInvested": 200.0,
-    "winnings": 0.0,
-    "profit": -200.0,
+    "winnings": 401.03,
+    "profit": 201.03,
     "onlyBounty": false
   },
   {
@@ -16930,6 +16930,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$30 Mini Battle Royale",
+    "type": "PKO",
+    "site": "PokerStars",
+    "buyin": 30.0,
+    "rebuys": 0,
+    "totalInvested": 30.0,
+    "winnings": 0.0,
+    "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$31.50 Bounty Hunters Deepstack",
     "type": "PKO",
     "site": "GGPoker",
@@ -16962,6 +16974,18 @@
     "totalInvested": 5.5,
     "winnings": 0.0,
     "profit": -5.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$52.50 Bounty Hunters Special",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 52.5,
+    "rebuys": 0,
+    "totalInvested": 52.5,
+    "winnings": 0.0,
+    "profit": -52.5,
     "onlyBounty": false
   },
   {
