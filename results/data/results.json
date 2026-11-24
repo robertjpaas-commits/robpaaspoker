@@ -16936,8 +16936,8 @@
     "buyin": 22.0,
     "rebuys": 0,
     "totalInvested": 22.0,
-    "winnings": 29.0,
-    "profit": 7.0,
+    "winnings": 0.0,
+    "profit": -22.0,
     "onlyBounty": false
   },
   {
@@ -17176,8 +17176,8 @@
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
-    "winnings": 0.0,
-    "profit": -55.0,
+    "winnings": 274.19,
+    "profit": 219.19,
     "onlyBounty": false
   },
   {
@@ -17191,6 +17191,18 @@
     "winnings": 50.0,
     "profit": -5.0,
     "onlyBounty": true
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$77 LUCKY SEVENS Superstack Turbo [7-Max]",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 77.0,
+    "rebuys": 2,
+    "totalInvested": 231.0,
+    "winnings": 0.0,
+    "profit": -231.0,
+    "onlyBounty": false
   },
   {
     "date": "2026-11-23",
