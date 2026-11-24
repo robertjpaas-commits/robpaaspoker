@@ -16954,6 +16954,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$25 Mini Monday Monster Stack",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$30 Afternoon Mystery",
     "type": "Mystery",
     "site": "PokerStars",
@@ -16994,10 +17006,10 @@
     "type": "Mystery",
     "site": "WPT Gold",
     "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
+    "rebuys": 2,
+    "totalInvested": 99.0,
     "winnings": 0.0,
-    "profit": -33.0,
+    "profit": -99.0,
     "onlyBounty": false
   },
   {
