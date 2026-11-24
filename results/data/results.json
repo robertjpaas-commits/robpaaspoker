@@ -16882,6 +16882,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$218 Chip Daily Brawl PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 218.0,
+    "rebuys": 0,
+    "totalInvested": 218.0,
+    "winnings": 0.0,
+    "profit": -218.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$22 Chip 6-Max",
     "type": "Standard",
     "site": "WPT Gold",
@@ -16946,10 +16958,10 @@
     "type": "PKO",
     "site": "PokerStars",
     "buyin": 30.0,
-    "rebuys": 0,
-    "totalInvested": 30.0,
+    "rebuys": 1,
+    "totalInvested": 60.0,
     "winnings": 0.0,
-    "profit": -30.0,
+    "profit": -60.0,
     "onlyBounty": false
   },
   {
@@ -17017,6 +17029,18 @@
     "name": "$55 Chip Mystery Bounty",
     "type": "Mystery",
     "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 2,
+    "totalInvested": 165.0,
+    "winnings": 0.0,
+    "profit": -165.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$55 Fifty Stack",
+    "type": "Standard",
+    "site": "GGPoker",
     "buyin": 55.0,
     "rebuys": 2,
     "totalInvested": 165.0,
