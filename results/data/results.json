@@ -16934,10 +16934,10 @@
     "type": "Standard",
     "site": "PartyPoker",
     "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
+    "rebuys": 1,
+    "totalInvested": 44.0,
     "winnings": 0.0,
-    "profit": -22.0,
+    "profit": -44.0,
     "onlyBounty": false
   },
   {
@@ -16960,8 +16960,8 @@
     "buyin": 22.0,
     "rebuys": 0,
     "totalInvested": 22.0,
-    "winnings": 0.0,
-    "profit": -22.0,
+    "winnings": 29.45,
+    "profit": 7.45,
     "onlyBounty": false
   },
   {
@@ -17250,6 +17250,18 @@
     "totalInvested": 77.0,
     "winnings": 0.0,
     "profit": -77.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$84 Midnight Madness [Bounty Hyper]",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 84.0,
+    "rebuys": 0,
+    "totalInvested": 84.0,
+    "winnings": 0.0,
+    "profit": -84.0,
     "onlyBounty": false
   },
   {
