@@ -16792,9 +16792,9 @@
     "buyin": 109.0,
     "rebuys": 0,
     "totalInvested": 109.0,
-    "winnings": 0.0,
-    "profit": -109.0,
-    "onlyBounty": false
+    "winnings": 50.0,
+    "profit": -59.0,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-23",
@@ -16906,6 +16906,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$22 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$22 ON YOUR BIKE [TURBO]",
     "type": "Standard",
     "site": "CoinPoker",
@@ -16978,6 +16990,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$33 Chip Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$33 The Super PKO",
     "type": "PKO",
     "site": "PartyPoker",
@@ -17010,6 +17034,18 @@
     "totalInvested": 52.5,
     "winnings": 0.0,
     "profit": -52.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$55 Chip 6-Max Bounty",
+    "type": "Bounty",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
     "onlyBounty": false
   },
   {
