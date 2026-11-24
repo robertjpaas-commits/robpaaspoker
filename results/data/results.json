@@ -16810,6 +16810,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$11 Off-Peak Hyper",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$110 Chip Afternoon Classic",
     "type": "Standard",
     "site": "WPT Gold",
