@@ -17434,6 +17434,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "Balance adjustment",
+    "type": "",
+    "site": "PartyPoker",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 18.75,
+    "profit": 18.75,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "Daily Deepstack $200",
     "type": "Standard",
     "site": "GGPoker",
