@@ -16702,6 +16702,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$10 Daily Hyper",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 24.18,
+    "profit": 14.18,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$10 Mini Hundred Stack",
     "type": "Standard",
     "site": "GGPoker",
@@ -17418,18 +17430,6 @@
     "totalInvested": 200.0,
     "winnings": 2318.97,
     "profit": 2118.97,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-23",
-    "name": "Daily Hyper $10",
-    "type": "Standard",
-    "site": "GGPoker",
-    "buyin": 10.0,
-    "rebuys": 0,
-    "totalInvested": 10.0,
-    "winnings": 24.18,
-    "profit": 14.18,
     "onlyBounty": false
   },
   {
