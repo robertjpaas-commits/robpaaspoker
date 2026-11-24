@@ -16822,6 +16822,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$110 Chip Daily 6-Max PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$110 Chip Freezeout",
     "type": "Standard",
     "site": "WPT Gold",
@@ -16876,8 +16888,8 @@
     "buyin": 22.0,
     "rebuys": 2,
     "totalInvested": 66.0,
-    "winnings": 0.0,
-    "profit": -66.0,
+    "winnings": 36.35,
+    "profit": -29.65,
     "onlyBounty": false
   },
   {
