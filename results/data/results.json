@@ -16942,6 +16942,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$218 Chip Turbo",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 218.0,
+    "rebuys": 0,
+    "totalInvested": 218.0,
+    "winnings": 0.0,
+    "profit": -218.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$22 6-Max Hyper",
     "type": "Standard",
     "site": "PartyPoker",
@@ -17218,6 +17230,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$55 Nightly Turbo Chip PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$55 Sat to $530 Chip Showdown",
     "type": "Satellite",
     "site": "WPT Gold",
@@ -17260,8 +17284,8 @@
     "buyin": 77.0,
     "rebuys": 2,
     "totalInvested": 231.0,
-    "winnings": 0.0,
-    "profit": -231.0,
+    "winnings": 157.58,
+    "profit": -73.42,
     "onlyBounty": false
   },
   {
