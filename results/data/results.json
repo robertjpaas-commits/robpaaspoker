@@ -16946,10 +16946,10 @@
     "type": "Satellite",
     "site": "GGPoker",
     "buyin": 15.0,
-    "rebuys": 2,
-    "totalInvested": 45.0,
+    "rebuys": 1,
+    "totalInvested": 30.0,
     "winnings": 0.0,
-    "profit": -45.0,
+    "profit": -30.0,
     "onlyBounty": false
   },
   {
@@ -17162,10 +17162,10 @@
     "type": "PKO",
     "site": "GGPoker",
     "buyin": 31.5,
-    "rebuys": 1,
-    "totalInvested": 63.0,
+    "rebuys": 2,
+    "totalInvested": 94.5,
     "winnings": 0.0,
-    "profit": -63.0,
+    "profit": -94.5,
     "onlyBounty": false
   },
   {
@@ -17366,10 +17366,10 @@
     "type": "Standard",
     "site": "GGPoker",
     "buyin": 77.0,
-    "rebuys": 2,
-    "totalInvested": 231.0,
+    "rebuys": 3,
+    "totalInvested": 308.0,
     "winnings": 157.58,
-    "profit": -73.42,
+    "profit": -150.42,
     "onlyBounty": false
   },
   {
