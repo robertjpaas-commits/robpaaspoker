@@ -16850,10 +16850,10 @@
     "type": "Standard",
     "site": "CoinPoker",
     "buyin": 11.0,
-    "rebuys": 0,
-    "totalInvested": 11.0,
+    "rebuys": 1,
+    "totalInvested": 22.0,
     "winnings": 52.35,
-    "profit": 41.35,
+    "profit": 30.35,
     "onlyBounty": false
   },
   {
