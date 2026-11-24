@@ -16906,6 +16906,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$20 Mystery Express",
+    "type": "Mystery",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$218 Chip Daily Brawl PKO",
     "type": "PKO",
     "site": "WPT Gold",
