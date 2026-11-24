@@ -16690,6 +16690,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$10 Big",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$10 Mini Hundred Stack",
     "type": "Standard",
     "site": "GGPoker",
@@ -16722,6 +16734,18 @@
     "totalInvested": 200.0,
     "winnings": 0.0,
     "profit": -200.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$105 Bounty King",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 105.0,
+    "rebuys": 0,
+    "totalInvested": 105.0,
+    "winnings": 0.0,
+    "profit": -105.0,
     "onlyBounty": false
   },
   {
@@ -16792,8 +16816,8 @@
     "buyin": 16.5,
     "rebuys": 0,
     "totalInvested": 16.5,
-    "winnings": 0.0,
-    "profit": -16.5,
+    "winnings": 109.0,
+    "profit": 92.5,
     "onlyBounty": false
   },
   {
@@ -16860,6 +16884,18 @@
     "date": "2026-11-23",
     "name": "$55 Chip Daily PKO",
     "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$55 Chip Mystery Bounty",
+    "type": "Mystery",
     "site": "WPT Gold",
     "buyin": 55.0,
     "rebuys": 0,
