@@ -16936,8 +16936,8 @@
     "buyin": 22.0,
     "rebuys": 0,
     "totalInvested": 22.0,
-    "winnings": 0.0,
-    "profit": -22.0,
+    "winnings": 29.0,
+    "profit": 7.0,
     "onlyBounty": false
   },
   {
@@ -17034,6 +17034,18 @@
     "totalInvested": 63.0,
     "winnings": 0.0,
     "profit": -63.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$33 Chip 6-Max PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
