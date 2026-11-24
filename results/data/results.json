@@ -16846,6 +16846,18 @@
   },
   {
     "date": "2026-11-23",
+    "name": "$110 Chip Nightly Saver",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
     "name": "$15 Bounty Hunters Special",
     "type": "Bounty",
     "site": "GGPoker",
@@ -16866,6 +16878,18 @@
     "totalInvested": 15.0,
     "winnings": 0.0,
     "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-23",
+    "name": "$16.50 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 16.5,
+    "rebuys": 0,
+    "totalInvested": 16.5,
+    "winnings": 0.0,
+    "profit": -16.5,
     "onlyBounty": false
   },
   {
@@ -17174,7 +17198,7 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 0.0,
-    "rebuys": 0,
+    "rebuys": 1,
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
