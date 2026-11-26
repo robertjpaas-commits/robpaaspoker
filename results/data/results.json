@@ -17542,6 +17542,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$15 Turbo",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 15.0,
+    "rebuys": 0,
+    "totalInvested": 15.0,
+    "winnings": 0.0,
+    "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$24 Sat to ₮215 CoinMillion",
     "type": "Standard",
     "site": "CoinPoker",
@@ -17550,6 +17562,18 @@
     "totalInvested": 24.0,
     "winnings": 0.0,
     "profit": -24.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$25 Midnight Grand Prix",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
     "onlyBounty": false
   },
   {
@@ -17570,10 +17594,10 @@
     "type": "Bounty",
     "site": "WPT Gold",
     "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
+    "rebuys": 1,
+    "totalInvested": 66.0,
     "winnings": 0.0,
-    "profit": -33.0,
+    "profit": -66.0,
     "onlyBounty": false
   },
   {
@@ -17605,6 +17629,18 @@
     "name": "$55 Fifty Stack",
     "type": "Standard",
     "site": "GGPoker",
+    "buyin": 55.0,
+    "rebuys": 0,
+    "totalInvested": 55.0,
+    "winnings": 0.0,
+    "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$55 The Fast PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
     "buyin": 55.0,
     "rebuys": 0,
     "totalInvested": 55.0,
