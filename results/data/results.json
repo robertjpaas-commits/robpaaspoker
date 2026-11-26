@@ -17638,6 +17638,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$218 Chip Turbo",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 218.0,
+    "rebuys": 0,
+    "totalInvested": 218.0,
+    "winnings": 0.0,
+    "profit": -218.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$22 6-Max Hyper",
     "type": "Standard",
     "site": "PartyPoker",
@@ -17850,6 +17862,18 @@
     "totalInvested": 77.0,
     "winnings": 0.0,
     "profit": -77.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "Bounty Hunters Hyper $10.50",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 10.5,
+    "rebuys": 0,
+    "totalInvested": 10.5,
+    "winnings": 0.0,
+    "profit": -10.5,
     "onlyBounty": false
   },
   {
