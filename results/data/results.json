@@ -17782,6 +17782,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$25Wednesday Heater",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 107.32,
+    "profit": 82.32,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$30 Mini Shuffle: Total KO",
     "type": "Standard",
     "site": "PokerStars",
@@ -17982,18 +17994,6 @@
     "totalInvested": 50.0,
     "winnings": 71.26,
     "profit": 21.26,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-25",
-    "name": "Wednesday Heater $25 [Bounty Turbo]",
-    "type": "Bounty",
-    "site": "GGPoker",
-    "buyin": 25.0,
-    "rebuys": 0,
-    "totalInvested": 25.0,
-    "winnings": 107.32,
-    "profit": 82.32,
     "onlyBounty": false
   },
   {
