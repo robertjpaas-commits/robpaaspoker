@@ -17530,6 +17530,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$11 6-Max Shortstack Hyper",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 11.0,
+    "rebuys": 0,
+    "totalInvested": 11.0,
+    "winnings": 0.0,
+    "profit": -11.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$11 Mystery Bounty",
     "type": "Mystery",
     "site": "888poker",
@@ -17670,6 +17682,18 @@
     "totalInvested": 30.0,
     "winnings": 0.0,
     "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$33 7-Max PKO",
+    "type": "PKO",
+    "site": "PartyPoker",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
