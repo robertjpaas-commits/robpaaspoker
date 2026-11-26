@@ -17746,6 +17746,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "Free 5M Day 1",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 0.0,
+    "profit": 0.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "Wednesday High Roller $525",
     "type": "Standard",
     "site": "GGPoker",
