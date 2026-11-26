@@ -17506,6 +17506,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$10.50 Bounty Hunters Hyper",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 10.5,
+    "rebuys": 0,
+    "totalInvested": 10.5,
+    "winnings": 0.0,
+    "profit": -10.5,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$100 Nightly Stars",
     "type": "Standard",
     "site": "PokerStars",
@@ -17935,18 +17947,6 @@
     "winnings": 20.0,
     "profit": -148.0,
     "onlyBounty": true
-  },
-  {
-    "date": "2026-11-25",
-    "name": "Bounty Hunters Hyper $10.50",
-    "type": "Bounty",
-    "site": "GGPoker",
-    "buyin": 10.5,
-    "rebuys": 0,
-    "totalInvested": 10.5,
-    "winnings": 0.0,
-    "profit": -10.5,
-    "onlyBounty": false
   },
   {
     "date": "2026-11-25",
