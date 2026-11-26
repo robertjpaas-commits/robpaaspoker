@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T02:46:57",
+  "generated_at": "2026-11-26T02:47:04",
   "session": {
     "date": "2026-11-25",
     "pretty": "Wednesday, November 25",
@@ -40,7 +40,12 @@
         "cur": "CAD"
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "src": "daily/media/2026-11-25/29.jpg",
+        "caption": ""
+      }
+    ],
     "clip": null,
     "clips": []
   }
