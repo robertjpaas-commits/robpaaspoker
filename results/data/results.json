@@ -17566,6 +17566,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$20 Bounty Builder",
+    "type": "PKO",
+    "site": "PokerStars",
+    "buyin": 20.0,
+    "rebuys": 0,
+    "totalInvested": 20.0,
+    "winnings": 0.0,
+    "profit": -20.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$21 Speed Racer Bounty [10 BB]",
     "type": "PKO",
     "site": "GGPoker",
@@ -17582,10 +17594,10 @@
     "type": "PKO",
     "site": "WPT Gold",
     "buyin": 218.0,
-    "rebuys": 0,
-    "totalInvested": 218.0,
+    "rebuys": 2,
+    "totalInvested": 654.0,
     "winnings": 0.0,
-    "profit": -218.0,
+    "profit": -654.0,
     "onlyBounty": false
   },
   {
@@ -17610,6 +17622,18 @@
     "totalInvested": 24.0,
     "winnings": 0.0,
     "profit": -24.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$25 LATAM TurboCharger",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
     "onlyBounty": false
   },
   {
@@ -17678,10 +17702,10 @@
     "type": "PKO",
     "site": "GGPoker",
     "buyin": 52.5,
-    "rebuys": 0,
-    "totalInvested": 52.5,
+    "rebuys": 1,
+    "totalInvested": 105.0,
     "winnings": 0.0,
-    "profit": -52.5,
+    "profit": -105.0,
     "onlyBounty": false
   },
   {
@@ -17706,6 +17730,18 @@
     "totalInvested": 110.0,
     "winnings": 0.0,
     "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "Wednesday High Roller $525",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 525.0,
+    "rebuys": 0,
+    "totalInvested": 525.0,
+    "winnings": 0.0,
+    "profit": -525.0,
     "onlyBounty": false
   }
 ]
