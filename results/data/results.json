@@ -17566,6 +17566,30 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$21 Speed Racer Bounty [10 BB]",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 21.0,
+    "rebuys": 0,
+    "totalInvested": 21.0,
+    "winnings": 0.0,
+    "profit": -21.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$218 Chip Daily Brawl PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 218.0,
+    "rebuys": 0,
+    "totalInvested": 218.0,
+    "winnings": 0.0,
+    "profit": -218.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$22 Mystery Bounty",
     "type": "Mystery",
     "site": "888poker",
@@ -17634,6 +17658,18 @@
     "totalInvested": 33.0,
     "winnings": 0.0,
     "profit": -33.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$44 Hyper",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 44.0,
+    "rebuys": 0,
+    "totalInvested": 44.0,
+    "winnings": 0.0,
+    "profit": -44.0,
     "onlyBounty": false
   },
   {
