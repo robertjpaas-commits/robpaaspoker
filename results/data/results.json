@@ -17690,10 +17690,10 @@
     "type": "Standard",
     "site": "PartyPoker",
     "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
+    "rebuys": 1,
+    "totalInvested": 44.0,
     "winnings": 0.0,
-    "profit": -22.0,
+    "profit": -44.0,
     "onlyBounty": false
   },
   {
@@ -17822,10 +17822,10 @@
     "type": "PKO",
     "site": "PartyPoker",
     "buyin": 33.0,
-    "rebuys": 1,
-    "totalInvested": 66.0,
-    "winnings": 0.0,
-    "profit": -66.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 41.25,
+    "profit": 8.25,
     "onlyBounty": false
   },
   {
