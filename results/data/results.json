@@ -17782,6 +17782,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "Wednesday Heater $25 [Bounty Turbo]",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "Wednesday High Roller $525",
     "type": "Standard",
     "site": "GGPoker",
