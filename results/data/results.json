@@ -17606,10 +17606,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 22.0,
-    "rebuys": 0,
-    "totalInvested": 22.0,
+    "rebuys": 1,
+    "totalInvested": 44.0,
     "winnings": 0.0,
-    "profit": -22.0,
+    "profit": -44.0,
     "onlyBounty": false
   },
   {
@@ -17658,6 +17658,18 @@
     "totalInvested": 30.0,
     "winnings": 0.0,
     "profit": -30.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$33 Americas Hyper",
+    "type": "Standard",
+    "site": "CoinPoker",
+    "buyin": 33.0,
+    "rebuys": 0,
+    "totalInvested": 33.0,
+    "winnings": 0.0,
+    "profit": -33.0,
     "onlyBounty": false
   },
   {
@@ -17754,6 +17766,18 @@
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "Mini Wednesday Double Stack $25",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 25.0,
+    "rebuys": 0,
+    "totalInvested": 25.0,
+    "winnings": 0.0,
+    "profit": -25.0,
     "onlyBounty": false
   },
   {
