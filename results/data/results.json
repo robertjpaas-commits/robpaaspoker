@@ -17554,6 +17554,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$110 Chip Blitz PKO",
+    "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 1,
+    "totalInvested": 220.0,
+    "winnings": 0.0,
+    "profit": -220.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$110 Chip Daily 6-Max PKO",
     "type": "PKO",
     "site": "WPT Gold",
@@ -17608,8 +17620,8 @@
     "buyin": 20.0,
     "rebuys": 1,
     "totalInvested": 40.0,
-    "winnings": 0.0,
-    "profit": -40.0,
+    "winnings": 98.33,
+    "profit": 58.33,
     "onlyBounty": false
   },
   {
@@ -17642,10 +17654,10 @@
     "type": "Standard",
     "site": "WPT Gold",
     "buyin": 218.0,
-    "rebuys": 0,
-    "totalInvested": 218.0,
+    "rebuys": 1,
+    "totalInvested": 436.0,
     "winnings": 0.0,
-    "profit": -218.0,
+    "profit": -436.0,
     "onlyBounty": false
   },
   {
@@ -17798,10 +17810,10 @@
     "type": "Standard",
     "site": "GGPoker",
     "buyin": 50.0,
-    "rebuys": 0,
-    "totalInvested": 50.0,
+    "rebuys": 3,
+    "totalInvested": 200.0,
     "winnings": 0.0,
-    "profit": -50.0,
+    "profit": -200.0,
     "onlyBounty": false
   },
   {
