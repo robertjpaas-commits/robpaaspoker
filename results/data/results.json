@@ -17632,8 +17632,8 @@
     "buyin": 20.0,
     "rebuys": 0,
     "totalInvested": 20.0,
-    "winnings": 0.0,
-    "profit": -20.0,
+    "winnings": 4.55,
+    "profit": -15.45,
     "onlyBounty": false
   },
   {
@@ -17644,8 +17644,8 @@
     "buyin": 20.0,
     "rebuys": 1,
     "totalInvested": 40.0,
-    "winnings": 98.33,
-    "profit": 58.33,
+    "winnings": 113.33,
+    "profit": 73.33,
     "onlyBounty": false
   },
   {
@@ -17764,8 +17764,8 @@
     "buyin": 30.0,
     "rebuys": 0,
     "totalInvested": 30.0,
-    "winnings": 0.0,
-    "profit": -30.0,
+    "winnings": 27.3,
+    "profit": -2.7,
     "onlyBounty": false
   },
   {
