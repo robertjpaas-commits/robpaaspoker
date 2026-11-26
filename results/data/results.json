@@ -17554,6 +17554,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$110 Chip Nightly Saver",
+    "type": "Standard",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$15 Turbo",
     "type": "Standard",
     "site": "CoinPoker",
@@ -17680,8 +17692,8 @@
     "buyin": 33.0,
     "rebuys": 1,
     "totalInvested": 66.0,
-    "winnings": 0.0,
-    "profit": -66.0,
+    "winnings": 148.04,
+    "profit": 82.04,
     "onlyBounty": false
   },
   {
