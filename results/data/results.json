@@ -17542,6 +17542,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$105 Wednesday Heater",
+    "type": "PKO",
+    "site": "GGPoker",
+    "buyin": 105.0,
+    "rebuys": 0,
+    "totalInvested": 105.0,
+    "winnings": 255.44,
+    "profit": 150.44,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$109 Super PKO",
     "type": "PKO",
     "site": "PartyPoker",
@@ -17970,18 +17982,6 @@
     "totalInvested": 50.0,
     "winnings": 71.26,
     "profit": 21.26,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-25",
-    "name": "Wednesday Heater $105 [Bounty Turbo]",
-    "type": "Bounty",
-    "site": "GGPoker",
-    "buyin": 105.0,
-    "rebuys": 0,
-    "totalInvested": 105.0,
-    "winnings": 255.44,
-    "profit": 150.44,
     "onlyBounty": false
   },
   {
