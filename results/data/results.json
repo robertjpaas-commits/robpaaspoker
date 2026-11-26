@@ -17498,10 +17498,10 @@
     "type": "Standard",
     "site": "PokerStars",
     "buyin": 100.0,
-    "rebuys": 0,
-    "totalInvested": 100.0,
+    "rebuys": 1,
+    "totalInvested": 200.0,
     "winnings": 0.0,
-    "profit": -100.0,
+    "profit": -200.0,
     "onlyBounty": false
   },
   {
@@ -17738,10 +17738,10 @@
     "type": "Mystery",
     "site": "888poker",
     "buyin": 55.0,
-    "rebuys": 2,
-    "totalInvested": 165.0,
+    "rebuys": 3,
+    "totalInvested": 220.0,
     "winnings": 0.0,
-    "profit": -165.0,
+    "profit": -220.0,
     "onlyBounty": false
   },
   {
@@ -17752,9 +17752,9 @@
     "buyin": 55.0,
     "rebuys": 1,
     "totalInvested": 110.0,
-    "winnings": 0.0,
-    "profit": -110.0,
-    "onlyBounty": false
+    "winnings": 12.5,
+    "profit": -97.5,
+    "onlyBounty": true
   },
   {
     "date": "2026-11-25",
@@ -17778,6 +17778,18 @@
     "totalInvested": 50.0,
     "winnings": 0.0,
     "profit": -50.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "Wednesday Heater $105 [Bounty Turbo]",
+    "type": "Bounty",
+    "site": "GGPoker",
+    "buyin": 105.0,
+    "rebuys": 0,
+    "totalInvested": 105.0,
+    "winnings": 0.0,
+    "profit": -105.0,
     "onlyBounty": false
   },
   {
