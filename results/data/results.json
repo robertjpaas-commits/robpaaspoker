@@ -17678,10 +17678,10 @@
     "type": "PKO",
     "site": "PartyPoker",
     "buyin": 33.0,
-    "rebuys": 0,
-    "totalInvested": 33.0,
+    "rebuys": 1,
+    "totalInvested": 66.0,
     "winnings": 0.0,
-    "profit": -33.0,
+    "profit": -66.0,
     "onlyBounty": false
   },
   {
@@ -17718,6 +17718,18 @@
     "totalInvested": 55.0,
     "winnings": 0.0,
     "profit": -55.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$55 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 55.0,
+    "rebuys": 2,
+    "totalInvested": 165.0,
+    "winnings": 0.0,
+    "profit": -165.0,
     "onlyBounty": false
   },
   {
