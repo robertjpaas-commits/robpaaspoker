@@ -17482,6 +17482,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$10 Hot",
+    "type": "Standard",
+    "site": "PokerStars",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$100 Nightly Stars",
     "type": "Standard",
     "site": "PokerStars",
@@ -17550,6 +17562,18 @@
     "totalInvested": 15.0,
     "winnings": 0.0,
     "profit": -15.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$22 Mystery Bounty",
+    "type": "Mystery",
+    "site": "888poker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
     "onlyBounty": false
   },
   {
@@ -17642,10 +17666,10 @@
     "type": "PKO",
     "site": "PartyPoker",
     "buyin": 55.0,
-    "rebuys": 0,
-    "totalInvested": 55.0,
+    "rebuys": 1,
+    "totalInvested": 110.0,
     "winnings": 0.0,
-    "profit": -55.0,
+    "profit": -110.0,
     "onlyBounty": false
   }
 ]
