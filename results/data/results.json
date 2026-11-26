@@ -17638,6 +17638,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$22 6-Max Hyper",
+    "type": "Standard",
+    "site": "PartyPoker",
+    "buyin": 22.0,
+    "rebuys": 0,
+    "totalInvested": 22.0,
+    "winnings": 0.0,
+    "profit": -22.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$22 Mystery Bounty",
     "type": "Mystery",
     "site": "888poker",
@@ -17766,6 +17778,18 @@
     "totalInvested": 44.0,
     "winnings": 0.0,
     "profit": -44.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$50 Day Saver [Hyper]",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 50.0,
+    "rebuys": 0,
+    "totalInvested": 50.0,
+    "winnings": 0.0,
+    "profit": -50.0,
     "onlyBounty": false
   },
   {
