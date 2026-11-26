@@ -17482,6 +17482,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$10 Daily Hyper",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 10.0,
+    "rebuys": 0,
+    "totalInvested": 10.0,
+    "winnings": 0.0,
+    "profit": -10.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$10 Hot",
     "type": "Standard",
     "site": "PokerStars",
@@ -17568,6 +17580,18 @@
     "date": "2026-11-25",
     "name": "$110 Chip Daily 6-Max PKO",
     "type": "PKO",
+    "site": "WPT Gold",
+    "buyin": 110.0,
+    "rebuys": 0,
+    "totalInvested": 110.0,
+    "winnings": 0.0,
+    "profit": -110.0,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
+    "name": "$110 Chip Hyper",
+    "type": "Standard",
     "site": "WPT Gold",
     "buyin": 110.0,
     "rebuys": 0,
@@ -17726,10 +17750,10 @@
     "type": "Standard",
     "site": "CoinPoker",
     "buyin": 25.0,
-    "rebuys": 0,
-    "totalInvested": 25.0,
+    "rebuys": 1,
+    "totalInvested": 50.0,
     "winnings": 0.0,
-    "profit": -25.0,
+    "profit": -50.0,
     "onlyBounty": false
   },
   {
@@ -17776,8 +17800,8 @@
     "buyin": 33.0,
     "rebuys": 0,
     "totalInvested": 33.0,
-    "winnings": 0.0,
-    "profit": -33.0,
+    "winnings": 52.32,
+    "profit": 19.32,
     "onlyBounty": false
   },
   {
