@@ -2,12 +2,12 @@
 
 > Rob Paas is a professional online tournament poker player and Twitch streamer based in London, Ontario, Canada. robpaaspoker.com tracks his 2026 "Road to $100K" profit goal day by day, and every tournament he has logged.
 
-Figures as of November 24, 2026, updated automatically after each session:
+Figures as of November 25, 2026, updated automatically after each session:
 
 - 2026 profit: +$115,779 toward a $100,000 goal (Canadian dollars, US-dollar rooms counted at 1.35), $26K ahead of pace
 - 153 days and 1,358.6 hours played, +$85 per hour
-- Tournaments logged in Canadian-dollar rooms: 1031, net +$18,763, ROI +16.9%, in the money 18% of buy-ins
-- Tournaments logged in US-dollar rooms: 413, net +US$38,280, ROI +102.8%, in the money 17.8% of buy-ins
+- Tournaments logged in Canadian-dollar rooms: 1039, net +$18,158, ROI +16.2%, in the money 17.9% of buy-ins
+- Tournaments logged in US-dollar rooms: 415, net +US$38,137, ROI +102%, in the money 17.8% of buy-ins
 
 ## Pages
 
