@@ -17914,6 +17914,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "$525 Wednesday High Roller",
+    "type": "Standard",
+    "site": "GGPoker",
+    "buyin": 525.0,
+    "rebuys": 0,
+    "totalInvested": 525.0,
+    "winnings": 3687.29,
+    "profit": 3162.29,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "$55 Fifty Stack",
     "type": "Standard",
     "site": "GGPoker",
@@ -17994,18 +18006,6 @@
     "totalInvested": 0.0,
     "winnings": 0.0,
     "profit": 0.0,
-    "onlyBounty": false
-  },
-  {
-    "date": "2026-11-25",
-    "name": "Wednesday High Roller $525",
-    "type": "Standard",
-    "site": "GGPoker",
-    "buyin": 525.0,
-    "rebuys": 0,
-    "totalInvested": 525.0,
-    "winnings": 3687.29,
-    "profit": 3162.29,
     "onlyBounty": false
   }
 ]
