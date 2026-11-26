@@ -17998,6 +17998,18 @@
   },
   {
     "date": "2026-11-25",
+    "name": "Balance adjustment",
+    "type": "",
+    "site": "WPT Gold",
+    "buyin": 0.0,
+    "rebuys": 0,
+    "totalInvested": 0.0,
+    "winnings": 2.1,
+    "profit": 2.1,
+    "onlyBounty": false
+  },
+  {
+    "date": "2026-11-25",
     "name": "Free 5M Day 1",
     "type": "Standard",
     "site": "WPT Gold",
