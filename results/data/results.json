@@ -17858,10 +17858,10 @@
     "type": "Bounty",
     "site": "WPT Gold",
     "buyin": 33.0,
-    "rebuys": 1,
-    "totalInvested": 66.0,
+    "rebuys": 2,
+    "totalInvested": 99.0,
     "winnings": 148.04,
-    "profit": 82.04,
+    "profit": 49.04,
     "onlyBounty": false
   },
   {
